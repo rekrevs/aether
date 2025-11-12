@@ -1,0 +1,82 @@
+% symbols.tex (shared glossary; extend as needed)
+% This file contains unified symbol definitions, units, and macros
+% used by both article3.tex and popular1.tex
+
+% ==== Notation macros ====
+% Kernel and rates
+\newcommand{\Kkernel}{\mathbb{K}}              % Effective kernel on S
+\newcommand{\Krate}{\tilde{\mathcal{K}}}       % Rate form: P_pump / (\hbar\omega_0)
+\newcommand{\fl}{f_{\ell}}                     % Smearing kernel in pushforward
+\newcommand{\veff}{v_{\!eff}}                  % Effective light speed in bound
+% S- and M-objects
+\newcommand{\Jsig}{J_{\sigma}}                 % S-current (4-vector)
+\newcommand{\Psig}{P_{\sigma}}                 % S-power (scalar, replaces old J_sigma^(power))
+\newcommand{\Os}{O_{S}}                        % Selection operator
+\newcommand{\Ts}{T^{\mu\nu}_{S}}               % S-sector's T^{μν}
+\newcommand{\proj}{\pi}                         % Projection S -> M
+% Distances and lengths
+\newcommand{\ds}{d_{\sigma}}                   % Structural distance
+\newcommand{\ls}{\lambda_{\sigma}}             % S-coherence length
+% Other
+\newcommand{\Asid}{A_{\rm sid}}                % Sidereal modulation amplitude
+
+% ==== Symbol Table ====
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Symbol & Meaning / Units \\
+\midrule
+$M$ & Emergent spacetime with metric $g_{\mu\nu}$ \\
+$S$ & Substrate ``pattern space'' with metric distance $d_\sigma$ \\
+$u^\mu$ & Unit timelike vector field (Æther/khronon), $u^\mu u_\mu=-1$ \\
+$\tau$ & Khronon scalar with $u_\mu \propto \nabla_\mu \tau$ \\
+$\varepsilon$ & Dimensionless portal coupling \\
+$\Lambda_*$ & Heavy scale suppressing portal operator (energy) \\
+$O_S$ & Gauge/diffeo-invariant selection operator (dim $\Delta$) \\
+$\chi$ & Mediator field on $S$; $c_S$ speed, $m_\chi$ mass \\
+$\lambda_\sigma$ & Substrate range $= c_S/m_\chi$ (length in $S$ units) \\
+$\mathbb K(\sigma,\sigma')$ & Positive-definite $S$-kernel, $\sim e^{-d_\sigma/\lambda_\sigma}$ \\
+$f_\ell(x)$ & Compact worldtube, $\int d^4x\,f_\ell(x)=1$ \\
+$J_\sigma^\nu$ & Exchange 4-current between visible and $S$ sectors \\
+$P_\sigma$ & Scalar power exchanged via $S$ (W) \\
+$\mathcal Q$ & Dimensionless ``pattern quality'' factor \\
+$\lambda_C$ & Compton wavelength of the probed species (length) \\
+$\hat \xi$ & Preferred lab-frame direction (from $u^\mu$) \\
+$A_{\rm sid}$ & Sidereal modulation amplitude \\
+$\mathcal I_I$ & Local gauge/diffeo-invariant feature (for $d_\sigma$) \\
+$w_I$ & Positive weight for feature $I$ \\
+$\ell_0$ & Embedding scale giving $d_\sigma$ length dimension \\
+$c_1,c_2,c_3,c_4$ & Einstein-Æther coupling coefficients \\
+$c_{13}$ & $c_1+c_3$ (must vanish for $c_T=c$) \\
+$\alpha_1,\alpha_2$ & PPN parameters (must be $\simeq 0$) \\
+$T$ & Discrete substrate time (ticks) \\
+$c_S$ & Propagation speed in $S$ (substrate units) \\
+$m_\chi$ & Mediator mass (gives range $\lambda_\sigma$) \\
+$G_{\rm ret}$ & Retarded Green's function \\
+$\Phi(g,\eta t/\hbar)$ & Growth function in quasi-locality bound \\
+$v_{\!eff}$ & Lieb-Robinson velocity \\
+$\kappa$ & Decay rate in standard LR bound \\
+$\Delta$ & Dimensionless dispersion modifier \\
+$\Delta c/c$ & Photon speed shift \\
+$P_{\rm pump}$ & Measurable pump power (W) \\
+$\beta$ & Efficiency factor in bitrate bound \\
+$R_{bit}$ & Bitrate (bits/second) \\
+$\Sigma_S$ & Algorithmic entropy (substrate) \\
+$\Sigma_{\rm drive}$ & Drive complexity \\
+$\Sigma_{\rm opt}$ & Optimal complexity \\
+$r_{\rm sync}$ & Synchronization rate \\
+$\Omega_\oplus$ & Earth sidereal frequency \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ==== Feature examples for operational d_sigma ====
+\textbf{Example features $\mathcal I_I$ for operational $d_\sigma$:}
+\begin{itemize}
+\item $\mathcal I_1 = F_{\mu\nu}F^{\mu\nu}$ (EM field strength squared)
+\item $\mathcal I_2 = \bar\psi\gamma^\mu D_\mu\psi$ (fermion current)
+\item $\mathcal I_3 = R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}$ (curvature invariant)
+\item $\mathcal I_4 = \nabla_\mu\phi\nabla^\mu\phi$ (scalar kinetic term)
+\end{itemize}
+
+All $\mathcal I_I$ are \textbf{local, gauge-invariant, and diffeo-covariant scalars}.

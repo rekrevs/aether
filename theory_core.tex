@@ -1,0 +1,305 @@
+% theory_core.tex
+% Single source of truth for ALL numbered equations
+% Used by both article3.tex and popular1.tex
+
+% =========================================
+% Section 3: Core action & conservation
+% =========================================
+
+% (3.1) Total action
+\begin{equation}
+  \begin{split}
+    S_{\rm tot} = \int d^4x \sqrt{-g}\left[
+      \frac{R}{16\pi G} + \mathcal L_{\rm vis}[\phi,g] + \mathcal L_S[\tau,u^\mu,g]
+    \right] \\
+    +\; \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\;
+      \frac{O_S(x,\sigma)\,\mathbb K(\sigma,\sigma')\,O_S(x,\sigma')}{\Lambda_*^{4}} \,.
+  \end{split}
+  \tag{3.1}
+\end{equation}
+
+% (3.1A) Minimal L_S with (u^\mu u_\mu=-1)
+\begin{equation}
+  \mathcal{L}_S^{\text{min}} = \frac{M_S^2}{2}\,\Lambda(x)\,\big(u^\mu u_\mu + 1\big),
+  \qquad
+  u_\mu := \frac{\nabla_\mu \tau}{\sqrt{-\,\nabla_\alpha \tau \nabla^\alpha \tau}}.
+  \tag{3.1A}
+\end{equation}
+
+% (3.1B) Einstein–Æther L_S^EA
+\begin{equation}
+\begin{split}
+  \mathcal{L}_S^{\text{EA}} = \frac{M_S^2}{2}\Big[
+   c_1(\nabla_\mu u_\nu)(\nabla^\mu u^\nu)
+ + c_2(\nabla_\mu u^\mu)^2
+ + c_3(\nabla_\mu u_\nu)(\nabla^\nu u^\mu) \\
+ + c_4\,u^\mu u^\nu (\nabla_\mu u_\alpha)(\nabla_\nu u^\alpha)
+ \Big] + \frac{M_S^2}{2}\,\Lambda(x)\,(u^\mu u_\mu+1).
+\end{split}
+\tag{3.1B}
+\end{equation}
+
+% (3.1C) Explicit constraints (keep exactly)
+\begin{equation}
+  c_{13}:=c_1+c_3=0 \;\Rightarrow\; c_T=1,
+  \qquad |c_i|\ll 1,
+  \qquad \alpha_1\simeq 0,\;\alpha_2\simeq 0 \text{ (linear order)}.
+  \tag{3.1C}
+\end{equation}
+
+% (3.2) S_int bilocal kernel
+\begin{equation}
+S_{\rm int} = \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\;
+\frac{ O_S(x,\sigma)\,\mathbb{K}(\sigma,\sigma')\,O_S(x,\sigma') }{\Lambda_*^{\,4}},
+\tag{3.2}
+\end{equation}
+
+% (3.3) Einstein equations with T_vis + T_S
+\begin{equation}
+   G_{\mu\nu} = \frac{8\pi G}{c^4}\big(T^{\mu\nu}_{vis}+T^{\mu\nu}_S\big),
+   \tag{3.3}
+\end{equation}
+
+% (3.4) Energy-momentum conservation
+\begin{equation}
+   \nabla_\mu T^{\mu\nu}_{vis} = -J^\nu_{\sigma}, \quad \nabla_\mu T^{\mu\nu}_{S} = +J^\nu_{\sigma},
+   \tag{3.4}
+\end{equation}
+
+% (3.5) Total conservation
+\begin{equation}
+   \nabla_\mu (T^{\mu\nu}_{vis} + T^{\mu\nu}_S) = 0.
+   \tag{3.5}
+\end{equation}
+
+% (3.6) Localization map S^\nu(x) via f_\ell (WITH normalization)
+\begin{equation}
+  S^\nu(x)=\!\int\! d\mu(\sigma)\, f_\ell\!\big(x-\pi(\sigma)\big)\,
+           (\nabla_\sigma\!\cdot\!J_\sigma)^\nu(\sigma),
+  \qquad \int d^4x\, f_\ell(x) = 1.
+  \tag{3.6}
+\end{equation}
+
+% (3.7) Momentum-neutrality
+\begin{equation}
+\int d^4x\, J^i_\sigma(x)=0,
+\tag{3.7}
+\end{equation}
+
+% (3.8) Boxed statement: metric response is luminal (optional, include if desired)
+\begin{equation}
+\boxed{\;\alpha\equiv 1\ \text{(exact)}\;}
+\quad\text{(Metric response is luminal; FTL lies in S-locality)}
+\tag{3.8}
+\end{equation}
+
+% =========================================
+% Section 4: Mediator & kernel
+% =========================================
+
+% (4.1) Mediator wave equation on S
+\begin{equation}
+  \partial_T^2 \chi - c_S^2 \nabla_\sigma^2 \chi + m_\chi^2 \chi = J_S(\sigma,T).
+  \tag{4.1}
+\end{equation}
+
+% (4.2) Retarded solution
+\begin{equation}
+  \chi(\sigma',T') = \int d\mu(\sigma) \int dT \;
+    G_{\rm ret}(\sigma',T';\sigma,T)\, J_S(\sigma,T).
+  \tag{4.2}
+\end{equation}
+
+% (4.3) Retarded Green's function
+\begin{equation}
+  G_{\rm ret}(\sigma',T';\sigma,T)\propto
+  \frac{e^{-m_\chi d_\sigma(\sigma,\sigma')/c_S}}{d_\sigma(\sigma,\sigma')}
+  \,\Theta\!\left(T'-T-\frac{d_\sigma(\sigma,\sigma')}{c_S}\right).
+  \tag{4.3}
+\end{equation}
+
+% (4.4) Effective K(sigma,sigma') with retardation
+\begin{equation}
+\begin{split}
+  \mathbb K(\sigma,\sigma') =
+  \int dT\; G_{\rm ret}(\sigma',T';\sigma,T)\;
+  \Theta\!\left(T'-T-\frac{d_\sigma(\sigma,\sigma')}{c_S}\right)
+  \;\approx\; e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma}\!,
+\end{split}
+\tag{4.4}
+\end{equation}
+
+% =========================================
+% Section 5: Interaction EFT scaling (optional 5.1-5.4)
+% =========================================
+
+% (5.1) Visible-sector interaction form and scaling
+\begin{equation}
+\mathcal{L}_{int} \supset \frac{\varepsilon}{\Lambda_*^{\,4}} \, O_S[\phi] \, O_S[\phi'] \, \mathcal{K}_{\rm eff}(x,x'),
+\tag{5.1}
+\end{equation}
+
+% (5.2–5.4) Optional detailed scaling laws for O_S.
+% If you need them, add here; otherwise omit or comment out.
+
+% =========================================
+% Section 6: Power/"channel" (RENAMED: P_sigma not J_sigma^(power))
+% =========================================
+
+% (6.1) Power-flow form (units: W)
+\begin{equation}
+  P_\sigma \;=\; \varepsilon\,\mathbb K(\sigma,\sigma')\,\mathcal Q\,
+                 \tilde{\Delta\Phi}\,P_{\rm pump}
+  \quad\text{(units: W)}.
+  \tag{6.1}
+\end{equation}
+
+% =========================================
+% Section 7: Operational d_sigma (computable surrogate)
+% =========================================
+
+% (7.1) Definition via feature-map surrogate
+\begin{equation}
+\begin{split}
+  d_\sigma(\sigma,\sigma') &:= \ell_0\,
+  \left(\sum_{I=1}^{N_{\rm feat}} w_I\,
+  \big\|\mathcal I_I(\sigma)-\mathcal I_I(\sigma')\big\|^2\right)^{1/2},\\
+  \mathbb K(\sigma,\sigma') &\equiv \exp\!\big[-d_\sigma(\sigma,\sigma')/\lambda_\sigma\big],
+\end{split}
+\tag{7.1}
+\end{equation}
+
+% =========================================
+% Section 8: Thermodynamics/information
+% =========================================
+
+% (8.1) Resource inequality
+\begin{equation}
+\langle W_{pump} \rangle \geq k_B T \, (\Delta \Sigma_S + I_{transferred}),
+\tag{8.1}
+\end{equation}
+
+% (8.1') Dissipation for two-state edge
+\begin{equation}
+\langle W_{pump}(e)\rangle \;\ge\; k_B T_{\rm eff}\,D_{\rm KL}\!\big(\mathbb{P}_{\rm driv}\Vert \mathbb{P}_{\rm eq}\big)
+\;\ge\; k_B T_{\rm eff}\,\ln 2\cdot I_e,
+\tag{8.1'}
+\end{equation}
+
+% (8.2) Coupling to rate
+\begin{equation}
+\tilde{\mathcal K}(e,t)=\frac{P_{\rm pump}(e)}{\hbar\omega_0}\quad[\mathrm{s^{-1}}],
+\tag{8.2}
+\end{equation}
+
+% (8.3) Bitrate bound
+\begin{equation}
+R_{bit} \leq \beta \, \frac{P_{pump}}{k_B T \ln 2} \, \mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma}, \qquad 0 < \beta \leq 1.
+\tag{8.3}
+\end{equation}
+
+% (8.4) Null bound
+\begin{equation}
+\mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma} < \frac{k_B T \ln 2}{\beta \, P_{pump}} \cdot R_{bit}^{(null)}.
+\tag{8.4}
+\end{equation}
+
+% =========================================
+% Section 9: Quasi-locality/Lieb–Robinson-style bound
+% =========================================
+
+% (9.1) Clean, dimensionally consistent bound
+\begin{equation}
+\begin{split}
+  \big\|[A(x,t),B(y,0)]\big\|
+  \;\le\;& C\,\exp\!\big[-\kappa\big(|x-y|-v_{\!eff}\,t\big)\big]\\
+         &+\,C'\,\Theta\!\left(t-\frac{d_\sigma(\sigma_x,\sigma_y)}{c_S}\right)
+             \exp\!\Big[-\frac{d_\sigma(\sigma_x,\sigma_y)}{\lambda_\sigma}\Big]\,
+             \Phi\!\big(g,\eta t\big).
+\end{split}
+\tag{9.1}
+\end{equation}
+
+% =========================================
+% Section 10: Causality axiom (Monotonic-T)
+% =========================================
+
+% (10.1) Monotonic-(T) axiom
+\begin{equation}
+  \Delta\tau>0\ \ \text{for all substrate transfers},\qquad
+  \text{all kernels are retarded in }T.
+  \tag{10.1}
+\end{equation}
+
+% =========================================
+% Section 11: Dispersion & global constraints (UNIFIED numbering)
+% =========================================
+
+% (11.1) Lorentz-invariant dispersion + dimensionless modifier Delta
+\begin{equation}
+    E^2 = p^2 c^2 + m^2 c^4\,\big[1+\Delta(E,\hat p\!\cdot\!\hat\xi)\big],
+    \tag{11.1}
+\end{equation}
+
+% (11.2) Scaling of Delta (dimensionless)
+\begin{equation}
+    \Delta \;\sim\; \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q
+    \left(\frac{E}{mc^2}\right)\,(\hat p\!\cdot\!\hat\xi)^2.
+    \tag{11.2}
+\end{equation}
+
+% (11.3) Photon speed shift (optional; if you keep it)
+\begin{equation}
+    \frac{\Delta c}{c} \;\sim\; \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q.
+    \tag{11.3}
+\end{equation}
+
+% (11.4) Michelson–Morley/Hughes–Drever-type bound (was article 11.1)
+\begin{equation}
+    \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q \;\lesssim\; 10^{-18}.
+    \tag{11.4}
+\end{equation}
+
+% =========================================
+% Section 12: Phenomenology (E1–E3) — make explicit in BOTH files
+% =========================================
+
+% (12.1) BER scaling (schematic)
+\begin{equation}
+  \text{BER} \;\approx\; \tfrac{1}{2}\big(1-\beta\,e^{-d_\sigma/\lambda_\sigma}\big)
+  \quad(\text{schematic, binary symmetric channel}),
+  \tag{12.1}
+\end{equation}
+
+% (12.2) Energy tunnel balance (RENAMED from Delta E_A + Delta E_B = J_sigma Delta t)
+\begin{equation}
+  \Delta E_A + \Delta E_B \;=\; P_\sigma\,\Delta t \,,
+  \tag{12.2}
+\end{equation}
+
+% (12.3) Sidereal cosine model for P_sigma
+\begin{equation}
+  P_\sigma(t) \;=\; \bar P_\sigma\left[1+ \mathcal A\cos\!\big(\Omega_\oplus t + \phi\big)\right],
+  \tag{12.3}
+\end{equation}
+
+% (12.4) Sidereal amplitude (was article 11.2; now here for both matter & photon)
+\begin{equation}
+  A_{\rm sid}^{(\mathrm{mat}/\gamma)} \;\simeq\;
+  \varepsilon \left(\frac{\lambda_\sigma}{L_{\rm exp}}\right)\mathcal Q \,\Xi \,,
+  \tag{12.4}
+\end{equation}
+
+% (12.5) Complexity optimum
+\begin{equation}
+  r_{\rm sync}\;=\; r_0\,\Sigma_{\rm drive}\,\exp\!\Big(-\frac{\Sigma_{\rm drive}}{\Sigma_{\rm opt}}\Big).
+  \tag{12.5}
+\end{equation}
+
+% =========================================
+% End of theory_core.tex
+% =========================================
+
+% All numbered equations now live in this single file.
+% Both article3.tex and popular1.tex will \input{theory_core.tex}
+% and reference equations by their tags.
