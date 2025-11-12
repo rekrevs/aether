@@ -1,66 +1,6 @@
 % assumptions.tex (model axioms and conditions)
 % This file contains the fundamental assumptions and constraints
 % used by both article3.tex and popular1.tex
+% NOTE: Assumption lists are in the main document sections, not here
 
-% ==== Model Assumptions (Summary) ====
-
-\textbf{Fundamental Assumptions:}
-\begin{itemize}
-\item \textbf{(A1)} Global ordering $(\tau)$ with strict retardation: All substrate processes are monotonic in $T$
-\item \textbf{(A2)} $\tilde{\mathcal K}\ge0$ (resource monotonicity): Each resonance step requires positive cost
-\item \textbf{(A3)} Sparse and weak $(S)$-links: max degree $(g \ll N)$, total strength $(\eta)$ small
-\item \textbf{(A4)} $(O_S)$ RG irrelevant $(\Delta > 4)$ and $(\langle O_S\rangle \approx 0)$ in homogeneous states
-\item \textbf{(A5)} $(K)$ positive semidefinite (Mercer kernel) and causal in $(\tau)$
-\item \textbf{(A6)} $(c_T = c)$ in absence of resonance (minimal Lorentz breaking)
-\item \textbf{(A7)} Momentum-neutrality: $(\int d^4x J^i_\sigma = 0)$
-\item \textbf{(A8)} Gravitational coupling: \textbf{$\alpha=1$} (metric responds light-speed causally; FTL lies in S-locality)
-\item \textbf{(A9)} Length dimension: $(d_\sigma)$ and $(\lambda_\sigma)$ have meters via embedding scale $(\ell_0)$
-\end{itemize}
-
-% ==== PPN/Æther Constraints ====
-
-\textbf{Einstein-Æther parameter constraints:}
-\begin{itemize}
-\item $c_{13} := c_1 + c_3 = 0$ $\Rightarrow$ $c_T = 1$ (gravitational waves at speed of light)
-\item $|c_i| \ll 1$ (small deviations from GR)
-\item $\alpha_1 \simeq 0$, $\alpha_2 \simeq 0$ (PPN parameters to linear order)
-\end{itemize}
-
-% ==== Kernel Properties ====
-
-\textbf{Properties of the resonance kernel $\mathcal{K}(\sigma,\sigma')$:}
-\begin{enumerate}
-\item $\mathcal{K}(\sigma,\sigma') \ge 0$ (positivity)
-\item Symmetric and positive-definite (Mercer kernel)
-\item Retarded in $T$ (no advanced support)
-\item Exponential decay: $\mathcal{K} \sim \exp[-d_\sigma/\lambda_\sigma]$ or $\kappa_\sigma$ for single edge
-\end{enumerate}
-
-% ==== Localization Function ====
-
-\textbf{Properties of the worldtube function $f_\ell(x)$:}
-\begin{itemize}
-\item Compact support: $f_\ell(x) = 0$ for $|x| > \ell$
-\item Normalized: $\int d^4x\, f_\ell(x) = 1$
-\item Scale separation: $\ell \ll L_{\rm exp}$ (worldtube much smaller than experiment scale)
-\end{itemize}
-
-% ==== Gauge and Diffeomorphism Invariance ====
-
-\textbf{Selection operator $O_S$ construction:}
-\begin{itemize}
-\item Built from gauge-invariant, diffeo-covariant scalars
-\item Local in $M$ (finite number of derivatives)
-\item Mass dimension $\Delta > 4$ (RG irrelevant)
-\item Examples: $F_{\mu\nu}F^{\mu\nu}$, $\bar\psi\gamma^\mu D_\mu\psi$, curvature invariants
-\end{itemize}
-
-% ==== Causality Conditions ====
-
-\textbf{Substrate causality:}
-\begin{itemize}
-\item All S-mediated transfers retarded in substrate time $T$
-\item Monotonic-$(T)$ axiom: $\Delta\tau > 0$ for all substrate transfers
-\item Combined graph $\mathcal G_M \cup \mathcal G_S$ admits partial order via $T$
-\item Closed $T$-nonincreasing loops forbidden
-\end{itemize}
+% Additional assumption-related macros can go here if needed

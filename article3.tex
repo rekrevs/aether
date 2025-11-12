@@ -27,9 +27,7 @@
 \newcommand{\Asid}{A_{\rm sid}}
 
 % === Shared math core & glossary ===
-% Note: symbols.tex redefines the above macros; this is intentional
-\input{symbols.tex}      % symbols, units, macros
-\input{assumptions.tex}  % axioms/conditions, one-liners used by both
+% Note: symbols and assumptions are input after \begin{document}
 % theory_core.tex contains ALL numbered equations and will be referenced in sections
 
 % Theorem environments
@@ -45,6 +43,10 @@
 \begin{document}
 
 \maketitle
+
+% Include symbols and assumptions tables here (after document begins)
+\input{symbols.tex}      % symbols, units, macros
+\input{assumptions.tex}  % axioms/conditions, one-liners used by both
 
 \begin{abstract}
 We formulate a consistent, falsifiable hypothesis in which observable relativistic physics is an emergent low-energy description of a discrete substrate with global update ordering. In addition to spacetime proximity in the emergent manifold $(M)$, we assume \textbf{structural proximity} in a pattern space $(S)$ with a structural distance metric $(d_\sigma)$ that measures algorithmic similarity. A \textbf{substrate-local} coupling in $(S)$ — \textbf{aether resonance} — can then transport energy and information between isomorphic substructures and project as FTL in $(M)$. We provide: (i) \textbf{action-level} formulation with well-defined $(T^{\mu\nu}_S)$, (ii) \textbf{covariant} conservation laws and localization of $(S)$-flows as sources in $(M)$, (iii) \textbf{momentum-neutrality}, (iv) a \textbf{selection operator} $(O_S)$ that renders the effect invisible in the standard sector, (v) an \textbf{operationalized} $(d_\sigma)$-metric with length units and dimensionally correct coupling law, (vi) a \textbf{local implementation} of $(S)$-proximity via an S-mediator, (vii) a \textbf{soft Lieb-Robinson bound} with explicit conditions, (viii) a \textbf{formal causality argument}, (ix) a \textbf{thermodynamic resource inequality} with bitrate bound, (x) an \textbf{anisotropy budget}, (xi) a \textbf{motivation for the $\alpha$-factor}, and (xii) stringent, \textbf{no-loophole} experiments (E1–E3) with mapped parameter inference and multiple-test correction.
@@ -1149,7 +1151,7 @@ This appendix collects the central symbols, their meaning, units, and typical ra
 % S- and M-objects
 \newcommand{\Jsig}{J_{\sigma}}                 % S-current (power)
 \newcommand{\Os}{O_{S}}                        % Selection operator
-\newcommand{\Ts}{T^{\mu\nu}_{S}}               % S-sector's T^{μν}
+\newcommand{\Ts}{T^{\mu\nu}_{S}}               % S-sector's T^{mu nu}
 \newcommand{\proj}{\pi}                         % Projection S -> M
 % Distances and lengths
 \newcommand{\ds}{d_{\sigma}}                   % Structural distance

@@ -1,0 +1,42 @@
+article3.tex Split Summary
+==========================
+
+Main File:
+----------
+article3-main.tex (82 lines) - Contains preamble, front matter, \input commands, and document structure
+
+Section Files:
+--------------
+article3-sec01.tex (12 lines)  - Section 1: Introduction and Motivation
+article3-sec02.tex (24 lines)  - Section 2: Postulates and Formalisms
+article3-sec03.tex (130 lines) - Section 3: Action and Field Content
+article3-sec04.tex (61 lines)  - Section 4: Local Implementation of S-Proximity via an S-Mediator
+article3-sec05.tex (44 lines)  - Section 5: Selection Operator and Absence in the Standard Sector
+article3-sec06.tex (23 lines)  - Section 6: Coupling Strength and Dimensional Analysis
+article3-sec07.tex (81 lines)  - Section 7: Operationalized d_sigma-Metric
+article3-sec08.tex (68 lines)  - Section 8: Thermodynamics and Measurable Cost
+article3-sec09.tex (25 lines)  - Section 9: Modified Lieb-Robinson Bound
+article3-sec10.tex (43 lines)  - Section 10: Causality – Formal Proof
+article3-sec11.tex (66 lines)  - Section 11: Compatibility with Established Tests and Anisotropy Budget
+article3-sec12.tex (158 lines) - Section 12: Predictions and Numerical Targets
+article3-sec13.tex (113 lines) - Section 13: Experimental Protocols (No-Loophole) and Parameter Inference
+article3-sec14.tex (41 lines)  - Section 14: Limitations, Open Questions, and Future Work
+article3-sec15.tex (10 lines)  - Section 15: Discussion and Implications
+article3-sec16.tex (32 lines)  - Section 16: Conclusion
+
+Appendix Files:
+---------------
+article3-appA.tex (22 lines) - Appendix A: Nomenclature and Notation
+article3-appB.tex (21 lines) - Appendix B: Continuity over (M×S) – Derivation
+article3-appC.tex (41 lines) - Appendix C: Modified Lieb-Robinson Bound – Proof (Sketch)
+article3-appD.tex (45 lines) - Appendix D: Category-Theoretic Causality Proof – Full Version
+article3-appE.tex (21 lines) - Appendix E: Assumptions (Summary)
+article3-appF.tex (73 lines) - Appendix F: Parameters, Units, and LaTeX Macros
+article3-appG.tex (22 lines) - Appendix G: Effective Bilocal Kernel on M – Derivation and Positivity
+article3-appH.tex (14 lines) - Appendix H: Ward Identity for (3.7) – Zero Net Momentum
+article3-appI.tex (12 lines) - Appendix I: SME Coupling – Reporting Format
+
+Total: 26 files (1 main + 16 sections + 9 appendices)
+Total lines: 1,284 lines (original file: 1,257 lines + extra newlines from splits)
+
+All files created in: /Users/sverker/repos/magicbook/science/

@@ -145,7 +145,11 @@ This is still a bound - there's no ``instant'' or ``infinite'' communication. Th
 
 The modified Lieb-Robinson bound makes this distinction mathematically precise.
 
-\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black,title=\textbf{The ``Soft Cone'': A 3-Step Proof Concept}]
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+
+\noindent\textbf{The ``Soft Cone'': A 3-Step Proof Concept}
+
 \textbf{Simplified version of why information spreads differently with substrate coupling:}
 
 \medskip
@@ -153,7 +157,7 @@ The modified Lieb-Robinson bound makes this distinction mathematically precise.
 \textbf{Step 1: Standard quantum information spreads in a ``light cone''}
 
 In regular quantum mechanics with local interactions:
-\begin{itemize}[leftmargin=*,noitemsep,topsep=3pt]
+\begin{itemize}
 \item Information at point A can only affect point B if $|A-B| < v \cdot t$ (inside light cone)
 \item Outside the cone: exponential suppression $\sim e^{-\kappa(|A-B| - vt)}$
 \item This is the standard Lieb-Robinson bound
@@ -162,7 +166,7 @@ In regular quantum mechanics with local interactions:
 \textbf{Step 2: S-coupling adds a second channel}
 
 With substrate coupling, there's an additional pathway:
-\begin{itemize}[leftmargin=*,noitemsep,topsep=3pt]
+\begin{itemize}
 \item Information can also travel through pattern space $S$
 \item This channel has its own ``speed limit'' $c_S$ (in substrate space)
 \item Its own distance metric $d_\sigma$ (structural similarity, not spacetime distance)
@@ -177,21 +181,23 @@ The total information spread is:
 \]
 
 The substrate term:
-\begin{itemize}[leftmargin=*,noitemsep,topsep=3pt]
+\begin{itemize}
 \item Is \textbf{gated} by $\Theta(t - d_\sigma/c_S)$ - doesn't arrive instantly, must wait for substrate propagation
 \item Is \textbf{damped} by $e^{-d_\sigma/\lambda_\sigma}$ - only strong for structurally similar systems
 \item \textbf{Grows} with time as $\Phi(g, \eta t/\hbar)$ - but controlled by graph sparsity $g$ and weak coupling $\eta$
 \end{itemize}
 
 \textbf{Conclusion:} Information can ``leak'' outside the standard light cone, but only:
-\begin{enumerate}[leftmargin=*,noitemsep,topsep=3pt]
+\begin{enumerate}
 \item After substrate propagation delay (causality preserved in substrate time)
 \item Between structurally similar systems (exponential suppression otherwise)
 \item With controlled growth (no instantaneous or infinite spreading)
 \end{enumerate}
 
 This is why we call it a ``soft cone'' - the boundary is fuzzy and delayed, not sharp and instantaneous.
-\end{tcolorbox}
+
+\noindent\rule{\textwidth}{0.4pt}
+\medskip
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 

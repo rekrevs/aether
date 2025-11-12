@@ -27,9 +27,7 @@
 \newcommand{\Asid}{A_{\rm sid}}
 
 % === Shared math core & glossary ===
-% Note: symbols.tex redefines the above macros; this is intentional
-\input{symbols.tex}      % symbols, units, macros
-\input{assumptions.tex}  % axioms/conditions, one-liners used by both
+% Note: symbols and assumptions are input after \begin{document}
 % theory_core.tex contains ALL numbered equations and will be referenced in sections
 
 % Theorem environments
@@ -46,6 +44,10 @@
 \begin{document}
 
 \maketitle
+
+% Include symbols and assumptions tables here (after document begins)
+\input{symbols.tex}      % symbols, units, macros
+\input{assumptions.tex}  % axioms/conditions, one-liners used by both
 
 \noindent\textbf{What you're about to read:} This is a scientific proposal for how the universe might allow faster-than-light communication without breaking the laws of physics. We keep all the mathematical details, but we'll walk through them together, one step at a time, using everyday analogies and concrete examples. Think of this as a guided tour through a radical idea about how reality works at its deepest level.
 
