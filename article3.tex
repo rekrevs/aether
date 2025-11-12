@@ -26,6 +26,12 @@
 \newcommand{\ls}{\lambda_{\sigma}}
 \newcommand{\Asid}{A_{\rm sid}}
 
+% === Shared math core & glossary ===
+% Note: symbols.tex redefines the above macros; this is intentional
+\input{symbols.tex}      % symbols, units, macros
+\input{assumptions.tex}  % axioms/conditions, one-liners used by both
+% theory_core.tex contains ALL numbered equations and will be referenced in sections
+
 % Theorem environments
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -309,25 +315,26 @@ such that $\Delta>4$ guarantees RG irrelevance while the operator is strictly lo
 
 \section{Coupling Strength and Dimensional Analysis}
 
-\textbf{Power form (dimension fixing):} the flow is written directly as power
+\textbf{Power form (dimension fixing):} the flow is written directly as power (using $P_\sigma$ for the scalar power, distinct from the 4-current $J_\sigma^\nu$):
 \begin{equation}
-J_\sigma^{(\mathrm{power})}(e)
-= \varepsilon\,K(e)\,\mathcal{Q}(e,t)\,\tilde{\Delta\Phi}(e)\,P_{\rm pump}(e),
-\tag{6.1}
+  P_\sigma \;=\; \varepsilon\,\mathbb K(\sigma,\sigma')\,\mathcal Q\,
+                 \tilde{\Delta\Phi}\,P_{\rm pump}
+  \quad\text{(units: W)}.
+  \tag{6.1}
 \end{equation}
 where:
 \begin{itemize}
-\item $\varepsilon$ dimensionless, $K=\exp[-d_\sigma/\lambda_\sigma]$ dimensionless,
+\item $\varepsilon$ dimensionless, $\mathbb K=\exp[-d_\sigma/\lambda_\sigma]$ dimensionless,
 \item $\mathcal Q\in[0,1]$ dimensionless,
 \item $\tilde{\Delta\Phi}$ dimensionless (normalized free energy),
 \item $P_{\rm pump}$ has unit W.
 \end{itemize}
 
-\textbf{Unit analysis:} $[J_\sigma]=\mathrm{W}$. ✓
+\textbf{Unit analysis:} $[P_\sigma]=\mathrm{W}$. ✓
 
-For comparison, one can define $\tilde{\mathcal K}:=P_{\rm pump}/(\hbar\omega_0)\,[\mathrm{s^{-1}}]$ and write $J_\sigma=\varepsilon\,\hbar\omega_0\,K\,\mathcal Q\,\tilde{\mathcal K}\,\tilde{\Delta\Phi}$.
+For comparison, one can define $\tilde{\mathcal K}:=P_{\rm pump}/(\hbar\omega_0)\,[\mathrm{s^{-1}}]$ and write $P_\sigma=\varepsilon\,\hbar\omega_0\,\mathbb K\,\mathcal Q\,\tilde{\mathcal K}\,\tilde{\Delta\Phi}$.
 
-\textbf{Degeneracy dilution.} For a periodic system with $(N)$ equivalent matches, $(J_\sigma \to J_\sigma / N)$. For a cubic lattice with volume V and lattice constant a: $(N \sim V/a^3 \to \infty)$, explaining absence in homogeneous systems.
+\textbf{Degeneracy dilution.} For a periodic system with $(N)$ equivalent matches, $(P_\sigma \to P_\sigma / N)$. For a cubic lattice with volume V and lattice constant a: $(N \sim V/a^3 \to \infty)$, explaining absence in homogeneous systems.
 
 \section{Operationalized $d_\sigma$-Metric}
 
@@ -473,6 +480,15 @@ where $\Phi$ grows at most \textbf{exponentially} in $t$ (see App. C, eq. (C.12)
 
 \section{Causality – Formal Proof}
 
+\textbf{Monotonic-$(T)$ Axiom:} All substrate-mediated transfers obey:
+\begin{equation}
+  \Delta\tau>0\ \ \text{for all substrate transfers},\qquad
+  \text{all kernels are retarded in }T.
+  \tag{10.1}
+\end{equation}
+
+\textbf{No causal loops:} All substrate-mediated influences are retarded in $(T)$ and strictly monotone with respect to the khronon $(\tau)$ (Eq. (10.1)). Any observable influence in $(M)$ is a concatenation of (i) $(M)$-causal propagation with respect to $(g_{\mu\nu})$ and (ii) $(S)$-local transfers retarded in $(T)$. Since $(T)$ induces a partial order on the combined interaction graph $(\mathcal G_M \cup \mathcal G_S)$, and edges of $(\mathcal G_S)$ are directed by retardedness, closed $(T)$-nonincreasing loops are forbidden. Therefore anti-telephone constructions fail even for relatively moving observers.
+
 \begin{theorem}[Causal monotonicity]
 Under conditions (i) all resonance dynamics is retarded in substrate ordering $(T)$, (ii) each resonance step requires $\tilde{\mathcal K}(e) \ge 0$, and (iii) $\varepsilon$ is finite, there exist no closed causal loops in $(M\times S)$.
 \end{theorem}
@@ -514,19 +530,23 @@ For any two laboratories with four-velocities $U_A^\mu$ and $U_B^\mu$, any chain
 From Lagrangian (5.1), a preferred frame $(\xi^\mu = (1,0,0,0)$ in substrate rest frame) gives modifications to dispersion:
 
 \begin{equation}
-E^2/c^2 - p^2 = m^2 + \delta(E, \hat{p}\cdot\hat{\xi}),
+    E^2 = p^2 c^2 + m^2 c^4\,\big[1+\Delta(E,\hat p\!\cdot\!\hat\xi)\big],
+    \tag{11.1}
 \end{equation}
 
-where
+where $\Delta$ is a dimensionless modifier:
 
 \begin{equation}
-\delta \sim \varepsilon (\lambda_\sigma / \lambda_C) \mathcal{Q} \cdot (E / m c^2) \cdot (\hat{p}\cdot\hat{\xi})^2.
+    \Delta \;\sim\; \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q
+    \left(\frac{E}{mc^2}\right)\,(\hat p\!\cdot\!\hat\xi)^2.
+    \tag{11.2}
 \end{equation}
 
 For photons $(m=0)$, term rescaling gives effective velocity variation:
 
 \begin{equation}
-\Delta c / c \sim \varepsilon (\lambda_\sigma / \lambda_C) \mathcal{Q}.
+    \frac{\Delta c}{c} \;\sim\; \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q.
+    \tag{11.3}
 \end{equation}
 
 \textbf{Michelson–Morley/Hughes–Drever bounds:} $\Delta c/c \lesssim 10^{-18}$.
@@ -534,20 +554,19 @@ For photons $(m=0)$, term rescaling gives effective velocity variation:
 This requires:
 
 \begin{equation}
-\varepsilon \cdot (\lambda_\sigma / \lambda_C) \cdot \mathcal{Q} \;\lesssim\; 10^{-18}.
-\tag{11.1}
+    \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q \;\lesssim\; 10^{-18}.
+    \tag{11.4}
 \end{equation}
 
 For $\lambda_\sigma \sim 1\,\mu{\rm m}$, $\lambda_C \sim 10^{-12}\,{\rm m}$ (Compton) $\Rightarrow \lambda_\sigma/\lambda_C \sim 10^6$, so $\varepsilon\cdot \mathcal Q \lesssim 10^{-24}$.
 
 \subsection{Daily/Annual Modulation and Quantitative Budget}
 
-We tie sidereal/annual modulation to model parameters:
+We tie sidereal/annual modulation to model parameters (see detailed phenomenology in §12, Eq. (12.4)):
 
-\begin{equation}
+\[
 A_{sid} \simeq \varepsilon \left( \frac{\lambda_\sigma}{L_{exp}} \right) \mathcal{Q} \, \Xi,
-\tag{11.2}
-\end{equation}
+\]
 
 where $(\Xi)$ is a geometry/rig-dependent factor $(\sim 1)$ and $(L_{exp})$ is apparatus scale. This makes \textbf{anisotropy budget} measurable in own data.
 
@@ -574,7 +593,7 @@ with $\Xi^{JK}$ a geometry factor $(\mathcal O(1))$. Therefore report $\hat A_{\
 
 \begin{itemize}
 \item No deviations in gravitational laws, vacuum dispersion, or torsion wave experiments.
-\item No robust effects in homogeneous crystals $(N \gg 1 \to J_\sigma \to 0)$.
+\item No robust effects in homogeneous crystals $(N \gg 1 \to P_\sigma \to 0)$.
 \item No signals in accelerator experiments $(O_S$ irrelevant, $\Delta > 4$).
 \item No everyday signaling without shared structure and pump.
 \end{itemize}
@@ -606,10 +625,11 @@ For $(d_\sigma \gg \lambda_\sigma)$ (mismatch): $(BER \to 0.5)$ (chance).
 
 \textbf{Goal:} Differential energy balance:
 \begin{equation}
-\Delta E_A + \Delta E_B = J_\sigma \cdot \Delta t,
+\Delta E_A + \Delta E_B = P_\sigma \cdot \Delta t,
+\tag{12.2}
 \end{equation}
 
-where $(J_\sigma \sim \varepsilon \hbar\omega_0 K Q \mathcal{K} \tilde{\Delta\Phi})$.
+where $(P_\sigma \sim \varepsilon \hbar\omega_0 \mathbb K \mathcal Q \tilde{\mathcal K} \tilde{\Delta\Phi})$.
 
 \textbf{Three scenarios for E2 detectability:}
 
@@ -626,13 +646,13 @@ Scenario & Q & $\Delta E$ (10$^3$ s) & Detectability \\
 \end{tabular}
 \end{table}
 
-With power form (6.1), $J_\sigma=\varepsilon K \mathcal Q \tilde{\Delta\Phi} P_{\rm pump}$.
+With power form (6.1), $P_\sigma=\varepsilon \mathbb K \mathcal Q \tilde{\Delta\Phi} P_{\rm pump}$.
 
 \textbf{Parameter example (``target'' near sensitivity limit):}
 \begin{itemize}
-\item $P_{\rm pump}=1\,\mu\mathrm{W}$, $K\simeq0.5$, $\tilde{\Delta\Phi}\simeq1$,
-\item $\varepsilon=10^{-15}$, $\mathcal Q=10^{-8}$ (compatible with (11.1)),
-\item[] $\to J_\sigma\approx 5\times10^{-30}\,\mathrm{W}$ $\Rightarrow \Delta E(10^3\mathrm{~s})\approx 5\times10^{-27}\,\mathrm{J}$.
+\item $P_{\rm pump}=1\,\mu\mathrm{W}$, $\mathbb K\simeq0.5$, $\tilde{\Delta\Phi}\simeq1$,
+\item $\varepsilon=10^{-15}$, $\mathcal Q=10^{-8}$ (compatible with (11.4)),
+\item[] $\to P_\sigma\approx 5\times10^{-30}\,\mathrm{W}$ $\Rightarrow \Delta E(10^3\mathrm{~s})\approx 5\times10^{-27}\,\mathrm{J}$.
 \end{itemize}
 
 This lies just below $\delta E\sim10^{-26}\,\mathrm{J}$ (mK calorimetry) and indicates realistic target level.
@@ -647,22 +667,18 @@ This lies just below $\delta E\sim10^{-26}\,\mathrm{J}$ (mK calorimetry) and ind
 
 \textbf{Goal:} Power modulation with period 23 h 56 min (sidereal):
 \begin{equation}
-J_\sigma(t) = J_0 \left( 1 + A \cos\!\left(\frac{2\pi t}{T_{sid}} + \phi\right) \right),
+  P_\sigma(t) \;=\; \bar P_\sigma\left[1+ \mathcal A\cos\!\big(\Omega_\oplus t + \phi\big)\right],
+  \tag{12.3}
 \end{equation}
 with amplitude \textbf{in the matter sector}
 \begin{equation}
-A \equiv A_{\rm sid}^{(\rm mat)} \;\simeq\; \varepsilon_{\rm mat}\,\Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,\mathcal Q_{\rm mat}\,\Xi,
-\tag{12.3a}
+  A_{\rm sid}^{(\mathrm{mat}/\gamma)} \;\simeq\;
+  \varepsilon \left(\frac{\lambda_\sigma}{L_{\rm exp}}\right)\mathcal Q \,\Xi \,,
+  \tag{12.4}
 \end{equation}
-cf. the optical sector (§11.2) where
-\begin{equation}
-A_{\rm sid}^{(\gamma)} \simeq \varepsilon_\gamma \,\Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,\mathcal Q_\gamma\,\Xi.
-\tag{12.3b}
-\end{equation}
+\textbf{Important:} The prediction here concerns the \textbf{matter sector} $(\varepsilon_{\rm mat}\mathcal Q_{\rm mat})$. Bounds in §11.4 constrain $\varepsilon_\gamma\mathcal Q_\gamma$ (optics) and are therefore not directly binding on matter-sector measurements; see Appendix F (sector separation).
 
-\textbf{Important:} The prediction here concerns the \textbf{matter sector} $(\varepsilon_{\rm mat}\mathcal Q_{\rm mat})$. Bounds in §11.1 constrain $\varepsilon_\gamma\mathcal Q_\gamma$ (optics) and are therefore not directly binding on (12.3a); see Appendix F (sector separation).
-
-\textbf{Cross-reference:} Report $\hat{A}_{\rm sid}$ and compare against (11.2) and (12.3a–b); specify which measurement track (optical vs. material) is used in the rig.
+\textbf{Cross-reference:} Report $\hat{A}_{\rm sid}$ and compare against (11.4) and (12.4); specify which measurement track (optical vs. material) is used in the rig.
 
 \textbf{Numerical target (3$\sigma$, $10^7$ s):}
 \begin{equation}

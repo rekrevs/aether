@@ -26,6 +26,12 @@
 \newcommand{\ls}{\lambda_{\sigma}}
 \newcommand{\Asid}{A_{\rm sid}}
 
+% === Shared math core & glossary ===
+% Note: symbols.tex redefines the above macros; this is intentional
+\input{symbols.tex}      % symbols, units, macros
+\input{assumptions.tex}  % axioms/conditions, one-liners used by both
+% theory_core.tex contains ALL numbered equations and will be referenced in sections
+
 % Theorem environments
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
