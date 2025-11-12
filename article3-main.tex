@@ -13,21 +13,52 @@
 
 \geometry{margin=1in}
 
-% Custom commands
+% === Canonical macros shared across article3.tex and popular1.tex ===
+% Spaces & projections
+\newcommand{\M}{\mathcal{M}}          % emergent spacetime
+\newcommand{\Ssub}{\mathcal{S}}        % pattern/substrate space
+\newcommand{\proj}{\pi}                % projection \Ssub -> \M
+% Distances & scales
+\newcommand{\ds}{d_{\sigma}}
+\newcommand{\dsig}{d_{\sigma}}
+\newcommand{\ls}{\lambda_{\sigma}}
+\newcommand{\lsig}{\lambda_{\sigma}}
+\newcommand{\lzero}{\ell_{0}}
+% Kernels & operators
+\newcommand{\Kern}{\mathcal{K}}        % bilocal resonance kernel on \Ssub
+\newcommand{\Ksig}{\kappa_{\sigma}}    % similarity factor = exp(-d_sigma/lambda_sigma)
+\newcommand{\Osel}{\mathcal{O}_{\!S}}  % selection operator (dim 4)
+\newcommand{\Os}{O_{S}}                % alternate form
+% Substrate time & temperature
+\newcommand{\Tsub}{T}                  % substrate ticks
+\newcommand{\Temp}{\mathcal{T}}        % temperature
+% Substrate current and scalar power
+\newcommand{\Jsig}{J^{\nu}_{\sigma}}   % 4-current in (3.4)-(3.6)
+\newcommand{\Psig}{P_{\sigma}}         % scalar power flow used in Sec. 6
+% Æther / clock
+\newcommand{\taufield}{\tau}
+\newcommand{\uvec}{u^{\mu}}
+\newcommand{\lamL}{\lambda_{L}}        % Lagrange multiplier (replaces \Lambda(x))
+\newcommand{\LamUV}{\Lambda_{\!*}}     % UV scale in Sint
+% Gravitational coupling
+\newcommand{\alphaG}{\alpha_{\!g}}     % gravitational coupling (not fine-structure!)
+% Efficiencies & sector labels
+\newcommand{\betaBER}{\beta_{\mathrm{BER}}}
+\newcommand{\Qmat}{Q_{\mathrm{mat}}}
+\newcommand{\Qgam}{Q_{\gamma}}
+\newcommand{\epsmat}{\varepsilon_{\mathrm{mat}}}
+\newcommand{\epsgam}{\varepsilon_{\gamma}}
+\newcommand{\PumpRate}{\Gamma_{\mathrm{pump}}} % = P_pump/(\hbar\omega_0)
+% Legacy/compatibility
 \newcommand{\Kkernel}{\mathbb{K}}
 \newcommand{\Krate}{\tilde{\mathcal{K}}}
 \newcommand{\fl}{f_{\ell}}
 \newcommand{\veff}{v_{\!eff}}
-\newcommand{\Jsig}{J_{\sigma}}
-\newcommand{\Os}{O_{S}}
 \newcommand{\Ts}{T^{\mu\nu}_{S}}
-\newcommand{\proj}{\pi}
-\newcommand{\ds}{d_{\sigma}}
-\newcommand{\ls}{\lambda_{\sigma}}
 \newcommand{\Asid}{A_{\rm sid}}
 
 % === Shared math core & glossary ===
-% Note: symbols.tex redefines the above macros; this is intentional
+% Note: symbols.tex may extend the above macros
 \input{symbols.tex}      % symbols, units, macros
 \input{assumptions.tex}  % axioms/conditions, one-liners used by both
 % theory_core.tex contains ALL numbered equations and will be referenced in sections
