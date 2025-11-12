@@ -1,0 +1,76 @@
+\section*{Appendix F: Symbol Key}
+
+This appendix provides a quick reference for the main symbols, their meanings, units, and typical values used throughout the text.
+
+\subsection*{Parameter Table}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llll}
+\toprule
+Symbol & Meaning & Unit & Typical values / bounds \\
+\midrule
+$\varepsilon$ & Base coupling constant & dimensionless & $\sim10^{-15}$ \\
+$\Lambda_*$ & High-energy cutoff scale & energy & High ($\gg \hbar\omega_0$) \\
+$\varepsilon_\gamma$ & Photon-sector coupling & dimensionless & $\varepsilon_\gamma\mathcal{Q}_\gamma \lesssim 10^{-24}$ \\
+$\varepsilon_{\rm mat}$ & Matter-sector coupling & dimensionless & Independent of $\varepsilon_\gamma$ \\
+$\mathcal{Q}$ & Coherence/quality factor & dimensionless & $10^{-10}$ (baseline) to $10^{-2}$ (optimistic) \\
+$d_\sigma$ & Structural distance in $\mathcal{S}$ & m & Calibrated via $\ell_0$ \\
+$\lambda_\sigma$ & Substrate coherence length & m & $\sim 1$ $\mu$m to mm \\
+$K$ & Similarity kernel $= e^{-d_\sigma/\lambda_\sigma}$ & dimensionless & $[0,1]$ \\
+$\ell_0$ & Embedding scale & m & $\sim 1$ $\mu$m \\
+$\hbar\omega_0$ & Characteristic energy scale & J & $\sim10^{-23}$ J (10 GHz) \\
+$P_{\rm pump}$ & Pump power supplied & W & $\mu$W to mW range \\
+$\tilde{\mathcal{K}}$ & Pump rate $=P_{\rm pump}/(\hbar\omega_0)$ & s$^{-1}$ & Events per unit time \\
+$\beta$ & Energetic efficiency factor & dimensionless & $0 < \beta \leq 1$ (typically $\sim 0.1$) \\
+$A_{\rm sid}$ & Sidereal modulation amplitude & dimensionless & Target: $\gtrsim 10^{-20}$ (E2 goal) \\
+$\alpha$ & Gravitational coupling factor & dimensionless & \textbf{1} (exact, from Bianchi identity) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Key Relationships}
+
+\textbf{Power flow (Eq. 6.1):}
+\[
+P_{\sigma}(e) = \varepsilon\,K(e)\,\mathcal{Q}(e,t)\,\tilde{\Delta\Phi}(e)\,P_{\rm pump}(e)
+\]
+
+\textbf{Bitrate bound (Eq. 8.3):}
+\[
+R_{bit} \leq \beta \, \frac{P_{pump}}{k_B T \ln 2} \, \mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma}
+\]
+
+\textbf{Anisotropy constraint (Eq. 11.4):}
+\[
+\varepsilon_\gamma\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal{Q}_\gamma \;\lesssim\; 10^{-18}
+\]
+
+\textbf{Sidereal amplitude (matter sector, Eq. 12.4):}
+\[
+A_{\rm sid}^{(\mathrm{mat})} \;\simeq\;
+\frac{\varepsilon_{\rm mat}}{\varepsilon_\gamma} \cdot \frac{\lambda_\sigma}{L_{\rm exp}} \cdot \frac{\mathcal{Q}_{\rm mat}}{\mathcal{Q}_\gamma} \cdot \Xi
+\]
+
+\subsection*{Quick Conversions and Constants}
+
+\begin{itemize}
+\item $k_B = 1.381 \times 10^{-23}$ J/K (Boltzmann constant)
+\item $k_B T \ln(2) \approx 2.87 \times 10^{-21}$ J at $T = 300$ K (Landauer limit per bit)
+\item $\hbar = 1.055 \times 10^{-34}$ J·s (reduced Planck constant)
+\item Sidereal day: 23h 56min 4.1s = 86164 s
+\item Electron Compton wavelength: $\lambda_C^{(e^-)} = 2.43 \times 10^{-12}$ m
+\end{itemize}
+
+\subsection*{Usage Notes}
+
+\begin{itemize}
+\item \textbf{Sector separation:} Photon-sector parameters ($\varepsilon_\gamma, \mathcal{Q}_\gamma$) and matter-sector parameters ($\varepsilon_{\rm mat}, \mathcal{Q}_{\rm mat}$) can differ by many orders of magnitude. Optical bounds constrain the former; E1/E2 experiments probe the latter.
+
+\item \textbf{Efficiency $\beta$:} Accounts for losses and saturation effects in converting pump power to effective substrate coupling. Not to be confused with $\beta = 1/(k_B T)$ from statistical mechanics.
+
+\item \textbf{Quality factor $\mathcal{Q}$:} Measures coherence and resonance quality. Experimentally, aim for $\mathcal{Q} \sim 10^{-8}$ (baseline) to $10^{-2}$ (ambitious near criticality).
+
+\item \textbf{Similarity kernel $K$:} Falls exponentially with structural distance. Perfect match: $K = 1$; large mismatch: $K \to 0$.
+\end{itemize}
