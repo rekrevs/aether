@@ -26,6 +26,12 @@
 \newcommand{\ls}{\lambda_{\sigma}}
 \newcommand{\Asid}{A_{\rm sid}}
 
+% === Shared math core & glossary ===
+% Note: symbols.tex redefines the above macros; this is intentional
+\input{symbols.tex}      % symbols, units, macros
+\input{assumptions.tex}  % axioms/conditions, one-liners used by both
+% theory_core.tex contains ALL numbered equations and will be referenced in sections
+
 % Theorem environments
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -423,17 +429,17 @@ The coefficients $c_1, c_2, c_3, c_4$ control different aspects:
 
 \textbf{Constraints we impose:}
 \begin{equation}
-c_{13}:=c_1+c_3=0\quad(\Rightarrow c_T=1),\qquad
-|c_i|\ll 1,\qquad
-\text{PPN conditions satisfied}
-\tag{3.1C}
+  c_{13}:=c_1+c_3=0 \;\Rightarrow\; c_T=1,
+  \qquad |c_i|\ll 1,
+  \qquad \alpha_1\simeq 0,\;\alpha_2\simeq 0 \text{ (linear order)}.
+  \tag{3.1C}
 \end{equation}
 
 \textbf{What this constraint does:}
 \begin{itemize}
 \item $c_{13} = 0$ ensures gravitational waves travel at the speed of light ($c_T = c$)
 \item $|c_i| \ll 1$ ensures tiny deviations from general relativity
-\item PPN (parametrized post-Newtonian) conditions ensure compatibility with solar system tests
+\item $\alpha_1\simeq 0,\;\alpha_2\simeq 0$ are the PPN (parametrized post-Newtonian) parameters that ensure compatibility with solar system tests
 \end{itemize}
 
 \textbf{Why we have two options:}
@@ -519,10 +525,11 @@ Flows in pattern space $S$ are abstract - they happen ``underneath'' spacetime. 
 
 \textbf{The Solution: Pushforward with a Worldtube}
 
-We use a ``smeared projection'' with a compact support function $f_\ell$:
+We use a ``smeared projection'' with a compact support function $f_\ell$ (normalized so that $\int d^4x\, f_\ell(x) = 1$):
 
 \begin{equation}
 S^\nu(x)=\!\int\! d\mu(\sigma)\, f_\ell\!\big(x-\pi(\sigma)\big)\,(\nabla_\sigma\!\cdot\!J_\sigma)^\nu(\sigma),
+  \qquad \int d^4x\, f_\ell(x) = 1.
 \tag{3.6}
 \end{equation}
 
@@ -812,6 +819,13 @@ The effective coupling kernel in equation (3.2) emerges from the mediator dynami
 \approx e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma}.
 \tag{4.4}
 \end{equation}
+
+\textbf{Properties of the resonance kernel $\mathbb K(\sigma,\sigma')$:}
+\begin{enumerate}
+\item $\mathbb K(\sigma,\sigma') \ge 0$ (positivity)
+\item Symmetric and positive-definite (Mercer kernel)
+\item Retarded in $T$ (no advanced support)
+\end{enumerate}
 
 \textbf{What this says:}\\
 The kernel $\Kkernel$, which appeared mysteriously in our action (3.2), actually \textbf{emerges} from the mediator field dynamics. It's not put in by hand - it's derived.
@@ -1922,38 +1936,40 @@ How can we have a preferred frame without violating these tests?
 From our Lagrangian (5.1), with a preferred frame $\xi^\mu = (1, 0, 0, 0)$ in substrate rest, we get modifications to the \textbf{dispersion relation}:
 
 \begin{equation}
-E^2/c^2 - p^2 = m^2 + \delta(E, \hat{p}\cdot\hat{\xi}),
-\tag{11.1}
+    E^2 = p^2 c^2 + m^2 c^4\,\big[1+\Delta(E,\hat p\!\cdot\!\hat\xi)\big],
+    \tag{11.1}
 \end{equation}
 
-where the correction term is:
+where $\Delta$ is a \textbf{dimensionless modifier}:
 
 \begin{equation}
-\delta \sim \varepsilon (\lambda_\sigma / \lambda_C) \mathcal{Q} \cdot (E / m c^2) \cdot (\hat{p}\cdot\hat{\xi})^2.
-\tag{11.2}
+    \Delta \;\sim\; \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q
+    \left(\frac{E}{mc^2}\right)\,(\hat p\!\cdot\!\hat\xi)^2.
+    \tag{11.2}
 \end{equation}
 
 \textbf{Translation:}
 
 \textbf{Dispersion relation:} The equation linking energy $E$, momentum $p$, and mass $m$
 \begin{itemize}
-\item Standard relativity: $E^2 = (pc)^2 + (mc^2)^2$
-\item Modified: $E^2 = (pc)^2 + (mc^2)^2 +$ corrections
+\item Standard relativity: $E^2 = p^2c^2 + m^2c^4$
+\item Modified: $E^2 = p^2c^2 + m^2c^4[1 + \Delta]$ where $\Delta$ is a tiny dimensionless correction
 \end{itemize}
 
-\textbf{The correction $\delta$:}
+\textbf{The dimensionless modifier $\Delta$:}
 \begin{itemize}
 \item Depends on the \textbf{direction} of momentum $\hat{p}$ relative to preferred frame $\hat{\xi}$
 \item Proportional to $\varepsilon$ (coupling), $(\lambda_\sigma/\lambda_C)$ (length scale ratio), $\mathcal{Q}$ (coherence)
 \item Goes as $(E/mc^2)$ (energy dependence) and $(\hat{p}\cdot\hat{\xi})^2$ (direction dependence)
+\item Being dimensionless, it multiplies the mass term $m^2c^4$ correctly
 \end{itemize}
 
 \textbf{For photons ($m = 0$):}\\
 The correction causes an effective \textbf{velocity variation}:
 
 \begin{equation}
-\Delta c / c \sim \varepsilon (\lambda_\sigma / \lambda_C) \mathcal{Q}.
-\tag{11.3}
+    \frac{\Delta c}{c} \;\sim\; \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q.
+    \tag{11.3}
 \end{equation}
 
 \textbf{Plug in numbers:}
@@ -1980,8 +1996,8 @@ $\sim 10^{-33}$ to $10^{-27}$
 \textbf{Our constraint:}
 
 \begin{equation}
-\varepsilon \cdot (\lambda_\sigma / \lambda_C) \cdot \mathcal{Q} \;\lesssim\; 10^{-18}.
-\tag{11.4}
+    \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q \;\lesssim\; 10^{-18}.
+    \tag{11.4}
 \end{equation}
 
 With $\lambda_\sigma/\lambda_C \sim 10^6$, this gives:
@@ -2003,12 +2019,11 @@ This should cause \textbf{modulation} - a rhythmic variation with:
 \item \textbf{Annual period:} 365.25 days (one orbit around the Sun)
 \end{itemize}
 
-\textbf{The formula:}
+\textbf{The formula (detailed in phenomenology section, Eq. (12.4)):}
 
-\begin{equation}
-A_{sid} \simeq \varepsilon \left( \frac{\lambda_\sigma}{L_{exp}} \right) \mathcal{Q} \, \Xi,
-\tag{11.5}
-\end{equation}
+\[
+A_{sid} \simeq \varepsilon \left( \frac{\lambda_\sigma}{L_{exp}} \right) \mathcal{Q} \, \Xi
+\]
 
 \textbf{Components:}
 
@@ -2034,10 +2049,9 @@ A_{sid} \simeq \varepsilon \left( \frac{\lambda_\sigma}{L_{exp}} \right) \mathca
 
 For E2 (rotation test in \S13):
 
-\begin{equation}
-A_{\rm sid}\gtrsim 10^{-20}\ \text{(3$\sigma$ significance over }10^7\text{ seconds)},
-\tag{11.6}
-\end{equation}
+\[
+A_{\rm sid}\gtrsim 10^{-20}\ \text{(3$\sigma$ significance over }10^7\text{ seconds)}
+\]
 
 \textbf{What this means:}\\
 After integrating data for $\sim$115 days ($10^7$ seconds), we aim to detect a modulation with amplitude $\sim 10^{-20}$ at 3-sigma confidence (99.7\% certainty).
@@ -2089,11 +2103,10 @@ For \textbf{photons}, the minimal SME uses coefficients:
 
 \textbf{Our model predicts:}
 
-\begin{equation}
+\[
 \tilde{\kappa}_{e-}^{JK}\ \sim\ \varepsilon_\gamma\,\mathcal{Q}_\gamma\,
-\Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,\Xi^{JK},
-\tag{11.7}
-\end{equation}
+\Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,\Xi^{JK}
+\]
 
 \textbf{Translation:}\\
 The SME coefficients, which are directly measured in precision tests (optical resonators, atomic clocks), are related to our parameters.
@@ -2241,13 +2254,13 @@ Two identical systems (superconducting cavities or metamaterial resonators):
 Differential energy balance:
 
 \begin{equation}
-\Delta E_A + \Delta E_B = J_\sigma \cdot \Delta t,
-\tag{12.2}
+  \Delta E_A + \Delta E_B \;=\; P_\sigma\,\Delta t \,,
+  \tag{12.2}
 \end{equation}
 
-where the substrate flow is:
+where the substrate power flow is:
 
-$J_\sigma \sim \varepsilon \hbar\omega_0 K \mathcal{Q} \Krate \tilde{\Delta\Phi}$
+$P_\sigma \sim \varepsilon \hbar\omega_0 \mathbb K \mathcal{Q} \Krate \tilde{\Delta\Phi}$
 
 \textbf{Three scenarios for detectability:}
 
@@ -2311,21 +2324,22 @@ Same as E2, but specifically looking for \textbf{modulation} as Earth rotates:
 \textbf{The Prediction:}
 
 \begin{equation}
-J_\sigma(t) = J_0 \left( 1 + A \cos\!\left(\frac{2\pi t}{T_{sid}} + \phi\right) \right),
-\tag{12.3}
+  P_\sigma(t) \;=\; \bar P_\sigma\left[1+ \mathcal A\cos\!\big(\Omega_\oplus t + \phi\big)\right],
+  \tag{12.3}
 \end{equation}
 
 with amplitude \textbf{in the matter sector}:
 
 \begin{equation}
-A \equiv A_{\rm sid}^{(\rm mat)} \;\simeq\; \varepsilon_{\rm mat}\,\Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,\mathcal{Q}_{\rm mat}\,\Xi,
-\tag{12.4}
+  A_{\rm sid}^{(\mathrm{mat}/\gamma)} \;\simeq\;
+  \varepsilon \left(\frac{\lambda_\sigma}{L_{\rm exp}}\right)\mathcal Q \,\Xi \,,
+  \tag{12.4}
 \end{equation}
 
 \textbf{Important distinction:}\\
 This probes the \textbf{matter sector} ($\varepsilon_{mat}$, $\mathcal{Q}_{mat}$) as opposed to the \textbf{optical sector} ($\varepsilon_\gamma$, $\mathcal{Q}_\gamma$) tested by Michelson-Morley type experiments.
 
-The bounds in \S11.1 constrain $\varepsilon_\gamma \mathcal{Q}_\gamma$ (optics). They don't directly bind (12.4) - see Appendix F for sector separation.
+The bounds in \S11 (Eq. 11.4) constrain $\varepsilon_\gamma \mathcal{Q}_\gamma$ (optics). They don't directly bind (12.4) in the matter sector - see discussion of sector separation.
 
 \textbf{Numerical target (3$\sigma$, $10^7$ s $\approx$ 115 days):}
 
@@ -2335,7 +2349,7 @@ $A_{sid} \gtrsim 10^{-20}$
 
 \textbf{What we'd see:}
 \begin{itemize}
-\item Energy transfer $J_\sigma$ varies sinusoidally
+\item Energy transfer power $P_\sigma$ varies sinusoidally
 \item Period: 23h 56min 4.1s (sidereal day, not solar day)
 \item Amplitude: $\sim 10^{-20}$ fractional variation
 \item Phase $\phi$ related to apparatus orientation relative to preferred frame
