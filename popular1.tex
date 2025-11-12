@@ -429,17 +429,17 @@ The coefficients $c_1, c_2, c_3, c_4$ control different aspects:
 
 \textbf{Constraints we impose:}
 \begin{equation}
-c_{13}:=c_1+c_3=0\quad(\Rightarrow c_T=1),\qquad
-|c_i|\ll 1,\qquad
-\text{PPN conditions satisfied}
-\tag{3.1C}
+  c_{13}:=c_1+c_3=0 \;\Rightarrow\; c_T=1,
+  \qquad |c_i|\ll 1,
+  \qquad \alpha_1\simeq 0,\;\alpha_2\simeq 0 \text{ (linear order)}.
+  \tag{3.1C}
 \end{equation}
 
 \textbf{What this constraint does:}
 \begin{itemize}
 \item $c_{13} = 0$ ensures gravitational waves travel at the speed of light ($c_T = c$)
 \item $|c_i| \ll 1$ ensures tiny deviations from general relativity
-\item PPN (parametrized post-Newtonian) conditions ensure compatibility with solar system tests
+\item $\alpha_1\simeq 0,\;\alpha_2\simeq 0$ are the PPN (parametrized post-Newtonian) parameters that ensure compatibility with solar system tests
 \end{itemize}
 
 \textbf{Why we have two options:}
@@ -525,10 +525,11 @@ Flows in pattern space $S$ are abstract - they happen ``underneath'' spacetime. 
 
 \textbf{The Solution: Pushforward with a Worldtube}
 
-We use a ``smeared projection'' with a compact support function $f_\ell$:
+We use a ``smeared projection'' with a compact support function $f_\ell$ (normalized so that $\int d^4x\, f_\ell(x) = 1$):
 
 \begin{equation}
 S^\nu(x)=\!\int\! d\mu(\sigma)\, f_\ell\!\big(x-\pi(\sigma)\big)\,(\nabla_\sigma\!\cdot\!J_\sigma)^\nu(\sigma),
+  \qquad \int d^4x\, f_\ell(x) = 1.
 \tag{3.6}
 \end{equation}
 
@@ -818,6 +819,13 @@ The effective coupling kernel in equation (3.2) emerges from the mediator dynami
 \approx e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma}.
 \tag{4.4}
 \end{equation}
+
+\textbf{Properties of the resonance kernel $\mathbb K(\sigma,\sigma')$:}
+\begin{enumerate}
+\item $\mathbb K(\sigma,\sigma') \ge 0$ (positivity)
+\item Symmetric and positive-definite (Mercer kernel)
+\item Retarded in $T$ (no advanced support)
+\end{enumerate}
 
 \textbf{What this says:}\\
 The kernel $\Kkernel$, which appeared mysteriously in our action (3.2), actually \textbf{emerges} from the mediator field dynamics. It's not put in by hand - it's derived.

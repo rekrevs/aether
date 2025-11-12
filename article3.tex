@@ -189,10 +189,11 @@ To \textbf{operationalize} how $S$-flows create local sources in $M$, we use a s
 
 \begin{equation}
 S^\nu(x)=\!\int\! d\mu(\sigma)\, f_\ell\!\big(x-\pi(\sigma)\big)\,(\nabla_\sigma\!\cdot\!J_\sigma)^\nu(\sigma),
+  \qquad \int d^4x\, f_\ell(x) = 1.
 \tag{3.6}
 \end{equation}
 
-which ensures well-defined behavior under variation and preserves diffeomorphism invariance.
+which ensures well-defined behavior under variation and preserves diffeomorphism invariance. The normalization $\int d^4x\, f_\ell(x) = 1$ ensures the pushforward preserves total flow, with support scale $\ell\!\ll\!L_{\rm exp}$.
 
 \textbf{Normalization note.} Throughout §3 we take $d\mu(\sigma)$ to be a \textbf{dimensionless} measure on $S$; units enter only through $O_S$ and the explicit scale $\Lambda_*$ in (3.2).
 
@@ -261,6 +262,13 @@ The effective \textbf{resonance kernel} in (3.2) follows as:
 \end{equation}
 
 The Heaviside factor ensures explicit substrate retardation already at the kernel level.
+
+\textbf{Properties of the resonance kernel $\mathbb K(\sigma,\sigma')$:}
+\begin{enumerate}
+\item $\mathbb K(\sigma,\sigma') \ge 0$ (positivity)
+\item Symmetric and positive-definite (Mercer kernel)
+\item Retarded in $T$ (no advanced support)
+\end{enumerate}
 
 \textbf{Results:}
 \begin{enumerate}
@@ -340,7 +348,39 @@ For comparison, one can define $\tilde{\mathcal K}:=P_{\rm pump}/(\hbar\omega_0)
 
 Algorithmic similarity is non-computable. We specify a \textbf{practical proxy}:
 
-\subsection{Signature Extraction}
+\textbf{Operational surrogate for algorithmic similarity:} We approximate "algorithmic isomorphism" by a finite feature map $\Phi(\sigma)=(\mathcal I_1,\ldots,\mathcal I_{N_{\rm feat}})$ of local gauge/diffeo invariants. We choose weights $(w_I>0)$, fix an embedding scale $(\ell_0)$, and define:
+
+\begin{equation}
+\begin{split}
+  d_\sigma(\sigma,\sigma') &:= \ell_0\,
+  \left(\sum_{I=1}^{N_{\rm feat}} w_I\,
+  \big\|\mathcal I_I(\sigma)-\mathcal I_I(\sigma')\big\|^2\right)^{1/2},\\
+  \mathbb K(\sigma,\sigma') &\equiv \exp\!\big[-d_\sigma(\sigma,\sigma')/\lambda_\sigma\big].
+\end{split}
+\tag{7.1}
+\end{equation}
+
+This makes $\mathbb K(\sigma,\sigma')$ computable and controls nonlocality via $\lambda_\sigma$.
+
+\textbf{Feature examples $\mathcal I_I$ (local, gauge/diffeo-invariant scalars):}
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Feature & Definition \\
+\midrule
+$\mathcal I_1$ & $F_{\mu\nu}F^{\mu\nu}$ (EM field strength squared) \\
+$\mathcal I_2$ & $\bar\psi\gamma^\mu D_\mu\psi$ (fermion current density) \\
+$\mathcal I_3$ & $R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}$ (curvature invariant) \\
+$\mathcal I_4$ & $\nabla_\mu\phi\nabla^\mu\phi$ (scalar kinetic term) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Each $\mathcal I_I$ is built from fields and a \textbf{finite number of derivatives}, ensuring locality in $M$. The number of features $N_{\rm feat}$ is finite for EFT control.
+
+\textbf{Gauge and diffeomorphism invariance:} All features $\mathcal I_I$ and the selection operator $O_S$ are constructed from \textbf{gauge-invariant, diffeomorphism-covariant scalars}. For example, in the electromagnetic sector, one may use $\mathcal I_{\rm EM} = F_{\mu\nu}F^{\mu\nu}$ where $F_{\mu\nu}=\partial_\mu A_\nu - \partial_\nu A_\mu$ is the field strength tensor, which is manifestly gauge-invariant under $A_\mu \to A_\mu + \partial_\mu\chi$. Similarly, curvature scalars like $R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}$ are diffeomorphism-invariant. This ensures the framework respects the symmetries of general relativity and the Standard Model.
+
+\subsection{Alternative: Signature-Based Extraction}
 
 From local state dynamics $(s)$ (time series, spatial configuration):
 
