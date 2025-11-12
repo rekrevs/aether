@@ -66,6 +66,49 @@ We define:
 
 This makes $O_S$ have the right dimension to appear in the action (3.2) with the $\Lambda_*^4$ in the denominator. The physics is in $\mathcal{O}$; the normalization $O_S$ keeps the bookkeeping clean.
 
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=\textbf{Why Colliders Don't See It: RG Flow in Plain English}]
+\textbf{The Question:} If substrate coupling exists, why haven't the Large Hadron Collider (LHC) or other particle accelerators detected it?
+
+\textbf{The Answer: ``Irrelevant'' Operators}
+
+In quantum field theory, the ``renormalization group'' (RG) describes how physics changes with energy scale:
+
+\begin{itemize}[leftmargin=*,noitemsep,topsep=3pt]
+\item \textbf{Relevant operators} ($\Delta < 4$): Get \emph{stronger} at low energies
+  \begin{itemize}
+  \item Example: mass terms
+  \item Important for everyday physics
+  \end{itemize}
+\item \textbf{Marginal operators} ($\Delta = 4$): Stay roughly constant
+  \begin{itemize}
+  \item Example: electromagnetic coupling
+  \end{itemize}
+\item \textbf{Irrelevant operators} ($\Delta > 4$): Get \emph{weaker} at low energies, \emph{stronger} at high energies
+  \begin{itemize}
+  \item Our $O_S$ is dimension 6 or higher
+  \item Dominates only at ultra-high energies (beyond accelerator reach)
+  \end{itemize}
+\end{itemize}
+
+\textbf{The Twist:} ``Irrelevant'' is a technical term, not a value judgment. It means:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=3pt]
+\item At \emph{high energies} (colliders): operator is suppressed by $(E/\Lambda)^{-(\Delta-4)}$ where $\Delta > 4$
+\item At \emph{low energies} (table-top experiments): much less suppressed, but still tiny due to small coupling $\varepsilon$
+\end{itemize}
+
+\textbf{Double Suppression:}
+
+The substrate effect is hidden because:
+\begin{enumerate}[leftmargin=*,noitemsep,topsep=3pt]
+\item \textbf{Tiny coupling:} $\varepsilon \sim 10^{-15}$ (fundamentally weak)
+\item \textbf{RG flow:} At accelerator energies, $(E/\Lambda)^{-2}$ (if $\Delta = 6$) adds another huge suppression factor
+\end{enumerate}
+
+Combined: The effect is utterly negligible at LHC energies, but \emph{potentially} observable in carefully designed low-energy, long-integration experiments (like ours).
+
+\textbf{Analogy:} Gravity. It's irrelevant at particle physics scales (utterly negligible in colliders) but dominates at large scales (planets, galaxies). Similarly, substrate coupling is negligible at high energies but might matter in special low-energy configurations.
+\end{tcolorbox}
+
 \textbf{Property 2: Non-Excitability in Uniform States}
 
 \textbf{The Technical Statement:}\\

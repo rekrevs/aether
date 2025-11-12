@@ -68,6 +68,48 @@ With power form (6.1), $\Psig=\varepsilon \Ksig \mathcal Q \tilde{\Delta\Phi} P_
 
 This lies just below $\delta E\sim10^{-26}\,\mathrm{J}$ (mK calorimetry) and indicates realistic target level.
 
+\begin{tcolorbox}[colback=gray!5!white,colframe=gray!75!black,title=\textbf{Worked Numerical Examples}]
+\textbf{E2 Energy Tunnel – Target Parameter Set:}
+
+Given: $P_{\rm pump} = 1\,\mu{\rm W}$, $\Ksig = 0.5$, $\tilde{\Delta\Phi} \simeq 1$, $\varepsilon = 10^{-15}$, $\mathcal{Q} = 10^{-8}$.
+
+Using power formula (6.1): $\Psig = \varepsilon \Ksig \mathcal{Q} \tilde{\Delta\Phi} \, P_{\rm pump}$:
+\begin{align*}
+\Psig &= 10^{-15} \times 0.5 \times 10^{-8} \times 1 \times 10^{-6}\,{\rm W} \\
+      &= 5 \times 10^{-30}\,{\rm W}.
+\end{align*}
+
+Over measurement window $\Delta t = 10^3$ s:
+\[
+\Delta E = \Psig \cdot \Delta t = 5\times10^{-30}\,{\rm W} \times 10^{3}\,{\rm s} = 5\times10^{-27}\,{\rm J}.
+\]
+
+\textbf{Detectability:} mK calorimetry sensitivity $\delta E \sim k_B T \sim 10^{-26}$ J at $T = 1$ mK. Therefore $\Delta E/\delta E \sim 0.5$ (edge of sensitivity; requires long integration or lower $T$).
+
+\medskip
+
+\textbf{E2 Sidereal Modulation – Cross-Sector Check:}
+
+For rotation test, sidereal amplitude (matter sector, Eq. 12.4):
+\[
+A_{\rm sid}^{(\rm mat)} \simeq \epsmat \left(\frac{\lsig}{L_{\rm exp}}\right) \Qmat \, \Xi.
+\]
+
+Target sensitivity: $A_{\rm sid} \gtrsim 10^{-20}$ over $10^7$ s.
+
+With $L_{\rm exp} \sim 1$ m, $\lsig \sim 10^{-6}$ m, $\Xi \sim 1$:
+\[
+A_{\rm sid} \sim \epsmat \times 10^{-6} \times \Qmat.
+\]
+
+Requiring $A_{\rm sid} \gtrsim 10^{-20}$ gives:
+\[
+\epsmat \, \Qmat \gtrsim 10^{-14}.
+\]
+
+\textbf{Cross-check:} Photon-sector bound (11.4) constrains $\epsgam \Qgam \lesssim 10^{-24}$. If matter and photon sectors have similar couplings ($\epsmat \sim \epsgam \sim 10^{-15}$), then target $\Qmat \sim 10^{1}$ (unitless) is \emph{nine orders of magnitude} larger than allowed photon $\Qgam \sim 10^{-9}$—consistent with sector separation hypothesis (see Appendix F).
+\end{tcolorbox}
+
 \textbf{Detection limit:} Micro-calorimetry at mK level: $(\delta E \sim k_B T \sim 10^{-26}~\text{J})$ (for $T \sim 1$ mK) with cryo technology.
 
 \textbf{Microscopic anti-correlation:} energy balance between A/B.

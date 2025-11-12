@@ -57,6 +57,42 @@ which is numerically consistent with (11.4) and apparatus scale $L_{\rm exp}$.
 
 A pre-registered null result sets a numerical upper bound on $(\epsmat \lsig \Qmat)$ for given apparatus, making ``anisotropy budget'' testable. Note that photon-sector bounds (11.4) and matter-sector measurements are distinct; see §12 and Appendix F for sector separation.
 
+\begin{tcolorbox}[colback=yellow!5!white,colframe=orange!75!black,title=\textbf{SME Mapping: Dimensional Analysis Justification}]
+\textbf{Setup:} After integrating out substrate degrees of freedom, the leading Lorentz-violating operator visible in spacetime $M$ has mass dimension $\Delta = 6$ (next-to-leading beyond Standard Model).
+
+\textbf{Gauge and symmetry constraints:} For \emph{photon sector}, require:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=3pt]
+\item Gauge invariance (electromagnetic $U(1)$)
+\item Diffeomorphism invariance (general covariance)
+\item Parity-even (CPT-preserving leading term)
+\end{itemize}
+
+\textbf{Operator structure:} Lowest-dimension CPT-even photon operator is dimension-6, schematically:
+\[
+\frac{1}{M_*^2} \, F_{\mu\nu}F^{\mu\rho}\, \xi^\nu \xi_\rho \quad \Rightarrow \quad \text{velocity shift} \propto (\hat p \cdot \hat \xi)^2.
+\]
+
+\textbf{Parameter identification:} Available dimensionless ratios are:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=3pt]
+\item $\varepsilon$ (substrate coupling strength)
+\item $\mathcal{Q}$ (resonance quality factor)
+\item $\lambda_\sigma/\lambda_C$ (coherence length over Compton scale)
+\end{itemize}
+
+Dimensional consistency + symmetry $\Rightarrow$
+\[
+\Delta \sim \varepsilon \left(\frac{\lambda_\sigma}{\lambda_C}\right) \mathcal{Q} \, (\hat p \cdot \hat \xi)^2.
+\]
+
+\textbf{SME coefficient mapping:} In minimal SME frame (SCCEF), photon anisotropy parametrized by $\tilde{\kappa}_{e-}^{JK}$. Our model gives:
+\[
+\tilde{\kappa}_{e-}^{JK} \sim \varepsilon_\gamma \mathcal{Q}_\gamma \left(\frac{\lambda_\sigma}{L_{\rm exp}}\right) \Xi^{JK},
+\]
+where $\Xi^{JK} = \mathcal{O}(1)$ is geometry-dependent tensor encoding apparatus orientation.
+
+\textbf{Key point:} This is \emph{not} a free fit parameter—it is determined by independently measurable quantities $(\varepsilon, \mathcal{Q}, \lambda_\sigma, L_{\rm exp})$ plus known geometry $\Xi^{JK}$.
+\end{tcolorbox}
+
 \subsection{SME Parametrization (For Reporting and Comparison)}
 
 In the photon sector, anisotropies are conveniently expressed in minimal SME coefficients $\tilde\kappa_{e-}^{JK},\,\tilde\kappa_{o+}^{JK},\,\kappa_{\rm tr}$. Our model effectively gives

@@ -19,6 +19,25 @@ e^{-d_\sigma(\sigma_x,\sigma_y)/\lambda_\sigma}\,
 
 The Heaviside ``gating'' makes substrate causality explicit even in the operator norm limit.
 
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{5-Step Proof Sketch}]
+\textbf{1. Setup:} Decompose total Hamiltonian as $H = H_M + \delta H_S$ with bounded operator norms, where substrate graph has maximum degree $g$ and coupling strength $\eta := \sum_{e \in E_S} |J_e|$.
+
+\textbf{2. Duhamel expansion:} Express time evolution as
+\[
+A(t) = e^{iH_M t/\hbar} A e^{-iH_M t/\hbar} + \frac{i}{\hbar}\int_0^t ds\, e^{iH(t-s)/\hbar}[\delta H_S, A(s)] e^{-iH(t-s)/\hbar}.
+\]
+
+\textbf{3. S-paths and kernel suppression:} Substrate-mediated influence requires $m$ hops through $S$-graph. Each path contributes weight product with exponential suppression $e^{-m\mu}$ where $\mu = \langle d_\sigma \rangle/\lambda_\sigma$ is average damping per hop.
+
+\textbf{4. Sum over paths:} Total contribution summed over hop count yields
+\[
+\Phi(g, \eta t/\hbar) = \exp\big[g\,e^{-\mu}\,\eta t/\hbar\big] - 1,
+\]
+which converges provided $g\,e^{-\mu} < 1$ (sparsity condition).
+
+\textbf{5. Retardation:} Each substrate hop contributes Heaviside factor $\Theta(t - d_\sigma/c_S)$; concatenating $m$ factors yields explicit causal delay $t \ge d_\sigma^{(\rm tot)}/c_S$, ensuring substrate-time ordering.
+\end{tcolorbox}
+
 where $\Phi$ grows at most \textbf{exponentially} in $t$ (see App. C, eq. (C.12)) and does not saturate to a distance-independent constant. The S-contribution is thus suppressed \textbf{exponentially in $d_\sigma$} and controlled by sparsity $(g)$ and weak coupling $(\eta)$.
 
 \textbf{Formal proof (Appendix C):} Duhamel expansion of time evolution operator, decomposition into local $(M)$ and non-local $(S)$ parts, graph norm estimates with sparsity conditions, and explicit substrate retardation via $\Theta(t-d_\sigma/c_S)$; linear term saturates at $t\sim\hbar/\eta$.

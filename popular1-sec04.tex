@@ -139,6 +139,38 @@ The effective coupling kernel in equation (3.2) emerges from the mediator dynami
 
 The retarded Green's function $G_{\rm ret}$ already contains the Heaviside step function, ensuring substrate retardation. For phenomenological applications involving a single edge or calibrated pair, we write $\Ksig \equiv e^{-d_\sigma/\lambda_\sigma}$ as the similarity factor.
 
+\begin{tcolorbox}[colback=cyan!5!white,colframe=cyan!75!black,title=\textbf{``Integrating Out'' the Mediator Field $\chi$}]
+\textbf{What does ``integrate out'' mean?}
+
+Think of it like this:
+\begin{enumerate}[leftmargin=*,noitemsep,topsep=3pt]
+\item \textbf{Start with:} A local field $\chi(\sigma,T)$ that lives at every point in pattern space and evolves in substrate time.
+\item \textbf{Solve its equation:} The wave equation (4.1) tells us exactly how $\chi$ responds to sources $J_S$.
+\item \textbf{Substitute back:} Replace $\chi$ everywhere with its solution (the retarded Green's function).
+\item \textbf{Result:} The local field $\chi$ disappears, leaving behind a \textbf{nonlocal kernel} $\Kern(\sigma,\sigma')$ connecting distant points.
+\end{enumerate}
+
+\textbf{Analogy from quantum field theory:}
+
+This is exactly like ``integrating out virtual particles'':
+\begin{itemize}[leftmargin=*,noitemsep,topsep=3pt]
+\item In QED, electrons interact by exchanging virtual photons
+\item You can solve for the photon field explicitly
+\item The result is an \textbf{effective interaction} between electrons (the Coulomb potential)
+\item The photons are still ``there'' (in the dynamics), but you don't see them explicitly in the final formula
+\end{itemize}
+
+\textbf{What we gain:}
+
+\begin{itemize}[leftmargin=*,noitemsep,topsep=3pt]
+\item \textbf{Exponential falloff:} $\Kern \sim e^{-d_\sigma/\lambda_\sigma}$ emerges naturally from massive mediator.
+\item \textbf{Automatic retardation:} $\Theta(T' - T - d_\sigma/c_S)$ built into Green's function.
+\item \textbf{Simpler phenomenology:} Work directly with kernel $\Kern$ instead of tracking field $\chi$.
+\end{itemize}
+
+\textbf{Physical interpretation:} The kernel $\Kern$ encodes the \emph{effective strength} of coupling between two substrate points after accounting for all the intermediate propagation dynamics of the mediator field.
+\end{tcolorbox}
+
 \textbf{Properties of the resonance kernel $\Kern(\sigma,\sigma')$:}
 \begin{enumerate}
 \item $\Kern(\sigma,\sigma') \ge 0$ (positivity)

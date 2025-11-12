@@ -13,6 +13,36 @@
 Under conditions (i) all resonance dynamics is retarded in substrate ordering $(T)$, (ii) each resonance step requires $\tilde{\mathcal K}(e) \ge 0$, and (iii) $\varepsilon$ is finite, there exist no closed causal loops in $(M\times S)$.
 \end{theorem}
 
+\begin{tcolorbox}[colback=green!5!white,colframe=green!75!black,title=\textbf{Formal Categorical Causality Proof}]
+\textbf{Construction:} Define category $\mathcal{C}$ of substrate events:
+\begin{itemize}[leftmargin=*,noitemsep,topsep=3pt]
+\item \textbf{Objects:} States $s \in M \times S$ with spacetime location and substrate configuration.
+\item \textbf{Morphisms:} Allowed transitions $\phi: s \to s'$ (local M-updates or S-resonance).
+\end{itemize}
+
+\textbf{Partially ordered set:} Equip $(\mathcal{C}, \prec)$ with ordering $s \prec s'$ iff there exists causal path $s \to s'$.
+
+\textbf{Time functor:} Define $T: \mathcal{C} \to (\mathbb{N}, \leq)$ mapping each state to its substrate tick count $T(s) \in \mathbb{N}$. For any morphism $\phi: s \to s'$:
+\[
+T(s') > T(s) \quad \text{(strict monotonicity)}.
+\]
+
+\textbf{Functor properties:}
+\begin{enumerate}[leftmargin=*,noitemsep,topsep=3pt]
+\item $T$ preserves composition: $T(\phi_2 \circ \phi_1) = T(\phi_2)$ with intermediate $T$ values strictly increasing.
+\item Each morphism has non-negative cost: $\tilde{\mathcal{K}}(\phi) \ge 0$.
+\item Composite cost is additive: $\tilde{\mathcal{K}}(\phi_2 \circ \phi_1) = \tilde{\mathcal{K}}(\phi_1) + \tilde{\mathcal{K}}(\phi_2)$.
+\end{enumerate}
+
+\textbf{Loop impossibility:} Suppose closed loop $L: s_0 \to s_1 \to \cdots \to s_n = s_0$. Then:
+\[
+T(s_n) = T(s_0) \quad \text{but} \quad T(s_n) > T(s_{n-1}) > \cdots > T(s_0) \quad \Rightarrow\Leftarrow
+\]
+Contradiction. Therefore no closed loops exist in category with strictly monotone time functor.
+
+\textbf{Conclusion:} The substrate's discrete update ordering $T$ provides an \emph{absolute arrow of time} preventing causal loops even when spacetime transfers appear FTL. \qed
+\end{tcolorbox}
+
 \textbf{Proof (sketch).}
 
 \begin{enumerate}

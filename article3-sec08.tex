@@ -44,7 +44,49 @@ where $(P_{pump}(e))$ is \textbf{measurable power} supplied to keep edge $(e)$ o
 
 \subsection{Bitrate Bound for E1}
 
-From (6.1) and (8.1) derives a \textbf{bitrate bound}:
+\subsubsection{Explicit Derivation}
+
+\begin{center}
+\fbox{
+\begin{minipage}{0.92\textwidth}
+\textbf{From Landauer bound to measurable bitrate:}
+
+Over a measurement window $\Delta t$, the pump does work
+\[
+W_{\rm pump} = \int_0^{\Delta t} dt\,P_{\rm pump}(t).
+\]
+
+The two-state edge model (§8.1) with detailed balance implies an entropy production rate satisfying
+\[
+\dot S_{\rm tot} = \dot S_{\rm bath} + \dot S_S \ge 0,\qquad \dot S_{\rm bath} = \frac{\dot Q_{\rm bath}}{\Temp}.
+\]
+
+The KL bound (8.1) yields
+\[
+\langle W_{\rm pump}\rangle \ge k_B\Temp\big(\Delta\Sigma_S + I_{\rm transferred}\big).
+\]
+
+If $I_{\rm transferred} = R_{\rm bit}\,\Delta t \cdot \ln 2$ (nats) and only a fraction $\beta\,\mathcal{Q}\,e^{-d_\sigma/\lambda_\sigma}$ of the pump power actually reaches usable S-edges (quality factor $\mathcal{Q}$ and kernel suppression $e^{-d_\sigma/\lambda_\sigma}$), then the effective power contributing to information transfer is
+\[
+P_{\rm eff} = \beta\,P_{\rm pump}\,\mathcal{Q}\,e^{-d_\sigma/\lambda_\sigma},
+\]
+where $0 < \beta \le 1$ is the energetic efficiency factor accounting for losses and saturation effects.
+
+Substituting into the Landauer bound with $\Delta\Sigma_S \ge 0$:
+\[
+P_{\rm eff}\,\Delta t \ge k_B\Temp \cdot R_{\rm bit}\,\Delta t \cdot \ln 2,
+\]
+which gives
+\[
+R_{\rm bit} \le \frac{P_{\rm eff}}{k_B\Temp\ln 2} = \beta\,\frac{P_{\rm pump}}{k_B\Temp\ln 2}\,\mathcal{Q}\,e^{-d_\sigma/\lambda_\sigma}.
+\]
+
+This is equation (8.3). The bound is saturated when the system operates reversibly (no excess dissipation beyond the Landauer minimum) and all pump power is efficiently coupled to the S-channel.
+\end{minipage}
+}
+\end{center}
+
+From (6.1) and (8.1) we thus derive the \textbf{bitrate bound}:
 
 \begin{equation}
 R_{bit} \leq \beta \, \frac{P_{pump}}{k_B \Temp \ln 2} \, \mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma}, \qquad 0 < \beta \leq 1.

@@ -71,7 +71,24 @@ Comment: (A) is the safest baseline (no new propagation dynamics in the backgrou
 
 \subsection{Field Equations and Energy-Momentum Accounting}
 
-\textbf{Variation yields:}
+\subsubsection{Derivation via Noether's Theorem}
+
+Under an infinitesimal diffeomorphism $x^\mu \to x^\mu + \xi^\mu(x)$, the variation of any scalar Lagrangian density $\mathcal{L}$ is a total derivative. Applying this to $S_{\rm tot}$ yields the Noether identity
+\[
+\nabla_\mu\!\left(T^{\mu}{}_{\nu,\rm vis}+T^{\mu}{}_{\nu,S}+T^{\mu}{}_{\nu,\rm int}\right)=0,
+\]
+with $T^{\mu}{}_{\nu,\rm int}$ defined from the bilocal interaction term. We split the matter-side Euler–Lagrange equations into "visible" and "S" sectors and define the \textbf{exchange four-current}
+\[
+J_{\sigma,\nu} \equiv -\nabla_\mu T^{\mu}{}_{\nu,\rm int}.
+\]
+Assigning this current with opposite sign to the two sectors:
+\[
+\nabla_\mu T^{\mu}{}_{\nu,\rm vis}=-J_{\sigma,\nu},\qquad
+\nabla_\mu T^{\mu}{}_{\nu,S}=+J_{\sigma,\nu},
+\]
+guarantees that their sum satisfies $\nabla_\mu(T^{\mu}{}_{\nu,\rm vis}+T^{\mu}{}_{\nu,S})=0$ by construction. Varying $S_{\rm tot}$ with respect to $g^{\mu\nu}$ then yields the modified Einstein equations.
+
+\textbf{Summary of field equations:}
 
 \begin{enumerate}
 \item \textbf{Einstein equations:}
@@ -79,14 +96,14 @@ Comment: (A) is the safest baseline (no new propagation dynamics in the backgrou
    G_{\mu\nu} = \frac{8\pi G}{c^4}\big(T^{\mu\nu}_{vis}+T^{\mu\nu}_S\big),
    \tag{3.3}
    \end{equation}
-   where a \textbf{well-defined} $T^{\mu\nu}_S$ follows from variation in $g_{\mu\nu}$.
+   where a \textbf{well-defined} $T^{\mu\nu}_S$ follows from variation in $g_{\mu\nu}$, including contributions from $\mathcal{L}_S$ and the interaction term.
 
 \item \textbf{Energy-momentum conservation:}
    \begin{equation}
    \nabla_\mu T^{\mu\nu}_{vis} = -J^\nu_{\sigma}, \quad \nabla_\mu T^{\mu\nu}_{S} = +J^\nu_{\sigma},
    \tag{3.4}
    \end{equation}
-   where $(J^\nu_\sigma)$ is the four-current from the interaction.
+   where $(J^\nu_\sigma)$ is the four-current from the interaction, as derived above via Noether's theorem.
 
 \item \textbf{Total conservation:}
    \begin{equation}

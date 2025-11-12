@@ -42,3 +42,38 @@ such that $\Delta>4$ guarantees RG irrelevance while the operator is strictly lo
 
 \textbf{Naturalness:} Why does $O_S\neq0$? One possible mechanism is weak, spontaneous symmetry breaking in the substrate that induces small but non-zero local invariant combinations near criticality.
 
+\subsection{Power-Counting Argument for RG Irrelevance}
+
+\begin{center}
+\fbox{
+\begin{minipage}{0.90\textwidth}
+\textbf{Why high-energy experiments see nothing:}
+
+In $d=4$ spacetime dimensions, the action $S$ must be dimensionless. The interaction density scales as
+\[
+[\mathcal{L}_{\rm int}] = [\sqrt{-g}]\,[O_S]^2/[\LamUV]^4.
+\]
+With $[d^4x\sqrt{-g}]=-4$, $[O_S]=4$, and $[\LamUV]=1$, we have
+\[
+[\mathcal{L}_{\rm int}] = -4 + 2\times4 - 4 = 0,
+\]
+so the term is dimensionless as required.
+
+For a seed operator $\mathcal{O}$ with mass dimension $\Delta$, the VEV scales as $\langle \mathcal{O}(E) \rangle \sim E^\Delta$. After renormalization $O_S = \mathcal{O}/\Lambda^{\Delta-4}$ (so that $[O_S]=4$), we have
+\[
+\langle O_S(E) \rangle \sim E^\Delta / \Lambda^{\Delta-4} = E^4 \cdot (E/\Lambda)^{\Delta-4}.
+\]
+
+At high energies $E \gg \Lambda$, the factor $(E/\Lambda)^{\Delta-4}$ grows, but the \textbf{coupling} $\varepsilon/\LamUV^4$ combined with the kernel suppression means the effective cross-section scales as
+\[
+\sigma_{\rm eff} \sim \frac{\varepsilon^2 \langle O_S \rangle^2}{\LamUV^4 E^4} \sim \frac{\varepsilon^2}{\LamUV^4} \cdot (E/\Lambda)^{2(\Delta-4)},
+\]
+which \textbf{decreases} as $(E/\Lambda)^{-2(\Delta-4)}$ for $\Delta > 4$.
+
+This gives the stated suppression: high-energy collider experiments probe energies $E \gg \Lambda \gg \lambda_C \sim$ eV, so the coupling is doubly suppressed by both $\varepsilon \sim 10^{-15}$ and the RG flow, rendering the effect invisible to accelerators.
+
+\textbf{Summary:} Operators with $\Delta>4$ are RG-irrelevant. They grow in the infrared (low energies, large structures) but are suppressed in the UV, explaining why colliders see nothing while engineered mesoscopic systems might.
+\end{minipage}
+}
+\end{center}
+

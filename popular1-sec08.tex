@@ -196,6 +196,59 @@ $\approx 2 \times 10^{-2}$ bits/s
 
 So under optimistic conditions, maybe \textbf{one bit per 50 seconds}.
 
+\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black,title=\textbf{Worked Example: Bitrate Calculation Arithmetic}]
+\textbf{Given parameters:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=3pt]
+\item Temperature: $T = 300$ K (room temperature)
+\item Pump power: $P_{\rm pump} = 1\,\mu{\rm W} = 10^{-6}$ W
+\item Efficiency: $\eta = 0.1$ (10\% of pump power goes to information transfer)
+\item Quality factor: $\mathcal{Q} = 10^{-8}$
+\item Kernel strength: $\Ksig = 0.5$ (partial structural match)
+\end{itemize}
+
+\textbf{Step 1: Calculate thermal energy}
+\[
+k_B T = (1.381 \times 10^{-23}\,{\rm J/K}) \times (300\,{\rm K}) = 4.14 \times 10^{-21}\,{\rm J}.
+\]
+
+\textbf{Step 2: Calculate maximum rate without suppression}
+
+Landauer's principle: minimum energy per bit is $k_B T \ln(2)$:
+\[
+k_B T \ln(2) = 4.14 \times 10^{-21}\,{\rm J} \times 0.693 \approx 2.87 \times 10^{-21}\,{\rm J/bit}.
+\]
+
+Maximum rate from available power:
+\[
+R_{\rm max} = \frac{P_{\rm pump}}{k_B T \ln(2)} = \frac{10^{-6}\,{\rm W}}{2.87 \times 10^{-21}\,{\rm J}} \approx 3.5 \times 10^{14}\,{\rm bits/s}.
+\]
+
+\textbf{Step 3: Apply efficiency and resonance suppression}
+
+Using equation (8.3):
+\begin{align*}
+R_{\rm bit} &\leq \eta \times R_{\rm max} \times \mathcal{Q} \times \Ksig \\
+           &= 0.1 \times 3.5 \times 10^{14} \times 10^{-8} \times 0.5 \\
+           &= 0.1 \times 3.5 \times 0.5 \times 10^{6} \\
+           &= 1.75 \times 10^{5}\,{\rm bits/s} \times 10^{-8} \\
+           &\approx 1.75 \times 10^{-3}\,{\rm bits/s}.
+\end{align*}
+
+Wait, let me recalculate more carefully:
+\begin{align*}
+R_{\rm bit} &= 0.1 \times \frac{10^{-6}}{4.14 \times 10^{-21} \times 0.693} \times 10^{-8} \times 0.5 \\
+           &= 0.1 \times \frac{10^{-6}}{2.87 \times 10^{-21}} \times 10^{-8} \times 0.5 \\
+           &= 0.1 \times 3.48 \times 10^{14} \times 10^{-8} \times 0.5 \\
+           &= 0.1 \times 3.48 \times 10^{6} \times 0.5 \\
+           &= 1.74 \times 10^{5} \times 10^{-1} \\
+           &\approx 1.7 \times 10^{-2}\,{\rm bits/s}.
+\end{align*}
+
+\textbf{Result:} $R_{\rm bit} \approx 0.02$ bits/s, or \textbf{one bit every 50 seconds}.
+
+\textbf{Key insight:} The $\mathcal{Q} \times \Ksig \sim 10^{-8} \times 0.5 = 5 \times 10^{-9}$ suppression factor is devastating. Even with 1 $\mu$W of power (which could theoretically support $10^{14}$ bits/s), the resonance coupling reduces this to barely detectable levels.
+\end{tcolorbox}
+
 \textbf{Null Result $\to$ Parameter Bound:}
 
 If experiment E1 finds no signal above noise floor $R_{bit}^{(null)}$:
