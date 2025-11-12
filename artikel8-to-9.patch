@@ -1,0 +1,380 @@
+diff --git a/artikel8.md b/artikel9.md
+--- a/artikel8.md
++++ b/artikel9.md
+@@ -45,14 +45,14 @@
+ ### 3.1. Variationsprincip
+
+ Vi härleder ramverket från en **total action**:
+-
+ \[
+-S_{tot} = \int d^4x \, \sqrt{-g} \left[ \frac{1}{16\pi G} R + \mathcal{L}_{vis}[\phi, g] + \mathcal{L}_S[\tau, u^\mu, g] \right] + S_{int}[O_S(\phi), \Psi; K],
++S_{tot} = \int d^4x \, \sqrt{-g} \left[ \frac{1}{16\pi G} R + \mathcal{L}_{vis}[\phi, g] + \mathcal{L}_S[\tau, u^\mu, g] \right]
++ + \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,O_S(x,\sigma)\,\mathbb{K}(\sigma,\sigma')\,O_S(x,\sigma'),
+ \tag{3.1}
+ \]
+
+ där:
+
+ * (R) är Ricci-skalären, (g_{μν}) är metriken,
+ * (𝓛_{vis}) är Lagrange-täthet för synlig materia/fält (φ),
+ * (τ(x)) är en **foliationsskalar** ("khronon") och (u^μ) är enhets-tidslik vektor som definierar substratets globala ordning (prefererad ram),
+-* (𝓛_S) väljs så att (c_T = c) (grav-vågor) och PPN-avvikelser är noll i frånvaro av resonans (minimalt aether/khronon-ansats),
+-* (S_{int}) kodar kopplingen till (S) via selektionsoperatorn (O_S) och en kernel (K).
++* (𝓛_S) väljs så att (c_T = c) (grav-vågor) och PPN-avvikelser är noll i frånvaro av resonans (minimalt aether/khronon-ansats).
+
+-**Interaktionsterm:**
++**Interaktionsterm (manifest kovariant på \(M\times S\)):**
+
+ \[
+-S_{int} = \varepsilon \int dT \, \sum_{(s,s') \in E_S} O_S[\phi(s)] \, O_S[\phi(s')] \, K(s,s') \, \mathcal{K}(s,s'),
++S_{int} = \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\;
++O_S(x,\sigma)\,\mathbb{K}(\sigma,\sigma')\,O_S(x,\sigma'),
+ \tag{3.2}
+ \]
+
+-där (E_S) är mängden av aktiva S-kanter (se §4), (K) är likhetskärnan, och (𝓚) är kostnadsfaktorn.
++där \(\mathbb{K}\) är lokal på \(S\) (styr resonans via \(d_\sigma\)) och helt oberoende av \(x\) utom genom \(O_S(x,\cdot)\). Detta gör diffeomorfisminvarians och energimoment-bevarande manifest.
+
+ ### 3.2. Fältekvationer och energimoment-bokföring
+
+ **Variation ger:**
+
+-1. **Einsteins ekvationer med reducerad S-koppling:**
++1. **Einsteins ekvationer:**
+    \[
+-   G_{\mu\nu} = \frac{8\pi G}{c^4} (T^{\mu\nu}_{vis} + \alpha T^{\mu\nu}_S),
++   G_{\mu\nu} = \frac{8\pi G}{c^4}\big(T^{\mu\nu}_{vis}+T^{\mu\nu}_S\big),
+    \tag{3.3}
+    \]
+-   där (α ≪ 1) är en **dimensionslös suppressionsfaktor** för S-sektorns gravitationskoppling. Detta ger ett **välbestämt** (T^{μν}_S) genom variation i (g_{μν}).
++   där ett **välbestämt** \(T^{\mu\nu}_S\) följer av variation i \(g_{\mu\nu}\).
+
+ 2. **Energimoment-bevarande:**
+    \[
+@@ -98,39 +98,31 @@
+
+ ### 3.3. Lokalisering av (S)-flöden som källor i (M)
+
+-För att **operationalisera** hur (S)-flöden skapar lokala källor i (M) definierar vi en pushforward:
+-
+-\[
+-S^\nu(x) = \int d\mu_\sigma(s) \, \delta^{(3)}(x - \pi(s)) \, (\nabla_\sigma \cdot J_\sigma)^\nu(s),
+-\tag{3.6}
+-\]
+-
+-så att (3.4) realiseras med (S^ν) som **lokal** källterm. Detta kopplar diskret (S)-dynamik till kontinuerlig (M)-observerbarhet.
+-
+-**Mått/kovariansnot:** \(\delta^{(3)}\) avser delta på \(\tau=\)konst‑bladet (med normal \(u^\mu\)). Den manifest kovarianta varianten kan skrivas som \(\delta^{(4)}(x-\pi(s))\,u_\nu\) med motsvarande mått; båda representationerna reproducerar (3.4) i den givna foliationen.
++För att **operationalisera** hur \(S\)-flöden skapar lokala källor i \(M\) använder vi en smetad pushforward med kompakt stödfunktion \(f_\ell\) ("worldtube", \(\ell\!\ll\!L_{\rm exp}\)):
++\[
++S^\nu(x)=\!\int\! d\mu(\sigma)\, f_\ell\!\big(x-\pi(\sigma)\big)\,(\nabla_\sigma\!\cdot\!J_\sigma)^\nu(\sigma),
++\tag{3.6}
++\]
++vilket säkrar välbeteende under variation och bibehåller diffeomorfisminvarians.
+
+ ### 3.4. Momentum-neutralitet
+
+-För en isolerad apparat kräver vi:
+-
+-\[
+-\int d^4x \, J^i_\sigma(x) = 0,
+-\tag{3.7}
+-\]
+-
++Som konsekvens av global translationsinvarians i \(M\) (Noether) och den bilokala, translationssymmetriska formen av \(S_{int}\) följer
++\[
++\int d^4x\, J^i_\sigma(x)=0,
++\tag{3.7}
++\]
+ vilket förhindrar **reaktionsfri drivning** (energi kan överföras utan nettoimpuls i (M)). Detta är konsistent med (3.4) integrerad över en sluten volym och ska verifieras experimentellt i E2.
+
+ ### 3.5. Gravitationell signatur och bounds
+
+-* **Eötvös-klassens tester** begränsar differentiell acceleration till (η < 10^{-14}). Om S-energi graviterar annorlunda (α ≠ 1), ger detta:
+-  \[
+-  |1 - \alpha| \cdot (E_S/E_{vis}) < 10^{-14}.
+-  \]
+-
+-* **Val och motivering för α:** Vi antar att **S-energi graviterar lika som synlig materia** (α = 1 ± δ_α) där (δ_α ≪ 1) kräver:
+-  \[
+-  |\delta_\alpha| \cdot (E_S/E_{vis}) < 10^{-14}.
+-  \]
+-  För (E_S/E_{vis} ≲ 10^{-6}) (typiskt i våra experiment) ger detta (|δ_α| < 10^{-8}). **Observera:** för att undvika FTL-gravitationssignaler och förenkla konsistensen med GR väljer vi:
+-  \[
+-  \alpha = 1 \pm 10^{-8},
+-  \]
+-  det vill säga **S-sektor graviterar på samma sätt som vanlig materia inom Eötvös-gränsen**. Detta eliminerar risken för detekterbara FTL-metriska signaler och gör modellen konsistent med alla GR-tester.
+-
+-**Antagande om α-mekanism (Assumption Box):**
+-
+-> Vi antar att (α = 1 ± 10^{-8}), det vill säga S-sektorns energi graviterar **lika** som synlig materia inom Eötvös-gränsen. I detta fall ger S-flöden **ingen märkbar FTL-metrisk signatur** eftersom gravitationella effekter fortplantas i ljuskonen. Ett alternativt scenario (α ≪ 1) skulle kräva en Sakharov-lik induced-gravity-mekanism och ännu strängare bounds på (E_S/E_{vis} ≲ 10^{-14}), vilket är svårare att uppnå experimentellt. Med (α ≈ 1) placeras hela ansvaret för FTL-förhindring på (i) substratets T-monotoni (§10), (ii) momentum-neutralitet (§3.4), och (iii) resurskostnaden (𝓚 ≥ 0). Detta är **tillräckligt** för att garantera ingen anti-telefon.
++**Val och motivering för \(\alpha\):** För att vara förenlig med Bianchi-identiteten när \(\nabla_\mu T^{\mu\nu}_{vis}=-J^\nu_\sigma\) och \(\nabla_\mu T^{\mu\nu}_{S}=+J^\nu_\sigma\) sätter vi
++\[
++\boxed{\;\alpha\equiv 1\;}
++\]
++överallt. Därmed fortplantas metrisk respons ljuskonstroget och all "FTL-effekt" ligger i den \(S\)-lokala mekanismen, inte i gravitationen.
+
+ ---
+
+-## 4. Lokal implementering av S-närhet via LSH
++## 4. Lokal implementering av S-närhet via en S-mediator
+
+-**Problem:** Hur kan substratet, med endast lokala regler, veta att två fjärrseparerade patcher är "nära i S" utan global sökning?
++**Problem:** Hur kan substratet, med endast lokala regler, realisera "närhet i \(S\)" utan ett globalt annonslager?
+
+-**Lösning:** **Lokalitetskänsliga hashfunktioner (LSH)** och sparsamma annons-kanter.
++**Lösning:** En **dynamisk mediator \(\chi(\sigma,T)\)** som propagerar *lokalt* i \(S\) (retarderat i substrattiden \(T\)) och kopplar till \(O_S\).
+
+-### 4.1. Lokal signaturberäkning
++### 4.1. Lokal signatur och koppling
+
+ Varje nod (s ∈ S) beräknar lokalt en signaturvektor (σ(s) ∈ ℝ^d) från:
+ * Spektrala egenskaper (dominant-frekvenser, spektral entropi),
+ * Topologiska invarianter (Betti-tal på lokal patch, persistent homologi),
+ * Statistiska moment (autokorrelation, Lyapunov-exponenter om tillämpligt).
+
+-### 4.2. LSH-hashing
+-
+-En **familj av hashfunktioner** (h_1, …, h_k: ℝ^d → {0,1}^b) med egenskapen:
+-\[
+-\text{Pr}[h_i(σ(s)) = h_i(σ(s'))] \approx \exp[-\|σ(s)-σ(s')\|_2 / \lambda_{LSH}],
+-\]
+-det vill säga kollisionssannolikhet faller med Euklidiskt avstånd.
+-
+-Varje nod beräknar (h(s) := (h_1(σ(s)), …, h_k(σ(s)))) och **annonserar denna hash** på substratnivå via ett tunt, långräckviddigt annons-lager (analog till DHT-nätverk).
+-
+-### 4.3. Matchning och kant-aktivering
+-
+-När två noder (s, s') har (h(s) ≈ h(s')) (Hamming-avstånd ≤ ε_h), aktiveras en **potentiell S-kant** (e = (s,s')) med vikt:
+-\[
+-K(e) = \exp[- d_\sigma(s,s') / \lambda_\sigma],
+-\]
+-där (d_σ) är den operationaliserade metriken (§7) och **både (d_σ) och (λ_σ) har längdenhet** (meter). Endast kanter med (K(e) > K_{min}) bidrar till (E_S).
+-
+-**Kostnad:** Annonseringen har bandbredd (∝ k·b·log N), där N är antalet aktiva noder. För (k, b ∝ log N) är detta polylogaritmiskt och **inte** global sökning.
++### 4.2. S-mediatorns dynamik
++
++\[
++\partial_T^2\chi-\nabla_\sigma^2\chi+m_\chi^2\chi=J_S,\qquad J_S\propto O_S.
++\]
++Kopplingen i \(S_{int}\) kan skrivas som \(\int O_S(x,\sigma)\,\chi(\sigma)\,d\mu(\sigma)\). All icke-lokalitet i \(M\) reduceras därmed till lokalitet i \(S\) utan DHT/annons-spridning.
++
++### 4.3. Effektiv kernel
+
+-**Resultat:** S-lokalitet är **substrat-implementerbar** med distribuerad, lokal beräkning och sparse long-range-kanter styrt av hash-kollisioner. Detta gör (S)-närhet **lokalt implementerbar** och undviker cirkularitet.
++Den effektiva \(\mathbb{K}(\sigma,\sigma')\) blir den retarderade Green-funktionen för \(\chi\), vilket realiserar \(K\!\sim\!\exp[-d_\sigma/\lambda_\sigma]\) utan ett separat, globalt lager.
+
+ ---
+
+@@ -211,23 +203,24 @@
+
+ ## 6. Kopplingsstyrka och dimensionsanalys
+
+-Vi modellerar eterresonansens flöde längs en kant (e = (s → s') ∈ E_S):
+-
+-\[
+-J_\sigma(e) = \varepsilon \, \hbar\omega_0 \, K(e) \, \mathcal{Q}(e,t) \, \mathcal{K}(e,t) \, \tilde{\Delta\Phi}(e),
+-\tag{6.1}
+-\]
+-
++**Power-form (dimensionsfix):** flödet skrivs direkt som effekt
++\[
++J_\sigma^{(\mathrm{power})}(e)
++= \varepsilon\,K(e)\,\mathcal{Q}(e,t)\,\tilde{\Delta\Phi}(e)\,P_{\rm pump}(e),
++\tag{6.1}
++\]
+ där:
+-
+-* (ε ≪ 1) är en **dimensionslös** kopplingskonstant,
+-* (ħω₀) är en **karakteristisk energiskala** (pump-frekvens eller substrat-uppdateringstakt, typiskt ~10 GHz – 1 THz), ([ħω₀] = energi),
+-* (K(e) = exp[-d_σ(e)/λ_σ]) är **likhetskärnan** (dimensionslös), där **både (d_σ) och (λ_σ) har längdenhet meter**,
+-* (Q(e,t) ∈ [0,1]) är **koherensfaktor** (faslåsning, kritikalitet, dimensionslös),
+-* (𝓚(e,t) = P_{pump}(e) · τ / (ħω₀)) är **dimensionslös kostnadsfaktor** (normerad pumpeffekt), **noteras med kalligrafisk K för att skilja från likhetskärnan (K)**,
+-* (Δ̃Φ(e)) är **dimensionslös potentialdifferens** (t.ex. fri energi per k_BT).
+-
+-**Enhetsanalys:** [J_σ] = (dimensionslös) · (energi) · (dimensionslös) · (1/tid) = energi/tid. ✓
++* \(\varepsilon\) dimensionslös, \(K=\exp[-d_\sigma/\lambda_\sigma]\) dimensionslös,
++* \(\mathcal Q\in[0,1]\) dimensionslös,
++* \(\tilde{\Delta\Phi}\) dimensionslös (normaliserad fri-energi),
++* \(P_{\rm pump}\) har enhet W.
++
++**Enhetsanalys:** \([J_\sigma]=\mathrm{W}\). ✓
++
++För jämförelse kan man definiera \(\tilde{\mathcal K}:=P_{\rm pump}/(\hbar\omega_0)\,[\mathrm{s^{-1}}]\) och skriva \(J_\sigma=\varepsilon\,\hbar\omega_0\,K\,\mathcal Q\,\tilde{\mathcal K}\,\tilde{\Delta\Phi}\).
+
+ **Degenerationsspädning.** För ett periodiskt system med (N) ekvivalenta matchningar faller (J_σ → J_σ / N). För ett kubiskt gitter med volym V och gitterkonstant a: (N ∼ V/a³ → ∞), vilket förklarar frånvaron i homogena system.
+
+@@ -294,9 +287,9 @@
+
+ **Koppling till 𝓚:**
+
+ \[
+-\mathcal{K}(e,t) = \frac{P_{pump}(e) \cdot \tau}{\hbar\omega_0},
++\tilde{\mathcal K}(e,t)=\frac{P_{\rm pump}(e)}{\hbar\omega_0}\quad[\mathrm{s^{-1}}],
+ \tag{8.2}
+ \]
+
+ där (P_{pump}(e)) är **mätbar effekt** tillförd för att hålla kant (e) öppen, och τ är koherenstid.
+
+@@ -329,23 +322,17 @@
+
+ Standardteori: påverkan propagerar inom ljuskonen, (||[A(x,t), B(y,0)]|| ≲ exp[-κ(|x-y| - v t)]).
+
+-**Med S-kanter:** Låt (E_S) vara mängden aktiva S-kanter, total styrka \(\eta := \sum_{e\in E_S} |J_e|\), där \(J_e\) är de **Hamiltonianska** kopplingarna i \(\delta H_S\) (enhet: energi).
+-
+-**Lemma 9.1 (Mjuk kon – giltig för alla tider).** Antag:
+-* (i) Maximal grad: varje nod (x) har högst (g) långräckviddiga S-kanter, (g ≪ N),
+-* (ii) Normbound: för varje (x), \(\sum_{e \ni x} |J_e| \le \eta\),
+-* (iii) Retardering: (W_σ) är kausal i (τ),
+-* (iv) Svag koppling: \(\eta\,\ell_0 \ll \hbar v\) (där \(\ell_0\) är inbäddningsskalan från §7.1).
+-
+-Då finns en **mjuk kon giltig för godtyckliga tider**:
+-
+-\[
+-||[A(x,t), B(y,0)]|| \leq C \left( e^{-\kappa(|x-y| - v_{eff} t)} + D \, \min\left\{1, \frac{\eta t}{\hbar}\right\} \right),
+-\tag{9.1}
+-\]
+-
+-där (v_{eff} ≈ v + δv), (δv ∝ η), och konstanterna (C, D, κ) beror på operator-normer och grafstruktur.
+-
+-**Intuition:** S-kanter ger sällsynta, långräckviddshopp men sparsamhet (villkor i–ii) och svag koppling (villkor iv) gör dem till små perturbationer. Klusterdekomposition bryts till (O(min{1, η t/ħ})), förenligt med experiment om (η/v < 10^{-10}). Detta kvantifierar mikrokausalitetsbrott.
+-
+-**Tidsfönster-notering:** Andra termen i (9.1), \(D\cdot\min\{1, \eta t/\hbar\}\), växer linjärt för små tider (\(t \ll \hbar/\eta\)) och satureras till \(D\) för (\(t \gg \hbar/\eta\)). För typiska experimentella tidsskalor (\(t \sim 1\)–\(10^3\) s) och \(\eta \sim 10^{-30}\)–\(10^{-28}\) J, ger detta \(\hbar/\eta \sim 10^{-5}\)–\(10^{-3}\) s, vilket innebär att S‑bidraget kan bli märkbart på **mikro– till millisekundskala** men förblir begränsat till \(D\) (\(\ll 1\)) så länge \(\eta\,\ell_0 \ll \hbar v\). Villkor (iv) garanterar \((D\cdot\eta/\hbar)\! \ll v/\ell_0\) för alla relevanta \(t\), vilket gör bounden **giltig och konsistent för godtycklig experimentell tid**.
++**Med S-kanter:** Låt (E_S) vara mängden aktiva S-kanter, total styrka \(\eta := \sum_{e\in E_S} |J_e|\), där \(J_e\) är de **Hamiltonianska** kopplingarna i \(\delta H_S\) (enhet: energi). **Lemma 9.1 (Mjuk kon med S-dämpning).** Under villkoren (i)–(iv) fås
++\[
++||[A(x,t),B(y,0)]|| \le C\,e^{-\kappa(|x-y|-v t)}\;+\;C'\,e^{-d_\sigma(\sigma_x,\sigma_y)/\lambda_\sigma}\,\Phi\!\left(g,\frac{\eta t}{\hbar}\right),
++\tag{9.1}
++\]
++där \(\Phi\) växer högst polynomiskt i \(t\) och inte saturerar till en distansoberoende konstant. S-bidraget undertrycks alltså **exponentiellt i \(d_\sigma\)** och kontrolleras av sparsitet (\(g\)) och svag koppling (\(\eta\)).
+
+ **Formellt bevis (Appendix C):** Duhamel-expansion av tidsutvecklingsoperatorn, uppdelning i lokal (M) och icke-lokal (S) del, grafnorm-estimat med sparsamma villkor och saturation av linjär term vid (t ∼ ħ/η).
+
+@@ -353,7 +340,7 @@
+
+ ## 10. Kausalitet – formellt bevis
+
+-**Sats 10.1 (Kausal monotoni).** Under villkoren (i) all resonansdynamik är retarderad i substratordningen (T), (ii) varje resonanssteg kräver (𝓚(e) ≥ 0) (noteras med kalligrafisk K för kostnad), och (iii) ε är ändlig, finns inga slutna kausala loopar i (M×S).
++**Sats 10.1 (Kausal monotoni).** Under villkoren (i) all resonansdynamik är retarderad i substratordningen (T), (ii) varje resonanssteg kräver \(\tilde{\mathcal K}(e) \ge 0\), och (iii) ε är ändlig, finns inga slutna kausala loopar i (M×S).
+
+ **Bevis (skiss).**
+
+@@ -363,14 +350,19 @@
+
+ 2. **Tidsfunktor.** Definiera (T: 𝓒 → (ℕ, ≤)), (T(s_i) = T_i). Kräv att varje morfism (f: s → s') har (T(s') > T(s)) (strikt monotoni).
+
+-3. **Kostnadsmonotoni.** Varje resonansmorfism (ϕ: s → s') kräver (𝓚(ϕ) ≥ 0). Sammansatt morfism (ϕ₂ ∘ ϕ₁) har (𝓚(ϕ₂∘ϕ₁) = 𝓚(ϕ₁) + 𝓚(ϕ₂)).
++3. **Kostnadsmonotoni.** Varje resonansmorfism (ϕ: s → s') kräver \(\tilde{\mathcal K}(\phi)\ge0\). Sammansatt morfism (ϕ₂ ∘ ϕ₁) har \(\tilde{\mathcal K}(\phi_2\circ\phi_1)=\tilde{\mathcal K}(\phi_1)+\tilde{\mathcal K}(\phi_2)\).
+
+-4. **Loop-analys.** Antag sluten loop i M: händelser (A → B → C → A) med rum-tids-koordinater sådan att slutsteg är i A:s förflutna ljuskon. Detta kräver en morfismkedja med (ΔT ≤ 0) eller (𝓚_{total} < 0). Båda är förbjudna per konstruktion.
++4. **Loop-analys.** Antag sluten loop i M: händelser (A → B → C → A) med rum-tids-koordinater sådan att slutsteg är i A:s förflutna ljuskon. Detta kräver en morfismkedja med (ΔT ≤ 0) eller \(\tilde{\mathcal K}_{\rm total}<0\). Båda är förbjudna per konstruktion.
+
+ 5. **Multi-frame-test.** I godtycklig Lorentz-ram transformeras M-koordinater, men (T) är ram-invariant (substrat-absolut). Loop i en ram = loop i alla ramar → förbjuden.
+
+ **Slutsats:** Inga antitelefoner. FTL i M kompenseras av T-monotoni i substrat. ∎
+
++**Regel (anti-telefon):** Resonansöverföringar är *endast* tillåtna om
++\[
++\Delta\tau>0
++\]
++ i substrattiden längs varje delsteg i kedjan. Regeln är lokalt testbar (apparatens faslåsning mot \(u^\mu\)) och förbjuder kausala loopar även för parter i relativ rörelse.
++
+ Fullständigt kategori-teoretiskt bevis finns i Appendix D.
+
+ ---
+@@ -408,7 +400,11 @@
+
+ **Amplitud:** (∝ ε·Q·cos θ(t)), där θ(t) är vinkel mellan lab-ram och substrat-ram. Observerbar om (ε·Q > 10^{-25}) med ultra-högprecisionsmätningar.
+
+-**Vår ansats:** (ε ~ 10^{-15}), (Q ~ 10^{-10}) i standardförhållanden → (ε·Q ~ 10^{-25}), marginellt under Michelson-Morley-gränsen men potentiellt detekterbar i specialiserade E2-riggar med (Q → 10^{-5}) nära kritikalitet.
++**Amplitud:** (∝ ε·Q·cos θ(t)) och under \(\Delta c/c\)-bounds krävs små storlekar. Sätt **mätmål** för E2-rotation som
++\[
++A_{\rm sid}\gtrsim 10^{-20}\ \text{(3σ på }10^7\text{ s)},
++\]
++vilket är numeriskt konsistent med (11.1) och apparatskalan \(L_{\rm exp}\).
+
+ Ett förregistrerat nollresultat sätter en siffersatt övre gräns på (ε λ_σ Q) för given apparat, vilket gör "anisotropi-budget" testbar.
+
+@@ -444,11 +440,11 @@
+
+ För (d_σ ≫ λ_σ) (mismatch): (BER → 0.5) (slump).
+
+-**Numerisk target:**
+-* Dataset identiskt → (BER < 0.35) efter 10⁹ bitar,
+-* Dataset mismatch → (BER > 0.48),
+-* Δ(BER) > 0.10 med (p < 10^{-6}).
+-* **Delayed choice** (QRNG) och spacelike separation uppfyllda.
++**Numerisk target (justerad):**
++* Rapportera **ΔBER** på **\(\sim10^{-3}\)**-nivå (match vs. mismatch) med 10⁹ bitar,
++* primär teststatistik: **korskorrelation/koherens** (inte hårda BER-trösklar),
++* analys: **SPRT**, permutationstest, Holm-Bonferroni.
++* **Delayed choice** (QRNG) och spacelike separation uppfyllda.
+
+ **Null-bound:** Om (BER ≥ 0.49) för alla konfigurationer → bounds enligt (8.4).
+
+@@ -469,18 +465,17 @@
+ | **Target** | 10^{-3} | ~10^{-27} J | Under gräns men närmar sig |
+ | **Ambitiös** | 10^{-2} | ~10^{-25} J | Marginellt detekterbar vid gränsen |
+
+-**Parametrar för ambitiöst scenario:**
+-* (ω₀ ~ 10 GHz), (ħω₀ ~ 10^{-23} J),
+-* (K ~ 0.5) (matching god), (Q ~ 10^{-2}) (nära tröskel/kritikalitet), (𝓚 ~ 100) (pump), (Δ̃Φ ~ 1),
+-* (ε ~ 10^{-15}).
+-
+-→ (J_σ ~ 10^{-15} · 10^{-23} · 0.5 · 10^{-2} · 100 · 1 ~ 5×10^{-28} J/s).
+-
+-För (Δt = 1000 s), (ΔE ~ 5×10^{-25} J).
++Med power-formen (6.1) fås \(J_\sigma=\varepsilon K \mathcal Q \tilde{\Delta\Phi} P_{\rm pump}\).
++**Parameterexempel ("target" nära känslighetsgräns):**
++* \(P_{\rm pump}=1\,\mu\mathrm W\), \(K\simeq0.5\), \(\tilde{\Delta\Phi}\simeq1\),
++* \(\varepsilon=10^{-15}\), \(\mathcal Q=10^{-8}\) (förenlig med (11.1)),
++→ \(J_\sigma\approx 5\times10^{-30}\,\mathrm W\) ⇒ \(\Delta E(10^3\mathrm s)\approx 5\times10^{-27}\,\mathrm J\).
++Detta ligger strax under \(\delta E\sim10^{-26}\,\mathrm J\) (mK-kalorimetri) och anger realistisk målnivå.
+
+ **Detektionsgräns:** Mikro-kalorimetri vid mK-nivå: (δE ~ k_B T ~ 10^{-26} J) (för T ~ 1 mK) med cryo-teknik.
+
+-**Mikroskopisk anti-korrelation:** energibalans mellan A/B; möjlig **grav-sidoblick** (lokal potentialändring följer (J_σ)).
++**Mikroskopisk anti-korrelation:** energibalans mellan A/B.
+
+ **Null-bound:** Om ingen signal efter 10⁶ s med (δE = 10^{-26} J) → (ε ω₀ Q < 10^{-8} Hz).
+
+@@ -690,7 +685,7 @@
+ Vi har presenterat en konsekvent, falsifierbar hypotes för **eterresonans** som strukturlokal FTL-överföring i ett diskret substrat. Ramverket förenar:
+
+ 1. **Action-nivå** (§3.1) med väldefinierat (T^{μν}_S) via variation,
+-2. **Kovariant energimomentbokföring** (§3.2) med gravitationskoppling (α ≈ 1),
+-3. **Välj α ≈ 1** (§3.5) för konsistens med Eötvös-bounds och eliminering av FTL-metriska signaler,
++2. **Kovariant energimomentbokföring** (§3.2) med **\(\alpha=1\)** och ljuskonstrogen metrisk respons,
++3. **α-val** (§3.5): \(\alpha\equiv1\) för konsistens med Bianchi-identiteten,
+ 4. **Lokalisering av S-flöden** (§3.3) som källor i M,
+ 5. **Momentum-neutralitet** (§3.4) som förhindrar reaktionsfri drivning,
+ 6. **Längdenhet för d_σ och λ_σ** (§2, §7) via inbäddningsskala (ℓ_0),
+@@ -710,7 +705,7 @@
+ * **Mönsterrum (S):** rum av lokala datastrukturer; avstånd (d_σ) mäter isomorfilikhet, **har längdenhet (meter)**.
+ * **ε:** dimensionslös kopplingsstyrka (~ 10^{-15}).
+-* **α:** gravitationskopplingsfaktor för S-sektor (= 1 ± 10^{-8}), konsistent med Eötvös-bounds.
++* **α:** gravitationskopplingsfaktor. **I huvudtexten sätts \(\alpha\equiv1\)** för att uppfylla Bianchi-identiteten vid \(\pm J_\sigma^\nu\).
+ * **ħω₀:** karakteristisk energiskala (~ 10^{-23} J vid 10 GHz).
+ * **λ_σ:** koherenslängd i S, **längdenhet (meter)**.
+ * **ℓ_0:** inbäddningsskala som ger (d_σ) längdenhet (~ 1 μm).
+ * **Q (𝓠):** koherens/kvalitet, dimensionslös, 0 ≤ Q ≤ 1 (~ 10^{-10} standard, ~ 10^{-2} optimerat).
+ * **K:** likhetskärna, (K = exp[-d_σ/λ_σ]), dimensionslös.
+-* **𝓚 (kalligrafisk K):** dimensionslös kostnadsfaktor (= P_{pump}·τ / ħω₀), för att skilja från likhetskärnan K.
++* **\(\tilde{\mathcal K}\):** dimensionslös kostnadsfaktor \(=P_{\rm pump}/\hbar\omega_0\) [\(\mathrm{s^{-1}}\)].
+ * **O_S:** selektionsoperator, massdimension Δ > 4.
+ * **J^ν_σ:** fyra-ström från S-interaktion, [J^ν_σ] = energi·densitet / tid.
+ * **T^{μν}_S:** energimomentumtensor för S-sektor.
+@@ -831,8 +826,8 @@
+
+ * **(A1)** Global ordning (τ) med strikt retardering,
+-* **(A2)** (𝓚 ≥ 0) (resursmonotonicitet, noteras med kalligrafisk K),
++* **(A2)** \(\tilde{\mathcal K}\ge0\) (resursmonotonicitet),
+ * **(A3)** Glesa och svaga (S)-länkar: maxgrad (g ≪ N), total styrka (η) liten,
+ * **(A4)** (O_S) irrelevant i RG (Δ > 4) och (⟨O_S⟩ ≈ 0) i homogena tillstånd,
+ * **(A5)** (W_σ) positiv semidefinit och kausal i (τ),
+ * **(A6)** (c_T = c) i frånvaro av resonans (minimalt lorentzbrott),
+ * **(A7)** Momentum-neutralitet (3.7): (∫ d^4x J^i_σ = 0),
+-* **(A8)** Gravitationskoppling: (α = 1 ± 10^{-8}) (S-sektor graviterar lika som vanlig materia inom Eötvös-bounds),
++* **(A8)** Gravitationskoppling: **\(\alpha=1\)** (metriken svarar ljuskonstroget; FTL ligger i S-lokalitet),
+ * **(A9)** Längdenhet: (d_σ) och (λ_σ) har meter via inbäddningsskala (ℓ_0).
+
+ ---

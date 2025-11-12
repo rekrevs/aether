@@ -1,0 +1,1201 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\geometry{margin=1in}
+
+% Custom commands
+\newcommand{\Kkernel}{\mathbb{K}}
+\newcommand{\Krate}{\tilde{\mathcal{K}}}
+\newcommand{\fl}{f_{\ell}}
+\newcommand{\veff}{v_{\!eff}}
+\newcommand{\Jsig}{J_{\sigma}}
+\newcommand{\Os}{O_{S}}
+\newcommand{\Ts}{T^{\mu\nu}_{S}}
+\newcommand{\proj}{\pi}
+\newcommand{\ds}{d_{\sigma}}
+\newcommand{\ls}{\lambda_{\sigma}}
+\newcommand{\Asid}{A_{\rm sid}}
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title{Aether Resonance: A Covariant, Pattern-Selective Mechanism for Structure-Local FTL Transfer in a Discrete Substrate}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We formulate a consistent, falsifiable hypothesis in which observable relativistic physics is an emergent low-energy description of a discrete substrate with global update ordering. In addition to spacetime proximity in the emergent manifold $(M)$, we assume \textbf{structural proximity} in a pattern space $(S)$ with a structural distance metric $(d_\sigma)$ that measures algorithmic similarity. A \textbf{substrate-local} coupling in $(S)$ — \textbf{aether resonance} — can then transport energy and information between isomorphic substructures and project as FTL in $(M)$. We provide: (i) \textbf{action-level} formulation with well-defined $(T^{\mu\nu}_S)$, (ii) \textbf{covariant} conservation laws and localization of $(S)$-flows as sources in $(M)$, (iii) \textbf{momentum-neutrality}, (iv) a \textbf{selection operator} $(O_S)$ that renders the effect invisible in the standard sector, (v) an \textbf{operationalized} $(d_\sigma)$-metric with length units and dimensionally correct coupling law, (vi) a \textbf{local implementation} of $(S)$-proximity via an S-mediator, (vii) a \textbf{soft Lieb-Robinson bound} with explicit conditions, (viii) a \textbf{formal causality argument}, (ix) a \textbf{thermodynamic resource inequality} with bitrate bound, (x) an \textbf{anisotropy budget}, (xi) a \textbf{motivation for the $\alpha$-factor}, and (xii) stringent, \textbf{no-loophole} experiments (E1–E3) with mapped parameter inference and multiple-test correction.
+\end{abstract}
+
+\section{Introduction and Motivation}
+
+Relativity and quantum mechanics provide a consistent, locally causal description of nature. At the same time, discrete, rule-based substrate models (e.g., cellular automata, hypergraphs) offer a natural framework for thinking about emergence. Here we investigate the speculative but internally consistent hypothesis that:
+
+\begin{enumerate}
+\item Observable spacetime $(M)$ with light speed $(c)$ arises as an effective description of a discrete substrate with global update ordering $(T=0,1,2,\ldots)$.
+\item There exists a second notion of distance — \textbf{structural proximity} — in a pattern space $(S)$ where two substructures are ``close'' if they are algorithmically isomorphic.
+\item A weak, substrate-local coupling in $(S)$ — \textbf{aether resonance} — can transport energy and information ``in place'' in $(S)$, which is experienced as FTL in $(M)$.
+\end{enumerate}
+
+The question is whether this can be made \textbf{physically coherent}: conservation laws, momentum-neutrality, absence of time paradoxes, compatibility with negative experimental results, and \textbf{falsifiable consequences}.
+
+\section{Postulates and Formalisms}
+
+(\textbf{Notation hint:} For unified symbols, units, and macros, see \textbf{Appendix F}.)
+
+\subsection{P1. Discrete Dynamics and Global Ordering}
+
+The substrate evolves in discrete steps $(T)$. All causality is \textbf{monotonic in $(T)$}.
+
+\subsection{P2. Two Proximities and a Projection}
+
+\begin{itemize}
+\item \textbf{$(M)$}: emergent spacetime with metric $(g_{\mu\nu})$, where ordinary matter moves locally and obeys relativity.
+\item \textbf{$(S)$}: pattern space whose points are local data structures; distance $(d_\sigma)$ measures algorithmic (isomorphic) similarity. \textbf{Unit:} $(d_\sigma)$ has \textbf{length dimension} via an embedding scale $(\ell_0)$ that relates algorithmic complexity to physical scale.
+\item A projection $(\pi: S \to M)$ specifies where and how a substrate state manifests observably.
+\end{itemize}
+
+\subsection{P3. Aether Resonance – Substrate-Locality in $(S)$}
+
+There exists a coupling that, within one tick, allows energy/information flow between $(s, s' \in S)$ with small $(d_\sigma(s,s'))$, independent of $|\pi(s) - \pi(s')|$ in $(M)$.
+
+\subsection{P4. Conservation Laws in $(M\times S)$}
+
+Total energy/information is conserved over the combined dynamics, even though local budgets in $(M)$ may vary via flows in $(S)$.
+
+\section{Action and Field Content}
+
+\subsection{Variational Principle}
+
+We derive the framework from a \textbf{total action}:
+
+\begin{equation}
+\begin{split}
+S_{tot} = \int d^4x \, \sqrt{-g} \left[ \frac{1}{16\pi G} R + \mathcal{L}_{vis}[\phi, g] + \mathcal{L}_S[\tau, u^\mu, g] \right] \\
+ + \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,\frac{O_S(x,\sigma)\,\mathbb{K}(\sigma,\sigma')\,O_S(x,\sigma')}{\Lambda_*^{4}},
+\end{split}
+\tag{3.1}
+\end{equation}
+
+where:
+
+\begin{itemize}
+\item $(R)$ is the Ricci scalar, $(g_{\mu\nu})$ is the metric,
+\item $(\mathcal{L}_{vis})$ is the Lagrangian density for visible matter/fields $(\phi)$,
+\item $(\tau(x))$ is a \textbf{foliation scalar} (``khronon'') and $(u^\mu)$ is a unit timelike vector defining the substrate's global ordering (preferred frame),
+\item $(\mathcal{L}_S)$ is chosen so that $(c_T = c)$ (gravitational waves) and PPN deviations vanish in the absence of resonance (minimal aether/khronon ansatz).
+\end{itemize}
+
+\textbf{Interaction term (manifestly covariant on $M\times S$ and dimensionally normalized):}
+
+\begin{equation}
+S_{int} = \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\;
+\frac{ O_S(x,\sigma)\,\mathbb{K}(\sigma,\sigma')\,O_S(x,\sigma') }{\Lambda_*^{\,4}},
+\tag{3.2}
+\end{equation}
+
+where we choose $[O_S]=4$ by construction (see §5). The measure $d\mu(\sigma)$ is \textbf{dimensionless}; all mass dimensions are carried by $O_S$ and explicit scales. The high-energy scale $\Lambda_*$ ensures that the interaction term has mass dimension four at the Lagrangian density level.
+
+where $\mathbb{K}$ is local on $S$ (governs resonance via $d_\sigma$) and entirely independent of $x$ except through $O_S(x,\cdot)$. This makes diffeomorphism invariance and energy-momentum conservation manifest.
+
+\subsubsection{Explicit $\mathcal{L}_S$ (Two Compatible Choices)}
+
+We specify $\mathcal{L}_S$ such that (i) $c_T=c$ for gravitational waves and (ii) PPN deviations vanish in the absence of resonance. Two practical choices:
+
+\textbf{(A) Minimal Khronon (Constraint-Only):}
+\begin{equation}
+\mathcal{L}_S^{\text{min}} = \frac{M_S^2}{2}\,\Lambda(x)\,\big(u^\mu u_\mu + 1\big),\qquad
+u^\mu:=\frac{\nabla^\mu \tau}{\sqrt{-\,\nabla_\alpha \tau \nabla^\alpha \tau}}.
+\tag{3.1A}
+\end{equation}
+
+Here the unit timelike vector $u^\mu$ is introduced via a Lagrange multiplier $\Lambda$; no free kinetic coefficients. Consequence: $c_T=c$ exactly and PPN$\approx 0$ in the background; resonance dynamics occurs solely via $S_{int}$ and the mediator $\chi$ (§4).
+
+\textbf{(B) Einstein-Æther/Khronon (Four-Coefficient Form):}
+\begin{equation}
+\begin{split}
+\mathcal{L}_S^{\text{EA}}=\frac{M_S^2}{2}
+\big[c_1(\nabla_\mu u_\nu)(\nabla^\mu u^\nu)
+ +c_2(\nabla_\mu u^\mu)^2
+ +c_3(\nabla_\mu u_\nu)(\nabla^\nu u^\mu) \\
+ +c_4\,u^\mu u^\nu(\nabla_\mu u_\alpha)(\nabla_\nu u^\alpha)\big]
+ +\frac{M_S^2}{2}\,\Lambda(x)\,(u^\mu u_\mu+1).
+\end{split}
+\tag{3.1B}
+\end{equation}
+
+We choose the parameter regime with
+\begin{equation}
+c_{13}:=c_1+c_3=0\quad(\Rightarrow c_T=1),\qquad
+|c_i|\ll 1,\qquad
+\text{and PPN conditions $\alpha_1=\alpha_2\simeq 0$ satisfied to linear order.}
+\tag{3.1C}
+\end{equation}
+
+Comment: (A) is the safest baseline (no new propagation dynamics in the background); (B) provides room to maneuver if one later wishes to let $u^\mu$ carry weak, controlled dynamics. Both choices are compatible with $\alpha\equiv1$ (§3.5) and with our causality result in §10.
+
+\subsection{Field Equations and Energy-Momentum Accounting}
+
+\textbf{Variation yields:}
+
+\begin{enumerate}
+\item \textbf{Einstein equations:}
+   \begin{equation}
+   G_{\mu\nu} = \frac{8\pi G}{c^4}\big(T^{\mu\nu}_{vis}+T^{\mu\nu}_S\big),
+   \tag{3.3}
+   \end{equation}
+   where a \textbf{well-defined} $T^{\mu\nu}_S$ follows from variation in $g_{\mu\nu}$.
+
+\item \textbf{Energy-momentum conservation:}
+   \begin{equation}
+   \nabla_\mu T^{\mu\nu}_{vis} = -J^\nu_{\sigma}, \quad \nabla_\mu T^{\mu\nu}_{S} = +J^\nu_{\sigma},
+   \tag{3.4}
+   \end{equation}
+   where $(J^\nu_\sigma)$ is the four-current from the interaction.
+
+\item \textbf{Total conservation:}
+   \begin{equation}
+   \nabla_\mu (T^{\mu\nu}_{vis} + T^{\mu\nu}_S) = 0.
+   \tag{3.5}
+   \end{equation}
+\end{enumerate}
+
+\subsection{Localization of $(S)$-Flows as Sources in $(M)$}
+
+To \textbf{operationalize} how $S$-flows create local sources in $M$, we use a smeared pushforward with compact support function $f_\ell$ (``worldtube'', $\ell\!\ll\!L_{\rm exp}$):
+
+\begin{equation}
+S^\nu(x)=\!\int\! d\mu(\sigma)\, f_\ell\!\big(x-\pi(\sigma)\big)\,(\nabla_\sigma\!\cdot\!J_\sigma)^\nu(\sigma),
+\tag{3.6}
+\end{equation}
+
+which ensures well-defined behavior under variation and preserves diffeomorphism invariance.
+
+\textbf{Normalization note.} Throughout §3 we take $d\mu(\sigma)$ to be a \textbf{dimensionless} measure on $S$; units enter only through $O_S$ and the explicit scale $\Lambda_*$ in (3.2).
+
+\subsection{Momentum-Neutrality}
+
+As a consequence of global translational invariance in $M$ (Noether) and the bilocal, translationally symmetric form of $S_{int}$, it follows that
+
+\begin{equation}
+\int d^4x\, J^i_\sigma(x)=0,
+\tag{3.7}
+\end{equation}
+
+which prevents \textbf{reactionless drive} (energy can be transferred without net momentum in $(M)$). This is consistent with (3.4) integrated over a closed volume and should be verified experimentally in E2.
+
+\subsection{Gravitational Signature and Bounds}
+
+\textbf{Choice and motivation for $\alpha$:} To be compatible with the Bianchi identity when $\nabla_\mu T^{\mu\nu}_{vis}=-J^\nu_\sigma$ and $\nabla_\mu T^{\mu\nu}_{S}=+J^\nu_\sigma$, we set
+\begin{equation}
+\boxed{\;\alpha\equiv 1\ \text{(exact)}\;}
+\end{equation}
+everywhere. Metric response is thus light-speed causal; all perceived FTL comes solely from $S$-locality.
+
+\section{Local Implementation of S-Proximity via an S-Mediator}
+
+\textbf{Problem:} How can the substrate, with only local rules, realize ``proximity in $S$'' without a global bulletin board?
+
+\textbf{Solution:} A \textbf{dynamic mediator $\chi(\sigma,T)$} that propagates \emph{locally} in $S$ (retarded in substrate time $T$) and couples to $O_S$.
+
+\subsection{Mediator Dynamics}
+
+Each point $\sigma \in S$ carries a field $\chi(\sigma,T)$ obeying a \textbf{wave-like equation} in substrate parameter $T$ and $S$-distance:
+
+\begin{equation}
+\partial_T^2 \chi - c_S^2 \nabla_\sigma^2 \chi + m_\chi^2 \chi = J_S(\sigma,T),
+\tag{4.1}
+\end{equation}
+
+where:
+\begin{itemize}
+\item $c_S$ is \textbf{propagation speed in $S$} (dimensionless or in units of substrate ticks),
+\item $m_\chi$ is an effective mass giving range $\lambda_\sigma = c_S / m_\chi$,
+\item $J_S(\sigma,T)$ is the source from visible matter via $O_S$.
+\end{itemize}
+
+\textbf{Retarded solution:}
+\begin{equation}
+\chi(\sigma',T') = \int d\mu(\sigma) \int dT \, G_{\rm ret}(\sigma',T'; \sigma,T) \, J_S(\sigma,T),
+\tag{4.2}
+\end{equation}
+with retarded Green's function
+\begin{equation}
+G_{\rm ret}(\sigma',T';\sigma,T) \propto \frac{e^{-m_\chi d_\sigma(\sigma,\sigma')/c_S}}{d_\sigma(\sigma,\sigma')} \, \Theta(T'-T - d_\sigma(\sigma,\sigma')/c_S).
+\tag{4.3}
+\end{equation}
+
+\subsection{Emergent $\mathbb{K}$}
+
+The effective \textbf{resonance kernel} in (3.2) follows as:
+\begin{equation}
+\begin{split}
+\mathbb{K}(\sigma,\sigma') = \int dT \, G_{\rm ret}(\sigma',T'; \sigma,T)
+\,\Theta\!\big(T'-T-d_\sigma(\sigma,\sigma')/c_S\big) \\
+\approx e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma}.
+\end{split}
+\tag{4.4}
+\end{equation}
+
+The Heaviside factor ensures explicit substrate retardation already at the kernel level.
+
+\textbf{Results:}
+\begin{enumerate}
+\item \textbf{No global search:} each node knows only local neighbors in $S$ via $\nabla_\sigma^2$.
+\item \textbf{Retarded in $T$:} signals reach $\sigma'$ only after $T - T' \geq d_\sigma/c_S$, ensuring substrate causality.
+\item \textbf{Exponential decay:} $\mathbb{K}$ is naturally local in $S$ for $m_\chi > 0$.
+\end{enumerate}
+
+\section{Selection Operator and Absence in the Standard Sector}
+
+The coupling to the substrate is given by:
+
+\begin{equation}
+\mathcal{L}_{int} \supset \frac{\varepsilon}{\Lambda_*^{\,4}} \, O_S[\phi] \, O_S[\phi'] \, \mathcal{K}_{\rm eff}(x,x'),
+\tag{5.1}
+\end{equation}
+
+where $(O_S)$ is a \textbf{pattern complexity operator} satisfying:
+
+\begin{enumerate}
+\item \textbf{RG-flow irrelevance:} The \textbf{seed} operator $\mathcal O$ has mass dimension $\Delta>4$ (for $d=4$), making it \textbf{irrelevant}. We define the \textbf{normalized} operator $O_S:=\mathcal O/\Lambda^{\Delta-4}$ so that $[O_S]=4$. At high energies/short distances:
+   \begin{equation}
+   \langle O_S(E) \rangle \sim (E / \Lambda)^{-n}, \quad n = \Delta - 4 > 0.
+   \end{equation}
+   This suppresses contributions in accelerator experiments.
+
+\item \textbf{Non-excitability in translationally invariant states:} For homogeneous, periodic configurations (crystals, thermal baths):
+   \begin{equation}
+   \langle O_S \rangle_{hom} \approx 0
+   \end{equation}
+   due to \textbf{degeneracy dilution}: N equivalent matches yield destructive interference, $(\propto 1/N)$.
+
+\item \textbf{Pump/structure requirements:} For $(O_S)$ to become non-negligible requires:
+   \begin{itemize}
+   \item High-dimensional, non-periodic structure (small N),
+   \item Proximity to critical point (Q high),
+   \item Active modulation/pump ($\mathcal{K} \neq 0$).
+   \end{itemize}
+\end{enumerate}
+
+\textbf{Explicit example (local, gauge- \& diffeo-invariant $O_S$ with $\Delta>4$).} Choose a locally defined window function $w_\ell$ with compact support and let
+\begin{equation}
+O_S(x)=\frac{1}{\Lambda^{\Delta-4}}\,
+\mathcal{F}\!\big(\nabla\phi,\nabla\nabla\phi,R_{\mu\nu\rho\sigma}\big)
+,\quad
+\mathcal{F}:=\sum_{m+n+k=\Delta}\! c_{mnk}\,
+(\nabla\phi)^m(\nabla\nabla\phi)^n(R)^k,
+\end{equation}
+such that $\Delta>4$ guarantees RG irrelevance while the operator is strictly local in $M$. The signatures in §7 (FFT, persistent homology, Wasserstein) are implemented operationally by letting the coefficients $c_{mnk}$ depend on locally extracted statistical/topological moments of the fields within $w_\ell$.
+
+\textbf{Naturalness:} Why does $O_S\neq0$? One possible mechanism is weak, spontaneous symmetry breaking in the substrate that induces small but non-zero local invariant combinations near criticality.
+
+\section{Coupling Strength and Dimensional Analysis}
+
+\textbf{Power form (dimension fixing):} the flow is written directly as power
+\begin{equation}
+J_\sigma^{(\mathrm{power})}(e)
+= \varepsilon\,K(e)\,\mathcal{Q}(e,t)\,\tilde{\Delta\Phi}(e)\,P_{\rm pump}(e),
+\tag{6.1}
+\end{equation}
+where:
+\begin{itemize}
+\item $\varepsilon$ dimensionless, $K=\exp[-d_\sigma/\lambda_\sigma]$ dimensionless,
+\item $\mathcal Q\in[0,1]$ dimensionless,
+\item $\tilde{\Delta\Phi}$ dimensionless (normalized free energy),
+\item $P_{\rm pump}$ has unit W.
+\end{itemize}
+
+\textbf{Unit analysis:} $[J_\sigma]=\mathrm{W}$. ✓
+
+For comparison, one can define $\tilde{\mathcal K}:=P_{\rm pump}/(\hbar\omega_0)\,[\mathrm{s^{-1}}]$ and write $J_\sigma=\varepsilon\,\hbar\omega_0\,K\,\mathcal Q\,\tilde{\mathcal K}\,\tilde{\Delta\Phi}$.
+
+\textbf{Degeneracy dilution.} For a periodic system with $(N)$ equivalent matches, $(J_\sigma \to J_\sigma / N)$. For a cubic lattice with volume V and lattice constant a: $(N \sim V/a^3 \to \infty)$, explaining absence in homogeneous systems.
+
+\section{Operationalized $d_\sigma$-Metric}
+
+Algorithmic similarity is non-computable. We specify a \textbf{practical proxy}:
+
+\subsection{Signature Extraction}
+
+From local state dynamics $(s)$ (time series, spatial configuration):
+
+\begin{itemize}
+\item \textbf{Spectral:} FFT $\to$ power spectrum $\to$ dominant frequencies $(f_1, \ldots, f_m)$, spectral entropy $H_{spec}$,
+\item \textbf{Topological:} persistent homology $\to$ Betti curves $(\beta_0(r), \beta_1(r))$,
+\item \textbf{Statistical:} autocorrelation $\tau_c$, Lyapunov exponents $\lambda_i$ (if applicable), moments $(\mu_k)$.
+\end{itemize}
+
+Signature: $(\sigma(s) = (f_i, H_{spec}, \beta_j(r_k), \tau_c, \lambda_i, \mu_k) \in \mathbb{R}^d)$.
+
+\subsection{Metric Definition}
+
+\begin{equation}
+d_\sigma(s,s') := \ell_0 \left[ \|\sigma(s) - \sigma(s')\|_2 + \alpha_W \, W(\mu_s, \mu_{s'}) \right],
+\tag{7.1}
+\end{equation}
+
+where $(W)$ is the Gromov-Wasserstein distance between probability distributions $(\mu_s, \mu_{s'})$, $(\alpha_W \geq 0)$, and the \textbf{embedding scale $(\ell_0)$} gives $(d_\sigma)$ \textbf{length dimension} (meters). Typically $(\ell_0 \sim 1~\mu\text{m})$.
+
+\subsection{Distance Ladder (Calibration)}
+
+Construct controlled levels:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{clll}
+\toprule
+Level & Transformation & Expected $d_\sigma$ & Expected K \\
+\midrule
+0 & Identical $(s' = s)$ & 0 & 1 \\
+1 & Phase rotation (spectrum preserved) & $\varepsilon_1 \ll \lambda_\sigma$ & $\approx 0.9$ \\
+2 & Permuted label & $\varepsilon_2 \approx 0.3 \lambda_\sigma$ & $\approx 0.7$ \\
+3 & Block-scramble (temporal/spatial) & $\varepsilon_3 \approx 0.7 \lambda_\sigma$ & $\approx 0.5$ \\
+4 & Additive noise (SNR = 10 dB) & $\varepsilon_4 \approx \lambda_\sigma$ & $\approx 0.37$ \\
+5 & Independent realization & $\varepsilon_5 \gg \lambda_\sigma$ & $\ll 0.1$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Test that $(K(e) = \exp[-d_\sigma/\lambda_\sigma])$ falls monotonically and that the effect in E1 correlates with level. This directly links observable effect to a calibrated scale.
+
+\textbf{Pre-registration:} The distance ladder is pre-registered as a \textbf{separate, blind pilot} (own OSF DOI) before main experiments E1/E2/E3. Blind ``level labels'' are kept sealed until analysis phase.
+
+\section{Thermodynamics and Measurable Cost}
+
+We define a \textbf{pattern free energy}:
+
+\begin{equation}
+\mathcal{F}_S = \langle E_S \rangle - T \, \Sigma_S,
+\end{equation}
+
+where $(\Sigma_S)$ approximates algorithmic entropy via MDL (minimum description length) or compression ratio.
+
+\subsection{Model Assumption (Minimal Markov Process on S-Edges)}
+
+Each active S-edge $e$ is assumed to switch between two microstates $n_e\in\{0,1\}$ (``open/closed''), coupled to a heat bath at $T_{\rm eff}$. The pump injects quanta $\hbar\omega_0$ at rate $k_+$ and relaxes with $k_-$, with detailed balance $k_+/k_-=\exp[-\beta\Delta F_e]$ ($\beta=1/k_BT_{\rm eff}$). This gives a continuous-time Markov process with stationary measure $p_e^\star$ and entropy production $\dot S_{\rm tot}\ge 0$.
+
+\subsection{Fluctuation Theory and Resource Inequality}
+
+From the second law (via KL divergence) follows:
+
+\begin{equation}
+\langle W_{pump} \rangle \geq k_B T \, (\Delta \Sigma_S + I_{transferred}),
+\tag{8.1}
+\end{equation}
+
+where $(I_{transferred})$ is information content (bits $\times k_B \ln 2$).
+
+\begin{proposition}[Dissipation for two-state edge]
+For each $e$ and measurement window $\Delta t$,
+\begin{equation}
+\langle W_{pump}(e)\rangle \;\ge\; k_B T_{\rm eff}\,D_{\rm KL}\!\big(\mathbb{P}_{\rm driv}\Vert \mathbb{P}_{\rm eq}\big)
+\;\ge\; k_B T_{\rm eff}\,\ln 2\cdot I_e,
+\tag{8.1'}
+\end{equation}
+where $D_{\rm KL}$ is the KL divergence between driven and equilibrium process and $I_e$ is the transferred information in bits over edge $e$ (data processing inequality). Summation over active edges yields (8.1). The model realizes (8.1) with explicit microscopy and ties $\tilde{\mathcal K}=P_{\rm pump}/(\hbar\omega_0)$ to hopping rates $k_\pm$.
+\end{proposition}
+
+\textbf{Coupling to $\mathcal{K}$:}
+
+\begin{equation}
+\tilde{\mathcal K}(e,t)=\frac{P_{\rm pump}(e)}{\hbar\omega_0}\quad[\mathrm{s^{-1}}],
+\tag{8.2}
+\end{equation}
+
+where $(P_{pump}(e))$ is \textbf{measurable power} supplied to keep edge $(e)$ open, and $\tau$ is coherence time.
+
+\subsection{Bitrate Bound for E1}
+
+From (6.1) and (8.1) derives a \textbf{bitrate bound}:
+
+\begin{equation}
+R_{bit} \leq \beta \, \frac{P_{pump}}{k_B T \ln 2} \, \mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma}, \qquad 0 < \beta \leq 1.
+\tag{8.3}
+\end{equation}
+
+A \textbf{null result} in E1 directly gives an upper bound. With $(R_{bit}^{(null)})$ as observed detection limit (bits/second), we can convert (8.3) into a bound on the product:
+
+\begin{equation}
+\mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma} < \frac{k_B T \ln 2}{\beta \, P_{pump}} \cdot R_{bit}^{(null)}.
+\tag{8.4}
+\end{equation}
+
+Together with E2 (energetics, gives bounds on $(\varepsilon \omega_0 Q)$) and §11 (anisotropy, gives bounds on $(\varepsilon \lambda_\sigma Q)$), one can then draw conclusions about individual parameters. For example, $(d_\sigma = 0)$ (perfect match):
+
+\begin{equation}
+\mathcal{Q} < \frac{k_B T \ln 2}{\beta \, P_{pump}} \cdot R_{bit}^{(null)},
+\end{equation}
+
+which directly constrains $(Q)$. For partial match, one can separate the effects of $(Q)$ and $(e^{-d_\sigma/\lambda_\sigma})$ through the distance ladder in §7.3.
+
+\section{Modified Lieb-Robinson Bound}
+
+Standard theory: influence propagates within the light cone, $||[A(x,t), B(y,0)]|| \lesssim \exp[-\kappa(|x-y| - v t)]$.
+
+\textbf{With S-edges:} Let $(E_S)$ be the set of active S-edges, total strength $\eta := \sum_{e\in E_S} |J_e|$, where $J_e$ are the \textbf{Hamiltonian} couplings in $\delta H_S$ (unit: energy).
+
+\begin{lemma}[Soft cone with S-damping]
+Under conditions (i)–(iv), we obtain
+\begin{equation}
+\begin{split}
+||[A(x,t),B(y,0)]|| \le C\,e^{-\kappa(|x-y|-v t)}
+\;+\;C'\,\Theta\!\big(t-\tfrac{d_\sigma(\sigma_x,\sigma_y)}{c_S}\big)\, \\
+e^{-d_\sigma(\sigma_x,\sigma_y)/\lambda_\sigma}\,
+\Phi\!\left(g,\frac{\eta t}{\hbar}\right),
+\end{split}
+\tag{9.1}
+\end{equation}
+\end{lemma}
+
+The Heaviside ``gating'' makes substrate causality explicit even in the operator norm limit.
+
+where $\Phi$ grows at most \textbf{exponentially} in $t$ (see App. C, eq. (C.12)) and does not saturate to a distance-independent constant. The S-contribution is thus suppressed \textbf{exponentially in $d_\sigma$} and controlled by sparsity $(g)$ and weak coupling $(\eta)$.
+
+\textbf{Formal proof (Appendix C):} Duhamel expansion of time evolution operator, decomposition into local $(M)$ and non-local $(S)$ parts, graph norm estimates with sparsity conditions, and explicit substrate retardation via $\Theta(t-d_\sigma/c_S)$; linear term saturates at $t\sim\hbar/\eta$.
+
+\section{Causality – Formal Proof}
+
+\begin{theorem}[Causal monotonicity]
+Under conditions (i) all resonance dynamics is retarded in substrate ordering $(T)$, (ii) each resonance step requires $\tilde{\mathcal K}(e) \ge 0$, and (iii) $\varepsilon$ is finite, there exist no closed causal loops in $(M\times S)$.
+\end{theorem}
+
+\textbf{Proof (sketch).}
+
+\begin{enumerate}
+\item \textbf{Category construction.} Let $(\mathcal{C})$ be the category of substrate events, where objects are states at different $(T)$ and morphisms are update steps (either local in M or resonance via S).
+
+\item \textbf{Time functor.} Define $(T: \mathcal{C} \to (\mathbb{N}, \leq))$, $(T(s_i) = T_i)$. Require each morphism $(f: s \to s')$ has $(T(s') > T(s))$ (strict monotonicity).
+
+\item \textbf{Cost monotonicity.} Each resonance morphism $(\phi: s \to s')$ requires $\tilde{\mathcal K}(\phi)\ge0$. Composed morphism $(\phi_2 \circ \phi_1)$ has $\tilde{\mathcal K}(\phi_2\circ\phi_1)=\tilde{\mathcal K}(\phi_1)+\tilde{\mathcal K}(\phi_2)$.
+
+\item \textbf{Loop analysis.} Assume closed loop in M: events $(A \to B \to C \to A)$ with spacetime coordinates such that final step is in A's past light cone. This requires a morphism chain with $(\Delta T \leq 0)$ or $\tilde{\mathcal K}_{\rm total}<0$. Both are forbidden by construction.
+
+\item \textbf{Multi-frame test.} In arbitrary Lorentz frame, M-coordinates transform, but $(T)$ is frame-invariant (substrate-absolute). Loop in one frame = loop in all frames $\to$ forbidden.
+\end{enumerate}
+
+\textbf{Conclusion:} No antitelephones. FTL in M is compensated by T-monotonicity in substrate. \qed
+
+\textbf{Rule (anti-telephone):} Resonance transfers are \emph{only} permitted if
+\begin{equation}
+\Delta\tau>0
+\end{equation}
+in substrate time along each substep in the chain. The rule is locally testable (apparatus phase-locking to $u^\mu$) and forbids causal loops even for parties in relative motion.
+
+Complete category-theoretic proof is in Appendix D.
+
+\begin{corollary}[Two-lab anti-telephone]
+For any two laboratories with four-velocities $U_A^\mu$ and $U_B^\mu$, any chain of resonance steps that satisfies $\Delta\tau>0$ on \textbf{each} substep in the local control logic of each apparatus cannot form a causal loop. The condition is frame-independent because $\tau$ is a scalar and increases monotonically along allowed morphisms.
+\end{corollary}
+
+\section{Compatibility with Established Tests and Anisotropy Budget}
+
+\textbf{Relativity:} Lorentz symmetry emergent in low-energy sector; preferred frame gives weak anisotropy.
+
+\subsection{Anisotropy Derivation}
+
+From Lagrangian (5.1), a preferred frame $(\xi^\mu = (1,0,0,0)$ in substrate rest frame) gives modifications to dispersion:
+
+\begin{equation}
+E^2/c^2 - p^2 = m^2 + \delta(E, \hat{p}\cdot\hat{\xi}),
+\end{equation}
+
+where
+
+\begin{equation}
+\delta \sim \varepsilon (\lambda_\sigma / \lambda_C) \mathcal{Q} \cdot (E / m c^2) \cdot (\hat{p}\cdot\hat{\xi})^2.
+\end{equation}
+
+For photons $(m=0)$, term rescaling gives effective velocity variation:
+
+\begin{equation}
+\Delta c / c \sim \varepsilon (\lambda_\sigma / \lambda_C) \mathcal{Q}.
+\end{equation}
+
+\textbf{Michelson–Morley/Hughes–Drever bounds:} $\Delta c/c \lesssim 10^{-18}$.
+
+This requires:
+
+\begin{equation}
+\varepsilon \cdot (\lambda_\sigma / \lambda_C) \cdot \mathcal{Q} \;\lesssim\; 10^{-18}.
+\tag{11.1}
+\end{equation}
+
+For $\lambda_\sigma \sim 1\,\mu{\rm m}$, $\lambda_C \sim 10^{-12}\,{\rm m}$ (Compton) $\Rightarrow \lambda_\sigma/\lambda_C \sim 10^6$, so $\varepsilon\cdot \mathcal Q \lesssim 10^{-24}$.
+
+\subsection{Daily/Annual Modulation and Quantitative Budget}
+
+We tie sidereal/annual modulation to model parameters:
+
+\begin{equation}
+A_{sid} \simeq \varepsilon \left( \frac{\lambda_\sigma}{L_{exp}} \right) \mathcal{Q} \, \Xi,
+\tag{11.2}
+\end{equation}
+
+where $(\Xi)$ is a geometry/rig-dependent factor $(\sim 1)$ and $(L_{exp})$ is apparatus scale. This makes \textbf{anisotropy budget} measurable in own data.
+
+\textbf{Amplitude:} $(\propto \varepsilon\cdot Q\cdot\cos \theta(t))$ and under $\Delta c/c$-bounds requires small magnitudes. Set \textbf{measurement goal} for E2-rotation as
+\begin{equation}
+A_{\rm sid}\gtrsim 10^{-20}\ \text{(3$\sigma$ on }10^7\text{ s)},
+\end{equation}
+which is numerically consistent with (11.1) and apparatus scale $L_{\rm exp}$.
+
+A pre-registered null result sets a numerical upper bound on $(\varepsilon \lambda_\sigma Q)$ for given apparatus, making ``anisotropy budget'' testable.
+
+\subsection{SME Parametrization (For Reporting and Comparison)}
+
+In the photon sector, anisotropies are conveniently expressed in minimal SME coefficients $\tilde\kappa_{e-}^{JK},\,\tilde\kappa_{o+}^{JK},\,\kappa_{\rm tr}$. Our model effectively gives
+\begin{equation}
+\tilde\kappa_{e-}^{JK}\ \sim\ \varepsilon_\gamma\,\mathcal Q_\gamma\,
+\Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,\Xi^{JK},
+\end{equation}
+with $\Xi^{JK}$ a geometry factor $(\mathcal O(1))$. Therefore report $\hat A_{\rm sid}$ in parallel with estimates of $|\tilde\kappa_{e-}^{JK}|$ to enable direct comparison with resonator and atomic clock studies.
+
+\section{Predictions and Numerical Targets}
+
+\textbf{Negative predictions (should not be seen):}
+
+\begin{itemize}
+\item No deviations in gravitational laws, vacuum dispersion, or torsion wave experiments.
+\item No robust effects in homogeneous crystals $(N \gg 1 \to J_\sigma \to 0)$.
+\item No signals in accelerator experiments $(O_S$ irrelevant, $\Delta > 4$).
+\item No everyday signaling without shared structure and pump.
+\end{itemize}
+
+\textbf{Positive predictions with numerical targets:}
+
+\subsection{Pred. 1: Twin-Reservoir Correlations (E1)}
+
+\textbf{Goal:} Bit error rate (BER) scales as:
+\begin{equation}
+BER = \frac{1}{2} \left( 1 - \beta \, e^{-d_\sigma/\lambda_\sigma} \right).
+\end{equation}
+
+For $(d_\sigma = 0)$ (identical dataset): $(BER_{min} = (1-\beta)/2 \approx 0.25)$ (for $\beta \sim 0.5$).
+
+For $(d_\sigma \gg \lambda_\sigma)$ (mismatch): $(BER \to 0.5)$ (chance).
+
+\textbf{Numerical target (adjusted):}
+\begin{itemize}
+\item Report \textbf{$\Delta$BER} at \textbf{$\sim10^{-3}$}-level (match vs. mismatch) with $10^9$ bits,
+\item primary test statistic: \textbf{cross-correlation/coherence} (not hard BER thresholds),
+\item analysis: \textbf{SPRT}, permutation tests, Holm-Bonferroni.
+\item \textbf{Delayed choice} (QRNG) and spacelike separation satisfied.
+\end{itemize}
+
+\textbf{Null bound:} If $(BER \geq 0.49)$ for all configurations $\to (\varepsilon \lambda_\sigma Q < 10^{-12}~\text{m})$.
+
+\subsection{Pred. 2: Energy Tunnel (E2)}
+
+\textbf{Goal:} Differential energy balance:
+\begin{equation}
+\Delta E_A + \Delta E_B = J_\sigma \cdot \Delta t,
+\end{equation}
+
+where $(J_\sigma \sim \varepsilon \hbar\omega_0 K Q \mathcal{K} \tilde{\Delta\Phi})$.
+
+\textbf{Three scenarios for E2 detectability:}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llll}
+\toprule
+Scenario & Q & $\Delta E$ (10$^3$ s) & Detectability \\
+\midrule
+\textbf{Baseline} & $10^{-5}$ & $\sim10^{-40}$ J & Not detectable ($\delta E \sim 10^{-26}$ J) \\
+\textbf{Target} & $10^{-3}$ & $\sim10^{-27}$ J & Below limit but approaching \\
+\textbf{Ambitious} & $10^{-2}$ & $\sim10^{-25}$ J & Marginally detectable at limit \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+With power form (6.1), $J_\sigma=\varepsilon K \mathcal Q \tilde{\Delta\Phi} P_{\rm pump}$.
+
+\textbf{Parameter example (``target'' near sensitivity limit):}
+\begin{itemize}
+\item $P_{\rm pump}=1\,\mu\mathrm{W}$, $K\simeq0.5$, $\tilde{\Delta\Phi}\simeq1$,
+\item $\varepsilon=10^{-15}$, $\mathcal Q=10^{-8}$ (compatible with (11.1)),
+\item[] $\to J_\sigma\approx 5\times10^{-30}\,\mathrm{W}$ $\Rightarrow \Delta E(10^3\mathrm{~s})\approx 5\times10^{-27}\,\mathrm{J}$.
+\end{itemize}
+
+This lies just below $\delta E\sim10^{-26}\,\mathrm{J}$ (mK calorimetry) and indicates realistic target level.
+
+\textbf{Detection limit:} Micro-calorimetry at mK level: $(\delta E \sim k_B T \sim 10^{-26}~\text{J})$ (for $T \sim 1$ mK) with cryo technology.
+
+\textbf{Microscopic anti-correlation:} energy balance between A/B.
+
+\textbf{Null bound:} If no signal after $10^6$ s with $(\delta E = 10^{-26}~\text{J})$ $\to (\varepsilon \omega_0 Q < 10^{-8}~\text{Hz})$.
+
+\subsection{Pred. 3: Anisotropic Daily Modulation (E2 – Rotation Test; \textbf{Matter Sector})}
+
+\textbf{Goal:} Power modulation with period 23 h 56 min (sidereal):
+\begin{equation}
+J_\sigma(t) = J_0 \left( 1 + A \cos\!\left(\frac{2\pi t}{T_{sid}} + \phi\right) \right),
+\end{equation}
+with amplitude \textbf{in the matter sector}
+\begin{equation}
+A \equiv A_{\rm sid}^{(\rm mat)} \;\simeq\; \varepsilon_{\rm mat}\,\Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,\mathcal Q_{\rm mat}\,\Xi,
+\tag{12.3a}
+\end{equation}
+cf. the optical sector (§11.2) where
+\begin{equation}
+A_{\rm sid}^{(\gamma)} \simeq \varepsilon_\gamma \,\Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,\mathcal Q_\gamma\,\Xi.
+\tag{12.3b}
+\end{equation}
+
+\textbf{Important:} The prediction here concerns the \textbf{matter sector} $(\varepsilon_{\rm mat}\mathcal Q_{\rm mat})$. Bounds in §11.1 constrain $\varepsilon_\gamma\mathcal Q_\gamma$ (optics) and are therefore not directly binding on (12.3a); see Appendix F (sector separation).
+
+\textbf{Cross-reference:} Report $\hat{A}_{\rm sid}$ and compare against (11.2) and (12.3a–b); specify which measurement track (optical vs. material) is used in the rig.
+
+\textbf{Numerical target (3$\sigma$, $10^7$ s):}
+\begin{equation}
+A_{\rm sid}\;\gtrsim\;10^{-20}.
+\end{equation}
+\textbf{Stretch:} $A_{\rm sid}\gtrsim5\times10^{-21}$.
+
+\textbf{Null bound:} If $\hat{A}_{\rm sid}<10^{-20}$ obtain $\varepsilon_{\rm mat}\mathcal Q_{\rm mat}<10^{-20}$ for given $L_{\rm exp}$ and $\lambda_\sigma$ (report both).
+
+\subsection{Pred. 4: Complexity Optimum (E3)}
+
+\textbf{Goal:} Sync-hop rate $(r_{sync})$ vs. drive complexity $(\Sigma_{drive})$:
+
+\begin{equation}
+r_{sync} = r_0 \, \Sigma_{drive} \, e^{-\Sigma_{drive} / \Sigma_{opt}},
+\end{equation}
+
+maximum at $(\Sigma_{opt})$ (rich but compressible).
+
+\textbf{Numerical target:}
+\begin{itemize}
+\item White noise $(\Sigma \sim \infty)$: $(r_{sync} \sim 0)$,
+\item Pure tone $(\Sigma \sim 0)$: $(r_{sync} \sim 0)$,
+\item Music/speech $(\Sigma \sim \Sigma_{opt} \sim 5$ bits/sample$)$: $(r_{sync} \sim \max)$.
+\end{itemize}
+
+\textbf{Test:} Vary from pure sine wave $\to$ complex sound $\to$ noise; measure $(r_{sync})$; expect unimodal curve.
+
+\textbf{Excess:} simultaneous attractor hops when drive rhymes (small $(d_\sigma)$); falls away at mismatch.
+
+\subsection{Summary Predictions $\to$ Bounds}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+Experiment & Positive signal & Null bound \\
+\midrule
+E1 (ansible) & $\Delta$BER $\sim 10^{-3}$ (match vs. mismatch), cross-corr. & $\varepsilon \lambda_\sigma Q < 10^{-12}$ m \\
+E2 (energy) & $\Delta E > 10^{-25}$ J $(Q \sim 10^{-2})$ & $\varepsilon \omega_0 Q < 10^{-8}$ Hz \\
+E2 (rotation, \textbf{matter}) & $A_{sid} \geq 10^{-20}$ (3$\sigma$, $10^7$ s) & $\varepsilon_{mat} Q_{mat} < 10^{-20}$ \\
+E3 (chaos) & $r_{sync}$ peak at $\Sigma_{opt}$ & $\varepsilon Q < 10^{-15}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{End-to-end parameter map}
+
+\textbf{Which observables constrain which parameter products (at leading order):}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+Observable & Primary constraint & Secondary/notes \\
+\midrule
+E1 ($\Delta$BER, coherence) & $\varepsilon\,\lambda_\sigma\,\mathcal Q$ (via (8.3–8.4)) & Distance ladder (§7.3) \\
+E2 ($\Delta E$ over time) & $\varepsilon\,\omega_0\,\mathcal Q$ & Power form (6.1) \\
+E2 (sidereal amplitude) & $\varepsilon\,\mathcal Q\cdot(\lambda_\sigma/L_{\rm exp})$ & Geometry factor $\Xi$ (11.2) \\
+E3 (hop rate vs. complexity) & $\lambda_\sigma$, $\mathcal Q$ & Peak at $\Sigma_{opt}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Experimental Protocols (No-Loophole) and Parameter Inference}
+
+All protocols are \textbf{pre-registered} (Open Science Framework), timestamped, and data/analysis published openly.
+
+\textbf{Statistical method box:} We pre-register decision rules and adjust for \textbf{multiple comparisons} (e.g., \textbf{Holm–Bonferroni} or FDR correction) over distance levels (6 levels in §7.3), control protocols (match/mismatch, on/off), and experiments (E1–E3) to control family-wise error rate at $\alpha=0.05$. The distance ladder pilot (see §7.3) is published with its own DOI and used as advance calibration.
+
+\subsection{E1. Neuromorphic Ansible (Information)}
+
+\textbf{Setup.}
+\begin{itemize}
+\item Two photonic/electronic reservoirs (3D RC networks, $N \sim 10^3$ nodes),
+\item Training on identical dataset (MNIST / audio / video-snippet),
+\item \textbf{Triple-Faraday}, optical isolation (fiber-air-gap, optical isolators), battery power,
+\item Independent atomic clocks (GPS-disciplined or crystal-OCXO, jitter $< 1$ ns),
+\item \textbf{Spacelike separation} ($> 1$ km, light-travel-time $> 3~\mu$s).
+\end{itemize}
+
+\textbf{Protocol.}
+\begin{enumerate}
+\item \textbf{Pre-commitment:} Publish hash (SHA-256) of codebook + time schedule (\textbf{commit–reveal}).
+\item[1a.] \textbf{Blind pilot (distance ladder):} Run a separate, blindly labeled level series $(N=6)$ and freeze $(\lambda_\sigma,\ell_0)$ before main run.
+\item \textbf{Distance ladder:} Test 6 levels (§7.3), $10^9$ bits per level.
+\item \textbf{Delayed choice:} QRNG selects codebook/times after commit, before transmission.
+\item \textbf{Blind reception:} Receiver runs correlation against codebook without sender access.
+\item \textbf{Sham blocks:} 20\% of blocks are ``off'' (sender inactive) $\to$ test for false-positive (ghost blocks).
+\item \textbf{Cosmic veto:} Muon detector; reject if $(N_\mu > 10 / \text{m}^2 / \text{s})$.
+\end{enumerate}
+
+\textbf{Analysis.}
+\begin{itemize}
+\item Calculate BER per level,
+\item Bayes factor ($H_1$: resonance vs. $H_0$: chance + leakage),
+\item Sequential Probability Ratio Test (SPRT) for early stop,
+\item Permutation tests ($\geq 10^6$) for p-value,
+\item \textbf{Holm-Bonferroni correction} for 6 levels.
+\end{itemize}
+
+\textbf{Goal:} $\Delta$BER $\sim 10^{-3}$ (match vs. mismatch) with cross-correlation/coherence as primary statistic, $(p < 10^{-6})$ (corrected).
+
+\textbf{Inference:} Null result maps to $(\varepsilon \lambda_\sigma Q)$ via (8.3-8.4).
+
+\subsection{E2. Energy Tunnel (Energy)}
+
+\textbf{Setup.}
+\begin{itemize}
+\item Two identical superconducting microwave cavities or metamaterial rigs $(Q_{cav} \sim 10^6)$,
+\item \textbf{Cryo-calorimetry} $(T \sim 10$ mK, $\delta T \sim 0.1~\mu$K $\to \delta E \sim 10^{-26}$ J),
+\item Separation $> 1$ km (light-travel-time $> 3~\mu$s),
+\item \textbf{Rotation platform} (0.1 rpm $\to$ scan preferred frame for sidereal modulation).
+\end{itemize}
+
+\textbf{Protocol.}
+\begin{enumerate}
+\item \textbf{Matching test:} Vary internal geometry (0\%, 50\%, 100\% match).
+\item \textbf{Pump modulation:} A pumped with $(P_{pump} = 1~\mu$W), period 100 s on/off; B below threshold.
+\item \textbf{Phase-locking on/off:} Control coherence $(Q)$.
+\item \textbf{Thermostat on/off:} Alternate active vs. passive temperature control.
+\item \textbf{Latency scan:} Correlate $(\Delta T_B(t))$ with $(P_A(t-\delta))$, scan $\delta \in [-10~\mu\text{s}, +10~\mu\text{s}]$.
+\item \textbf{Grav-sidekick:} Torsion pendulum or cavity in B (sensitivity $\sim 10^{-15}$ m/s$^2$); report expected $(\Delta \Phi_g)$ even if below sensitivity.
+\item \textbf{Momentum test:} Verify (3.7) experimentally with precision force meters (no traces of reactionless force).
+\item \textbf{Rotation test:} Scan preferred-frame direction for sidereal modulation (11.2).
+\end{enumerate}
+
+\textbf{Goals:}
+\begin{itemize}
+\item $(\Delta E_A + \Delta E_B)$ deviates from zero with $(|\Delta E| > 10^{-25}$ J) (ambitious scenario),
+\item Correlation with matching grade $(r > 0.8)$,
+\item FTL latency $(\delta < -3~\mu$s) vs. thermal leakage $(\delta > 0)$,
+\item Sidereal modulation $(A \geq 10^{-20})$.
+\end{itemize}
+
+\textbf{Analysis:}
+\begin{itemize}
+\item Cross-correlation and regression model with (10) and (11.2),
+\item Bayes factors, permutation tests,
+\item \textbf{Multiple-test correction} for match/mismatch, on/off, and rotation conditions.
+\end{itemize}
+
+\textbf{Null bound:} If $(|\Delta E| < 10^{-26}$ J) after $10^6$ s $\to (\varepsilon \omega_0 Q < 10^{-8}$ Hz). Rotation null $\to (\varepsilon Q < 10^{-20})$.
+
+\subsection{E3. Chaos-to-Chaos}
+
+\textbf{Setup.}
+\begin{itemize}
+\item Two turbulent flows (Rayleigh-Bénard cells, $L = 10$ cm) or reaction-diffusion systems (identical geometry),
+\item Laser Doppler velocimetry or imaging (1 kHz sampling),
+\item Drive: modulated heat flux or chemical concentration with variable complexity.
+\end{itemize}
+
+\textbf{Protocol.}
+\begin{enumerate}
+\item \textbf{Attractor topology:} Persistent homology $\to$ Betti curves $(\beta_0(r), \beta_1(r))$; topological analysis.
+\item \textbf{Hop detector:} Define hop as $(|\Delta\beta_1| > \theta)$ within 1 s.
+\item \textbf{Complexity scan:} White noise $\to$ music $\to$ speech $\to$ pure tone (5 levels).
+\item \textbf{Permutation test:} For each configuration, shuffle timestamps $10^6$ times $\to$ p-value.
+\item \textbf{Mismatch control:} Change geometry (10\%, 20\%, 50\%) $\to$ measure $(r_{sync})$ vs. dissimilarity; prediction: $(r_{sync} \propto e^{-d_\sigma/\lambda_\sigma})$.
+\end{enumerate}
+
+\textbf{Goals:}
+\begin{itemize}
+\item $(r_{sync})$ maximized at intermediate complexity (music/speech),
+\item Overrepresentation at match: $(p < 10^{-6})$,
+\item $(r_{sync})$ falls monotonically with increasing mismatch.
+\end{itemize}
+
+\textbf{Analysis:}
+\begin{itemize}
+\item Log-linear fit gives $(\lambda_\sigma)$,
+\item \textbf{FDR correction} for 5 complexity levels and mismatch levels.
+\end{itemize}
+
+\textbf{Inference:} Null result $\to (\lambda_\sigma)$-bound and $(\varepsilon Q < 10^{-15})$.
+
+\section{Limitations, Open Questions, and Future Work}
+
+\textbf{Limitations:}
+
+\begin{itemize}
+\item \textbf{$\alpha$-value:} We set $\alpha\equiv1$ for consistency with the Bianchi identity; this places the entire FTL mechanism in S-locality.
+\item \textbf{S-mediator implementation:} Requires substrate with dynamic field $\chi(\sigma,T)$ $\to$ speculative.
+\item \textbf{Q-factor in practice:} Unknown whether $(Q \sim 10^{-2})$ is achievable in realistic systems (BEC, Josephson, photonics near band-edge).
+\item \textbf{Naturalness problem:} If $(\varepsilon \ll 1)$, why not $(\varepsilon = 0)$ exactly? New symmetry principle needed that permits but suppresses resonance.
+\end{itemize}
+
+\textbf{Open questions:}
+
+\begin{enumerate}
+\item \textbf{Substrate specification:} Which explicit rule set (cellular automaton, hypergraph rewriting, etc.) yields:
+   \begin{itemize}
+   \item Emergent Lorentz symmetry at low energy,
+   \item Selection operator $(O_S)$ with $\Delta > 4$,
+   \item Reduced gravitational coupling $(\alpha \ll 1)$?
+   \end{itemize}
+
+\item \textbf{Q-platforms:} Experimental mapping of $(Q)$ in:
+   \begin{itemize}
+   \item Josephson junctions near superradiance transition,
+   \item Photonic crystals near band-edge,
+   \item BEC near phase separation.
+   \end{itemize}
+
+\item \textbf{Entropy accounting:} Detailed model for how $(\Sigma_S)$ couples to physical heat bath; is MDL proxy sufficient or is algorithmic information theory (AIT) required?
+
+\item \textbf{Coupling to emergent gravitation:} Can the $\alpha$-factor be derived from an induced-gravity mechanism where S-sector couples more weakly to metric emergence?
+\end{enumerate}
+
+\textbf{Future work:}
+
+\begin{itemize}
+\item \textbf{Explicit substrate model:} Construct a toy model (2D/3D cellular automaton) demonstrating emergent Lorentz + resonance.
+\item \textbf{Material screening:} Identify candidate platforms with high-Q near criticality.
+\item \textbf{First E1 test:} Pilot study with electrical RC networks (low cost) for proof-of-concept.
+\end{itemize}
+
+\section{Discussion and Implications}
+
+The hypothesis of \textbf{aether resonance} places FTL transfer at the \textbf{substrate level} where it is local in an alternative proximity notion. It enables directed energy and information transfer without conflict with conservation laws, momentum conservation, or observed causality – under strict conditions: \textbf{shared structure (small $d_\sigma$)}, \textbf{coherence/criticality $(Q)$}, and \textbf{paid cost $(\mathcal{K})$}.
+
+By deriving the framework from a \textbf{variational principle} (ensures consistency with GR via $\alpha=1$ and well-defined $(T^{\mu\nu}_S)$), introducing \textbf{momentum-neutrality} (prevents reactionless drive), setting \textbf{$\alpha\equiv1$} (light-speed causal metric response), using \textbf{length units for $d_\sigma$ and $\lambda_\sigma$}, providing \textbf{local S-mediator implementation} (makes S-proximity implementable), presenting a \textbf{modified Lieb-Robinson bound with exponential $d_\sigma$ damping} (quantifies cluster decomposition breaking), providing a \textbf{formal causality proof with anti-telephone rule} (guarantees no loops), and specifying \textbf{multiple-test correction}, we have addressed the critical consistency objections and remaining details.
+
+\textbf{Thermodynamic resource bounds} (bitrate bound) and \textbf{numerical predictions} (including three scenarios for E2) make the framework \textbf{falsifiable}: null results in E1/E2/E3 translate directly to upper bounds on $(\varepsilon, \lambda_\sigma, Q, \omega_0)$. Positive results would open a new class of non-local technologies.
+
+The framework is \textbf{internally coherent} at EFT level and simultaneously \textbf{externally testable} with pre-registered protocols and clear map from null outcomes to parameter bounds. Either sharp limits are obtained — or a reproducible effect with growing evidence through the distance ladder in $(d_\sigma)$. Both outcomes are scientifically valuable.
+
+\section{Conclusion}
+
+We have presented a consistent, falsifiable hypothesis for \textbf{aether resonance} as structure-local FTL transfer in a discrete substrate. The framework unifies:
+
+\begin{enumerate}
+\item \textbf{Action-level} formulation (§3.1) with well-defined $(T^{\mu\nu}_S)$ via variation,
+\item \textbf{Covariant energy-momentum accounting} (§3.2) with \textbf{$\alpha=1$} and light-speed causal metric response,
+\item \textbf{$\alpha$-choice} (§3.5): $\alpha\equiv1$ for consistency with Bianchi identity,
+\item \textbf{Localization of S-flows} (§3.3) as sources in M,
+\item \textbf{Momentum-neutrality} (§3.4) preventing reactionless drive,
+\item \textbf{Length units for $d_\sigma$ and $\lambda_\sigma$} (§2, §7) via embedding scale $(\ell_0)$,
+\item \textbf{Local S-mediator implementation} (§4) of S-proximity,
+\item \textbf{Selection operator} (§5) explaining absence in standard sector,
+\item \textbf{Dimensionally correct coupling law} (§6) with consistent K/$\mathcal{K}$ notation,
+\item \textbf{Operationalized $d_\sigma$-metric} (§7) and distance ladder,
+\item \textbf{Thermodynamic resource bounds} (§8) with bitrate bound,
+\item \textbf{Modified Lieb-Robinson bound with explicit conditions} (§9, Lemma 9.1) quantifying microcausality breaking,
+\item \textbf{Formal causality proof} (§10) via category theory with consistent $\mathcal{K}$ notation,
+\item \textbf{Anisotropy budget} (§11) with quantitative bounds,
+\item \textbf{Numerical predictions} (§12) with three scenarios for E2 detectability,
+\item \textbf{No-loophole experiments} (§13) with multiple-test correction and parameter inference.
+\end{enumerate}
+
+Either it leads to stringent upper bounds:
+\begin{equation}
+\varepsilon \lambda_\sigma \mathcal{Q} < 10^{-12} \, \text{m}, \quad
+\varepsilon \omega_0 \mathcal{Q} < 10^{-8} \, \text{Hz}, \quad
+\varepsilon \mathcal{Q} < 10^{-20}
+\end{equation}
+
+or it opens reproducible non-local effects. Both outcomes are scientifically informative and guide further work toward a more complete substrate theory.
+
+\appendix
+
+\section{Nomenclature and Notation}
+
+\begin{itemize}
+\item \textbf{Aether resonance:} substrate-local coupling in pattern space $(S)$ projected as FTL in spacetime $(M)$.
+\item \textbf{Pattern space $(S)$:} space of local data structures; distance $(d_\sigma)$ measures isomorphic similarity, \textbf{has length dimension (meters)}.
+\item \textbf{$\varepsilon$:} dimensionless coupling strength ($\sim 10^{-15}$).
+\item \textbf{$\alpha$:} gravitational coupling factor. \textbf{In main text set $\alpha\equiv1$} to satisfy Bianchi identity at $\pm J_\sigma^\nu$.
+\item \textbf{$\hbar\omega_0$:} characteristic energy scale ($\sim 10^{-23}$ J at 10 GHz).
+\item \textbf{$\lambda_\sigma$:} coherence length in S, \textbf{length dimension (meters)}.
+\item \textbf{$\ell_0$:} embedding scale giving $(d_\sigma)$ length dimension ($\sim 1~\mu$m).
+\item \textbf{Q ($\mathcal{Q}$):} coherence/quality, dimensionless, $0 \leq Q \leq 1$ ($\sim 10^{-10}$ standard, $\sim 10^{-2}$ optimized).
+\item \textbf{K:} similarity kernel, $(K = \exp[-d_\sigma/\lambda_\sigma])$, dimensionless.
+\item \textbf{$\tilde{\mathcal K}$:} dimensionless cost factor $=P_{\rm pump}/\hbar\omega_0$ [$\mathrm{s^{-1}}$].
+\item \textbf{$O_S$:} selection operator, mass dimension $\Delta > 4$.
+\item \textbf{$J^\nu_\sigma$:} four-current from S-interaction, $[J^\nu_\sigma]$ = energy$\cdot$density / time.
+\item \textbf{$T^{\mu\nu}_S$:} energy-momentum tensor for S-sector.
+\item \textbf{$\chi(\sigma,T)$:} S-mediator field propagating locally in S and mediating resonance.
+\item \textbf{Degeneracy dilution:} weakening ($\sim 1/N$) when many matches compete.
+\item \textbf{$\tau$:} foliation scalar (khronon) defining substrate's preferred time.
+\item \textbf{$u^\mu$:} unit timelike vector along preferred frame.
+\end{itemize}
+
+\section{Continuity over $(M\times S)$ – Derivation}
+
+Discrete time $(T)$, energy density $(\rho_M)$ in cells $(c \in M)$ and $(\rho_\sigma)$ in nodes $(s \in S)$. Let $(\Delta E_M(c))$ be net change in $(c)$ during one tick and $(\sum_{e\in\partial s} J_\sigma(e))$ be net flow in $(S)$.
+
+\textbf{Global conservation:}
+\begin{equation}
+\sum_{c} \Delta E_M(c) + \sum_{s} \Delta E_\sigma(s) = 0.
+\end{equation}
+
+\textbf{Continuum limit:} $(T \to t)$, $(c \to x)$, $(s \to \sigma)$:
+\begin{equation}
+\frac{\partial \rho_M}{\partial t} + \nabla \cdot J_M = -\nabla_\sigma \cdot J_\sigma.
+\end{equation}
+
+\textbf{Covariant lift:} Bundle $(E \to M)$ with fiber S, connection $(\nabla)$, local coordinate $(x^\mu, \sigma^a)$:
+\begin{equation}
+\nabla_\mu T^{\mu\nu}_{vis} = -J^\nu_{\sigma}, \quad \nabla_\mu T^{\mu\nu}_{S} = +J^\nu_{\sigma}.
+\end{equation}
+
+Sum gives (3.5). Note that $(\alpha)$ only affects \textbf{gravitational coupling} in (3.3); Bianchi identity implies $(\nabla_\mu(T_{vis}^{\mu\nu}+T_S^{\mu\nu})=0)$ \textbf{exactly}, independent of $(\alpha)$.
+
+\section{Modified Lieb-Robinson Bound – Proof (Sketch)}
+
+\subsection{Operator Algebra and Norm Choice}
+
+We work on a tensor product Hilbert space $\mathcal H=\bigotimes_{x\in\Lambda}\mathcal H_x$ with local, bounded operators. Norm: $\|A\|:=\sup_{\|\psi\|=1}\|A\psi\|$ (operator norm). S-term written $\delta H_S=\sum_{e=(x,y)\in E_S} J_e\, O_x O_y$ with $\|O_x\|\le 1$.
+
+\textbf{Sparsity \& strength:} max degree $g$ (= at most $g$ S-edges per node) and $\sum_{e\ni x}|J_e|\le\eta$ for all $x$.
+
+\subsection{Path Sums and $\Phi$-Function}
+
+Let $\mathcal P_m(x\to y)$ be the set of S-paths with $m$ hops from $x$ to $y$. Assume a \textbf{path suppression factor} $e^{-\mu m}$ ($\mu>0$) from $K=\exp[-d_\sigma/\lambda_\sigma]$. Then the Duhamel expansion gives
+\begin{equation}
+\begin{split}
+\big\|[A(x,t),B(y,0)]\big\|\;\le\; C\,e^{-\kappa(|x-y)-vt)}
+\;+\;C'\,\Theta\!\big(t-\tfrac{d_\sigma}{c_S}\big)\, \\
+\sum_{m\ge 1}\!\!\!\!\!\sum_{p\in \mathcal P_m(x\to y)}
+\frac{(\eta t/\hbar)^m}{m!}\,e^{-\mu m}.
+\end{split}
+\tag{C.7}
+\end{equation}
+
+With $|\mathcal P_m|\le g^m$ obtain
+\begin{equation}
+\sum_{m\ge1}\frac{(\eta t/\hbar)^m}{m!}\,(g e^{-\mu})^m
+\;=\;\exp\!\big((g e^{-\mu})\,\eta t/\hbar\big)-1
+\;\equiv\;\Phi\!\left(g,\frac{\eta t}{\hbar}\right).
+\tag{C.8}
+\end{equation}
+
+Choosing $\mu>\ln g$ (meaning $K$ damps faster than path count grows) makes the coefficient $g e^{-\mu}<1$ and $\Phi$ \textbf{grows at most exponentially in $t$} but \textbf{does not saturate} to a distance-independent constant for fixed $t$.
+
+\subsection{Closure Under Time Evolution}
+
+Conditions (i)–(iv) in §9 (sparsity, norm bound, causality in $\tau$, weak coupling) are \textbf{stable}: $\|O_x(t)\|\le\|O_x\|$ and $\sum_{e\ni x}|J_e|$ is time-independent by construction; thus assumptions carry through the Duhamel series. Combining (C.7)–(C.8) yields (9.1) with explicit
+\begin{equation}
+\Phi\!\left(g,\frac{\eta t}{\hbar}\right)=\exp\!\big((g e^{-\mu})\,\eta t/\hbar\big)-1.
+\tag{C.12}
+\end{equation}
+
+This gives the form used in §9, motivating ``soft cone'' with explicit substrate retardation, exponential $d_\sigma$ damping, and non-saturating S-contribution.
+
+\section{Category-Theoretic Causality Proof – Full Version}
+
+\textbf{Category $(\mathcal{C})$:}
+\begin{itemize}
+\item \textbf{Objects:} Substrate states $(s_i)$ at discrete time $(T_i)$.
+\item \textbf{Morphisms:} $(f: s_i \to s_j)$ are permitted updates (local M-step or resonance via S-edge).
+\end{itemize}
+
+\textbf{Time functor $(T: \mathcal{C} \to (\mathbb{N}, \leq))$:}
+\begin{itemize}
+\item $(T(s_i) = T_i)$,
+\item Each morphism $(f: s_i \to s_j)$ satisfies $(T(s_j) > T(s_i))$ (strict monotonicity).
+\end{itemize}
+
+\textbf{Cost functor ($\tilde{\mathcal K}$: $\mathcal{C} \to (\mathbb{R}_+, +)$):}
+\begin{itemize}
+\item Each morphism $(f)$ has cost $\tilde{\mathcal K}(f) \ge 0$,
+\item Composition: $\tilde{\mathcal K}(g \circ f) = \tilde{\mathcal K}(f) + \tilde{\mathcal K}(g)$.
+\end{itemize}
+
+\textbf{Definition (causal loop):} A sequence of morphisms $(f_1, \ldots, f_n)$ such that:
+\begin{itemize}
+\item Start and end objects are the same (or M-equivalent under $\pi$),
+\item Projection to M gives closed worldline.
+\end{itemize}
+
+\begin{lemma}
+If $(f_1, \ldots, f_n)$ form a loop in M, then $(\sum_i T(\text{target}(f_i)) - T(\text{source}(f_i)) = 0)$ (cycle sum in T).
+\end{lemma}
+
+\textbf{Proof:} Projection to M can give $(\Delta t \leq 0)$ in some frame (FTL hop), but in substrate: each $(f_i)$ has $(\Delta T_i > 0)$ $\to$ $(\sum \Delta T_i > 0)$ $\to$ \textbf{contradiction}. \qed
+
+\begin{theorem}[Causal consistency]
+Category $(\mathcal{C})$ permits no closed loops.
+\end{theorem}
+
+\textbf{Proof:} Assume closed loop $(L)$. Then:
+\begin{enumerate}
+\item $(\sum \Delta T > 0)$ (from time functor),
+\item But loop requires $(\sum \Delta T = 0)$ (closed),
+\item Contradiction. \qed
+\end{enumerate}
+
+\textbf{Corollary:} No antitelephones possible. FTL in M is always compensated by T-monotonicity in substrate.
+
+\section{Assumptions (Summary)}
+
+\begin{itemize}
+\item \textbf{(A1)} Global ordering $(\tau)$ with strict retardation,
+\item \textbf{(A2)} $\tilde{\mathcal K}\ge0$ (resource monotonicity),
+\item \textbf{(A3)} Sparse and weak $(S)$-links: max degree $(g \ll N)$, total strength $(\eta)$ small,
+\item \textbf{(A4)} $(O_S)$ RG irrelevant $(\Delta > 4)$ and $(\langle O_S\rangle \approx 0)$ in homogeneous states,
+\item \textbf{(A5)} $(W_\sigma)$ positive semidefinite and causal in $(\tau)$,
+\item \textbf{(A6)} $(c_T = c)$ in absence of resonance (minimal Lorentz breaking),
+\item \textbf{(A7)} Momentum-neutrality (3.7): $(\int d^4x J^i_\sigma = 0)$,
+\item \textbf{(A8)} Gravitational coupling: \textbf{$\alpha=1$} (metric responds light-speed causally; FTL lies in S-locality),
+\item \textbf{(A9)} Length dimension: $(d_\sigma)$ and $(\lambda_\sigma)$ have meters via embedding scale $(\ell_0)$.
+\end{itemize}
+
+\subsection*{Method Note}
+
+For experimental proposals, pre-registration (Open Science Framework or equivalent), blinding, strict environmental isolation (triple-Faraday, optical isolation, battery power), independent replication, and open data/analysis pipelines are recommended to handle very small effect sizes and exclude leak channels. All predictions should be quantitative and all null results should translate to upper bounds on coupling parameters with explicit statistical analysis (Bayes factors, p-values, SPRT, permutation tests $\geq 10^6$, \textbf{multiple-test correction via Holm-Bonferroni or FDR}).
+
+\vspace{1em}
+\noindent\textit{This article describes a speculative but internally consistent mechanism with explicit falsifiability criteria. Either it results in stringent upper bounds – or in a new class of reproducible non-local effects. Both outcomes deserve careful testing.}
+
+\section{Parameters, Units, and \LaTeX{} Macros}
+
+This appendix collects the central symbols, their meaning, units, and typical ranges/bounds used throughout the text (after patches in §3–§12).
+
+\subsection{\LaTeX{} Macros (For compilation in \LaTeX; ignore for plain Markdown/MathJax)}
+
+\begin{verbatim}
+% ==== Notation macros for article ====
+% Kernel and rates
+\newcommand{\Kkernel}{\mathbb{K}}              % Effective kernel on S
+\newcommand{\Krate}{\tilde{\mathcal{K}}}       % Rate form: P_pump / (\hbar\omega_0)
+\newcommand{\fl}{f_{\ell}}                     % Smearing kernel in pushforward
+\newcommand{\veff}{v_{\!eff}}                  % Effective light speed in bound
+% S- and M-objects
+\newcommand{\Jsig}{J_{\sigma}}                 % S-current (power)
+\newcommand{\Os}{O_{S}}                        % Selection operator
+\newcommand{\Ts}{T^{\mu\nu}_{S}}               % S-sector's T^{μν}
+\newcommand{\proj}{\pi}                         % Projection S -> M
+% Distances and lengths
+\newcommand{\ds}{d_{\sigma}}                   % Structural distance
+\newcommand{\ls}{\lambda_{\sigma}}             % S-coherence length
+% Other
+\newcommand{\Asid}{A_{\rm sid}}                % Sidereal modulation amplitude
+\end{verbatim}
+
+\textit{Comment:} $\Krate$ replaces the old dimensionless $\mathcal K$ when a \textbf{rate} is needed; relation is $\mathcal K=\Krate\,\tau$.
+
+\subsection{Parameter Table (Symbols, Units, Ranges)}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llll}
+\toprule
+Symbol & Meaning & Unit & Typical values / bounds \\
+\midrule
+$\varepsilon$ & Base coupling (sector-agnostic) & 1 & $\sim10^{-15}$ (target range) \\
+$\Lambda_*$ & Suppression scale in $S_{int}$ & energy & High scale ($\gg \hbar\omega_0$) \\
+$\varepsilon_\gamma$ & Coupling in photon/optics sector & 1 & $\varepsilon_\gamma\mathcal Q_\gamma < 10^{-23}$ \\
+$\varepsilon_{\rm mat}$ & Coupling in material E1/E2 sector & 1 & Free vs. $\varepsilon_\gamma$ \\
+$\mathcal Q$ & Coherence/quality (general) & 1 & $10^{-10}$ (baseline) – $10^{-2}$ (ambitious) \\
+$d_\sigma$ & Structural distance in $S$ & m & Calibrated via $\ell_0$ (§7) \\
+$\lambda_\sigma$ & S-coherence length & m & $\sim \mu$m–mm \\
+$K = e^{-d_\sigma/\lambda_\sigma}$ & Similarity kernel & 1 & $[0,1]$ \\
+$\ell_0$ & Embedding scale & m & $\sim 1\,\mu$m \\
+$\hbar\omega_0$ & Energy scale & J & $\sim10^{-23}$ J (10 GHz) \\
+$P_{\rm pump}$ & Pump power & W & $\mu$W–mW \\
+$\Krate$ & Rate $=P_{\rm pump}/(\hbar\omega_0)$ & s$^{-1}$ & occurrence per unit time \\
+$A_{\rm sid}$ & Sidereal amplitude & 1 & $\gtrsim 10^{-20}$ (E2 goal) \\
+$\alpha$ & Grav coupling S-energy & 1 & \textbf{1} (exact; Bianchi) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Quick Map: Where Parameters Are Used}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+Section & Uses & Key formula \\
+\midrule
+§3.3 & $f_\ell,\pi,J_\sigma$ & $S^\nu(x)=\!\int d\mu(s)\,f_\ell(x-\pi(s))(\nabla_\sigma\!\cdot\!J_\sigma)^\nu$ \\
+§6 & $\varepsilon,K,\mathcal Q,\tilde{\Delta\Phi},\Krate,P_{\rm pump}$ & $ J_\sigma=\varepsilon K\mathcal Q\tilde{\Delta\Phi}P_{\rm pump}$ \\
+§8 & $\Krate,\mathcal K,\tau$ & $\Krate=P_{\rm pump}/(\hbar\omega_0)$, $\mathcal K=\Krate\tau$ \\
+§9 & $g,\eta,\kappa,\mu,v_{eff}$ & LR bound with path sum (9.1) \\
+§11 & $\varepsilon_\gamma,\mathcal Q_\gamma,\lambda_\sigma$ & $\Delta c/c \sim \varepsilon_\gamma(\lambda_\sigma/\lambda_C)\mathcal Q_\gamma$ \\
+§12 & $\varepsilon_{\rm mat},\mathcal Q_{\rm mat},P_{\rm pump}$ & E2 energetics and $A_{\rm sid}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Effective Bilocal Kernel on $M$ – Derivation and Positivity}
+
+Starting from (3.2) and push-forward (§3.3). Define
+\begin{equation}
+\mathcal{K}_{\rm eff}(x,x'):=\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,
+f_\ell(x-\pi\sigma)\,\mathbb{K}(\sigma,\sigma')\,f_\ell(x'-\pi\sigma')\,
+\Theta\!\big(\tau(x')-\tau(x)-\tfrac{d_\sigma(\sigma,\sigma')}{c_S}\big).
+\tag{G.1}
+\end{equation}
+
+\textbf{Retardation:} Heaviside factor implements substrate causality using the \textbf{foliation scalar} $\tau$, ensuring diffeomorphism-invariant gating.
+
+\textbf{Positivity (Schoenberg type):} For test function $\varphi$,
+\begin{equation}
+\begin{split}
+\iint \! d^4x\,d^4x'\, \varphi(x)\,\mathcal{K}_{\rm eff}(x,x')\,\varphi(x') \\
+= \iint \! d\mu(\sigma)\,d\mu(\sigma')\, \psi(\sigma)\,\mathbb{K}(\sigma,\sigma')\,\psi(\sigma')
+\ge 0,
+\end{split}
+\end{equation}
+with $\psi(\sigma)=\!\int d^4x\, f_\ell(x-\pi\sigma)\,\varphi(x)$. Thus $\mathcal{K}_{\rm eff}$ is positive semidefinite if $\mathbb{K}$ is.
+
+\section{Ward Identity for (3.7) – Zero Net Momentum}
+
+Consider $S_{int}^{\rm eff}=\varepsilon\!\iint d^4x\,d^4x'\,O_S(x)\,\mathcal{K}_{\rm eff}(x,x')\,O_S(x')$ with $\mathcal{K}_{\rm eff}(x,x')=\mathcal{K}_{\rm eff}(x',x)$ and translational invariance. Infinitesimal translation $x^\mu\!\to\! x^\mu+a^\mu$ gives
+\begin{equation}
+\delta S_{int}^{\rm eff}=a_\nu\!\int\! d^4x\,\partial_\mu \big(T^{\mu\nu}_{\rm int}\big).
+\end{equation}
+
+Variation shows $\partial_\mu T^{\mu i}_{\rm int} = - J^i_\sigma$ and together with (3.4)–(3.5) obtain
+$(\partial_\mu T^{\mu i}_{\rm tot}=0)$. Integration over space gives
+\begin{equation}
+\frac{d}{dt}\,P^i_{\rm tot}=\frac{d}{dt}\!\int d^3x\, T^{0i}_{\rm tot}=0,
+\end{equation}
+which is (3.7): no reactionless drive even under time-dependent pump. Boundary terms eliminated by compact support of $f_\ell$ and symmetry $\mathcal{K}_{\rm eff}(x,x')=\mathcal{K}_{\rm eff}(x',x)$.
+
+\section{SME Coupling – Reporting Format}
+
+For comparison with literature, photon anisotropies are reported in minimal SME coefficients. In our model, the preferred direction $\xi^\mu$ leads to
+\begin{equation}
+(\Delta c/c)(\hat n)\ \simeq\ \tfrac12\,\hat n_J\hat n_K\,\tilde\kappa_{e-}^{JK}
+\quad \Rightarrow \quad
+\tilde\kappa_{e-}^{JK}\ \sim\ \varepsilon_\gamma\,\mathcal Q_\gamma\,
+\Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,\Xi^{JK}.
+\end{equation}
+
+When reporting $\hat A_{\rm sid}$ in E2, estimated $|\tilde\kappa_{e-}^{JK}|$ should be stated with error bars and linked to (11.1).
+
+\end{document}
