@@ -1,0 +1,311 @@
+\section{How to Actually Do the Experiments}
+
+\begin{quote}
+\textbf{Core Concept:} Science requires reproducibility and rigor. Here's exactly how to test this, avoiding loopholes.
+\end{quote}
+
+\subsection{Statistical Method (Crucial!)}
+
+\textbf{Pre-registration:}\\
+All protocols \textbf{must} be pre-registered on Open Science Framework (OSF) or equivalent:
+\begin{itemize}
+\item Publish hash (SHA-256) of analysis code + decision rules \textbf{before} data collection
+\item Timestamp proves you committed in advance
+\item Prevents ``p-hacking'' (trying many analyses until something looks significant)
+\end{itemize}
+
+\textbf{Multiple comparisons:}\\
+We're doing many tests (6 distance levels, 3 experiments, multiple conditions). This multiplies chances of false positives.
+
+\textbf{Solution:} \textbf{Holm-Bonferroni correction} or \textbf{FDR (false discovery rate) correction}
+\begin{itemize}
+\item Adjust significance thresholds to control family-wise error rate at $\alpha = 0.05$
+\item Example: If testing 6 levels, first test must pass $p < 0.05/6 \approx 0.008$; second $p < 0.05/5 = 0.01$; etc.
+\end{itemize}
+
+\textbf{Distance ladder as blind pilot:}\\
+The \S7.3 calibration is run as a \textbf{separate blind experiment} with its own OSF DOI:
+\begin{itemize}
+\item Level labels (0-5) are assigned randomly and sealed
+\item Analysis performed without knowing which is which
+\item After freezing ($\lambda_\sigma$, $\ell_0$), reveal labels
+\item Use calibrated values in main experiments E1-E3
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{E1: Neuromorphic Ansible (Information)}
+
+\textbf{Full Protocol:}
+
+\textbf{1. Apparatus:}
+\begin{itemize}
+\item Two photonic or electronic reservoir computing networks
+  \begin{itemize}
+  \item $N \sim 1000$ nodes (interconnected nonlinear elements)
+  \item 3D architecture (not planar - maximizes structural degrees of freedom)
+  \end{itemize}
+\item Training: Identical dataset (MNIST digits, spoken words, or video clips)
+\item Isolation:
+  \begin{itemize}
+  \item \textbf{Triple Faraday cage} (nested metal shells, grounded independently)
+  \item Optical isolation (fiber-air-gap with optical isolators, no line-of-sight)
+  \item Battery power (no shared AC mains)
+  \end{itemize}
+\item Timing:
+  \begin{itemize}
+  \item Independent atomic clocks (GPS-disciplined or crystal OCXO, jitter $< 1$ ns)
+  \item Log all timestamps
+  \end{itemize}
+\item Separation: $> 1$ km (light-travel time $> 3$ $\mu$s for spacelike separation)
+\end{itemize}
+
+\textbf{2. Pre-commitment (Commit-Reveal):}
+\begin{itemize}
+\item Generate codebook (test inputs + expected reservoir states)
+\item Compute SHA-256 hash
+\item Publish hash on public blockchain or timestamping service
+\item \textbf{Lock it in} before experiment starts
+\end{itemize}
+
+\textbf{3. Distance Ladder (Blind Pilot - Step 1a):}
+\begin{itemize}
+\item Create 6 versions of network B with controlled $d_\sigma$ (transformations from \S7.3)
+\item Assign random labels ``X1'' through ``X6'' (blinded)
+\item Run $10^9$ bits with each
+\item Seal results
+\item Fit $K = \exp[-d_\sigma/\lambda_\sigma]$ to extract ($\lambda_\sigma$, $\ell_0$)
+\item \textbf{Freeze these values} before main run
+\item Reveal labels only after analysis
+\end{itemize}
+
+\textbf{4. Delayed Choice:}
+\begin{itemize}
+\item After commit, use QRNG to select:
+  \begin{itemize}
+  \item Which test inputs to use
+  \item Timing of sends
+  \end{itemize}
+\item QRNG output is truly random (quantum measurement - not predictable)
+\item Ensures sender couldn't have pre-arranged signals
+\end{itemize}
+
+\textbf{5. Main Run:}
+\begin{itemize}
+\item Test each distance level (0-5) with $10^9$ bits
+\item Network A shown input $\to$ Internal state evolves
+\item Network B not shown input $\to$ Internal state evolves independently (ideally)
+\item Log full state trajectories at both sites
+\end{itemize}
+
+\textbf{6. Sham Blocks:}
+\begin{itemize}
+\item 20\% of blocks: Sender is \textbf{off} (not actually shown input, or shown blank)
+\item Receiver doesn't know which blocks are sham
+\item Tests for false positives (``ghost correlations'')
+\end{itemize}
+
+\textbf{7. Cosmic Veto:}
+\begin{itemize}
+\item Muon detectors at both sites
+\item If cosmic ray shower ($N_\mu > 10 / m^2 / s$), reject that data block
+\item Prevents spurious correlations from shared environmental events
+\end{itemize}
+
+\textbf{8. Analysis:}
+\begin{itemize}
+\item Compute BER per level
+\item Calculate cross-correlation function: $C(\tau) = \langle x_A(t) x_B(t+\tau) \rangle$
+\item Compute coherence (frequency-domain correlation)
+\item \textbf{Bayes factor:} $P$(resonance $|$ data) / $P$(chance $|$ data)
+  \begin{itemize}
+  \item BF $> 100$: Strong evidence for resonance
+  \item BF $< 1/100$: Strong evidence against
+  \end{itemize}
+\item \textbf{SPRT (Sequential Probability Ratio Test):} Allow early stopping if overwhelming evidence
+\item \textbf{Permutation test:} Shuffle timestamps $10^6$ times, compute null distribution, get p-value
+\item \textbf{Holm-Bonferroni correction} for 6 levels
+\end{itemize}
+
+\textbf{9. Goal:}\\
+$\Delta BER \sim 10^{-3}$ (match vs. mismatch) with cross-correlation as primary statistic, $p < 10^{-6}$ (corrected).
+
+\textbf{10. Inference:}\\
+Null result $\to$ $\varepsilon \lambda_\sigma \mathcal{Q} < 10^{-12}$ m via (8.3)-(8.4).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{E2: Energy Tunnel (Energy)}
+
+\textbf{Full Protocol:}
+
+\textbf{1. Apparatus:}
+\begin{itemize}
+\item Two identical superconducting microwave cavities or metamaterial resonators
+  \begin{itemize}
+  \item Quality factor: $Q_{cav} \sim 10^6$ (very low loss)
+  \item Resonant frequency: $f_0 \sim 10$ GHz
+  \end{itemize}
+\item Cryogenics:
+  \begin{itemize}
+  \item Dilution refrigerator, $T \sim 10$ mK
+  \item Thermometry: Transition-edge sensors (TES), $\delta T \sim 0.1$ $\mu$K $\to$ $\delta E \sim 10^{-26}$ J
+  \end{itemize}
+\item Separation: $> 1$ km (spacelike)
+\item Rotation platform: 0.1 rpm (full rotation in $\sim$10 minutes - scan preferred frame direction)
+\end{itemize}
+
+\textbf{2. Matching Test:}
+\begin{itemize}
+\item Vary internal geometry (antenna position, boundary conditions):
+  \begin{itemize}
+  \item 0\% match: Different geometry
+  \item 50\% match: Similar but not identical
+  \item 100\% match: Identical to fabrication tolerances
+  \end{itemize}
+\item Predict: Correlation $\propto \exp[-d_\sigma/\lambda_\sigma]$, stronger for better match
+\end{itemize}
+
+\textbf{3. Pump Modulation:}
+\begin{itemize}
+\item Cavity A: Pump with $P_{pump} = 1$ $\mu$W, modulated on/off with 100 s period
+\item Cavity B: Below threshold (no pump), just monitor
+\item Expectation: B's temperature anti-correlates with A's pump
+\end{itemize}
+
+\textbf{4. Phase-Locking On/Off:}
+\begin{itemize}
+\item \textbf{On:} Drive A with phase-locked source (high coherence)
+\item \textbf{Off:} Drive A with incoherent source (low coherence)
+\item Predict: Correlation only in ``On'' condition (tests coherence dependence)
+\end{itemize}
+
+\textbf{5. Latency Scan:}
+\begin{itemize}
+\item Correlate $\Delta T_B(t)$ with $P_A(t - \delta)$
+\item Scan $\delta \in [-10 \mu s, +10 \mu s]$
+\item \textbf{FTL signal:} Peak at $\delta < -3$ $\mu$s (negative lag - B responds before A's signal could arrive at light speed)
+\item \textbf{Thermal leakage:} Peak at $\delta > 0$ (positive lag - B warms after A's heat arrives)
+\end{itemize}
+
+\textbf{6. Momentum Test:}
+\begin{itemize}
+\item Precision force meters (laser interferometry or capacitive sensors)
+\item Verify equation (3.7): $\int J^i_\sigma d^4x = 0$
+\item Predict: Zero net force on combined system A + B
+\item Tests momentum-neutrality
+\end{itemize}
+
+\textbf{7. Rotation Test (Sidereal Modulation):}
+\begin{itemize}
+\item Mount both cavities on rotating platform (or use Earth's rotation)
+\item Scan direction relative to preferred frame
+\item Measure $J_\sigma(t)$ over many sidereal days
+\item Fit: $J_\sigma(t) = J_0 (1 + A \cos(2\pi t/T_{sid} + \phi))$
+\item Extract amplitude $A$ and phase $\phi$
+\item Compare to prediction (11.5), (12.4)
+\end{itemize}
+
+\textbf{8. Goals:}
+\begin{itemize}
+\item $|\Delta E| > 10^{-25}$ J (ambitious scenario, $\mathcal{Q} \sim 10^{-2}$)
+\item Correlation with matching: $r > 0.8$
+\item FTL latency: $\delta < -3$ $\mu$s vs. thermal $\delta > 0$
+\item Sidereal modulation: $A \geq 10^{-20}$
+\end{itemize}
+
+\textbf{9. Analysis:}
+\begin{itemize}
+\item Cross-correlation and regression with models (12.2) and (11.5)
+\item Bayes factors, permutation tests
+\item \textbf{Multiple-test correction} for match/mismatch, on/off, rotation conditions
+\end{itemize}
+
+\textbf{10. Null bounds:}
+\begin{itemize}
+\item If $|\Delta E| < 10^{-26}$ J after $10^6$ s: $\varepsilon \omega_0 \mathcal{Q} < 10^{-8}$ Hz
+\item If $\hat{A}_{sid} < 10^{-20}$: $\varepsilon_{mat} \mathcal{Q}_{mat} < 10^{-20}$
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{E3: Chaos-to-Chaos}
+
+\textbf{Full Protocol:}
+
+\textbf{1. Apparatus:}
+\begin{itemize}
+\item Two turbulent flows (Rayleigh-Bénard cells) or reaction-diffusion systems
+  \begin{itemize}
+  \item Dimensions: $L = 10$ cm (human-scale, convenient)
+  \item Identical geometry (fabricated from same mold)
+  \end{itemize}
+\item Diagnostics:
+  \begin{itemize}
+  \item Laser Doppler velocimetry (LDV) for flows
+  \item Or high-speed imaging (1 kHz) for reaction-diffusion
+  \end{itemize}
+\item Drive: Modulated heat flux (for convection) or chemical concentration (for reaction-diffusion)
+\end{itemize}
+
+\textbf{2. Attractor Topology:}
+\begin{itemize}
+\item Use \textbf{persistent homology} (topological data analysis):
+  \begin{itemize}
+  \item Reconstruct phase space from time series (delay embedding)
+  \item Compute Betti numbers: $\beta_0$ (connected components), $\beta_1$ (loops/holes)
+  \item Plot Betti curves vs. filtration parameter $r$
+  \end{itemize}
+\end{itemize}
+
+\textbf{3. Hop Detector:}
+\begin{itemize}
+\item Define ``attractor hop'': $|\Delta\beta_1| > \theta$ within 1 second (sudden change in topology)
+\item Measure: $r_{sync}$ = rate of simultaneous hops in both systems
+\item Null hypothesis: $r_{sync} = r_A \times r_B$ (independent - product of individual rates)
+\end{itemize}
+
+\textbf{4. Complexity Scan:}\\
+Five drive complexities:
+\begin{itemize}
+\item Level 1: Pure sine wave ($\Sigma \sim 0$)
+\item Level 2: Chord progression ($\Sigma \sim 2$ bits/sample)
+\item Level 3: Music or speech ($\Sigma \sim 5$ bits/sample) $\leftarrow$ \textbf{Expected peak}
+\item Level 4: Music with noise ($\Sigma \sim 8$ bits/sample)
+\item Level 5: White noise ($\Sigma \to \infty$)
+\end{itemize}
+
+\textbf{5. Permutation Test:}
+\begin{itemize}
+\item For each configuration, shuffle timestamps $10^6$ times
+\item Generate null distribution of $r_{sync}$
+\item Compute p-value: fraction of shuffles with $r_{sync} \geq$ observed
+\item Reject null if $p < 10^{-6}$ (with FDR correction)
+\end{itemize}
+
+\textbf{6. Mismatch Control:}
+\begin{itemize}
+\item Vary geometry: 0\% (identical), 10\%, 20\%, 50\% different
+\item Measure $d_\sigma$ using metric (7.1)
+\item Predict: $r_{sync} \propto \exp[-d_\sigma/\lambda_\sigma]$
+\item Fit exponential decay to extract $\lambda_\sigma$
+\end{itemize}
+
+\textbf{7. Goals:}
+\begin{itemize}
+\item $r_{sync}$ maximized at $\Sigma \sim \Sigma_{opt}$ (intermediate complexity)
+\item Overrepresentation at match: $p < 10^{-6}$
+\item $r_{sync}$ falls monotonically with mismatch
+\end{itemize}
+
+\textbf{8. Analysis:}
+\begin{itemize}
+\item Log-linear fit: $\ln(r_{sync})$ vs. $d_\sigma$ $\to$ extract $\lambda_\sigma$
+\item \textbf{FDR correction} for 5 complexity levels + mismatch levels
+\end{itemize}
+
+\textbf{9. Inference:}\\
+Null result $\to$ $\lambda_\sigma$ bound and $\varepsilon \mathcal{Q} < 10^{-15}$.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+

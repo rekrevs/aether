@@ -1,0 +1,114 @@
+\section{Dimensional Analysis: Getting the Numbers Right}
+
+\begin{quote}
+\textbf{Core Concept:} Physics has units. Every equation must dimensionally balance. Let's make sure our theory does.
+\end{quote}
+
+\subsection{The Power Form (Clean Formulation)}
+
+The flow of energy through a substrate edge is:
+
+\begin{equation}
+P_\sigma(e)
+= \varepsilon\,K(e)\,\mathcal{Q}(e,t)\,\tilde{\Delta\Phi}(e)\,P_{\rm pump}(e) \quad (\text{units: W}).
+\tag{6.1}
+\end{equation}
+
+\textbf{Unpacking the pieces:}
+
+\textbf{$P_\sigma(e)$:} The power flowing through edge $e$ in pattern space
+\begin{itemize}
+\item Units: Watts (Joules/second)
+\item This is observable energy transfer per time
+\end{itemize}
+
+\textbf{$\varepsilon$:} Dimensionless coupling constant
+\begin{itemize}
+\item No units
+\item Tiny: $\sim 10^{-15}$
+\item Controls overall strength
+\end{itemize}
+
+\textbf{$K(e) = \exp[-d_\sigma/\lambda_\sigma]$:} Similarity kernel
+\begin{itemize}
+\item Dimensionless (exponent of dimensionless ratio)
+\item Range: $[0, 1]$
+\item $K \approx 1$ for nearly identical patterns ($d_\sigma \ll \lambda_\sigma$)
+\item $K \approx 0$ for very different patterns ($d_\sigma \gg \lambda_\sigma$)
+\end{itemize}
+
+\textbf{$\mathcal{Q}(e,t)$:} Coherence/quality factor
+\begin{itemize}
+\item Dimensionless
+\item Range: $[0, 1]$
+\item Measures ``how good is this edge as a resonator?''
+\item $\sim 10^{-10}$ for typical systems (very lossy)
+\item $\sim 10^{-2}$ for optimized systems near criticality (still lossy)
+\end{itemize}
+
+\textbf{$\tilde{\Delta\Phi}(e)$:} Normalized free-energy difference
+\begin{itemize}
+\item Dimensionless
+\item Typically $\sim 1$ (order unity)
+\item Drives the direction of flow (high potential $\to$ low potential)
+\end{itemize}
+
+\textbf{$P_{pump}(e)$:} Pump power supplied
+\begin{itemize}
+\item Units: Watts
+\item This is the knob you turn
+\item Measurable with ordinary instruments
+\end{itemize}
+
+\textbf{Unit check:}\\
+$[P_\sigma] = 1 \times 1 \times 1 \times 1 \times W = W$ \checkmark
+
+Everything balances. The flow $P_\sigma$ has units of power, as required.
+
+\subsection{Alternative Formulation (Rate Form)}
+
+For comparison, we can write:
+
+$P_\sigma = \varepsilon \hbar\omega_0 K \mathcal{Q} \Krate \tilde{\Delta\Phi}$
+
+where:
+\begin{itemize}
+\item $\Krate := P_{pump}/(\hbar\omega_0)$ has units $s^{-1}$ (a rate)
+\item $\hbar\omega_0 \sim 10^{-23}$ J is a characteristic energy scale
+\end{itemize}
+
+This is equivalent, just factoring out the energy quantum $\hbar\omega_0$.
+
+\emph{Mental model:} $\Krate$ represents ``how many quanta per second are being pumped.''
+
+\subsection{Degeneracy Dilution (Again)}
+
+For a periodic system with $N$ equivalent matchings:
+
+$P_\sigma \to P_\sigma / N$
+
+\textbf{Example: Cubic lattice}
+\begin{itemize}
+\item Volume: $V$
+\item Lattice spacing: $a$
+\item Number of sites: $N \sim V/a^3$
+\end{itemize}
+
+As $V \to \infty$, $N \to \infty$, so $P_\sigma \to 0$.
+
+\textbf{This explains absence in:}
+\begin{itemize}
+\item Bulk crystals ($N \sim 10^{23}$)
+\item Thermal equilibrium gases ($N$ huge)
+\item Homogeneous liquids (many equivalent matchings)
+\end{itemize}
+
+\textbf{Where it survives:}
+\begin{itemize}
+\item Engineered quantum states ($N \sim 1$: single matching)
+\item Turbulent flows with specific structure ($N \sim 10$: few matchings)
+\item Cavities with unique mode structure ($N \sim 1$: one special resonance)
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+

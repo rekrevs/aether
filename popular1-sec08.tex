@@ -1,0 +1,222 @@
+\section{Thermodynamics: You Must Pay to Play}
+
+\begin{quote}
+\textbf{Core Concept:} Aether resonance isn't free. It requires energy, and the energy budget obeys thermodynamic laws.
+\end{quote}
+
+\subsection{The Thermodynamic Puzzle}
+
+If you can transfer information via substrate coupling, that's potentially useful work. But the Second Law of Thermodynamics says:
+
+\textbf{You can't extract work from a system in thermal equilibrium.}
+
+How do we reconcile aether resonance with thermodynamics?
+
+\textbf{Answer:} Aether resonance requires \textbf{active driving} - you must pump energy into the system. The thermodynamic cost is paid at the pump.
+
+\subsection{Pattern Free Energy}
+
+We define:
+
+\[
+\mathcal{F}_S = \langle E_S \rangle - T \, \Sigma_S
+\]
+
+\textbf{Components:}
+
+\textbf{$\langle E_S \rangle$:} Average energy stored in the substrate configuration
+\begin{itemize}
+\item Quantum energy levels, coherence, etc.
+\end{itemize}
+
+\textbf{$\Sigma_S$:} Entropy of the pattern
+\begin{itemize}
+\item Approximated via \textbf{minimum description length} (MDL)
+\item Or compression ratio: $\Sigma_S \sim$ (compressed size)/(raw size) $\times \log_2$(states)
+\end{itemize}
+
+\textbf{$T$:} Temperature of the effective heat bath
+
+\textbf{$\mathcal{F}_S$:} The free energy available to drive substrate flows
+\begin{itemize}
+\item Analogous to Gibbs or Helmholtz free energy in standard thermodynamics
+\end{itemize}
+
+\emph{Mental model:} Like a battery. $\langle E_S \rangle$ is the total charge, $\Sigma_S$ is the entropy (disorder), and $\mathcal{F}_S$ is the ``useful work'' available.
+
+\subsection{Minimal Markov Model}
+
+\textbf{Assumptions:}\\
+Each active substrate edge $e$ is a two-state system:
+\begin{itemize}
+\item State 0: ``closed'' (no transfer)
+\item State 1: ``open'' (allows transfer)
+\end{itemize}
+
+The edge couples to a heat bath at temperature $T_{eff}$.
+
+\textbf{Dynamics:}
+\begin{itemize}
+\item Pumping: $0 \to 1$ at rate $k_+$ (costs energy $\hbar\omega_0$)
+\item Relaxation: $1 \to 0$ at rate $k_-$ (releases energy to bath)
+\end{itemize}
+
+\textbf{Detailed balance:}\\
+$k_+/k_- = \exp[-\beta \Delta F_e]$
+
+where $\beta = 1/(k_B T_{eff})$ and $\Delta F_e$ is the free-energy difference.
+
+\textbf{This gives:}
+\begin{itemize}
+\item Stationary distribution $p_e^*$
+\item Entropy production rate $\dot{S}_{tot} \geq 0$ (Second Law satisfied)
+\end{itemize}
+
+\textbf{Why this matters:}\\
+It connects abstract substrate coupling to concrete thermodynamic processes you can model and measure.
+
+\subsection{The Resource Inequality}
+
+From the Second Law (via KL divergence), we derive:
+
+\begin{equation}
+\langle W_{pump} \rangle \geq k_B T \, (\Delta \Sigma_S + I_{transferred}),
+\tag{8.1}
+\end{equation}
+
+\textbf{Translation:}
+
+\textbf{$\langle W_{pump} \rangle$:} Average work supplied by the pump
+\begin{itemize}
+\item This is energy you put in (measurable)
+\end{itemize}
+
+\textbf{$k_B T \Delta\Sigma_S$:} Thermodynamic cost of changing the substrate's entropy
+\begin{itemize}
+\item Maintaining a non-equilibrium configuration costs energy
+\end{itemize}
+
+\textbf{$k_B T I_{transferred}$:} Cost of information transfer
+\begin{itemize}
+\item Information is physical (Landauer's principle)
+\item Each bit of information transferred costs at least $k_B T \ln(2)$ of work
+\end{itemize}
+
+\textbf{The inequality says:}\\
+You must supply at least this much work to:
+\begin{enumerate}
+\item Drive the substrate into a special configuration (non-equilibrium)
+\item Transfer $I$ bits of information
+\end{enumerate}
+
+\textbf{Proposition 8.1 (Explicit Bound for Two-State Edge):}
+
+For each edge $e$ and measurement window $\Delta t$:
+
+\begin{equation}
+\langle W_{pump}(e)\rangle \;\ge\; k_B T_{\rm eff}\,D_{\rm KL}\!\big(\mathbb{P}_{\rm driv}\Vert \mathbb{P}_{\rm eq}\big)
+\;\ge\; k_B T_{\rm eff}\,\ln 2\cdot I_e,
+\tag{8.1'}
+\end{equation}
+
+\textbf{Components:}
+
+\textbf{$D_{KL}$:} Kullback-Leibler divergence (relative entropy)
+\begin{itemize}
+\item Measures ``how different is the driven process from equilibrium?''
+\end{itemize}
+
+\textbf{$I_e$:} Information transferred through edge $e$ (in bits)
+
+\textbf{The chain:}\\
+$W_{pump} \geq$ (KL divergence) $\geq$ (information $\times k_B T \ln 2$)
+
+This makes the thermodynamic cost explicit and testable.
+
+\textbf{Coupling to the Rate:}
+
+\begin{equation}
+\tilde{\mathcal{K}}(e,t)=\frac{P_{\rm pump}(e)}{\hbar\omega_0}\quad[\mathrm{s^{-1}}],
+\tag{8.2}
+\end{equation}
+
+\textbf{$\Krate$:} The rate of pumping quanta
+\begin{itemize}
+\item Dimension: $s^{-1}$ (events per second)
+\item Directly related to measurable pump power $P_{pump}$
+\end{itemize}
+
+The Markov model ties this to microscopic rates $k_+$ and $k_-$, making the connection to statistical mechanics explicit.
+
+\subsection{Bitrate Bound for Experiment E1}
+
+Combining (6.1) and (8.2), we get a fundamental limit:
+
+\begin{equation}
+R_{bit} \leq \eta \, \frac{P_{pump}}{k_B T \ln 2} \, \mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma}, \qquad 0 < \eta \leq 1.
+\tag{8.3}
+\end{equation}
+
+\textbf{Translation:}
+
+\textbf{$R_{bit}$:} Information transfer rate (bits per second)
+
+\textbf{$\eta$:} Efficiency factor ($0 < \eta \leq 1$)
+\begin{itemize}
+\item How much of the supplied power goes into actual information transfer
+\item vs. dissipation, noise, overhead
+\item Realistically $\eta \sim 0.1$-0.5
+\end{itemize}
+
+\textbf{$P_{pump}/(k_B T \ln 2)$:} Maximum possible rate given available power
+\begin{itemize}
+\item If $T = 300$ K (room temperature): $k_B T \approx 4 \times 10^{-21}$ J
+\item If $P_{pump} = 1$ $\mu$W: Max rate $\sim 10^{15}$ bits/s (without other factors)
+\end{itemize}
+
+\textbf{$\mathcal{Q} \times \exp[-d_\sigma/\lambda_\sigma]$:} Resonance suppression
+\begin{itemize}
+\item This is the killer
+\item $\mathcal{Q} \sim 10^{-10}$ to $10^{-2}$ (very small)
+\item $\exp[-d_\sigma/\lambda_\sigma] \leq 1$ (less than 1 unless perfect match)
+\item Product: $\sim 10^{-10}$ to $10^{-2}$
+\end{itemize}
+
+\textbf{Realistic estimate:}
+\begin{itemize}
+\item $P_{pump} = 1$ $\mu$W
+\item $T = 300$ K
+\item $\beta = 0.1$
+\item $\mathcal{Q} = 10^{-8}$
+\item $K = 0.5$ (partial match)
+\end{itemize}
+
+$R_{bit} \leq 0.1 \times (10^{-6}$ W$)/(4\times10^{-21}$ J $\times 0.7) \times 10^{-8} \times 0.5$\\
+$\approx 2 \times 10^{-2}$ bits/s
+
+So under optimistic conditions, maybe \textbf{one bit per 50 seconds}.
+
+\textbf{Null Result $\to$ Parameter Bound:}
+
+If experiment E1 finds no signal above noise floor $R_{bit}^{(null)}$:
+
+\begin{equation}
+\mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma} < \frac{k_B T \ln 2}{\beta \, P_{pump}} \cdot R_{bit}^{(null)}.
+\tag{8.4}
+\end{equation}
+
+Example:
+\begin{itemize}
+\item $R_{bit}^{(null)} = 10^{-6}$ bits/s (detection limit)
+\item $P_{pump} = 1$ $\mu$W
+\item $\beta = 0.1$
+\item $T = 300$ K
+\end{itemize}
+
+Then:\\
+$\mathcal{Q} \times K < (4\times10^{-21} \times 0.7)/(0.1 \times 10^{-6}) \times 10^{-6} \approx 3 \times 10^{-20}$
+
+\textbf{This directly constrains the product $\mathcal{Q}K$}, which we can then disentangle using the distance ladder (\S7).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+

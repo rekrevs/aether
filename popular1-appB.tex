@@ -1,0 +1,52 @@
+\section*{Appendix B: Continuity Over (M×S) - How Energy Flows Between Layers}
+
+\textbf{The Setup:}\\
+We have two layers:
+\begin{itemize}
+\item \textbf{M:} Spacetime (continuous in our description, but emergent from discrete substrate)
+\item \textbf{S:} Pattern space (discrete points, substrate configurations)
+\end{itemize}
+
+Energy can flow between them.
+
+\textbf{Discrete picture:}\\
+At substrate tick $T$:
+\begin{itemize}
+\item Energy in spacetime cells: $\{\rho_M(c, T)\}$
+\item Energy in substrate nodes: $\{\rho_S(s, T)\}$
+\end{itemize}
+
+\textbf{Global conservation:}
+\[
+\sum_{c \in M} \Delta E_M(c) + \sum_{s \in S} \Delta E_S(s) = 0
+\]
+
+\textbf{Continuum limit:}\\
+As $T \to t$ (continuous time), $c \to x$ (continuous space), $s \to \sigma$ (continuum in S):
+
+\[
+\frac{\partial \rho_M}{\partial t} + \nabla \cdot J_M = -\nabla_\sigma \cdot J_\sigma
+\]
+
+\textbf{Interpretation:}
+\begin{itemize}
+\item Left side: Change in M-energy + divergence of M-current
+\item Right side: Source/sink from S-flows
+\end{itemize}
+
+\textbf{Covariant formulation:}\\
+Using Einstein's equations and energy-momentum tensors:
+
+\[
+\nabla_\mu T^{\mu\nu}_{\rm vis} = -J^\nu_{\sigma}, \quad \nabla_\mu T^{\mu\nu}_{S} = +J^\nu_{\sigma}
+\]
+
+Sum:
+\[
+\nabla_\mu (T^{\mu\nu}_{\rm vis} + T^{\mu\nu}_S) = 0
+\]
+
+\textbf{Note:} $\alpha$ only affects gravitational coupling in (3.3). The conservation laws (3.5) follow from Bianchi identity regardless of $\alpha$. But consistency requires $\alpha = 1$.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+

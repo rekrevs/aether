@@ -1,0 +1,355 @@
+\section{Predictions: What We Expect to See (Or Not See)}
+
+\begin{quote}
+\textbf{Core Concept:} A good theory makes predictions - things that should happen and things that shouldn't.
+\end{quote}
+
+\subsection{Negative Predictions (Should NOT Be Seen)}
+
+These are crucial - ways the theory could be falsified:
+
+\textbf{1. No deviations in gravitational laws}
+\begin{itemize}
+\item Einstein's equations with $\alpha = 1$ (\S3.5)
+\item Gravitational waves travel at $c$ (confirmed by LIGO/Virgo + Fermi)
+\item Binary pulsar timing, solar system tests - all standard
+\end{itemize}
+
+\emph{Test:} Gravitational wave observations, precision tests of GR\\
+\emph{Status:} All consistent so far \checkmark
+
+\textbf{2. No robust effects in homogeneous crystals}
+\begin{itemize}
+\item Degeneracy dilution (\S5.2) suppresses $O_S$ in periodic systems
+\item $N \to \infty \Rightarrow J_\sigma \to 0$
+\end{itemize}
+
+\emph{Test:} Look for anomalous heat transport or correlations in perfect crystals\\
+\emph{Prediction:} None (within noise)
+
+\textbf{3. No signals in accelerator experiments}
+\begin{itemize}
+\item $O_S$ is RG-irrelevant ($\Delta > 4$) $\Rightarrow$ suppressed at high energies
+\item $\langle O_S(E) \rangle \sim (E/\Lambda)^{-n}$, $n > 0$
+\end{itemize}
+
+\emph{Test:} Collider searches, rare-decay experiments\\
+\emph{Prediction:} Nothing (well below sensitivity)
+
+\textbf{4. No everyday signaling without special conditions}
+\begin{itemize}
+\item Need: structural similarity (small $d_\sigma$) + coherence (high $\mathcal{Q}$) + pump (active drive)
+\item Missing any one $\Rightarrow$ no effect
+\end{itemize}
+
+\emph{Test:} Can random objects communicate via aether resonance?\\
+\emph{Prediction:} No
+
+These negative predictions are as important as positive ones. They show the theory isn't ``anything goes'' - it's tightly constrained.
+
+\subsection{Positive Predictions (SHOULD Be Seen If Theory Is Correct)}
+
+Now the exciting part - three experiments we can actually build:
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection*{Prediction 1: Twin-Reservoir Correlations (E1)}
+
+\textbf{The Setup:}\\
+Two identical ``reservoir computing'' networks (interconnected nodes with nonlinear dynamics):
+\begin{itemize}
+\item Trained on the same dataset (e.g., handwritten digits, audio clips, video frames)
+\item Separated by $> 1$ km (spacelike separation)
+\item Optically isolated (no light paths between them)
+\item One network (``sender'') is shown a test input
+\item Other network (``receiver'') tries to guess what the sender saw
+\end{itemize}
+
+\textbf{The Prediction:}\\
+Bit error rate (BER) should scale as:
+
+\begin{equation}
+BER = \frac{1}{2} \left( 1 - \eta_{\rm BER} \, e^{-d_\sigma/\lambda_\sigma} \right).
+\tag{12.1}
+\end{equation}
+
+\textbf{What this means:}
+
+\textbf{BER = 0.5:} Pure chance (50\% error rate - flipping coins)\\
+\textbf{BER < 0.5:} Better than chance (some information is getting through)
+
+\textbf{For perfect match ($d_\sigma = 0$):}\\
+$BER_{min} = (1 - \eta_{\rm BER})/2 \approx 0.25$ (for $\eta_{\rm BER} \sim 0.5$)
+
+\textbf{For strong mismatch ($d_\sigma \gg \lambda_\sigma$):}\\
+$BER \to 0.5$ (back to chance)
+
+\textbf{Numerical target:}
+\begin{itemize}
+\item Report $\Delta BER \sim 10^{-3}$ (difference between match and mismatch)
+\item With $10^9$ bits tested
+\item Primary test statistic: \textbf{cross-correlation} or \textbf{coherence} (more sensitive than raw BER)
+\item Analysis: Sequential Probability Ratio Test (SPRT), permutation tests, Holm-Bonferroni correction
+\item \textbf{Delayed choice:} Use quantum random number generator (QRNG) to select test inputs after commit
+\item \textbf{Spacelike separation:} Ensure light-travel time $> 3$ $\mu$s between sender and receiver
+\end{itemize}
+
+\textbf{Expected signal:}\\
+Not ``telepathic images'' but subtle statistical correlations:
+\begin{itemize}
+\item Receiver's internal state becomes slightly more correlated with sender's
+\item Cross-correlation function shows peak at zero lag
+\item Coherence measure (frequency-domain correlation) shows coupling
+\end{itemize}
+
+\textbf{Mental model:}\\
+Like two tuning forks. When one is struck (sender shown input), the other starts to hum faintly (receiver's state shifts). The effect is tiny but measurable statistically over many trials.
+
+\textbf{Null bound:}\\
+If $BER \geq 0.49$ for all configurations (no better than chance):
+
+$\varepsilon \lambda_\sigma \mathcal{Q} < 10^{-12}$ m
+
+This directly constrains the product of coupling, coherence length, and quality factor.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection*{Prediction 2: Energy Tunnel (E2)}
+
+\textbf{The Setup:}\\
+Two identical systems (superconducting cavities or metamaterial resonators):
+\begin{itemize}
+\item Separated by $> 1$ km
+\item Cavity A is pumped with microwave power ($P_{pump} \sim 1$ $\mu$W)
+\item Cavity B is below threshold (not pumped)
+\item Measure energy balance with cryo-calorimetry ($T \sim 10$ mK, $\delta E \sim 10^{-26}$ J)
+\end{itemize}
+
+\textbf{The Prediction:}\\
+Differential energy balance:
+
+\begin{equation}
+  \Delta E_A + \Delta E_B \;=\; P_\sigma\,\Delta t \,,
+  \tag{12.2}
+\end{equation}
+
+where the substrate power flow is:
+
+$P_\sigma \sim \varepsilon \hbar\omega_0 \mathbb K \mathcal{Q} \Krate \tilde{\Delta\Phi}$
+
+\textbf{Three scenarios for detectability:}
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Scenario & $\mathcal{Q}$ & $\Delta E$ ($10^3$ s) & Detectability \\
+\midrule
+\textbf{Baseline} & $10^{-5}$ & $\sim 10^{-40}$ J & Not detectable ($\delta E \sim 10^{-26}$ J) \\
+\textbf{Target} & $10^{-3}$ & $\sim 10^{-27}$ J & Below limit but approaching \\
+\textbf{Ambitious} & $10^{-2}$ & $\sim 10^{-25}$ J & Marginally detectable at limit \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Parameter example (``target'' scenario):}
+\begin{itemize}
+\item $P_{pump} = 1$ $\mu$W
+\item $K \approx 0.5$ (50\% structural match)
+\item $\tilde{\Delta\Phi} \approx 1$ (order unity potential difference)
+\item $\varepsilon = 10^{-15}$
+\item $\mathcal{Q} = 10^{-8}$
+\end{itemize}
+
+Result:\\
+$J_\sigma \approx 5 \times 10^{-30}$ W
+
+Over $\Delta t = 1000$ s:\\
+$\Delta E \approx 5 \times 10^{-27}$ J
+
+\textbf{This is just below the detection limit} ($\delta E \sim 10^{-26}$ J for mK calorimetry), indicating we're at the edge of feasibility.
+
+\textbf{What we'd see:}
+\begin{itemize}
+\item Cavity A loses slightly more energy than it radiates locally
+\item Cavity B gains a tiny amount of energy (heating above ambient)
+\item The discrepancy $\Delta E_A + \Delta E_B \neq 0$ (to within measurement uncertainty)
+\item Anti-correlation: When A loses excess, B gains; when A's excess decreases, B cools
+\end{itemize}
+
+\textbf{Key tests:}
+\begin{enumerate}
+\item \textbf{Matching test:} Vary internal geometry (0\%, 50\%, 100\% match) $\to$ correlation should track matching
+\item \textbf{Latency scan:} Look for FTL arrival ($\delta t < -3$ $\mu$s negative lag vs. thermal leakage $\delta t > 0$ positive lag)
+\item \textbf{Phase-locking on/off:} Coherence $\mathcal{Q}$ should matter - test by destroying/restoring phase coherence
+\item \textbf{Sidereal modulation:} Mount on rotation platform, look for 23h 56m period (scan preferred frame)
+\end{enumerate}
+
+\textbf{Null bound:}\\
+If $|\Delta E| < 10^{-26}$ J after $10^6$ s:
+
+$\varepsilon \omega_0 \mathcal{Q} < 10^{-8}$ Hz
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection*{Prediction 3: Anisotropic Daily Modulation (E2 - Rotation Test; Matter Sector)}
+
+\textbf{The Setup:}\\
+Same as E2, but specifically looking for \textbf{modulation} as Earth rotates:
+
+\textbf{The Prediction:}
+
+\begin{equation}
+  P_\sigma(t) \;=\; \bar P_\sigma\left[1+ \mathcal A\cos\!\big(\Omega_\oplus t + \phi\big)\right],
+  \tag{12.3}
+\end{equation}
+
+with amplitude \textbf{in the matter sector}:
+
+\begin{equation}
+  A_{\rm sid}^{(\mathrm{mat}/\gamma)} \;\simeq\;
+  \varepsilon \left(\frac{\lambda_\sigma}{L_{\rm exp}}\right)\mathcal Q \,\Xi \,,
+  \tag{12.4}
+\end{equation}
+
+\textbf{Important distinction:}\\
+This probes the \textbf{matter sector} ($\varepsilon_{mat}$, $\mathcal{Q}_{mat}$) as opposed to the \textbf{optical sector} ($\varepsilon_\gamma$, $\mathcal{Q}_\gamma$) tested by Michelson-Morley type experiments.
+
+The bounds in \S11 (Eq. 11.4) constrain $\varepsilon_\gamma \mathcal{Q}_\gamma$ (optics). They don't directly bind (12.4) in the matter sector - see discussion of sector separation.
+
+\textbf{Numerical target (3$\sigma$, $10^7$ s $\approx$ 115 days):}
+
+$A_{sid} \gtrsim 10^{-20}$
+
+\textbf{Stretch goal:} $A_{sid} \gtrsim 5 \times 10^{-21}$
+
+\textbf{What we'd see:}
+\begin{itemize}
+\item Energy transfer power $P_\sigma$ varies sinusoidally
+\item Period: 23h 56min 4.1s (sidereal day, not solar day)
+\item Amplitude: $\sim 10^{-20}$ fractional variation
+\item Phase $\phi$ related to apparatus orientation relative to preferred frame
+\end{itemize}
+
+\textbf{Why sidereal, not solar?}
+\begin{itemize}
+\item Solar day (24 hours): Earth's rotation relative to the Sun
+\item Sidereal day (23h 56m): Earth's rotation relative to distant stars (inertial frame)
+\item The preferred frame is fixed relative to the cosmos (like the CMB rest frame), not the Sun
+\end{itemize}
+
+\textbf{Experimental challenge:}\\
+Distinguishing a $10^{-20}$ signal at 23h 56m from:
+\begin{itemize}
+\item Thermal fluctuations
+\item Building vibrations (often 24h due to human activity)
+\item Atmospheric pressure (solar-driven)
+\end{itemize}
+
+\textbf{Solution:}
+\begin{itemize}
+\item Long integration (months)
+\item Multiple apparatuses at different latitudes/longitudes
+\item Cross-correlation between sites
+\item Blind analysis (seal sidereal phase prediction before unblinding)
+\end{itemize}
+
+\textbf{Null bound:}\\
+If $\hat{A}_{sid} < 10^{-20}$:
+
+$\varepsilon_{mat} \mathcal{Q}_{mat} < 10^{-20}$ (for given $L_{exp}$ and $\lambda_\sigma$ - report both)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection*{Prediction 4: Complexity Optimum (E3)}
+
+\textbf{The Setup:}\\
+Two chaotic systems (turbulent flows or reaction-diffusion patterns):
+\begin{itemize}
+\item Identical geometry
+\item Driven by modulated input (heat flux or chemical feed)
+\item Vary drive complexity: pure sine $\to$ music $\to$ speech $\to$ white noise
+\end{itemize}
+
+\textbf{The Prediction:}\\
+Sync-hop rate (simultaneous attractor transitions) vs. drive complexity:
+
+\begin{equation}
+r_{sync} = r_0 \, \Sigma_{drive} \, e^{-\Sigma_{drive} / \Sigma_{opt}},
+\tag{12.5}
+\end{equation}
+
+\textbf{What this means:}
+
+\textbf{$r_{sync}$:} Rate of simultaneous ``hops'' between attractors in both systems\\
+\textbf{$\Sigma_{drive}$:} Algorithmic complexity of the driving signal (bits/sample)\\
+\textbf{$\Sigma_{opt}$:} Optimal complexity where resonance is strongest
+
+\textbf{Predicted behavior:}
+\begin{itemize}
+\item \textbf{White noise} ($\Sigma \to \infty$): $r_{sync} \to 0$ (no structure to match)
+\item \textbf{Pure sine} ($\Sigma \to 0$): $r_{sync} \to 0$ (too simple, no diversity)
+\item \textbf{Music/speech} ($\Sigma \sim \Sigma_{opt} \sim 5$ bits/sample): $r_{sync} \sim$ max (rich but compressible - ``interesting'')
+\end{itemize}
+
+\textbf{Visual analogy:}\\
+Like tuning a radio. Too low frequency (pure tones) - no signal. Too high frequency (noise) - no signal. Just right (modulated carrier with information) - clear reception.
+
+\textbf{What we'd measure:}
+\begin{enumerate}
+\item \textbf{Attractor topology:} Use persistent homology $\to$ Betti curves $\beta_0(r)$, $\beta_1(r)$
+\item \textbf{Hop detector:} $|\Delta\beta_1| > \theta$ within 1 second
+\item \textbf{Complexity scan:} Five levels from sine to noise
+\item \textbf{Permutation test:} Shuffle timestamps $10^6$ times $\to$ p-value
+\item \textbf{Mismatch control:} Change geometry (10\%, 20\%, 50\%) $\to$ expect $r_{sync} \propto \exp[-d_\sigma/\lambda_\sigma]$
+\end{enumerate}
+
+\textbf{Expected result:}\\
+Unimodal curve: $r_{sync}$ peaks at intermediate $\Sigma$, falls off on both sides.
+
+\textbf{Why this matters:}\\
+It tests a unique prediction - that structural similarity prefers ``interesting'' patterns (compressible but rich), not simple or random ones.
+
+\textbf{Null bound:}\\
+If no excess synchronization above random baseline:
+
+$\varepsilon \mathcal{Q} < 10^{-15}$
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Summary Table}
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Experiment & Positive signal & Null bound \\
+\midrule
+E1 (ansible) & $\Delta BER \sim 10^{-3}$ (match vs. mismatch) & $\varepsilon \lambda_\sigma \mathcal{Q} < 10^{-12}$ m \\
+E2 (energy) & $\Delta E > 10^{-25}$ J ($\mathcal{Q} \sim 10^{-2}$) & $\varepsilon \omega_0 \mathcal{Q} < 10^{-8}$ Hz \\
+E2 (rotation, matter) & $A_{sid} \geq 10^{-20}$ (3$\sigma$, $10^7$ s) & $\varepsilon_{mat} \mathcal{Q}_{mat} < 10^{-20}$ \\
+E3 (chaos) & $r_{sync}$ peak at $\Sigma_{opt}$ & $\varepsilon \mathcal{Q} < 10^{-15}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Parameter Mapping (End-to-End)}
+
+\textbf{Which observables constrain which parameters:}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Observable & Primary constraint & Notes \\
+\midrule
+E1 ($\Delta BER$, coherence) & $\varepsilon \lambda_\sigma \mathcal{Q}$ & Use distance ladder (\S7) \\
+E2 ($\Delta E$ over time) & $\varepsilon \omega_0 \mathcal{Q}$ & Power form (6.1) \\
+E2 (sidereal amplitude) & $\varepsilon \mathcal{Q} (\lambda_\sigma/L_{exp})$ & Geometry factor $\Xi$ (11.5) \\
+E3 (hop rate vs. complexity) & $\lambda_\sigma$, $\mathcal{Q}$ & Log-linear fall with mismatch \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{The beauty:}\\
+Different experiments constrain different parameter combinations. By combining all three, we can (in principle) separately determine $\varepsilon$, $\lambda_\sigma$, $\mathcal{Q}$, and $\omega_0$.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+

@@ -1,0 +1,68 @@
+\section*{Appendix D: Category-Theoretic Causality Proof - Full Version}
+
+\textbf{Category $\mathcal{C}$:}
+\begin{itemize}
+\item \textbf{Objects:} Substrate states $(s_i)$ at discrete times $T_i$
+\item \textbf{Morphisms:} $f: s_i \to s_j$ (allowed transitions)
+  \begin{itemize}
+  \item Local updates in M (standard QFT evolution)
+  \item Resonance via S (aether resonance)
+  \end{itemize}
+\end{itemize}
+
+\textbf{Time Functor $T: \mathcal{C} \to (\mathbb{N}, \leq)$:}
+\begin{itemize}
+\item $T(s_i) = T_i$ (maps state to its substrate time)
+\item Every morphism $f: s_i \to s_j$ must have $T(s_j) > T(s_i)$ (strict monotonicity)
+\end{itemize}
+
+\textbf{Cost Functor $\tilde{\mathcal{K}}: \mathcal{C} \to (\mathbb{R}_+, +)$:}
+\begin{itemize}
+\item $\tilde{\mathcal{K}}(f) \geq 0$ (every transition costs non-negative resources)
+\item $\tilde{\mathcal{K}}(g \circ f) = \tilde{\mathcal{K}}(f) + \tilde{\mathcal{K}}(g)$ (costs add)
+\end{itemize}
+
+\textbf{Definition of Causal Loop:}
+\begin{itemize}
+\item Sequence of morphisms $f_1, f_2, \ldots, f_n$
+\item $s_0 \to s_1 \to \ldots \to s_n$ with $s_n = s_0$ (or equivalent under $\pi$)
+\item Projection to M gives closed worldline
+\end{itemize}
+
+\textbf{Lemma D.1:}\\
+If $\{f_i\}$ forms a loop in M, then $\sum_i [T({\rm target}(f_i)) - T({\rm source}(f_i))] = $ cycle sum in $T$.
+
+\textbf{Proof:}
+\begin{itemize}
+\item Each $f_i: s_{i-1} \to s_i$ has $\Delta T_i = T(s_i) - T(s_{i-1}) > 0$ (by time functor)
+\item Cycle sum: $\sum \Delta T_i = T(s_n) - T(s_0)$
+\item If loop: $s_n = s_0$, so $T(s_n) = T(s_0)$, thus $\sum \Delta T_i = 0$
+\end{itemize}
+
+But each $\Delta T_i > 0 \Rightarrow \sum \Delta T_i > 0$. \textbf{Contradiction!} $\square$
+
+\textbf{Theorem D.2:}\\
+Category $\mathcal{C}$ admits no closed loops.
+
+\textbf{Proof:}\\
+Suppose loop $L$ exists. Then:
+\begin{enumerate}
+\item By Lemma D.1: $\sum \Delta T = 0$ (required for loop)
+\item By time functor: Each $\Delta T > 0$, so $\sum \Delta T > 0$
+\item Contradiction.
+\end{enumerate}
+
+Alternatively, suppose negative total cost:
+\begin{enumerate}
+\item $\sum \tilde{\mathcal{K}}(f_i) < 0$ (to close loop with negative cost)
+\item But each $\tilde{\mathcal{K}}(f_i) \geq 0$, so $\sum \tilde{\mathcal{K}}(f_i) \geq 0$
+\item Contradiction.
+\end{enumerate}
+
+Either way: No loops. $\square$
+
+\textbf{Corollary (Frame Independence):}\\
+The substrate time $T$ is a functor to $(\mathbb{N}, \leq)$, which is the same in all frames. Lorentz transformations act on M-coordinates but not on $T$. Therefore: Loop in one frame = loop in all frames. Since no loops exist (Theorem D.2), causality is preserved in all frames.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+

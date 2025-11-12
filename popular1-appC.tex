@@ -1,0 +1,70 @@
+\section*{Appendix C: Modified Lieb-Robinson Bound - Full Proof Sketch}
+
+\textbf{Goal:} Prove equation (9.1) rigorously.
+
+\textbf{Step 1: Operator Algebra}
+\begin{itemize}
+\item Hilbert space: $\mathcal{H} = \bigotimes_{x \in \Lambda} \mathcal{H}_x$
+\item Local operators: $A_x$ acts on site $x$ only
+\item Norm: $||A|| = \sup_{||\psi||=1} ||A\psi||$ (operator norm)
+\item S-perturbation: $\delta H_S = \sum_{e \in E_S} J_e O_x O_y$ ($e$ connects $x$ and $y$)
+\end{itemize}
+
+\textbf{Step 2: Sparsity \& Strength}
+\begin{itemize}
+\item Max degree: $g$ (each site connects to at most $g$ S-edges)
+\item Total coupling: $\sum_{e \ni x} |J_e| \leq \eta$ for all $x$ (bounded total strength)
+\end{itemize}
+
+\textbf{Step 3: Duhamel Expansion}\\
+Time evolution: $A(t) = e^{iHt/\hbar} A e^{-iHt/\hbar}$
+
+Commutator:
+\[
+[A(x,t), B(y,0)] = \frac{i}{\hbar} \int_0^t dt' \, e^{iHt'/\hbar} [H, A(x)] e^{-iHt'/\hbar} B(y)
+\]
+
+Split $H = H_M + \delta H_S$ (spacetime part + substrate part).
+
+\textbf{Step 4: Path Sum}\\
+The S-contribution involves paths in the substrate graph:
+\begin{itemize}
+\item Path $p$: sequence of S-edges connecting $x \to y$
+\item Length $|p| = m$ (number of hops)
+\item Suppression: Each hop contributes $K \sim \exp[-d_\sigma/\lambda_\sigma]$
+\end{itemize}
+
+Number of paths: $|\mathcal{P}_m(x\to y)| \leq g^m$ (exponential in $m$ for sparse graph)
+
+Contribution:
+\[
+||[\cdot]||_S \lesssim \sum_{m \geq 1} \sum_{p \in \mathcal{P}_m} \frac{(\eta t/\hbar)^m}{m!} e^{-\mu m}
+\]
+
+where $\mu > 0$ encodes the K-suppression.
+
+\textbf{Step 5: Sum the Series}
+\[
+\sum_{m=1}^\infty \frac{(ge^{-\mu} \eta t/\hbar)^m}{m!} = \exp[(ge^{-\mu})\eta t/\hbar] - 1 =: \Phi(g, \eta t/\hbar)
+\]
+
+If $\mu > \ln(g)$, then $ge^{-\mu} < 1$, so $\Phi$ grows at most exponentially in $t$, doesn't saturate.
+
+\textbf{Step 6: Substrate Causality}\\
+The $\Theta$ factor comes from retardation in $\chi$-field propagation:
+\begin{itemize}
+\item Signal at $\sigma$ reaches $\sigma'$ only after $T \geq T_0 + d_\sigma/c_S$
+\item Translates to: Contribution exists only if $t \geq d_\sigma/c_S$
+\item Heaviside: $\Theta(t - d_\sigma/c_S)$
+\end{itemize}
+
+\textbf{Result:}
+\[
+||[A(x,t), B(y,0)]|| \leq \underbrace{C e^{-\kappa(|x-y| - vt)}}_{\text{M-cone}} + \underbrace{C' \Theta(t - d_\sigma/c_S) e^{-d_\sigma/\lambda_\sigma} \Phi(g, \eta t/\hbar)}_{\text{S-contribution}}
+\]
+
+\textbf{Closure under time evolution (Step 7):}\\
+Conditions (i)-(iv) in \S9 ensure the assumptions (bounded norms, sparsity, causality) are preserved under time evolution. This makes the bound tight.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+

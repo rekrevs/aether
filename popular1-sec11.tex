@@ -1,0 +1,222 @@
+\section{Compatibility with Experiments: Why Haven't We Seen This Yet?}
+
+\begin{quote}
+\textbf{Core Concept:} If this exists, why don't we see it everywhere? Answer: The preferred frame creates incredibly tiny anisotropies - so small they're at the edge of detectability.
+\end{quote}
+
+\subsection{The Preferred Frame Problem}
+
+\textbf{The issue:}\\
+We've introduced:
+\begin{itemize}
+\item A foliation scalar $\tau$ (universal clock)
+\item A preferred time direction $u^\mu$
+\item Substrate structure with its own geometry
+\end{itemize}
+
+This \textbf{breaks Lorentz invariance} - the principle that physics looks the same in all reference frames moving at constant velocity.
+
+\textbf{But wait!}\\
+Lorentz invariance has been tested to incredible precision:
+\begin{itemize}
+\item Michelson-Morley experiment (1887): $\Delta c/c < 10^{-8}$
+\item Modern versions: $\Delta c/c < 10^{-18}$
+\end{itemize}
+
+How can we have a preferred frame without violating these tests?
+
+\textbf{Answer:} The preferred frame causes \textbf{anisotropy} (direction-dependence) so weak it's barely detectable.
+
+\subsection{Derivation of Anisotropy}
+
+From our Lagrangian (5.1), with a preferred frame $\xi^\mu = (1, 0, 0, 0)$ in substrate rest, we get modifications to the \textbf{dispersion relation}:
+
+\begin{equation}
+    E^2 = p^2 c^2 + m^2 c^4\,\big[1+\Delta(E,\hat p\!\cdot\!\hat\xi)\big],
+    \tag{11.1}
+\end{equation}
+
+where $\Delta$ is a \textbf{dimensionless modifier}:
+
+\begin{equation}
+    \Delta \;\sim\; \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q
+    \left(\frac{E}{mc^2}\right)\,(\hat p\!\cdot\!\hat\xi)^2.
+    \tag{11.2}
+\end{equation}
+
+\textbf{Translation:}
+
+\textbf{Dispersion relation:} The equation linking energy $E$, momentum $p$, and mass $m$
+\begin{itemize}
+\item Standard relativity: $E^2 = p^2c^2 + m^2c^4$
+\item Modified: $E^2 = p^2c^2 + m^2c^4[1 + \Delta]$ where $\Delta$ is a tiny dimensionless correction
+\end{itemize}
+
+\textbf{The dimensionless modifier $\Delta$:}
+\begin{itemize}
+\item Depends on the \textbf{direction} of momentum $\hat{p}$ relative to preferred frame $\hat{\xi}$
+\item Proportional to $\varepsilon$ (coupling), $(\lambda_\sigma/\lambda_C)$ (length scale ratio), $\mathcal{Q}$ (coherence)
+\item Goes as $(E/mc^2)$ (energy dependence) and $(\hat{p}\cdot\hat{\xi})^2$ (direction dependence)
+\item Being dimensionless, it multiplies the mass term $m^2c^4$ correctly
+\end{itemize}
+
+\textbf{For photons ($m = 0$):}\\
+The correction causes an effective \textbf{velocity variation}:
+
+\begin{equation}
+    \frac{\Delta c}{c} \;\sim\; \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q.
+    \tag{11.3}
+\end{equation}
+
+\textbf{Plug in numbers:}
+\begin{itemize}
+\item $\varepsilon \sim 10^{-15}$
+\item $\lambda_\sigma \sim 1$ $\mu$m $= 10^{-6}$ m
+\item $\lambda_C \sim 10^{-12}$ m (Compton wavelength)
+\item $\lambda_\sigma/\lambda_C \sim 10^6$
+\item $\mathcal{Q} \sim 10^{-24}$ to $10^{-18}$ (depending on scenario)
+\end{itemize}
+
+Result:\\
+$\Delta c/c \sim 10^{-15} \times 10^6 \times 10^{-24}$ to $10^{-18}$\\
+$\sim 10^{-33}$ to $10^{-27}$
+
+\textbf{This is way below current detection limits!}
+
+\textbf{Current best bounds:}
+\begin{itemize}
+\item Michelson-Morley type: $\Delta c/c \lesssim 10^{-18}$
+\item Hughes-Drever type: $\Delta c/c \lesssim 10^{-27}$ (nuclear clock experiments)
+\end{itemize}
+
+\textbf{Our constraint:}
+
+\begin{equation}
+    \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q \;\lesssim\; 10^{-18}.
+    \tag{11.4}
+\end{equation}
+
+With $\lambda_\sigma/\lambda_C \sim 10^6$, this gives:
+
+$\varepsilon \cdot \mathcal{Q} \lesssim 10^{-24}$
+
+\textbf{This is why we don't see it in normal experiments!}
+
+The coupling $\varepsilon$ is already tiny ($\sim 10^{-15}$). The coherence $\mathcal{Q}$ is tinier still ($10^{-10}$ to $10^{-2}$ at best). Their product must satisfy (11.4), which is incredibly restrictive.
+
+\subsection{Sidereal and Annual Modulation}
+
+\textbf{The smoking gun:}\\
+If there's a preferred frame, Earth is moving through it. As Earth rotates daily and orbits the Sun annually, our velocity relative to the preferred frame changes.
+
+This should cause \textbf{modulation} - a rhythmic variation with:
+\begin{itemize}
+\item \textbf{Sidereal period:} 23 hours, 56 minutes, 4 seconds (one rotation relative to distant stars)
+\item \textbf{Annual period:} 365.25 days (one orbit around the Sun)
+\end{itemize}
+
+\textbf{The formula (detailed in phenomenology section, Eq. (12.4)):}
+
+\[
+A_{sid} \simeq \varepsilon \left( \frac{\lambda_\sigma}{L_{exp}} \right) \mathcal{Q} \, \Xi
+\]
+
+\textbf{Components:}
+
+\textbf{$A_{sid}$:} Modulation amplitude
+\begin{itemize}
+\item Dimensionless fractional variation
+\item Example: $A_{sid} = 10^{-20}$ means a $10^{-20}$ fractional change
+\end{itemize}
+
+\textbf{$L_{exp}$:} Apparatus scale
+\begin{itemize}
+\item Length of the experimental setup
+\item Larger apparatus $\to$ smaller fractional effect
+\end{itemize}
+
+\textbf{$\Xi$:} Geometry factor
+\begin{itemize}
+\item Order 1 ($\Xi \sim 1$)
+\item Depends on apparatus orientation and configuration
+\end{itemize}
+
+\textbf{Numerical target:}
+
+For E2 (rotation test in \S13):
+
+\[
+A_{\rm sid}\gtrsim 10^{-20}\ \text{(3$\sigma$ significance over }10^7\text{ seconds)}
+\]
+
+\textbf{What this means:}\\
+After integrating data for $\sim$115 days ($10^7$ seconds), we aim to detect a modulation with amplitude $\sim 10^{-20}$ at 3-sigma confidence (99.7\% certainty).
+
+\textbf{Example:}\\
+If measuring energy transfer between two cavities:
+\begin{itemize}
+\item Baseline transfer: $J_0 = 1 \times 10^{-30}$ W
+\item Modulated transfer: $J(t) = J_0 (1 + 10^{-20} \cos(2\pi t/T_{sid}))$
+\item Peak-to-peak variation: $2 \times 10^{-50}$ W
+\end{itemize}
+
+This is absurdly small - but potentially measurable with:
+\begin{itemize}
+\item Cryo-calorimetry (mK temperatures)
+\item Long integration times
+\item Careful systematic control
+\end{itemize}
+
+\textbf{Why this is testable:}
+\begin{itemize}
+\item Sidereal period is precisely known (astronomy)
+\item Distinct from solar day (24 hours) or monthly/annual cycles
+\item Hard to fake with systematic errors (which usually follow solar time or lab rhythms)
+\end{itemize}
+
+\textbf{Null result $\to$ Parameter bound:}\\
+If we don't see modulation above $A_{sid} < 10^{-20}$, then:
+
+$\varepsilon \cdot (\lambda_\sigma/L_{exp}) \cdot \mathcal{Q} < 10^{-20}$
+
+With $L_{exp} \sim 1$ meter and $\lambda_\sigma \sim 10^{-6}$ m:
+
+$\varepsilon \cdot \mathcal{Q} < 10^{-14}$
+
+This would constrain the parameter space significantly.
+
+\subsection{SME Parametrization (For Comparison)}
+
+\textbf{What is SME?}\\
+The \textbf{Standard Model Extension} (SME) is a systematic framework for testing Lorentz invariance violations. It parametrizes all possible small violations using coefficients.
+
+For \textbf{photons}, the minimal SME uses coefficients:
+\begin{itemize}
+\item $\tilde{\kappa}_{e-}^{JK}$ (even parity, electric type)
+\item $\tilde{\kappa}_{o+}^{JK}$ (odd parity, magnetic type)
+\item $\kappa_{tr}$ (trace)
+\end{itemize}
+
+\textbf{Our model predicts:}
+
+\begin{equation}
+\tilde{\kappa}_{e-}^{JK}\ \sim\ \varepsilon_\gamma\,\mathcal{Q}_\gamma\,
+\Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,\Xi^{JK}.
+\tag{11.5}
+\end{equation}
+
+\textbf{Translation:}\\
+The SME coefficients, which are directly measured in precision tests (optical resonators, atomic clocks), are related to our parameters.
+
+\textbf{Why this matters:}
+\begin{itemize}
+\item It lets us compare to existing experimental bounds
+\item Provides a common language with the Lorentz-violation community
+\item Allows model-independent reporting
+\end{itemize}
+
+\textbf{Practical advice:}\\
+When reporting sidereal modulation results, also estimate $|\tilde{\kappa}_{e-}^{JK}|$ with error bars and link to (11.4). This enables direct comparison with resonator and atomic clock studies.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+

@@ -1,0 +1,152 @@
+\section{Operationalizing Structural Distance}
+
+\begin{quote}
+\textbf{Core Concept:} ``Algorithmic similarity'' sounds abstract. We need a practical way to measure $d_\sigma$.
+\end{quote}
+
+\subsection{The Challenge}
+
+\textbf{Algorithmic similarity} (Kolmogorov complexity) is:
+\begin{enumerate}
+\item Uncomputable (proven by Turing, Chaitin)
+\item Unambiguously defined mathematically
+\item Useless for experiments
+\end{enumerate}
+
+We need a \textbf{computable proxy} that captures the essence.
+
+\subsection{Signature Extraction}
+
+From a system's dynamics $s$ (time series, spatial configuration, etc.), extract features:
+
+\textbf{Spectral signature:}
+\begin{itemize}
+\item FFT $\to$ power spectrum $S(f)$
+\item Dominant frequencies: $f_1, f_2, \ldots, f_m$
+\item Spectral entropy: $H_{spec} = -\int (S/\int S) \log(S/\int S) df$
+\end{itemize}
+
+\emph{What it captures:} Rhythms, periodicities, characteristic timescales
+
+\textbf{Topological signature:}
+\begin{itemize}
+\item Persistent homology $\to$ Betti numbers $\beta_0(r), \beta_1(r), \ldots$
+\item $\beta_0$: connected components
+\item $\beta_1$: loops/holes
+\item $\beta_2$: voids
+\end{itemize}
+
+\emph{What it captures:} Global shape and structure independent of coordinates
+
+\textbf{Statistical signature:}
+\begin{itemize}
+\item Autocorrelation: $C(\tau) = \langle s(t)s(t+\tau) \rangle$
+\item Correlation time: $\tau_c$ where $C$ falls to $1/e$
+\item Lyapunov exponents: $\lambda_i$ (for chaotic systems)
+\item Moments: $\mu_2, \mu_3, \mu_4$ (variance, skewness, kurtosis)
+\end{itemize}
+
+\emph{What it captures:} Memory, predictability, statistical regularities
+
+\textbf{Combined signature:}\\
+$\sigma(s) = (f_1, \ldots, f_m, H_{spec}, \beta_0, \beta_1, \ldots, \tau_c, \lambda_1, \ldots, \mu_2, \mu_3, \mu_4) \in \mathbb{R}^d$
+
+This is a point in a $d$-dimensional feature space.
+
+\subsection{The Metric Definition}
+
+\begin{equation}
+d_\sigma(s,s') := \ell_0 \left[ \|\sigma(s) - \sigma(s')\|_2 + \alpha_W \, W(\mu_s, \mu_{s'}) \right],
+\tag{7.1}
+\end{equation}
+
+\textbf{Components:}
+
+\textbf{$\|\sigma(s) - \sigma(s')\|_2$:} Euclidean distance in feature space
+\begin{itemize}
+\item Standard L2 norm: $\sqrt{\sum_i(\sigma_i - \sigma_i')^2}$
+\item Measures ``how different are the features?''
+\end{itemize}
+
+\textbf{$W(\mu_s, \mu_{s'})$:} Wasserstein distance between probability distributions
+\begin{itemize}
+\item Also called ``Earth Mover's Distance''
+\item Measures ``how much work to reshape distribution $\mu_s$ into $\mu_{s'}$?''
+\item Captures distributional differences beyond moments
+\end{itemize}
+
+\textbf{$\ell_0$:} Embedding scale
+\begin{itemize}
+\item Units: meters
+\item Typically $\sim 1$ micrometer
+\item Converts dimensionless feature-space distance into physical length
+\end{itemize}
+
+\textbf{$\alpha_W$:} Weight for Wasserstein component
+\begin{itemize}
+\item Dimensionless, $\alpha_W \geq 0$
+\item Tunable (could be fit from data)
+\end{itemize}
+
+\textbf{Why this works:}
+\begin{itemize}
+\item Computable from data
+\item Respects symmetries (if $s$ and $s'$ are related by symmetry, $d_\sigma$ is small)
+\item Has the right units (meters)
+\item Can be calibrated experimentally (see next section)
+\end{itemize}
+
+\subsection{Distance Ladder (Calibration)}
+
+We construct controlled distortions of a reference system to map $d_\sigma$:
+
+\begin{center}
+\begin{tabular}{clcc}
+\toprule
+Level & Transformation & Expected $d_\sigma$ & Expected $K = \exp[-d_\sigma/\lambda_\sigma]$ \\
+\midrule
+0 & Identical ($s' = s$) & 0 & 1.00 \\
+1 & Phase rotation (spectrum preserved) & $\varepsilon_1 \ll \lambda_\sigma$ & $\approx 0.90$ \\
+2 & Permuted label & $\varepsilon_2 \approx 0.3 \lambda_\sigma$ & $\approx 0.70$ \\
+3 & Block-scramble (temporal/spatial) & $\varepsilon_3 \approx 0.7 \lambda_\sigma$ & $\approx 0.50$ \\
+4 & Additive noise (SNR = 10 dB) & $\varepsilon_4 \approx \lambda_\sigma$ & $\approx 0.37$ \\
+5 & Independent realization & $\varepsilon_5 \gg \lambda_\sigma$ & $\ll 0.10$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{How to use this:}
+
+\begin{enumerate}
+\item \textbf{Prepare reference system} in state $s_0$
+\item \textbf{Apply transformations} to create $s_1, s_2, \ldots, s_5$
+\item \textbf{Compute signatures} $\sigma(s_0), \sigma(s_1), \ldots$
+\item \textbf{Measure $d_\sigma$} using equation (7.1)
+\item \textbf{Run experiment E1} (\S13) with each pair $(s_0, s_i)$
+\item \textbf{Observe correlation strength} vs. $i$
+\item \textbf{Fit model} $K(i) = \exp[-d_\sigma(s_0,s_i)/\lambda_\sigma]$ to extract $\lambda_\sigma$
+\end{enumerate}
+
+\textbf{Expected result:}
+\begin{itemize}
+\item Level 0: Strong correlation ($K = 1$)
+\item Levels 1-4: Monotonically decreasing correlation
+\item Level 5: No correlation ($K \approx 0$)
+\end{itemize}
+
+This directly links observable effects to calibrated structural distances.
+
+\textbf{Pre-registration (crucial):}\\
+The distance ladder is run as a \textbf{separate, blind pilot study} before the main experiments. Level labels are sealed until analysis. This prevents unconscious bias and ensures scientific rigor.
+
+\textbf{Practical benefit:}\\
+After calibration, you can:
+\begin{itemize}
+\item Take any two systems $s, s'$
+\item Compute $d_\sigma(s,s')$ from their signatures
+\item Predict coupling strength $K = \exp[-d_\sigma/\lambda_\sigma]$
+\item Test whether observed correlation matches prediction
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
