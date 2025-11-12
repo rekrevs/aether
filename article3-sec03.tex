@@ -7,7 +7,7 @@ We derive the framework from a \textbf{total action}:
 \begin{equation}
 \begin{split}
 S_{tot} = \int d^4x \, \sqrt{-g} \left[ \frac{1}{16\pi G} R + \mathcal{L}_{vis}[\phi, g] + \mathcal{L}_S[\tau, u^\mu, g] \right] \\
- + \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,\frac{O_S(x,\sigma)\,\mathbb{K}(\sigma,\sigma')\,O_S(x,\sigma')}{\Lambda_*^{4}},
+ + \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,\frac{O_S(x,\sigma)\,\Kern(\sigma,\sigma')\,O_S(x,\sigma')}{\LamUV^{4}},
 \end{split}
 \tag{3.1}
 \end{equation}
@@ -25,13 +25,13 @@ where:
 
 \begin{equation}
 S_{int} = \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\;
-\frac{ O_S(x,\sigma)\,\mathbb{K}(\sigma,\sigma')\,O_S(x,\sigma') }{\Lambda_*^{\,4}},
+\frac{ O_S(x,\sigma)\,\Kern(\sigma,\sigma')\,O_S(x,\sigma') }{\LamUV^{\,4}},
 \tag{3.2}
 \end{equation}
 
-where we choose $[O_S]=4$ by construction (see §5). The measure $d\mu(\sigma)$ is \textbf{dimensionless}; all mass dimensions are carried by $O_S$ and explicit scales. The high-energy scale $\Lambda_*$ ensures that the interaction term has mass dimension four at the Lagrangian density level.
+where we choose $[O_S]=4$ by construction (see §5). The measure $d\mu(\sigma)$ is \textbf{dimensionless}; all mass dimensions are carried by $O_S$ and explicit scales. The high-energy scale $\LamUV$ ensures that the interaction term has mass dimension four at the Lagrangian density level.
 
-where $\mathbb{K}$ is local on $S$ (governs resonance via $d_\sigma$) and entirely independent of $x$ except through $O_S(x,\cdot)$. This makes diffeomorphism invariance and energy-momentum conservation manifest.
+where $\Kern$ is local on $S$ (governs resonance via $d_\sigma$) and entirely independent of $x$ except through $O_S(x,\cdot)$. This makes diffeomorphism invariance and energy-momentum conservation manifest.
 
 \subsubsection{Explicit $\mathcal{L}_S$ (Two Compatible Choices)}
 
@@ -39,12 +39,12 @@ We specify $\mathcal{L}_S$ such that (i) $c_T=c$ for gravitational waves and (ii
 
 \textbf{(A) Minimal Khronon (Constraint-Only):}
 \begin{equation}
-\mathcal{L}_S^{\text{min}} = \frac{M_S^2}{2}\,\Lambda(x)\,\big(u^\mu u_\mu + 1\big),\qquad
+\mathcal{L}_S^{\text{min}} = \frac{M_S^2}{2}\,\lamL(x)\,\big(u^\mu u_\mu + 1\big),\qquad
 u^\mu:=\frac{\nabla^\mu \tau}{\sqrt{-\,\nabla_\alpha \tau \nabla^\alpha \tau}}.
 \tag{3.1A}
 \end{equation}
 
-Here the unit timelike vector $u^\mu$ is introduced via a Lagrange multiplier $\Lambda$; no free kinetic coefficients. Consequence: $c_T=c$ exactly and PPN$\approx 0$ in the background; resonance dynamics occurs solely via $S_{int}$ and the mediator $\chi$ (§4).
+Here the unit timelike vector $u^\mu$ is introduced via a Lagrange multiplier $\lamL$; no free kinetic coefficients. Consequence: $c_T=c$ exactly and PPN$\approx 0$ in the background; resonance dynamics occurs solely via $S_{int}$ and the mediator $\chi$ (§4).
 
 \textbf{(B) Einstein-Æther/Khronon (Four-Coefficient Form):}
 \begin{equation}
@@ -54,7 +54,7 @@ Here the unit timelike vector $u^\mu$ is introduced via a Lagrange multiplier $\
  +c_2(\nabla_\mu u^\mu)^2
  +c_3(\nabla_\mu u_\nu)(\nabla^\nu u^\mu) \\
  +c_4\,u^\mu u^\nu(\nabla_\mu u_\alpha)(\nabla_\nu u^\alpha)\big]
- +\frac{M_S^2}{2}\,\Lambda(x)\,(u^\mu u_\mu+1).
+ +\frac{M_S^2}{2}\,\lamL(x)\,(u^\mu u_\mu+1).
 \end{split}
 \tag{3.1B}
 \end{equation}
@@ -71,7 +71,24 @@ Comment: (A) is the safest baseline (no new propagation dynamics in the backgrou
 
 \subsection{Field Equations and Energy-Momentum Accounting}
 
-\textbf{Variation yields:}
+\subsubsection{Derivation via Noether's Theorem}
+
+Under an infinitesimal diffeomorphism $x^\mu \to x^\mu + \xi^\mu(x)$, the variation of any scalar Lagrangian density $\mathcal{L}$ is a total derivative. Applying this to $S_{\rm tot}$ yields the Noether identity
+\[
+\nabla_\mu\!\left(T^{\mu}{}_{\nu,\rm vis}+T^{\mu}{}_{\nu,S}+T^{\mu}{}_{\nu,\rm int}\right)=0,
+\]
+with $T^{\mu}{}_{\nu,\rm int}$ defined from the bilocal interaction term. We split the matter-side Euler–Lagrange equations into "visible" and "S" sectors and define the \textbf{exchange four-current}
+\[
+J_{\sigma,\nu} \equiv -\nabla_\mu T^{\mu}{}_{\nu,\rm int}.
+\]
+Assigning this current with opposite sign to the two sectors:
+\[
+\nabla_\mu T^{\mu}{}_{\nu,\rm vis}=-J_{\sigma,\nu},\qquad
+\nabla_\mu T^{\mu}{}_{\nu,S}=+J_{\sigma,\nu},
+\]
+guarantees that their sum satisfies $\nabla_\mu(T^{\mu}{}_{\nu,\rm vis}+T^{\mu}{}_{\nu,S})=0$ by construction. Varying $S_{\rm tot}$ with respect to $g^{\mu\nu}$ then yields the modified Einstein equations.
+
+\textbf{Summary of field equations:}
 
 \begin{enumerate}
 \item \textbf{Einstein equations:}
@@ -79,14 +96,14 @@ Comment: (A) is the safest baseline (no new propagation dynamics in the backgrou
    G_{\mu\nu} = \frac{8\pi G}{c^4}\big(T^{\mu\nu}_{vis}+T^{\mu\nu}_S\big),
    \tag{3.3}
    \end{equation}
-   where a \textbf{well-defined} $T^{\mu\nu}_S$ follows from variation in $g_{\mu\nu}$.
+   where a \textbf{well-defined} $T^{\mu\nu}_S$ follows from variation in $g_{\mu\nu}$, including contributions from $\mathcal{L}_S$ and the interaction term.
 
 \item \textbf{Energy-momentum conservation:}
    \begin{equation}
    \nabla_\mu T^{\mu\nu}_{vis} = -J^\nu_{\sigma}, \quad \nabla_\mu T^{\mu\nu}_{S} = +J^\nu_{\sigma},
    \tag{3.4}
    \end{equation}
-   where $(J^\nu_\sigma)$ is the four-current from the interaction.
+   where $(J^\nu_\sigma)$ is the four-current from the interaction, as derived above via Noether's theorem.
 
 \item \textbf{Total conservation:}
    \begin{equation}
@@ -94,6 +111,39 @@ Comment: (A) is the safest baseline (no new propagation dynamics in the backgrou
    \tag{3.5}
    \end{equation}
 \end{enumerate}
+
+\subsubsection{Why $\alpha \equiv 1$ (Bianchi Identity)}
+
+\begin{center}
+\fbox{
+\begin{minipage}{0.9\textwidth}
+\textbf{Proof that $\alpha=1$ is required by consistency:}
+
+From the Bianchi identity, the Einstein tensor satisfies
+\[
+\nabla_\mu G^{\mu\nu} = 0.
+\]
+
+If we write the Einstein equations as
+\[
+G^{\mu\nu} = \frac{8\pi G}{c^4}\big(T^{\mu\nu}_{vis} + \alpha\,T^{\mu\nu}_S\big),
+\]
+then taking the covariant divergence:
+\[
+0 = \nabla_\mu G^{\mu\nu} = \frac{8\pi G}{c^4}\big(\nabla_\mu T^{\mu\nu}_{vis} + \alpha\,\nabla_\mu T^{\mu\nu}_S\big).
+\]
+
+From the field equations (3.4), we have $\nabla_\mu T^{\mu\nu}_{vis} = -J^\nu_\sigma$ and $\nabla_\mu T^{\mu\nu}_S = +J^\nu_\sigma$. Substituting:
+\[
+0 = -J^\nu_\sigma + \alpha\,J^\nu_\sigma = (\alpha - 1)J^\nu_\sigma.
+\]
+
+For generic configurations where $J^\nu_\sigma \neq 0$, this forces $\boxed{\alpha = 1}$ exactly.
+
+\textbf{Physical interpretation:} The metric responds to \emph{all} energy-momentum with the same gravitational coupling. FTL transfers occur via substrate locality, not via modified gravitational response.
+\end{minipage}
+}
+\end{center}
 
 \subsection{Localization of $(S)$-Flows as Sources in $(M)$}
 
@@ -107,24 +157,33 @@ S^\nu(x)=\!\int\! d\mu(\sigma)\, f_\ell\!\big(x-\pi(\sigma)\big)\,(\nabla_\sigma
 
 which ensures well-defined behavior under variation and preserves diffeomorphism invariance. The normalization $\int d^4x\, f_\ell(x) = 1$ ensures the pushforward preserves total flow, with support scale $\ell\!\ll\!L_{\rm exp}$.
 
-\textbf{Normalization note.} Throughout §3 we take $d\mu(\sigma)$ to be a \textbf{dimensionless} measure on $S$; units enter only through $O_S$ and the explicit scale $\Lambda_*$ in (3.2).
+\textbf{Normalization note.} Throughout §3 we take $d\mu(\sigma)$ to be a \textbf{dimensionless} measure on $S$; units enter only through $O_S$ and the explicit scale $\LamUV$ in (3.2).
 
 \subsection{Momentum-Neutrality}
 
-As a consequence of global translational invariance in $M$ (Noether) and the bilocal, translationally symmetric form of $S_{int}$, it follows that
+\textbf{Statement:} For any finite-volume region with vanishing boundary flux, the total spatial momentum exchanged with the substrate sector integrates to zero:
 
 \begin{equation}
-\int d^4x\, J^i_\sigma(x)=0,
+\int d^4x\, J^i_\sigma(x)=0.
 \tag{3.7}
 \end{equation}
 
-which prevents \textbf{reactionless drive} (energy can be transferred without net momentum in $(M)$). This is consistent with (3.4) integrated over a closed volume and should be verified experimentally in E2.
+\textbf{Noether proof sketch:} Under spatial translations $x^\mu \to x^\mu + a^i \delta^\mu_i$, the action $S_{int}$ in (3.2) is invariant because:
+\begin{enumerate}
+\item The kernel $\Kern(\sigma,\sigma')$ depends only on $S$-coordinates, not on $x$.
+\item The operator $O_S(x,\sigma)$ transforms as a scalar density under diffeomorphisms.
+\item The integration measure $\sqrt{-g}\,d^4x$ is diffeomorphism-invariant.
+\end{enumerate}
+
+By Noether's theorem, spatial translation symmetry implies conservation of the spatial components of the exchange current. With the boundary condition that net flux through the boundary vanishes (no preferred direction for substrate transfers at infinity), and assuming $\Kern$ is symmetric under permutation of $\sigma \leftrightarrow \sigma'$, the total spatial momentum transfer vanishes.
+
+\textbf{Physical consequence:} This prevents \textbf{reactionless drives}. Energy can be transferred FTL without net momentum in $(M)$, but any momentum gained at one location must be balanced by equal and opposite momentum elsewhere. This is consistent with (3.4) integrated over a closed volume and should be verified experimentally in E2.
 
 \subsection{Gravitational Signature and Bounds}
 
-\textbf{Choice and motivation for $\alpha$:} To be compatible with the Bianchi identity when $\nabla_\mu T^{\mu\nu}_{vis}=-J^\nu_\sigma$ and $\nabla_\mu T^{\mu\nu}_{S}=+J^\nu_\sigma$, we set
+\textbf{Gravitational coupling $\alpha$:} As shown above (see boxed proof), the Bianchi identity together with the conservation equations (3.4) requires
 \begin{equation}
 \boxed{\;\alpha\equiv 1\ \text{(exact)}\;}
 \end{equation}
-everywhere. Metric response is thus light-speed causal; all perceived FTL comes solely from $S$-locality.
+everywhere. This is not a choice but a \textbf{consistency requirement}. Metric response is thus light-speed causal; all perceived FTL comes solely from $S$-locality.
 

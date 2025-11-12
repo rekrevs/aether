@@ -15,10 +15,10 @@
 
 \textbf{Goal:} Bit error rate (BER) scales as:
 \begin{equation}
-BER = \frac{1}{2} \left( 1 - \beta \, e^{-d_\sigma/\lambda_\sigma} \right).
+BER = \frac{1}{2} \left( 1 - \betaBER \, e^{-d_\sigma/\lambda_\sigma} \right).
 \end{equation}
 
-For $(d_\sigma = 0)$ (identical dataset): $(BER_{min} = (1-\beta)/2 \approx 0.25)$ (for $\beta \sim 0.5$).
+For $(d_\sigma = 0)$ (identical dataset): $(BER_{min} = (1-\betaBER)/2 \approx 0.25)$ (for $\betaBER \sim 0.5$).
 
 For $(d_\sigma \gg \lambda_\sigma)$ (mismatch): $(BER \to 0.5)$ (chance).
 
@@ -36,11 +36,11 @@ For $(d_\sigma \gg \lambda_\sigma)$ (mismatch): $(BER \to 0.5)$ (chance).
 
 \textbf{Goal:} Differential energy balance:
 \begin{equation}
-\Delta E_A + \Delta E_B = P_\sigma \cdot \Delta t,
+\Delta E_A + \Delta E_B = \Psig \cdot \Delta t,
 \tag{12.2}
 \end{equation}
 
-where $(P_\sigma \sim \varepsilon \hbar\omega_0 \mathbb K \mathcal Q \tilde{\mathcal K} \tilde{\Delta\Phi})$.
+where $(\Psig \sim \varepsilon \hbar\omega_0 \Ksig \mathcal Q \tilde{\mathcal K} \tilde{\Delta\Phi})$.
 
 \textbf{Three scenarios for E2 detectability:}
 
@@ -57,16 +57,64 @@ Scenario & Q & $\Delta E$ (10$^3$ s) & Detectability \\
 \end{tabular}
 \end{table}
 
-With power form (6.1), $P_\sigma=\varepsilon \mathbb K \mathcal Q \tilde{\Delta\Phi} P_{\rm pump}$.
+With power form (6.1), $\Psig=\varepsilon \Ksig \mathcal Q \tilde{\Delta\Phi} P_{\rm pump}$.
 
 \textbf{Parameter example (``target'' near sensitivity limit):}
 \begin{itemize}
-\item $P_{\rm pump}=1\,\mu\mathrm{W}$, $\mathbb K\simeq0.5$, $\tilde{\Delta\Phi}\simeq1$,
+\item $P_{\rm pump}=1\,\mu\mathrm{W}$, $\Ksig\simeq0.5$, $\tilde{\Delta\Phi}\simeq1$,
 \item $\varepsilon=10^{-15}$, $\mathcal Q=10^{-8}$ (compatible with (11.4)),
-\item[] $\to P_\sigma\approx 5\times10^{-30}\,\mathrm{W}$ $\Rightarrow \Delta E(10^3\mathrm{~s})\approx 5\times10^{-27}\,\mathrm{J}$.
+\item[] $\to \Psig\approx 5\times10^{-30}\,\mathrm{W}$ $\Rightarrow \Delta E(10^3\mathrm{~s})\approx 5\times10^{-27}\,\mathrm{J}$.
 \end{itemize}
 
 This lies just below $\delta E\sim10^{-26}\,\mathrm{J}$ (mK calorimetry) and indicates realistic target level.
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+
+\noindent\textbf{Worked Numerical Examples}
+
+\textbf{E2 Energy Tunnel – Target Parameter Set:}
+
+Given: $P_{\rm pump} = 1\,\mu{\rm W}$, $\Ksig = 0.5$, $\tilde{\Delta\Phi} \simeq 1$, $\varepsilon = 10^{-15}$, $\mathcal{Q} = 10^{-8}$.
+
+Using power formula (6.1): $\Psig = \varepsilon \Ksig \mathcal{Q} \tilde{\Delta\Phi} \, P_{\rm pump}$:
+\begin{align*}
+\Psig &= 10^{-15} \times 0.5 \times 10^{-8} \times 1 \times 10^{-6}\,{\rm W} \\
+      &= 5 \times 10^{-30}\,{\rm W}.
+\end{align*}
+
+Over measurement window $\Delta t = 10^3$ s:
+\[
+\Delta E = \Psig \cdot \Delta t = 5\times10^{-30}\,{\rm W} \times 10^{3}\,{\rm s} = 5\times10^{-27}\,{\rm J}.
+\]
+
+\textbf{Detectability:} mK calorimetry sensitivity $\delta E \sim k_B T \sim 10^{-26}$ J at $T = 1$ mK. Therefore $\Delta E/\delta E \sim 0.5$ (edge of sensitivity; requires long integration or lower $T$).
+
+\medskip
+
+\textbf{E2 Sidereal Modulation – Cross-Sector Check:}
+
+For rotation test, sidereal amplitude (matter sector, Eq. 12.4):
+\[
+A_{\rm sid}^{(\rm mat)} \simeq \epsmat \left(\frac{\lsig}{L_{\rm exp}}\right) \Qmat \, \Xi.
+\]
+
+Target sensitivity: $A_{\rm sid} \gtrsim 10^{-20}$ over $10^7$ s.
+
+With $L_{\rm exp} \sim 1$ m, $\lsig \sim 10^{-6}$ m, $\Xi \sim 1$:
+\[
+A_{\rm sid} \sim \epsmat \times 10^{-6} \times \Qmat.
+\]
+
+Requiring $A_{\rm sid} \gtrsim 10^{-20}$ gives:
+\[
+\epsmat \, \Qmat \gtrsim 10^{-14}.
+\]
+
+\textbf{Cross-check:} Photon-sector bound (11.4) constrains $\epsgam \Qgam \lesssim 10^{-24}$. If matter and photon sectors have similar couplings ($\epsmat \sim \epsgam \sim 10^{-15}$), then target $\Qmat \sim 10^{1}$ (unitless) is \emph{nine orders of magnitude} larger than allowed photon $\Qgam \sim 10^{-9}$—consistent with sector separation hypothesis (see Appendix F).
+
+\noindent\rule{\textwidth}{0.4pt}
+\medskip
 
 \textbf{Detection limit:} Micro-calorimetry at mK level: $(\delta E \sim k_B T \sim 10^{-26}~\text{J})$ (for $T \sim 1$ mK) with cryo technology.
 
@@ -78,16 +126,16 @@ This lies just below $\delta E\sim10^{-26}\,\mathrm{J}$ (mK calorimetry) and ind
 
 \textbf{Goal:} Power modulation with period 23 h 56 min (sidereal):
 \begin{equation}
-  P_\sigma(t) \;=\; \bar P_\sigma\left[1+ \mathcal A\cos\!\big(\Omega_\oplus t + \phi\big)\right],
+  \Psig(t) \;=\; \bar \Psig\left[1+ \mathcal A\cos\!\big(\Omega_\oplus t + \phi\big)\right],
   \tag{12.3}
 \end{equation}
 with amplitude \textbf{in the matter sector}
 \begin{equation}
-  A_{\rm sid}^{(\mathrm{mat}/\gamma)} \;\simeq\;
-  \varepsilon \left(\frac{\lambda_\sigma}{L_{\rm exp}}\right)\mathcal Q \,\Xi \,,
+  A_{\rm sid}^{(\mathrm{mat})} \;\simeq\;
+  \frac{\epsmat}{\epsgam} \cdot \frac{\lsig}{L_{\rm exp}} \cdot \frac{\Qmat}{\Qgam} \cdot \Xi \,,
   \tag{12.4}
 \end{equation}
-\textbf{Important:} The prediction here concerns the \textbf{matter sector} $(\varepsilon_{\rm mat}\mathcal Q_{\rm mat})$. Bounds in §11.4 constrain $\varepsilon_\gamma\mathcal Q_\gamma$ (optics) and are therefore not directly binding on matter-sector measurements; see Appendix F (sector separation).
+\textbf{Important:} The prediction here concerns the \textbf{matter sector} $(\epsmat, \Qmat)$. Bounds in §11.4 constrain $\epsgam\Qgam$ (optics) and are therefore not directly binding on matter-sector measurements; see Appendix F (sector separation).
 
 \textbf{Cross-reference:} Report $\hat{A}_{\rm sid}$ and compare against (11.4) and (12.4); specify which measurement track (optical vs. material) is used in the rig.
 
@@ -97,7 +145,7 @@ A_{\rm sid}\;\gtrsim\;10^{-20}.
 \end{equation}
 \textbf{Stretch:} $A_{\rm sid}\gtrsim5\times10^{-21}$.
 
-\textbf{Null bound:} If $\hat{A}_{\rm sid}<10^{-20}$ obtain $\varepsilon_{\rm mat}\mathcal Q_{\rm mat}<10^{-20}$ for given $L_{\rm exp}$ and $\lambda_\sigma$ (report both).
+\textbf{Null bound:} If $\hat{A}_{\rm sid}<10^{-20}$ obtain $\epsmat\Qmat<10^{-20}$ for given $L_{\rm exp}$ and $\lsig$ (report both).
 
 \subsection{Pred. 4: Complexity Optimum (E3)}
 

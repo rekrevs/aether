@@ -9,12 +9,12 @@ Algorithmic similarity is non-computable. We specify a \textbf{practical proxy}:
   d_\sigma(\sigma,\sigma') &:= \ell_0\,
   \left(\sum_{I=1}^{N_{\rm feat}} w_I\,
   \big\|\mathcal I_I(\sigma)-\mathcal I_I(\sigma')\big\|^2\right)^{1/2},\\
-  \mathbb K(\sigma,\sigma') &\equiv \exp\!\big[-d_\sigma(\sigma,\sigma')/\lambda_\sigma\big].
+  \Ksig(\sigma,\sigma') &\equiv \exp\!\big[-d_\sigma(\sigma,\sigma')/\lambda_\sigma\big].
 \end{split}
 \tag{7.1}
 \end{equation}
 
-This makes $\mathbb K(\sigma,\sigma')$ computable and controls nonlocality via $\lambda_\sigma$.
+This makes $\Ksig(\sigma,\sigma')$ computable and controls nonlocality via $\lambda_\sigma$.
 
 \textbf{Feature examples $\mathcal I_I$ (local, gauge/diffeo-invariant scalars):}
 \begin{center}
@@ -75,7 +75,7 @@ Level & Transformation & Expected $d_\sigma$ & Expected K \\
 \end{tabular}
 \end{table}
 
-Test that $(K(e) = \exp[-d_\sigma/\lambda_\sigma])$ falls monotonically and that the effect in E1 correlates with level. This directly links observable effect to a calibrated scale.
+Test that $(\Ksig(e) = \exp[-d_\sigma/\lambda_\sigma])$ falls monotonically and that the effect in E1 correlates with level. This directly links observable effect to a calibrated scale.
 
 \textbf{Pre-registration:} The distance ladder is pre-registered as a \textbf{separate, blind pilot} (own OSF DOI) before main experiments E1/E2/E3. Blind ``level labels'' are kept sealed until analysis phase.
 

@@ -31,31 +31,66 @@ G_{\rm ret}(\sigma',T';\sigma,T) \propto \frac{e^{-m_\chi d_\sigma(\sigma,\sigma
 \tag{4.3}
 \end{equation}
 
-\subsection{Emergent $\mathbb{K}$}
+\subsection{Emergent $\Kern$}
 
 The effective \textbf{resonance kernel} in (3.2) follows as:
 \begin{equation}
 \begin{split}
-\mathbb{K}(\sigma,\sigma') = \int dT \, G_{\rm ret}(\sigma',T'; \sigma,T)
-\,\Theta\!\big(T'-T-d_\sigma(\sigma,\sigma')/c_S\big) \\
-\approx e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma}.
+\Kern(\sigma,\sigma') = \int dT \, G_{\rm ret}(\sigma',T'; \sigma,T)
+\approx e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma} \equiv \Ksig(d_\sigma(\sigma,\sigma')).
 \end{split}
 \tag{4.4}
 \end{equation}
 
-The Heaviside factor ensures explicit substrate retardation already at the kernel level.
+The retarded Green's function $G_{\rm ret}$ already contains the Heaviside step function from (4.3), ensuring substrate retardation. For phenomenological applications involving a single edge or calibrated pair, we write $\Ksig \equiv e^{-d_\sigma/\lambda_\sigma}$ as the similarity factor.
 
-\textbf{Properties of the resonance kernel $\mathbb K(\sigma,\sigma')$:}
+\textbf{Properties of the resonance kernel $\Kern(\sigma,\sigma')$:}
 \begin{enumerate}
-\item $\mathbb K(\sigma,\sigma') \ge 0$ (positivity)
+\item $\Kern(\sigma,\sigma') \ge 0$ (positivity)
 \item Symmetric and positive-definite (Mercer kernel)
-\item Retarded in $T$ (no advanced support)
+\item Retarded in $T$ (no advanced support, inherited from $G_{\rm ret}$)
 \end{enumerate}
 
 \textbf{Results:}
 \begin{enumerate}
 \item \textbf{No global search:} each node knows only local neighbors in $S$ via $\nabla_\sigma^2$.
 \item \textbf{Retarded in $T$:} signals reach $\sigma'$ only after $T - T' \geq d_\sigma/c_S$, ensuring substrate causality.
-\item \textbf{Exponential decay:} $\mathbb{K}$ is naturally local in $S$ for $m_\chi > 0$.
+\item \textbf{Exponential decay:} $\Kern$ is naturally local in $S$ for $m_\chi > 0$.
 \end{enumerate}
+
+\subsection{Derivation: Integrating Out the Mediator}
+
+\begin{center}
+\fbox{
+\begin{minipage}{0.92\textwidth}
+\textbf{From local mediator action to nonlocal kernel:}
+
+Consider the quadratic action for $\chi(\sigma,T)$:
+\[
+S_\chi=\frac{1}{2}\int dT\,d\mu(\sigma)\Big[(\partial_T\chi)^2-c_S^2(\nabla_\sigma\chi)^2-m_\chi^2\chi^2\Big]
++\int dT\,d\mu(\sigma)\,\chi\,J_S,
+\]
+where $J_S(\sigma,T)\propto \int d^4x\sqrt{-g}\,O_S(x,\sigma)$ is the source map from visible matter to substrate.
+
+Solving the equation of motion $(\partial_T^2 - c_S^2\nabla_\sigma^2 + m_\chi^2)\chi = J_S$ gives $\chi = G_{\rm ret} * J_S$. Substituting back and integrating out $\chi$ yields the effective action
+\[
+S_{\rm eff}[J_S]=-\frac{1}{2}\int dT\,dT'\,d\mu(\sigma)\,d\mu(\sigma')\,
+J_S(\sigma,T)\,G_{\rm ret}(\sigma,T;\sigma',T')\,J_S(\sigma',T').
+\]
+
+Time-integrating the retarded propagator produces a \textbf{static Green's function} on $S$ governed by $(-c_S^2\nabla_\sigma^2+m_\chi^2)\Kern=\delta_\sigma$. For approximately isotropic $S$ in dimension $d_S\ge2$, this yields Yukawa-type solutions:
+\[
+\Kern(\sigma,\sigma') = C_{d_S}\,\frac{e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma}}{[d_\sigma(\sigma,\sigma')]^{d_S-2}},
+\]
+where $\lambda_\sigma=c_S/m_\chi$. After absorbing the power-law prefactor into the dimensionless measure $d\mu$ and distance normalization, we obtain the clean exponential form used throughout: $\Kern \approx e^{-d_\sigma/\lambda_\sigma}$.
+
+\textbf{Key consequences:}
+\begin{itemize}
+\item \textbf{Positivity and retardation} are automatic consequences of the damped, retarded mediator.
+\item \textbf{No instantaneous action at a distance:} all correlations propagate locally through $S$ at finite speed $c_S$.
+\item \textbf{Exponential localization:} massive mediator ($m_\chi>0$) ensures range $\lambda_\sigma$ is finite.
+\end{itemize}
+\end{minipage}
+}
+\end{center}
 

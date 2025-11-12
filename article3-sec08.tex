@@ -3,21 +3,21 @@
 We define a \textbf{pattern free energy}:
 
 \begin{equation}
-\mathcal{F}_S = \langle E_S \rangle - T \, \Sigma_S,
+\mathcal{F}_S = \langle E_S \rangle - \Temp \, \Sigma_S,
 \end{equation}
 
 where $(\Sigma_S)$ approximates algorithmic entropy via MDL (minimum description length) or compression ratio.
 
 \subsection{Model Assumption (Minimal Markov Process on S-Edges)}
 
-Each active S-edge $e$ is assumed to switch between two microstates $n_e\in\{0,1\}$ (``open/closed''), coupled to a heat bath at $T_{\rm eff}$. The pump injects quanta $\hbar\omega_0$ at rate $k_+$ and relaxes with $k_-$, with detailed balance $k_+/k_-=\exp[-\beta\Delta F_e]$ ($\beta=1/k_BT_{\rm eff}$). This gives a continuous-time Markov process with stationary measure $p_e^\star$ and entropy production $\dot S_{\rm tot}\ge 0$.
+Each active S-edge $e$ is assumed to switch between two microstates $n_e\in\{0,1\}$ (``open/closed''), coupled to a heat bath at $\Temp_{\rm eff}$. The pump injects quanta $\hbar\omega_0$ at rate $k_+$ and relaxes with $k_-$, with detailed balance $k_+/k_-=\exp[-\beta\Delta F_e]$ ($\beta=1/k_B\Temp_{\rm eff}$). This gives a continuous-time Markov process with stationary measure $p_e^\star$ and entropy production $\dot S_{\rm tot}\ge 0$.
 
 \subsection{Fluctuation Theory and Resource Inequality}
 
 From the second law (via KL divergence) follows:
 
 \begin{equation}
-\langle W_{pump} \rangle \geq k_B T \, (\Delta \Sigma_S + I_{transferred}),
+\langle W_{pump} \rangle \geq k_B \Temp \, (\Delta \Sigma_S + I_{transferred}),
 \tag{8.1}
 \end{equation}
 
@@ -26,8 +26,8 @@ where $(I_{transferred})$ is information content (bits $\times k_B \ln 2$).
 \begin{proposition}[Dissipation for two-state edge]
 For each $e$ and measurement window $\Delta t$,
 \begin{equation}
-\langle W_{pump}(e)\rangle \;\ge\; k_B T_{\rm eff}\,D_{\rm KL}\!\big(\mathbb{P}_{\rm driv}\Vert \mathbb{P}_{\rm eq}\big)
-\;\ge\; k_B T_{\rm eff}\,\ln 2\cdot I_e,
+\langle W_{pump}(e)\rangle \;\ge\; k_B \Temp_{\rm eff}\,D_{\rm KL}\!\big(\mathbb{P}_{\rm driv}\Vert \mathbb{P}_{\rm eq}\big)
+\;\ge\; k_B \Temp_{\rm eff}\,\ln 2\cdot I_e,
 \tag{8.1'}
 \end{equation}
 where $D_{\rm KL}$ is the KL divergence between driven and equilibrium process and $I_e$ is the transferred information in bits over edge $e$ (data processing inequality). Summation over active edges yields (8.1). The model realizes (8.1) with explicit microscopy and ties $\tilde{\mathcal K}=P_{\rm pump}/(\hbar\omega_0)$ to hopping rates $k_\pm$.
@@ -44,24 +44,66 @@ where $(P_{pump}(e))$ is \textbf{measurable power} supplied to keep edge $(e)$ o
 
 \subsection{Bitrate Bound for E1}
 
-From (6.1) and (8.1) derives a \textbf{bitrate bound}:
+\subsubsection{Explicit Derivation}
+
+\begin{center}
+\fbox{
+\begin{minipage}{0.92\textwidth}
+\textbf{From Landauer bound to measurable bitrate:}
+
+Over a measurement window $\Delta t$, the pump does work
+\[
+W_{\rm pump} = \int_0^{\Delta t} dt\,P_{\rm pump}(t).
+\]
+
+The two-state edge model (§8.1) with detailed balance implies an entropy production rate satisfying
+\[
+\dot S_{\rm tot} = \dot S_{\rm bath} + \dot S_S \ge 0,\qquad \dot S_{\rm bath} = \frac{\dot Q_{\rm bath}}{\Temp}.
+\]
+
+The KL bound (8.1) yields
+\[
+\langle W_{\rm pump}\rangle \ge k_B\Temp\big(\Delta\Sigma_S + I_{\rm transferred}\big).
+\]
+
+If $I_{\rm transferred} = R_{\rm bit}\,\Delta t \cdot \ln 2$ (nats) and only a fraction $\beta\,\mathcal{Q}\,e^{-d_\sigma/\lambda_\sigma}$ of the pump power actually reaches usable S-edges (quality factor $\mathcal{Q}$ and kernel suppression $e^{-d_\sigma/\lambda_\sigma}$), then the effective power contributing to information transfer is
+\[
+P_{\rm eff} = \beta\,P_{\rm pump}\,\mathcal{Q}\,e^{-d_\sigma/\lambda_\sigma},
+\]
+where $0 < \beta \le 1$ is the energetic efficiency factor accounting for losses and saturation effects.
+
+Substituting into the Landauer bound with $\Delta\Sigma_S \ge 0$:
+\[
+P_{\rm eff}\,\Delta t \ge k_B\Temp \cdot R_{\rm bit}\,\Delta t \cdot \ln 2,
+\]
+which gives
+\[
+R_{\rm bit} \le \frac{P_{\rm eff}}{k_B\Temp\ln 2} = \beta\,\frac{P_{\rm pump}}{k_B\Temp\ln 2}\,\mathcal{Q}\,e^{-d_\sigma/\lambda_\sigma}.
+\]
+
+This is equation (8.3). The bound is saturated when the system operates reversibly (no excess dissipation beyond the Landauer minimum) and all pump power is efficiently coupled to the S-channel.
+\end{minipage}
+}
+\end{center}
+
+From (6.1) and (8.1) we thus derive the \textbf{bitrate bound}:
 
 \begin{equation}
-R_{bit} \leq \beta \, \frac{P_{pump}}{k_B T \ln 2} \, \mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma}, \qquad 0 < \beta \leq 1.
+R_{bit} \leq \beta \, \frac{P_{pump}}{k_B \Temp \ln 2} \, \mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma}, \qquad 0 < \beta \leq 1.
 \tag{8.3}
 \end{equation}
 
 A \textbf{null result} in E1 directly gives an upper bound. With $(R_{bit}^{(null)})$ as observed detection limit (bits/second), we can convert (8.3) into a bound on the product:
 
 \begin{equation}
-\mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma} < \frac{k_B T \ln 2}{\beta \, P_{pump}} \cdot R_{bit}^{(null)}.
+\mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma} < \frac{k_B \Temp \ln 2}{\beta \, P_{pump}} \cdot R_{bit}^{(null)}.
 \tag{8.4}
 \end{equation}
 
 Together with E2 (energetics, gives bounds on $(\varepsilon \omega_0 Q)$) and §11 (anisotropy, gives bounds on $(\varepsilon \lambda_\sigma Q)$), one can then draw conclusions about individual parameters. For example, $(d_\sigma = 0)$ (perfect match):
 
 \begin{equation}
-\mathcal{Q} < \frac{k_B T \ln 2}{\beta \, P_{pump}} \cdot R_{bit}^{(null)},
+\mathcal{Q} < \frac{k_B \Temp \ln 2}{\beta \, P_{pump}} \cdot R_{bit}^{(null)},
 \end{equation}
 
 which directly constrains $(Q)$. For partial match, one can separate the effects of $(Q)$ and $(e^{-d_\sigma/\lambda_\sigma})$ through the distance ladder in §7.3.

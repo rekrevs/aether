@@ -127,28 +127,67 @@ Imagine dropping a pebble in a pond:
 
 The mediator field $\chi$ does the same thing, but in pattern space.
 
-\subsection{The Emergent Kernel $\Kkernel$}
+\subsection{The Emergent Kernel $\Kern$}
 
 The effective coupling kernel in equation (3.2) emerges from the mediator dynamics:
 
 \begin{equation}
-\mathbb{K}(\sigma,\sigma') = \int dT \, G_{\rm ret}(\sigma',T'; \sigma,T)
-\,\Theta\!\big(T'-T-d_\sigma(\sigma,\sigma')/c_S\big)
-\approx e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma}.
+\Kern(\sigma,\sigma') = \int dT \, G_{\rm ret}(\sigma',T'; \sigma,T)
+\approx e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma} \equiv \Ksig(d_\sigma(\sigma,\sigma')).
 \tag{4.4}
 \end{equation}
 
-\textbf{Properties of the resonance kernel $\mathbb K(\sigma,\sigma')$:}
+The retarded Green's function $G_{\rm ret}$ already contains the Heaviside step function, ensuring substrate retardation. For phenomenological applications involving a single edge or calibrated pair, we write $\Ksig \equiv e^{-d_\sigma/\lambda_\sigma}$ as the similarity factor.
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+
+\noindent\textbf{``Integrating Out'' the Mediator Field $\chi$}
+
+\textbf{What does ``integrate out'' mean?}
+
+Think of it like this:
 \begin{enumerate}
-\item $\mathbb K(\sigma,\sigma') \ge 0$ (positivity)
-\item Symmetric and positive-definite (Mercer kernel)
-\item Retarded in $T$ (no advanced support)
+\item \textbf{Start with:} A local field $\chi(\sigma,T)$ that lives at every point in pattern space and evolves in substrate time.
+\item \textbf{Solve its equation:} The wave equation (4.1) tells us exactly how $\chi$ responds to sources $J_S$.
+\item \textbf{Substitute back:} Replace $\chi$ everywhere with its solution (the retarded Green's function).
+\item \textbf{Result:} The local field $\chi$ disappears, leaving behind a \textbf{nonlocal kernel} $\Kern(\sigma,\sigma')$ connecting distant points.
 \end{enumerate}
 
-Because $\mathbb K$ is positive semidefinite and retarded in $T$, the spacetime-smeared kernel $\mathcal{K}_{\rm eff}$ inherits these properties; adding the $\mathcal{K}_{\rm eff}$ coupling preserves unitarity and respects substrate-time causality.
+\textbf{Analogy from quantum field theory:}
+
+This is exactly like ``integrating out virtual particles'':
+\begin{itemize}
+\item In QED, electrons interact by exchanging virtual photons
+\item You can solve for the photon field explicitly
+\item The result is an \textbf{effective interaction} between electrons (the Coulomb potential)
+\item The photons are still ``there'' (in the dynamics), but you don't see them explicitly in the final formula
+\end{itemize}
+
+\textbf{What we gain:}
+
+\begin{itemize}
+\item \textbf{Exponential falloff:} $\Kern \sim e^{-d_\sigma/\lambda_\sigma}$ emerges naturally from massive mediator.
+\item \textbf{Automatic retardation:} $\Theta(T' - T - d_\sigma/c_S)$ built into Green's function.
+\item \textbf{Simpler phenomenology:} Work directly with kernel $\Kern$ instead of tracking field $\chi$.
+\end{itemize}
+
+\textbf{Physical interpretation:} The kernel $\Kern$ encodes the \emph{effective strength} of coupling between two substrate points after accounting for all the intermediate propagation dynamics of the mediator field.
+
+\noindent\rule{\textwidth}{0.4pt}
+\medskip
+
+\textbf{Properties of the resonance kernel $\Kern(\sigma,\sigma')$:}
+\begin{enumerate}
+\item $\Kern(\sigma,\sigma') \ge 0$ (positivity)
+\item Symmetric and positive-definite (Mercer kernel)
+\item Retarded in $T$ (no advanced support, inherited from $G_{\rm ret}$)
+\end{enumerate}
+
+Because $\Kern$ is positive semidefinite and retarded in $T$, the spacetime-smeared kernel $\mathcal{K}_{\rm eff}$ inherits these properties; adding the $\mathcal{K}_{\rm eff}$ coupling preserves unitarity and respects substrate-time causality.
 
 \textbf{What this says:}\\
-The kernel $\Kkernel$, which appeared mysteriously in our action (3.2), actually \textbf{emerges} from the mediator field dynamics. It's not put in by hand - it's derived.
+The kernel $\Kern$, which appeared mysteriously in our action (3.2), actually \textbf{emerges} from the mediator field dynamics. It's not put in by hand - it's derived.
 
 \textbf{The approximate form:}\\
 After integrating over substrate time $T$ and doing some math, we get:

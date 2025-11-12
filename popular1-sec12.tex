@@ -69,7 +69,7 @@ Two identical ``reservoir computing'' networks (interconnected nodes with nonlin
 Bit error rate (BER) should scale as:
 
 \begin{equation}
-BER = \frac{1}{2} \left( 1 - \eta_{\rm BER} \, e^{-d_\sigma/\lambda_\sigma} \right).
+BER = \frac{1}{2} \left( 1 - \betaBER \, e^{-d_\sigma/\lambda_\sigma} \right).
 \tag{12.1}
 \end{equation}
 
@@ -79,7 +79,7 @@ BER = \frac{1}{2} \left( 1 - \eta_{\rm BER} \, e^{-d_\sigma/\lambda_\sigma} \rig
 \textbf{BER < 0.5:} Better than chance (some information is getting through)
 
 \textbf{For perfect match ($d_\sigma = 0$):}\\
-$BER_{min} = (1 - \eta_{\rm BER})/2 \approx 0.25$ (for $\eta_{\rm BER} \sim 0.5$)
+$BER_{min} = (1 - \betaBER)/2 \approx 0.25$ (for $\betaBER \sim 0.5$)
 
 \textbf{For strong mismatch ($d_\sigma \gg \lambda_\sigma$):}\\
 $BER \to 0.5$ (back to chance)
@@ -129,13 +129,13 @@ Two identical systems (superconducting cavities or metamaterial resonators):
 Differential energy balance:
 
 \begin{equation}
-  \Delta E_A + \Delta E_B \;=\; P_\sigma\,\Delta t \,,
+  \Delta E_A + \Delta E_B \;=\; \Psig\,\Delta t \,,
   \tag{12.2}
 \end{equation}
 
 where the substrate power flow is:
 
-$P_\sigma \sim \varepsilon \hbar\omega_0 \mathbb K \mathcal{Q} \Krate \tilde{\Delta\Phi}$
+$\Psig \sim \varepsilon \hbar\omega_0 \Ksig \mathcal{Q} \Krate \tilde{\Delta\Phi}$
 
 \textbf{Three scenarios for detectability:}
 
@@ -154,14 +154,14 @@ Scenario & $\mathcal{Q}$ & $\Delta E$ ($10^3$ s) & Detectability \\
 \textbf{Parameter example (``target'' scenario):}
 \begin{itemize}
 \item $P_{pump} = 1$ $\mu$W
-\item $K \approx 0.5$ (50\% structural match)
+\item $\Ksig \approx 0.5$ (50\% structural match)
 \item $\tilde{\Delta\Phi} \approx 1$ (order unity potential difference)
 \item $\varepsilon = 10^{-15}$
 \item $\mathcal{Q} = 10^{-8}$
 \end{itemize}
 
 Result:\\
-$J_\sigma \approx 5 \times 10^{-30}$ W
+$\Psig \approx 5 \times 10^{-30}$ W
 
 Over $\Delta t = 1000$ s:\\
 $\Delta E \approx 5 \times 10^{-27}$ J
@@ -199,30 +199,21 @@ Same as E2, but specifically looking for \textbf{modulation} as Earth rotates:
 \textbf{The Prediction:}
 
 \begin{equation}
-  P_\sigma(t) \;=\; \bar P_\sigma\left[1+ \mathcal A\cos\!\big(\Omega_\oplus t + \phi\big)\right],
+  \Psig(t) \;=\; \bar \Psig\left[1+ \mathcal A\cos\!\big(\Omega_\oplus t + \phi\big)\right],
   \tag{12.3}
 \end{equation}
 
 with amplitude \textbf{in the matter sector}:
 
 \begin{equation}
-  A_{\rm sid}^{(\mathrm{mat})} \;\simeq\; \varepsilon_{\mathrm{mat}}
-\left(\frac{\lambda_\sigma}{L_{\rm exp}}\right)\mathcal Q_{\mathrm{mat}}\;\Xi .
-  \tag{12.4a}
-\end{equation}
-
-and \textbf{in the photon sector}:
-
-\begin{equation}
-  A_{\rm sid}^{(\gamma)} \;\simeq\; \varepsilon_{\gamma}
-\left(\frac{\lambda_\sigma}{L_{\rm exp}}\right)\mathcal Q_{\gamma}\;\Xi .
-  \tag{12.4b}
+  A_{\rm sid}^{(\mathrm{mat})} \;\simeq\; \frac{\epsmat}{\epsgam} \cdot \frac{\lsig}{L_{\rm exp}} \cdot \frac{\Qmat}{\Qgam} \cdot \Xi .
+  \tag{12.4}
 \end{equation}
 
 \textbf{Important distinction:}\\
-The matter sector (12.4a) uses ($\varepsilon_{mat}$, $\mathcal{Q}_{mat}$) as opposed to the \textbf{optical sector} (12.4b) with ($\varepsilon_\gamma$, $\mathcal{Q}_\gamma$) tested by Michelson-Morley type experiments.
+The matter sector amplitude (12.4) uses the ratio $\epsmat/\epsgam$ (matter to photon coupling) and $\Qmat/\Qgam$ (matter to photon quality factors). The \textbf{optical sector} bounds from Michelson-Morley experiments constrain $\epsgam \cdot \Qgam$ but don't directly bind matter-sector measurements.
 
-The bounds in \S11 (Eq. 11.4) constrain $\varepsilon_\gamma \mathcal{Q}_\gamma$ (optics). They don't directly bind (12.4a) in the matter sector - see discussion of sector separation.
+The bounds in \S11 (Eq. 11.4) constrain $\epsgam \cdot \Qgam$ (optics). They don't directly bind (12.4) in the matter sector - see discussion of sector separation.
 
 \textbf{Numerical target (3$\sigma$, $10^7$ s $\approx$ 115 days):}
 
@@ -264,7 +255,7 @@ Distinguishing a $10^{-20}$ signal at 23h 56m from:
 \textbf{Null bound:}\\
 If $\hat{A}_{sid} < 10^{-20}$:
 
-$\varepsilon_{mat} \mathcal{Q}_{mat} < 10^{-20}$ (for given $L_{exp}$ and $\lambda_\sigma$ - report both)
+$\epsmat \cdot \Qmat < 10^{-20}$ (for given $L_{exp}$ and $\lsig$ - report both)
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 

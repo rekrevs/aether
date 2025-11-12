@@ -5,7 +5,7 @@ Standard theory: influence propagates within the light cone, $||[A(x,t), B(y,0)]
 \textbf{With S-edges:} Let $(E_S)$ be the set of active S-edges, total strength $\eta := \sum_{e\in E_S} |J_e|$, where $J_e$ are the \textbf{Hamiltonian} couplings in $\delta H_S$ (unit: energy).
 
 \begin{lemma}[Soft cone with S-damping]
-Under conditions (i)–(iv), we obtain
+Under conditions (i) bounded operator norms, (ii) substrate graph sparsity with maximum degree $(g)$, (iii) causality in substrate time $(\tau)$, and (iv) weak coupling $(\eta)$ with $\mu > \ln g$, we obtain
 \begin{equation}
 \begin{split}
 ||[A(x,t),B(y,0)]|| \le C\,e^{-\kappa(|x-y|-v t)}
@@ -18,6 +18,31 @@ e^{-d_\sigma(\sigma_x,\sigma_y)/\lambda_\sigma}\,
 \end{lemma}
 
 The Heaviside ``gating'' makes substrate causality explicit even in the operator norm limit.
+
+\medskip
+\noindent\rule{\textwidth}{0.4pt}
+
+\noindent\textbf{5-Step Proof Sketch}
+
+\textbf{1. Setup:} Decompose total Hamiltonian as $H = H_M + \delta H_S$ with bounded operator norms, where substrate graph has maximum degree $g$ and coupling strength $\eta := \sum_{e \in E_S} |J_e|$.
+
+\textbf{2. Duhamel expansion:} Express time evolution as
+\[
+A(t) = e^{iH_M t/\hbar} A e^{-iH_M t/\hbar} + \frac{i}{\hbar}\int_0^t ds\, e^{iH(t-s)/\hbar}[\delta H_S, A(s)] e^{-iH(t-s)/\hbar}.
+\]
+
+\textbf{3. S-paths and kernel suppression:} Substrate-mediated influence requires $m$ hops through $S$-graph. Each path contributes weight product with exponential suppression $e^{-m\mu}$ where $\mu = \langle d_\sigma \rangle/\lambda_\sigma$ is average damping per hop.
+
+\textbf{4. Sum over paths:} Total contribution summed over hop count yields
+\[
+\Phi(g, \eta t/\hbar) = \exp\big[g\,e^{-\mu}\,\eta t/\hbar\big] - 1,
+\]
+which converges provided $g\,e^{-\mu} < 1$ (sparsity condition).
+
+\textbf{5. Retardation:} Each substrate hop contributes Heaviside factor $\Theta(t - d_\sigma/c_S)$; concatenating $m$ factors yields explicit causal delay $t \ge d_\sigma^{(\rm tot)}/c_S$, ensuring substrate-time ordering.
+
+\noindent\rule{\textwidth}{0.4pt}
+\medskip
 
 where $\Phi$ grows at most \textbf{exponentially} in $t$ (see App. C, eq. (C.12)) and does not saturate to a distance-independent constant. The S-contribution is thus suppressed \textbf{exponentially in $d_\sigma$} and controlled by sparsity $(g)$ and weak coupling $(\eta)$.
 
