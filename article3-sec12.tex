@@ -1,0 +1,158 @@
+\section{Predictions and Numerical Targets}
+
+\textbf{Negative predictions (should not be seen):}
+
+\begin{itemize}
+\item No deviations in gravitational laws, vacuum dispersion, or torsion wave experiments.
+\item No robust effects in homogeneous crystals $(N \gg 1 \to P_\sigma \to 0)$.
+\item No signals in accelerator experiments $(O_S$ irrelevant, $\Delta > 4$).
+\item No everyday signaling without shared structure and pump.
+\end{itemize}
+
+\textbf{Positive predictions with numerical targets:}
+
+\subsection{Pred. 1: Twin-Reservoir Correlations (E1)}
+
+\textbf{Goal:} Bit error rate (BER) scales as:
+\begin{equation}
+BER = \frac{1}{2} \left( 1 - \beta \, e^{-d_\sigma/\lambda_\sigma} \right).
+\end{equation}
+
+For $(d_\sigma = 0)$ (identical dataset): $(BER_{min} = (1-\beta)/2 \approx 0.25)$ (for $\beta \sim 0.5$).
+
+For $(d_\sigma \gg \lambda_\sigma)$ (mismatch): $(BER \to 0.5)$ (chance).
+
+\textbf{Numerical target (adjusted):}
+\begin{itemize}
+\item Report \textbf{$\Delta$BER} at \textbf{$\sim10^{-3}$}-level (match vs. mismatch) with $10^9$ bits,
+\item primary test statistic: \textbf{cross-correlation/coherence} (not hard BER thresholds),
+\item analysis: \textbf{SPRT}, permutation tests, Holm-Bonferroni.
+\item \textbf{Delayed choice} (QRNG) and spacelike separation satisfied.
+\end{itemize}
+
+\textbf{Null bound:} If $(BER \geq 0.49)$ for all configurations $\to (\varepsilon \lambda_\sigma Q < 10^{-12}~\text{m})$.
+
+\subsection{Pred. 2: Energy Tunnel (E2)}
+
+\textbf{Goal:} Differential energy balance:
+\begin{equation}
+\Delta E_A + \Delta E_B = P_\sigma \cdot \Delta t,
+\tag{12.2}
+\end{equation}
+
+where $(P_\sigma \sim \varepsilon \hbar\omega_0 \mathbb K \mathcal Q \tilde{\mathcal K} \tilde{\Delta\Phi})$.
+
+\textbf{Three scenarios for E2 detectability:}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llll}
+\toprule
+Scenario & Q & $\Delta E$ (10$^3$ s) & Detectability \\
+\midrule
+\textbf{Baseline} & $10^{-5}$ & $\sim10^{-40}$ J & Not detectable ($\delta E \sim 10^{-26}$ J) \\
+\textbf{Target} & $10^{-3}$ & $\sim10^{-27}$ J & Below limit but approaching \\
+\textbf{Ambitious} & $10^{-2}$ & $\sim10^{-25}$ J & Marginally detectable at limit \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+With power form (6.1), $P_\sigma=\varepsilon \mathbb K \mathcal Q \tilde{\Delta\Phi} P_{\rm pump}$.
+
+\textbf{Parameter example (``target'' near sensitivity limit):}
+\begin{itemize}
+\item $P_{\rm pump}=1\,\mu\mathrm{W}$, $\mathbb K\simeq0.5$, $\tilde{\Delta\Phi}\simeq1$,
+\item $\varepsilon=10^{-15}$, $\mathcal Q=10^{-8}$ (compatible with (11.4)),
+\item[] $\to P_\sigma\approx 5\times10^{-30}\,\mathrm{W}$ $\Rightarrow \Delta E(10^3\mathrm{~s})\approx 5\times10^{-27}\,\mathrm{J}$.
+\end{itemize}
+
+This lies just below $\delta E\sim10^{-26}\,\mathrm{J}$ (mK calorimetry) and indicates realistic target level.
+
+\textbf{Detection limit:} Micro-calorimetry at mK level: $(\delta E \sim k_B T \sim 10^{-26}~\text{J})$ (for $T \sim 1$ mK) with cryo technology.
+
+\textbf{Microscopic anti-correlation:} energy balance between A/B.
+
+\textbf{Null bound:} If no signal after $10^6$ s with $(\delta E = 10^{-26}~\text{J})$ $\to (\varepsilon \omega_0 Q < 10^{-8}~\text{Hz})$.
+
+\subsection{Pred. 3: Anisotropic Daily Modulation (E2 – Rotation Test; \textbf{Matter Sector})}
+
+\textbf{Goal:} Power modulation with period 23 h 56 min (sidereal):
+\begin{equation}
+  P_\sigma(t) \;=\; \bar P_\sigma\left[1+ \mathcal A\cos\!\big(\Omega_\oplus t + \phi\big)\right],
+  \tag{12.3}
+\end{equation}
+with amplitude \textbf{in the matter sector}
+\begin{equation}
+  A_{\rm sid}^{(\mathrm{mat}/\gamma)} \;\simeq\;
+  \varepsilon \left(\frac{\lambda_\sigma}{L_{\rm exp}}\right)\mathcal Q \,\Xi \,,
+  \tag{12.4}
+\end{equation}
+\textbf{Important:} The prediction here concerns the \textbf{matter sector} $(\varepsilon_{\rm mat}\mathcal Q_{\rm mat})$. Bounds in §11.4 constrain $\varepsilon_\gamma\mathcal Q_\gamma$ (optics) and are therefore not directly binding on matter-sector measurements; see Appendix F (sector separation).
+
+\textbf{Cross-reference:} Report $\hat{A}_{\rm sid}$ and compare against (11.4) and (12.4); specify which measurement track (optical vs. material) is used in the rig.
+
+\textbf{Numerical target (3$\sigma$, $10^7$ s):}
+\begin{equation}
+A_{\rm sid}\;\gtrsim\;10^{-20}.
+\end{equation}
+\textbf{Stretch:} $A_{\rm sid}\gtrsim5\times10^{-21}$.
+
+\textbf{Null bound:} If $\hat{A}_{\rm sid}<10^{-20}$ obtain $\varepsilon_{\rm mat}\mathcal Q_{\rm mat}<10^{-20}$ for given $L_{\rm exp}$ and $\lambda_\sigma$ (report both).
+
+\subsection{Pred. 4: Complexity Optimum (E3)}
+
+\textbf{Goal:} Sync-hop rate $(r_{sync})$ vs. drive complexity $(\Sigma_{drive})$:
+
+\begin{equation}
+r_{sync} = r_0 \, \Sigma_{drive} \, e^{-\Sigma_{drive} / \Sigma_{opt}},
+\end{equation}
+
+maximum at $(\Sigma_{opt})$ (rich but compressible).
+
+\textbf{Numerical target:}
+\begin{itemize}
+\item White noise $(\Sigma \sim \infty)$: $(r_{sync} \sim 0)$,
+\item Pure tone $(\Sigma \sim 0)$: $(r_{sync} \sim 0)$,
+\item Music/speech $(\Sigma \sim \Sigma_{opt} \sim 5$ bits/sample$)$: $(r_{sync} \sim \max)$.
+\end{itemize}
+
+\textbf{Test:} Vary from pure sine wave $\to$ complex sound $\to$ noise; measure $(r_{sync})$; expect unimodal curve.
+
+\textbf{Excess:} simultaneous attractor hops when drive rhymes (small $(d_\sigma)$); falls away at mismatch.
+
+\subsection{Summary Predictions $\to$ Bounds}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+Experiment & Positive signal & Null bound \\
+\midrule
+E1 (ansible) & $\Delta$BER $\sim 10^{-3}$ (match vs. mismatch), cross-corr. & $\varepsilon \lambda_\sigma Q < 10^{-12}$ m \\
+E2 (energy) & $\Delta E > 10^{-25}$ J $(Q \sim 10^{-2})$ & $\varepsilon \omega_0 Q < 10^{-8}$ Hz \\
+E2 (rotation, \textbf{matter}) & $A_{sid} \geq 10^{-20}$ (3$\sigma$, $10^7$ s) & $\varepsilon_{mat} Q_{mat} < 10^{-20}$ \\
+E3 (chaos) & $r_{sync}$ peak at $\Sigma_{opt}$ & $\varepsilon Q < 10^{-15}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{End-to-end parameter map}
+
+\textbf{Which observables constrain which parameter products (at leading order):}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+Observable & Primary constraint & Secondary/notes \\
+\midrule
+E1 ($\Delta$BER, coherence) & $\varepsilon\,\lambda_\sigma\,\mathcal Q$ (via (8.3–8.4)) & Distance ladder (§7.3) \\
+E2 ($\Delta E$ over time) & $\varepsilon\,\omega_0\,\mathcal Q$ & Power form (6.1) \\
+E2 (sidereal amplitude) & $\varepsilon\,\mathcal Q\cdot(\lambda_\sigma/L_{\rm exp})$ & Geometry factor $\Xi$ (11.2) \\
+E3 (hop rate vs. complexity) & $\lambda_\sigma$, $\mathcal Q$ & Peak at $\Sigma_{opt}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+

@@ -1,0 +1,44 @@
+\section{Selection Operator and Absence in the Standard Sector}
+
+The coupling to the substrate is given by:
+
+\begin{equation}
+\mathcal{L}_{int} \supset \frac{\varepsilon}{\Lambda_*^{\,4}} \, O_S[\phi] \, O_S[\phi'] \, \mathcal{K}_{\rm eff}(x,x'),
+\tag{5.1}
+\end{equation}
+
+where $(O_S)$ is a \textbf{pattern complexity operator} satisfying:
+
+\begin{enumerate}
+\item \textbf{RG-flow irrelevance:} The \textbf{seed} operator $\mathcal O$ has mass dimension $\Delta>4$ (for $d=4$), making it \textbf{irrelevant}. We define the \textbf{normalized} operator $O_S:=\mathcal O/\Lambda^{\Delta-4}$ so that $[O_S]=4$. At high energies/short distances:
+   \begin{equation}
+   \langle O_S(E) \rangle \sim (E / \Lambda)^{-n}, \quad n = \Delta - 4 > 0.
+   \end{equation}
+   This suppresses contributions in accelerator experiments.
+
+\item \textbf{Non-excitability in translationally invariant states:} For homogeneous, periodic configurations (crystals, thermal baths):
+   \begin{equation}
+   \langle O_S \rangle_{hom} \approx 0
+   \end{equation}
+   due to \textbf{degeneracy dilution}: N equivalent matches yield destructive interference, $(\propto 1/N)$.
+
+\item \textbf{Pump/structure requirements:} For $(O_S)$ to become non-negligible requires:
+   \begin{itemize}
+   \item High-dimensional, non-periodic structure (small N),
+   \item Proximity to critical point (Q high),
+   \item Active modulation/pump ($\mathcal{K} \neq 0$).
+   \end{itemize}
+\end{enumerate}
+
+\textbf{Explicit example (local, gauge- \& diffeo-invariant $O_S$ with $\Delta>4$).} Choose a locally defined window function $w_\ell$ with compact support and let
+\begin{equation}
+O_S(x)=\frac{1}{\Lambda^{\Delta-4}}\,
+\mathcal{F}\!\big(\nabla\phi,\nabla\nabla\phi,R_{\mu\nu\rho\sigma}\big)
+,\quad
+\mathcal{F}:=\sum_{m+n+k=\Delta}\! c_{mnk}\,
+(\nabla\phi)^m(\nabla\nabla\phi)^n(R)^k,
+\end{equation}
+such that $\Delta>4$ guarantees RG irrelevance while the operator is strictly local in $M$. The signatures in §7 (FFT, persistent homology, Wasserstein) are implemented operationally by letting the coefficients $c_{mnk}$ depend on locally extracted statistical/topological moments of the fields within $w_\ell$.
+
+\textbf{Naturalness:} Why does $O_S\neq0$? One possible mechanism is weak, spontaneous symmetry breaking in the substrate that induces small but non-zero local invariant combinations near criticality.
+

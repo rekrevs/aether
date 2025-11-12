@@ -1,0 +1,81 @@
+\section{Operationalized $d_\sigma$-Metric}
+
+Algorithmic similarity is non-computable. We specify a \textbf{practical proxy}:
+
+\textbf{Operational surrogate for algorithmic similarity:} We approximate "algorithmic isomorphism" by a finite feature map $\Phi(\sigma)=(\mathcal I_1,\ldots,\mathcal I_{N_{\rm feat}})$ of local gauge/diffeo invariants. We choose weights $(w_I>0)$, fix an embedding scale $(\ell_0)$, and define:
+
+\begin{equation}
+\begin{split}
+  d_\sigma(\sigma,\sigma') &:= \ell_0\,
+  \left(\sum_{I=1}^{N_{\rm feat}} w_I\,
+  \big\|\mathcal I_I(\sigma)-\mathcal I_I(\sigma')\big\|^2\right)^{1/2},\\
+  \mathbb K(\sigma,\sigma') &\equiv \exp\!\big[-d_\sigma(\sigma,\sigma')/\lambda_\sigma\big].
+\end{split}
+\tag{7.1}
+\end{equation}
+
+This makes $\mathbb K(\sigma,\sigma')$ computable and controls nonlocality via $\lambda_\sigma$.
+
+\textbf{Feature examples $\mathcal I_I$ (local, gauge/diffeo-invariant scalars):}
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Feature & Definition \\
+\midrule
+$\mathcal I_1$ & $F_{\mu\nu}F^{\mu\nu}$ (EM field strength squared) \\
+$\mathcal I_2$ & $\bar\psi\gamma^\mu D_\mu\psi$ (fermion current density) \\
+$\mathcal I_3$ & $R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}$ (curvature invariant) \\
+$\mathcal I_4$ & $\nabla_\mu\phi\nabla^\mu\phi$ (scalar kinetic term) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Each $\mathcal I_I$ is built from fields and a \textbf{finite number of derivatives}, ensuring locality in $M$. The number of features $N_{\rm feat}$ is finite for EFT control.
+
+\textbf{Gauge and diffeomorphism invariance:} All features $\mathcal I_I$ and the selection operator $O_S$ are constructed from \textbf{gauge-invariant, diffeomorphism-covariant scalars}. For example, in the electromagnetic sector, one may use $\mathcal I_{\rm EM} = F_{\mu\nu}F^{\mu\nu}$ where $F_{\mu\nu}=\partial_\mu A_\nu - \partial_\nu A_\mu$ is the field strength tensor, which is manifestly gauge-invariant under $A_\mu \to A_\mu + \partial_\mu\chi$. Similarly, curvature scalars like $R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}$ are diffeomorphism-invariant. This ensures the framework respects the symmetries of general relativity and the Standard Model.
+
+\subsection{Alternative: Signature-Based Extraction}
+
+From local state dynamics $(s)$ (time series, spatial configuration):
+
+\begin{itemize}
+\item \textbf{Spectral:} FFT $\to$ power spectrum $\to$ dominant frequencies $(f_1, \ldots, f_m)$, spectral entropy $H_{spec}$,
+\item \textbf{Topological:} persistent homology $\to$ Betti curves $(\beta_0(r), \beta_1(r))$,
+\item \textbf{Statistical:} autocorrelation $\tau_c$, Lyapunov exponents $\lambda_i$ (if applicable), moments $(\mu_k)$.
+\end{itemize}
+
+Signature: $(\sigma(s) = (f_i, H_{spec}, \beta_j(r_k), \tau_c, \lambda_i, \mu_k) \in \mathbb{R}^d)$.
+
+\subsection{Metric Definition}
+
+\begin{equation}
+d_\sigma(s,s') := \ell_0 \left[ \|\sigma(s) - \sigma(s')\|_2 + \alpha_W \, W(\mu_s, \mu_{s'}) \right],
+\tag{7.1}
+\end{equation}
+
+where $(W)$ is the Gromov-Wasserstein distance between probability distributions $(\mu_s, \mu_{s'})$, $(\alpha_W \geq 0)$, and the \textbf{embedding scale $(\ell_0)$} gives $(d_\sigma)$ \textbf{length dimension} (meters). Typically $(\ell_0 \sim 1~\mu\text{m})$.
+
+\subsection{Distance Ladder (Calibration)}
+
+Construct controlled levels:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{clll}
+\toprule
+Level & Transformation & Expected $d_\sigma$ & Expected K \\
+\midrule
+0 & Identical $(s' = s)$ & 0 & 1 \\
+1 & Phase rotation (spectrum preserved) & $\varepsilon_1 \ll \lambda_\sigma$ & $\approx 0.9$ \\
+2 & Permuted label & $\varepsilon_2 \approx 0.3 \lambda_\sigma$ & $\approx 0.7$ \\
+3 & Block-scramble (temporal/spatial) & $\varepsilon_3 \approx 0.7 \lambda_\sigma$ & $\approx 0.5$ \\
+4 & Additive noise (SNR = 10 dB) & $\varepsilon_4 \approx \lambda_\sigma$ & $\approx 0.37$ \\
+5 & Independent realization & $\varepsilon_5 \gg \lambda_\sigma$ & $\ll 0.1$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Test that $(K(e) = \exp[-d_\sigma/\lambda_\sigma])$ falls monotonically and that the effect in E1 correlates with level. This directly links observable effect to a calibrated scale.
+
+\textbf{Pre-registration:} The distance ladder is pre-registered as a \textbf{separate, blind pilot} (own OSF DOI) before main experiments E1/E2/E3. Blind ``level labels'' are kept sealed until analysis phase.
+

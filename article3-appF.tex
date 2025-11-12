@@ -1,0 +1,73 @@
+\section{Parameters, Units, and \LaTeX{} Macros}
+
+This appendix collects the central symbols, their meaning, units, and typical ranges/bounds used throughout the text (after patches in §3–§12).
+
+\subsection{\LaTeX{} Macros (For compilation in \LaTeX; ignore for plain Markdown/MathJax)}
+
+\begin{verbatim}
+% ==== Notation macros for article ====
+% Kernel and rates
+\newcommand{\Kkernel}{\mathbb{K}}              % Effective kernel on S
+\newcommand{\Krate}{\tilde{\mathcal{K}}}       % Rate form: P_pump / (\hbar\omega_0)
+\newcommand{\fl}{f_{\ell}}                     % Smearing kernel in pushforward
+\newcommand{\veff}{v_{\!eff}}                  % Effective light speed in bound
+% S- and M-objects
+\newcommand{\Jsig}{J_{\sigma}}                 % S-current (power)
+\newcommand{\Os}{O_{S}}                        % Selection operator
+\newcommand{\Ts}{T^{\mu\nu}_{S}}               % S-sector's T^{μν}
+\newcommand{\proj}{\pi}                         % Projection S -> M
+% Distances and lengths
+\newcommand{\ds}{d_{\sigma}}                   % Structural distance
+\newcommand{\ls}{\lambda_{\sigma}}             % S-coherence length
+% Other
+\newcommand{\Asid}{A_{\rm sid}}                % Sidereal modulation amplitude
+\end{verbatim}
+
+\textit{Comment:} $\Krate$ replaces the old dimensionless $\mathcal K$ when a \textbf{rate} is needed; relation is $\mathcal K=\Krate\,\tau$.
+
+\subsection{Parameter Table (Symbols, Units, Ranges)}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llll}
+\toprule
+Symbol & Meaning & Unit & Typical values / bounds \\
+\midrule
+$\varepsilon$ & Base coupling (sector-agnostic) & 1 & $\sim10^{-15}$ (target range) \\
+$\Lambda_*$ & Suppression scale in $S_{int}$ & energy & High scale ($\gg \hbar\omega_0$) \\
+$\varepsilon_\gamma$ & Coupling in photon/optics sector & 1 & $\varepsilon_\gamma\mathcal Q_\gamma < 10^{-23}$ \\
+$\varepsilon_{\rm mat}$ & Coupling in material E1/E2 sector & 1 & Free vs. $\varepsilon_\gamma$ \\
+$\mathcal Q$ & Coherence/quality (general) & 1 & $10^{-10}$ (baseline) – $10^{-2}$ (ambitious) \\
+$d_\sigma$ & Structural distance in $S$ & m & Calibrated via $\ell_0$ (§7) \\
+$\lambda_\sigma$ & S-coherence length & m & $\sim \mu$m–mm \\
+$K = e^{-d_\sigma/\lambda_\sigma}$ & Similarity kernel & 1 & $[0,1]$ \\
+$\ell_0$ & Embedding scale & m & $\sim 1\,\mu$m \\
+$\hbar\omega_0$ & Energy scale & J & $\sim10^{-23}$ J (10 GHz) \\
+$P_{\rm pump}$ & Pump power & W & $\mu$W–mW \\
+$\Krate$ & Rate $=P_{\rm pump}/(\hbar\omega_0)$ & s$^{-1}$ & occurrence per unit time \\
+$A_{\rm sid}$ & Sidereal amplitude & 1 & $\gtrsim 10^{-20}$ (E2 goal) \\
+$\alpha$ & Grav coupling S-energy & 1 & \textbf{1} (exact; Bianchi) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Quick Map: Where Parameters Are Used}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+Section & Uses & Key formula \\
+\midrule
+§3.3 & $f_\ell,\pi,J_\sigma$ & $S^\nu(x)=\!\int d\mu(s)\,f_\ell(x-\pi(s))(\nabla_\sigma\!\cdot\!J_\sigma)^\nu$ \\
+§6 & $\varepsilon,K,\mathcal Q,\tilde{\Delta\Phi},\Krate,P_{\rm pump}$ & $ J_\sigma=\varepsilon K\mathcal Q\tilde{\Delta\Phi}P_{\rm pump}$ \\
+§8 & $\Krate,\mathcal K,\tau$ & $\Krate=P_{\rm pump}/(\hbar\omega_0)$, $\mathcal K=\Krate\tau$ \\
+§9 & $g,\eta,\kappa,\mu,v_{eff}$ & LR bound with path sum (9.1) \\
+§11 & $\varepsilon_\gamma,\mathcal Q_\gamma,\lambda_\sigma$ & $\Delta c/c \sim \varepsilon_\gamma(\lambda_\sigma/\lambda_C)\mathcal Q_\gamma$ \\
+§12 & $\varepsilon_{\rm mat},\mathcal Q_{\rm mat},P_{\rm pump}$ & E2 energetics and $A_{\rm sid}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+

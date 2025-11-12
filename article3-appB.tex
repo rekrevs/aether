@@ -1,0 +1,21 @@
+\section{Continuity over $(M\times S)$ – Derivation}
+
+Discrete time $(T)$, energy density $(\rho_M)$ in cells $(c \in M)$ and $(\rho_\sigma)$ in nodes $(s \in S)$. Let $(\Delta E_M(c))$ be net change in $(c)$ during one tick and $(\sum_{e\in\partial s} J_\sigma(e))$ be net flow in $(S)$.
+
+\textbf{Global conservation:}
+\begin{equation}
+\sum_{c} \Delta E_M(c) + \sum_{s} \Delta E_\sigma(s) = 0.
+\end{equation}
+
+\textbf{Continuum limit:} $(T \to t)$, $(c \to x)$, $(s \to \sigma)$:
+\begin{equation}
+\frac{\partial \rho_M}{\partial t} + \nabla \cdot J_M = -\nabla_\sigma \cdot J_\sigma.
+\end{equation}
+
+\textbf{Covariant lift:} Bundle $(E \to M)$ with fiber S, connection $(\nabla)$, local coordinate $(x^\mu, \sigma^a)$:
+\begin{equation}
+\nabla_\mu T^{\mu\nu}_{vis} = -J^\nu_{\sigma}, \quad \nabla_\mu T^{\mu\nu}_{S} = +J^\nu_{\sigma}.
+\end{equation}
+
+Sum gives (3.5). Note that $(\alpha)$ only affects \textbf{gravitational coupling} in (3.3); Bianchi identity implies $(\nabla_\mu(T_{vis}^{\mu\nu}+T_S^{\mu\nu})=0)$ \textbf{exactly}, independent of $(\alpha)$.
+

@@ -1,0 +1,61 @@
+\section{Local Implementation of S-Proximity via an S-Mediator}
+
+\textbf{Problem:} How can the substrate, with only local rules, realize ``proximity in $S$'' without a global bulletin board?
+
+\textbf{Solution:} A \textbf{dynamic mediator $\chi(\sigma,T)$} that propagates \emph{locally} in $S$ (retarded in substrate time $T$) and couples to $O_S$.
+
+\subsection{Mediator Dynamics}
+
+Each point $\sigma \in S$ carries a field $\chi(\sigma,T)$ obeying a \textbf{wave-like equation} in substrate parameter $T$ and $S$-distance:
+
+\begin{equation}
+\partial_T^2 \chi - c_S^2 \nabla_\sigma^2 \chi + m_\chi^2 \chi = J_S(\sigma,T),
+\tag{4.1}
+\end{equation}
+
+where:
+\begin{itemize}
+\item $c_S$ is \textbf{propagation speed in $S$} (dimensionless or in units of substrate ticks),
+\item $m_\chi$ is an effective mass giving range $\lambda_\sigma = c_S / m_\chi$,
+\item $J_S(\sigma,T)$ is the source from visible matter via $O_S$.
+\end{itemize}
+
+\textbf{Retarded solution:}
+\begin{equation}
+\chi(\sigma',T') = \int d\mu(\sigma) \int dT \, G_{\rm ret}(\sigma',T'; \sigma,T) \, J_S(\sigma,T),
+\tag{4.2}
+\end{equation}
+with retarded Green's function
+\begin{equation}
+G_{\rm ret}(\sigma',T';\sigma,T) \propto \frac{e^{-m_\chi d_\sigma(\sigma,\sigma')/c_S}}{d_\sigma(\sigma,\sigma')} \, \Theta(T'-T - d_\sigma(\sigma,\sigma')/c_S).
+\tag{4.3}
+\end{equation}
+
+\subsection{Emergent $\mathbb{K}$}
+
+The effective \textbf{resonance kernel} in (3.2) follows as:
+\begin{equation}
+\begin{split}
+\mathbb{K}(\sigma,\sigma') = \int dT \, G_{\rm ret}(\sigma',T'; \sigma,T)
+\,\Theta\!\big(T'-T-d_\sigma(\sigma,\sigma')/c_S\big) \\
+\approx e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma}.
+\end{split}
+\tag{4.4}
+\end{equation}
+
+The Heaviside factor ensures explicit substrate retardation already at the kernel level.
+
+\textbf{Properties of the resonance kernel $\mathbb K(\sigma,\sigma')$:}
+\begin{enumerate}
+\item $\mathbb K(\sigma,\sigma') \ge 0$ (positivity)
+\item Symmetric and positive-definite (Mercer kernel)
+\item Retarded in $T$ (no advanced support)
+\end{enumerate}
+
+\textbf{Results:}
+\begin{enumerate}
+\item \textbf{No global search:} each node knows only local neighbors in $S$ via $\nabla_\sigma^2$.
+\item \textbf{Retarded in $T$:} signals reach $\sigma'$ only after $T - T' \geq d_\sigma/c_S$, ensuring substrate causality.
+\item \textbf{Exponential decay:} $\mathbb{K}$ is naturally local in $S$ for $m_\chi > 0$.
+\end{enumerate}
+

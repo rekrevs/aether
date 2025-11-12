@@ -1,0 +1,113 @@
+\section{Experimental Protocols (No-Loophole) and Parameter Inference}
+
+All protocols are \textbf{pre-registered} (Open Science Framework), timestamped, and data/analysis published openly.
+
+\textbf{Statistical method box:} We pre-register decision rules and adjust for \textbf{multiple comparisons} (e.g., \textbf{Holm–Bonferroni} or FDR correction) over distance levels (6 levels in §7.3), control protocols (match/mismatch, on/off), and experiments (E1–E3) to control family-wise error rate at $\alpha=0.05$. The distance ladder pilot (see §7.3) is published with its own DOI and used as advance calibration.
+
+\subsection{E1. Neuromorphic Ansible (Information)}
+
+\textbf{Setup.}
+\begin{itemize}
+\item Two photonic/electronic reservoirs (3D RC networks, $N \sim 10^3$ nodes),
+\item Training on identical dataset (MNIST / audio / video-snippet),
+\item \textbf{Triple-Faraday}, optical isolation (fiber-air-gap, optical isolators), battery power,
+\item Independent atomic clocks (GPS-disciplined or crystal-OCXO, jitter $< 1$ ns),
+\item \textbf{Spacelike separation} ($> 1$ km, light-travel-time $> 3~\mu$s).
+\end{itemize}
+
+\textbf{Protocol.}
+\begin{enumerate}
+\item \textbf{Pre-commitment:} Publish hash (SHA-256) of codebook + time schedule (\textbf{commit–reveal}).
+\item[1a.] \textbf{Blind pilot (distance ladder):} Run a separate, blindly labeled level series $(N=6)$ and freeze $(\lambda_\sigma,\ell_0)$ before main run.
+\item \textbf{Distance ladder:} Test 6 levels (§7.3), $10^9$ bits per level.
+\item \textbf{Delayed choice:} QRNG selects codebook/times after commit, before transmission.
+\item \textbf{Blind reception:} Receiver runs correlation against codebook without sender access.
+\item \textbf{Sham blocks:} 20\% of blocks are ``off'' (sender inactive) $\to$ test for false-positive (ghost blocks).
+\item \textbf{Cosmic veto:} Muon detector; reject if $(N_\mu > 10 / \text{m}^2 / \text{s})$.
+\end{enumerate}
+
+\textbf{Analysis.}
+\begin{itemize}
+\item Calculate BER per level,
+\item Bayes factor ($H_1$: resonance vs. $H_0$: chance + leakage),
+\item Sequential Probability Ratio Test (SPRT) for early stop,
+\item Permutation tests ($\geq 10^6$) for p-value,
+\item \textbf{Holm-Bonferroni correction} for 6 levels.
+\end{itemize}
+
+\textbf{Goal:} $\Delta$BER $\sim 10^{-3}$ (match vs. mismatch) with cross-correlation/coherence as primary statistic, $(p < 10^{-6})$ (corrected).
+
+\textbf{Inference:} Null result maps to $(\varepsilon \lambda_\sigma Q)$ via (8.3-8.4).
+
+\subsection{E2. Energy Tunnel (Energy)}
+
+\textbf{Setup.}
+\begin{itemize}
+\item Two identical superconducting microwave cavities or metamaterial rigs $(Q_{cav} \sim 10^6)$,
+\item \textbf{Cryo-calorimetry} $(T \sim 10$ mK, $\delta T \sim 0.1~\mu$K $\to \delta E \sim 10^{-26}$ J),
+\item Separation $> 1$ km (light-travel-time $> 3~\mu$s),
+\item \textbf{Rotation platform} (0.1 rpm $\to$ scan preferred frame for sidereal modulation).
+\end{itemize}
+
+\textbf{Protocol.}
+\begin{enumerate}
+\item \textbf{Matching test:} Vary internal geometry (0\%, 50\%, 100\% match).
+\item \textbf{Pump modulation:} A pumped with $(P_{pump} = 1~\mu$W), period 100 s on/off; B below threshold.
+\item \textbf{Phase-locking on/off:} Control coherence $(Q)$.
+\item \textbf{Thermostat on/off:} Alternate active vs. passive temperature control.
+\item \textbf{Latency scan:} Correlate $(\Delta T_B(t))$ with $(P_A(t-\delta))$, scan $\delta \in [-10~\mu\text{s}, +10~\mu\text{s}]$.
+\item \textbf{Grav-sidekick:} Torsion pendulum or cavity in B (sensitivity $\sim 10^{-15}$ m/s$^2$); report expected $(\Delta \Phi_g)$ even if below sensitivity.
+\item \textbf{Momentum test:} Verify (3.7) experimentally with precision force meters (no traces of reactionless force).
+\item \textbf{Rotation test:} Scan preferred-frame direction for sidereal modulation (11.2).
+\end{enumerate}
+
+\textbf{Goals:}
+\begin{itemize}
+\item $(\Delta E_A + \Delta E_B)$ deviates from zero with $(|\Delta E| > 10^{-25}$ J) (ambitious scenario),
+\item Correlation with matching grade $(r > 0.8)$,
+\item FTL latency $(\delta < -3~\mu$s) vs. thermal leakage $(\delta > 0)$,
+\item Sidereal modulation $(A \geq 10^{-20})$.
+\end{itemize}
+
+\textbf{Analysis:}
+\begin{itemize}
+\item Cross-correlation and regression model with (10) and (11.2),
+\item Bayes factors, permutation tests,
+\item \textbf{Multiple-test correction} for match/mismatch, on/off, and rotation conditions.
+\end{itemize}
+
+\textbf{Null bound:} If $(|\Delta E| < 10^{-26}$ J) after $10^6$ s $\to (\varepsilon \omega_0 Q < 10^{-8}$ Hz). Rotation null $\to (\varepsilon Q < 10^{-20})$.
+
+\subsection{E3. Chaos-to-Chaos}
+
+\textbf{Setup.}
+\begin{itemize}
+\item Two turbulent flows (Rayleigh-Bénard cells, $L = 10$ cm) or reaction-diffusion systems (identical geometry),
+\item Laser Doppler velocimetry or imaging (1 kHz sampling),
+\item Drive: modulated heat flux or chemical concentration with variable complexity.
+\end{itemize}
+
+\textbf{Protocol.}
+\begin{enumerate}
+\item \textbf{Attractor topology:} Persistent homology $\to$ Betti curves $(\beta_0(r), \beta_1(r))$; topological analysis.
+\item \textbf{Hop detector:} Define hop as $(|\Delta\beta_1| > \theta)$ within 1 s.
+\item \textbf{Complexity scan:} White noise $\to$ music $\to$ speech $\to$ pure tone (5 levels).
+\item \textbf{Permutation test:} For each configuration, shuffle timestamps $10^6$ times $\to$ p-value.
+\item \textbf{Mismatch control:} Change geometry (10\%, 20\%, 50\%) $\to$ measure $(r_{sync})$ vs. dissimilarity; prediction: $(r_{sync} \propto e^{-d_\sigma/\lambda_\sigma})$.
+\end{enumerate}
+
+\textbf{Goals:}
+\begin{itemize}
+\item $(r_{sync})$ maximized at intermediate complexity (music/speech),
+\item Overrepresentation at match: $(p < 10^{-6})$,
+\item $(r_{sync})$ falls monotonically with increasing mismatch.
+\end{itemize}
+
+\textbf{Analysis:}
+\begin{itemize}
+\item Log-linear fit gives $(\lambda_\sigma)$,
+\item \textbf{FDR correction} for 5 complexity levels and mismatch levels.
+\end{itemize}
+
+\textbf{Inference:} Null result $\to (\lambda_\sigma)$-bound and $(\varepsilon Q < 10^{-15})$.
+

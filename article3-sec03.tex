@@ -1,0 +1,130 @@
+\section{Action and Field Content}
+
+\subsection{Variational Principle}
+
+We derive the framework from a \textbf{total action}:
+
+\begin{equation}
+\begin{split}
+S_{tot} = \int d^4x \, \sqrt{-g} \left[ \frac{1}{16\pi G} R + \mathcal{L}_{vis}[\phi, g] + \mathcal{L}_S[\tau, u^\mu, g] \right] \\
+ + \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,\frac{O_S(x,\sigma)\,\mathbb{K}(\sigma,\sigma')\,O_S(x,\sigma')}{\Lambda_*^{4}},
+\end{split}
+\tag{3.1}
+\end{equation}
+
+where:
+
+\begin{itemize}
+\item $(R)$ is the Ricci scalar, $(g_{\mu\nu})$ is the metric,
+\item $(\mathcal{L}_{vis})$ is the Lagrangian density for visible matter/fields $(\phi)$,
+\item $(\tau(x))$ is a \textbf{foliation scalar} (``khronon'') and $(u^\mu)$ is a unit timelike vector defining the substrate's global ordering (preferred frame),
+\item $(\mathcal{L}_S)$ is chosen so that $(c_T = c)$ (gravitational waves) and PPN deviations vanish in the absence of resonance (minimal aether/khronon ansatz).
+\end{itemize}
+
+\textbf{Interaction term (manifestly covariant on $M\times S$ and dimensionally normalized):}
+
+\begin{equation}
+S_{int} = \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\;
+\frac{ O_S(x,\sigma)\,\mathbb{K}(\sigma,\sigma')\,O_S(x,\sigma') }{\Lambda_*^{\,4}},
+\tag{3.2}
+\end{equation}
+
+where we choose $[O_S]=4$ by construction (see §5). The measure $d\mu(\sigma)$ is \textbf{dimensionless}; all mass dimensions are carried by $O_S$ and explicit scales. The high-energy scale $\Lambda_*$ ensures that the interaction term has mass dimension four at the Lagrangian density level.
+
+where $\mathbb{K}$ is local on $S$ (governs resonance via $d_\sigma$) and entirely independent of $x$ except through $O_S(x,\cdot)$. This makes diffeomorphism invariance and energy-momentum conservation manifest.
+
+\subsubsection{Explicit $\mathcal{L}_S$ (Two Compatible Choices)}
+
+We specify $\mathcal{L}_S$ such that (i) $c_T=c$ for gravitational waves and (ii) PPN deviations vanish in the absence of resonance. Two practical choices:
+
+\textbf{(A) Minimal Khronon (Constraint-Only):}
+\begin{equation}
+\mathcal{L}_S^{\text{min}} = \frac{M_S^2}{2}\,\Lambda(x)\,\big(u^\mu u_\mu + 1\big),\qquad
+u^\mu:=\frac{\nabla^\mu \tau}{\sqrt{-\,\nabla_\alpha \tau \nabla^\alpha \tau}}.
+\tag{3.1A}
+\end{equation}
+
+Here the unit timelike vector $u^\mu$ is introduced via a Lagrange multiplier $\Lambda$; no free kinetic coefficients. Consequence: $c_T=c$ exactly and PPN$\approx 0$ in the background; resonance dynamics occurs solely via $S_{int}$ and the mediator $\chi$ (§4).
+
+\textbf{(B) Einstein-Æther/Khronon (Four-Coefficient Form):}
+\begin{equation}
+\begin{split}
+\mathcal{L}_S^{\text{EA}}=\frac{M_S^2}{2}
+\big[c_1(\nabla_\mu u_\nu)(\nabla^\mu u^\nu)
+ +c_2(\nabla_\mu u^\mu)^2
+ +c_3(\nabla_\mu u_\nu)(\nabla^\nu u^\mu) \\
+ +c_4\,u^\mu u^\nu(\nabla_\mu u_\alpha)(\nabla_\nu u^\alpha)\big]
+ +\frac{M_S^2}{2}\,\Lambda(x)\,(u^\mu u_\mu+1).
+\end{split}
+\tag{3.1B}
+\end{equation}
+
+We choose the parameter regime with
+\begin{equation}
+c_{13}:=c_1+c_3=0\quad(\Rightarrow c_T=1),\qquad
+|c_i|\ll 1,\qquad
+\text{and PPN conditions $\alpha_1=\alpha_2\simeq 0$ satisfied to linear order.}
+\tag{3.1C}
+\end{equation}
+
+Comment: (A) is the safest baseline (no new propagation dynamics in the background); (B) provides room to maneuver if one later wishes to let $u^\mu$ carry weak, controlled dynamics. Both choices are compatible with $\alpha\equiv1$ (§3.5) and with our causality result in §10.
+
+\subsection{Field Equations and Energy-Momentum Accounting}
+
+\textbf{Variation yields:}
+
+\begin{enumerate}
+\item \textbf{Einstein equations:}
+   \begin{equation}
+   G_{\mu\nu} = \frac{8\pi G}{c^4}\big(T^{\mu\nu}_{vis}+T^{\mu\nu}_S\big),
+   \tag{3.3}
+   \end{equation}
+   where a \textbf{well-defined} $T^{\mu\nu}_S$ follows from variation in $g_{\mu\nu}$.
+
+\item \textbf{Energy-momentum conservation:}
+   \begin{equation}
+   \nabla_\mu T^{\mu\nu}_{vis} = -J^\nu_{\sigma}, \quad \nabla_\mu T^{\mu\nu}_{S} = +J^\nu_{\sigma},
+   \tag{3.4}
+   \end{equation}
+   where $(J^\nu_\sigma)$ is the four-current from the interaction.
+
+\item \textbf{Total conservation:}
+   \begin{equation}
+   \nabla_\mu (T^{\mu\nu}_{vis} + T^{\mu\nu}_S) = 0.
+   \tag{3.5}
+   \end{equation}
+\end{enumerate}
+
+\subsection{Localization of $(S)$-Flows as Sources in $(M)$}
+
+To \textbf{operationalize} how $S$-flows create local sources in $M$, we use a smeared pushforward with compact support function $f_\ell$ (``worldtube'', $\ell\!\ll\!L_{\rm exp}$):
+
+\begin{equation}
+S^\nu(x)=\!\int\! d\mu(\sigma)\, f_\ell\!\big(x-\pi(\sigma)\big)\,(\nabla_\sigma\!\cdot\!J_\sigma)^\nu(\sigma),
+  \qquad \int d^4x\, f_\ell(x) = 1.
+\tag{3.6}
+\end{equation}
+
+which ensures well-defined behavior under variation and preserves diffeomorphism invariance. The normalization $\int d^4x\, f_\ell(x) = 1$ ensures the pushforward preserves total flow, with support scale $\ell\!\ll\!L_{\rm exp}$.
+
+\textbf{Normalization note.} Throughout §3 we take $d\mu(\sigma)$ to be a \textbf{dimensionless} measure on $S$; units enter only through $O_S$ and the explicit scale $\Lambda_*$ in (3.2).
+
+\subsection{Momentum-Neutrality}
+
+As a consequence of global translational invariance in $M$ (Noether) and the bilocal, translationally symmetric form of $S_{int}$, it follows that
+
+\begin{equation}
+\int d^4x\, J^i_\sigma(x)=0,
+\tag{3.7}
+\end{equation}
+
+which prevents \textbf{reactionless drive} (energy can be transferred without net momentum in $(M)$). This is consistent with (3.4) integrated over a closed volume and should be verified experimentally in E2.
+
+\subsection{Gravitational Signature and Bounds}
+
+\textbf{Choice and motivation for $\alpha$:} To be compatible with the Bianchi identity when $\nabla_\mu T^{\mu\nu}_{vis}=-J^\nu_\sigma$ and $\nabla_\mu T^{\mu\nu}_{S}=+J^\nu_\sigma$, we set
+\begin{equation}
+\boxed{\;\alpha\equiv 1\ \text{(exact)}\;}
+\end{equation}
+everywhere. Metric response is thus light-speed causal; all perceived FTL comes solely from $S$-locality.
+

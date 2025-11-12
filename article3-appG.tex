@@ -1,0 +1,22 @@
+\section{Effective Bilocal Kernel on $M$ – Derivation and Positivity}
+
+Starting from (3.2) and push-forward (§3.3). Define
+\begin{equation}
+\mathcal{K}_{\rm eff}(x,x'):=\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,
+f_\ell(x-\pi\sigma)\,\mathbb{K}(\sigma,\sigma')\,f_\ell(x'-\pi\sigma')\,
+\Theta\!\big(\tau(x')-\tau(x)-\tfrac{d_\sigma(\sigma,\sigma')}{c_S}\big).
+\tag{G.1}
+\end{equation}
+
+\textbf{Retardation:} Heaviside factor implements substrate causality using the \textbf{foliation scalar} $\tau$, ensuring diffeomorphism-invariant gating.
+
+\textbf{Positivity (Schoenberg type):} For test function $\varphi$,
+\begin{equation}
+\begin{split}
+\iint \! d^4x\,d^4x'\, \varphi(x)\,\mathcal{K}_{\rm eff}(x,x')\,\varphi(x') \\
+= \iint \! d\mu(\sigma)\,d\mu(\sigma')\, \psi(\sigma)\,\mathbb{K}(\sigma,\sigma')\,\psi(\sigma')
+\ge 0,
+\end{split}
+\end{equation}
+with $\psi(\sigma)=\!\int d^4x\, f_\ell(x-\pi\sigma)\,\varphi(x)$. Thus $\mathcal{K}_{\rm eff}$ is positive semidefinite if $\mathbb{K}$ is.
+

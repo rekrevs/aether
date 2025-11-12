@@ -1,0 +1,45 @@
+\section{Category-Theoretic Causality Proof – Full Version}
+
+\textbf{Category $(\mathcal{C})$:}
+\begin{itemize}
+\item \textbf{Objects:} Substrate states $(s_i)$ at discrete time $(T_i)$.
+\item \textbf{Morphisms:} $(f: s_i \to s_j)$ are permitted updates (local M-step or resonance via S-edge).
+\end{itemize}
+
+\textbf{Time functor $(T: \mathcal{C} \to (\mathbb{N}, \leq))$:}
+\begin{itemize}
+\item $(T(s_i) = T_i)$,
+\item Each morphism $(f: s_i \to s_j)$ satisfies $(T(s_j) > T(s_i))$ (strict monotonicity).
+\end{itemize}
+
+\textbf{Cost functor ($\tilde{\mathcal K}$: $\mathcal{C} \to (\mathbb{R}_+, +)$):}
+\begin{itemize}
+\item Each morphism $(f)$ has cost $\tilde{\mathcal K}(f) \ge 0$,
+\item Composition: $\tilde{\mathcal K}(g \circ f) = \tilde{\mathcal K}(f) + \tilde{\mathcal K}(g)$.
+\end{itemize}
+
+\textbf{Definition (causal loop):} A sequence of morphisms $(f_1, \ldots, f_n)$ such that:
+\begin{itemize}
+\item Start and end objects are the same (or M-equivalent under $\pi$),
+\item Projection to M gives closed worldline.
+\end{itemize}
+
+\begin{lemma}
+If $(f_1, \ldots, f_n)$ form a loop in M, then $(\sum_i T(\text{target}(f_i)) - T(\text{source}(f_i)) = 0)$ (cycle sum in T).
+\end{lemma}
+
+\textbf{Proof:} Projection to M can give $(\Delta t \leq 0)$ in some frame (FTL hop), but in substrate: each $(f_i)$ has $(\Delta T_i > 0)$ $\to$ $(\sum \Delta T_i > 0)$ $\to$ \textbf{contradiction}. \qed
+
+\begin{theorem}[Causal consistency]
+Category $(\mathcal{C})$ permits no closed loops.
+\end{theorem}
+
+\textbf{Proof:} Assume closed loop $(L)$. Then:
+\begin{enumerate}
+\item $(\sum \Delta T > 0)$ (from time functor),
+\item But loop requires $(\sum \Delta T = 0)$ (closed),
+\item Contradiction. \qed
+\end{enumerate}
+
+\textbf{Corollary:} No antitelephones possible. FTL in M is always compensated by T-monotonicity in substrate.
+

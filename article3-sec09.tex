@@ -1,0 +1,25 @@
+\section{Modified Lieb-Robinson Bound}
+
+Standard theory: influence propagates within the light cone, $||[A(x,t), B(y,0)]|| \lesssim \exp[-\kappa(|x-y| - v t)]$.
+
+\textbf{With S-edges:} Let $(E_S)$ be the set of active S-edges, total strength $\eta := \sum_{e\in E_S} |J_e|$, where $J_e$ are the \textbf{Hamiltonian} couplings in $\delta H_S$ (unit: energy).
+
+\begin{lemma}[Soft cone with S-damping]
+Under conditions (i)–(iv), we obtain
+\begin{equation}
+\begin{split}
+||[A(x,t),B(y,0)]|| \le C\,e^{-\kappa(|x-y|-v t)}
+\;+\;C'\,\Theta\!\big(t-\tfrac{d_\sigma(\sigma_x,\sigma_y)}{c_S}\big)\, \\
+e^{-d_\sigma(\sigma_x,\sigma_y)/\lambda_\sigma}\,
+\Phi\!\left(g,\frac{\eta t}{\hbar}\right),
+\end{split}
+\tag{9.1}
+\end{equation}
+\end{lemma}
+
+The Heaviside ``gating'' makes substrate causality explicit even in the operator norm limit.
+
+where $\Phi$ grows at most \textbf{exponentially} in $t$ (see App. C, eq. (C.12)) and does not saturate to a distance-independent constant. The S-contribution is thus suppressed \textbf{exponentially in $d_\sigma$} and controlled by sparsity $(g)$ and weak coupling $(\eta)$.
+
+\textbf{Formal proof (Appendix C):} Duhamel expansion of time evolution operator, decomposition into local $(M)$ and non-local $(S)$ parts, graph norm estimates with sparsity conditions, and explicit substrate retardation via $\Theta(t-d_\sigma/c_S)$; linear term saturates at $t\sim\hbar/\eta$.
+

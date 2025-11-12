@@ -1,0 +1,43 @@
+\section{Causality – Formal Proof}
+
+\textbf{Monotonic-$(T)$ Axiom:} All substrate-mediated transfers obey:
+\begin{equation}
+  \Delta\tau>0\ \ \text{for all substrate transfers},\qquad
+  \text{all kernels are retarded in }T.
+  \tag{10.1}
+\end{equation}
+
+\textbf{No causal loops:} All substrate-mediated influences are retarded in $(T)$ and strictly monotone with respect to the khronon $(\tau)$ (Eq. (10.1)). Any observable influence in $(M)$ is a concatenation of (i) $(M)$-causal propagation with respect to $(g_{\mu\nu})$ and (ii) $(S)$-local transfers retarded in $(T)$. Since $(T)$ induces a partial order on the combined interaction graph $(\mathcal G_M \cup \mathcal G_S)$, and edges of $(\mathcal G_S)$ are directed by retardedness, closed $(T)$-nonincreasing loops are forbidden. Therefore anti-telephone constructions fail even for relatively moving observers.
+
+\begin{theorem}[Causal monotonicity]
+Under conditions (i) all resonance dynamics is retarded in substrate ordering $(T)$, (ii) each resonance step requires $\tilde{\mathcal K}(e) \ge 0$, and (iii) $\varepsilon$ is finite, there exist no closed causal loops in $(M\times S)$.
+\end{theorem}
+
+\textbf{Proof (sketch).}
+
+\begin{enumerate}
+\item \textbf{Category construction.} Let $(\mathcal{C})$ be the category of substrate events, where objects are states at different $(T)$ and morphisms are update steps (either local in M or resonance via S).
+
+\item \textbf{Time functor.} Define $(T: \mathcal{C} \to (\mathbb{N}, \leq))$, $(T(s_i) = T_i)$. Require each morphism $(f: s \to s')$ has $(T(s') > T(s))$ (strict monotonicity).
+
+\item \textbf{Cost monotonicity.} Each resonance morphism $(\phi: s \to s')$ requires $\tilde{\mathcal K}(\phi)\ge0$. Composed morphism $(\phi_2 \circ \phi_1)$ has $\tilde{\mathcal K}(\phi_2\circ\phi_1)=\tilde{\mathcal K}(\phi_1)+\tilde{\mathcal K}(\phi_2)$.
+
+\item \textbf{Loop analysis.} Assume closed loop in M: events $(A \to B \to C \to A)$ with spacetime coordinates such that final step is in A's past light cone. This requires a morphism chain with $(\Delta T \leq 0)$ or $\tilde{\mathcal K}_{\rm total}<0$. Both are forbidden by construction.
+
+\item \textbf{Multi-frame test.} In arbitrary Lorentz frame, M-coordinates transform, but $(T)$ is frame-invariant (substrate-absolute). Loop in one frame = loop in all frames $\to$ forbidden.
+\end{enumerate}
+
+\textbf{Conclusion:} No antitelephones. FTL in M is compensated by T-monotonicity in substrate. \qed
+
+\textbf{Rule (anti-telephone):} Resonance transfers are \emph{only} permitted if
+\begin{equation}
+\Delta\tau>0
+\end{equation}
+in substrate time along each substep in the chain. The rule is locally testable (apparatus phase-locking to $u^\mu$) and forbids causal loops even for parties in relative motion.
+
+Complete category-theoretic proof is in Appendix D.
+
+\begin{corollary}[Two-lab anti-telephone]
+For any two laboratories with four-velocities $U_A^\mu$ and $U_B^\mu$, any chain of resonance steps that satisfies $\Delta\tau>0$ on \textbf{each} substep in the local control logic of each apparatus cannot form a causal loop. The condition is frame-independent because $\tau$ is a scalar and increases monotonically along allowed morphisms.
+\end{corollary}
+

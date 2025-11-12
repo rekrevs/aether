@@ -1,0 +1,41 @@
+\section{Modified Lieb-Robinson Bound – Proof (Sketch)}
+
+\subsection{Operator Algebra and Norm Choice}
+
+We work on a tensor product Hilbert space $\mathcal H=\bigotimes_{x\in\Lambda}\mathcal H_x$ with local, bounded operators. Norm: $\|A\|:=\sup_{\|\psi\|=1}\|A\psi\|$ (operator norm). S-term written $\delta H_S=\sum_{e=(x,y)\in E_S} J_e\, O_x O_y$ with $\|O_x\|\le 1$.
+
+\textbf{Sparsity \& strength:} max degree $g$ (= at most $g$ S-edges per node) and $\sum_{e\ni x}|J_e|\le\eta$ for all $x$.
+
+\subsection{Path Sums and $\Phi$-Function}
+
+Let $\mathcal P_m(x\to y)$ be the set of S-paths with $m$ hops from $x$ to $y$. Assume a \textbf{path suppression factor} $e^{-\mu m}$ ($\mu>0$) from $K=\exp[-d_\sigma/\lambda_\sigma]$. Then the Duhamel expansion gives
+\begin{equation}
+\begin{split}
+\big\|[A(x,t),B(y,0)]\big\|\;\le\; C\,e^{-\kappa(|x-y)-vt)}
+\;+\;C'\,\Theta\!\big(t-\tfrac{d_\sigma}{c_S}\big)\, \\
+\sum_{m\ge 1}\!\!\!\!\!\sum_{p\in \mathcal P_m(x\to y)}
+\frac{(\eta t/\hbar)^m}{m!}\,e^{-\mu m}.
+\end{split}
+\tag{C.7}
+\end{equation}
+
+With $|\mathcal P_m|\le g^m$ obtain
+\begin{equation}
+\sum_{m\ge1}\frac{(\eta t/\hbar)^m}{m!}\,(g e^{-\mu})^m
+\;=\;\exp\!\big((g e^{-\mu})\,\eta t/\hbar\big)-1
+\;\equiv\;\Phi\!\left(g,\frac{\eta t}{\hbar}\right).
+\tag{C.8}
+\end{equation}
+
+Choosing $\mu>\ln g$ (meaning $K$ damps faster than path count grows) makes the coefficient $g e^{-\mu}<1$ and $\Phi$ \textbf{grows at most exponentially in $t$} but \textbf{does not saturate} to a distance-independent constant for fixed $t$.
+
+\subsection{Closure Under Time Evolution}
+
+Conditions (i)–(iv) in §9 (sparsity, norm bound, causality in $\tau$, weak coupling) are \textbf{stable}: $\|O_x(t)\|\le\|O_x\|$ and $\sum_{e\ni x}|J_e|$ is time-independent by construction; thus assumptions carry through the Duhamel series. Combining (C.7)–(C.8) yields (9.1) with explicit
+\begin{equation}
+\Phi\!\left(g,\frac{\eta t}{\hbar}\right)=\exp\!\big((g e^{-\mu})\,\eta t/\hbar\big)-1.
+\tag{C.12}
+\end{equation}
+
+This gives the form used in §9, motivating ``soft cone'' with explicit substrate retardation, exponential $d_\sigma$ damping, and non-saturating S-contribution.
+
