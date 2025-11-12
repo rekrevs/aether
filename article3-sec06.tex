@@ -1,23 +1,29 @@
 \section{Coupling Strength and Dimensional Analysis}
 
-\textbf{Power form (dimension fixing):} the flow is written directly as power (using $P_\sigma$ for the scalar power, distinct from the 4-current $J_\sigma^\nu$):
+\textbf{Power form (dimension fixing):} the flow is written directly as power (using $\Psig$ for the scalar power, distinct from the 4-current $\Jsig$):
 \begin{equation}
-  P_\sigma \;=\; \varepsilon\,\mathbb K(\sigma,\sigma')\,\mathcal Q\,
-                 \tilde{\Delta\Phi}\,P_{\rm pump}
+  \Psig(e) \;=\; \varepsilon\,\Ksig(e)\,\mathcal Q(e,t)\,
+                 \tilde{\Delta\Phi}(\tilde e)\,P_{\rm pump}(e)
   \quad\text{(units: W)}.
   \tag{6.1}
 \end{equation}
-where:
+where $(e)$ denotes a single edge or calibrated pair, and:
 \begin{itemize}
-\item $\varepsilon$ dimensionless, $\mathbb K=\exp[-d_\sigma/\lambda_\sigma]$ dimensionless,
-\item $\mathcal Q\in[0,1]$ dimensionless,
-\item $\tilde{\Delta\Phi}$ dimensionless (normalized free energy),
-\item $P_{\rm pump}$ has unit W.
+\item $\varepsilon$ dimensionless coupling strength,
+\item $\Ksig(e)=\exp[-d_\sigma/\lambda_\sigma]$ dimensionless similarity factor for edge $(e)$,
+\item $\mathcal Q(e,t)\in[0,1]$ dimensionless pattern quality,
+\item $\tilde{\Delta\Phi}(\tilde e)$ dimensionless (normalized free energy),
+\item $P_{\rm pump}(e)$ has unit W.
 \end{itemize}
 
-\textbf{Unit analysis:} $[P_\sigma]=\mathrm{W}$. ✓
+\textbf{Unit analysis:} $[\Psig]=\mathrm{W}$. ✓
 
-For comparison, one can define $\tilde{\mathcal K}:=P_{\rm pump}/(\hbar\omega_0)\,[\mathrm{s^{-1}}]$ and write $P_\sigma=\varepsilon\,\hbar\omega_0\,\mathbb K\,\mathcal Q\,\tilde{\mathcal K}\,\tilde{\Delta\Phi}$.
+\textbf{Alternative rate form:} Define pump rate $\PumpRate:=P_{\rm pump}/(\hbar\omega_0)\,[\mathrm{s^{-1}}]$ to write
+\begin{equation}
+\Psig = \varepsilon\,\hbar\omega_0\,\Ksig\,\mathcal Q\,\PumpRate\,\tilde{\Delta\Phi}.
+\tag{6.2}
+\end{equation}
 
-\textbf{Degeneracy dilution.} For a periodic system with $(N)$ equivalent matches, $(P_\sigma \to P_\sigma / N)$. For a cubic lattice with volume V and lattice constant a: $(N \sim V/a^3 \to \infty)$, explaining absence in homogeneous systems.
+\textbf{Degeneracy dilution.} For a periodic system with $(N)$ equivalent matches, $(\Psig \to \Psig / N)$. For a cubic lattice with volume V and lattice constant a: $(N \sim V/a^3 \to \infty)$, explaining absence in homogeneous systems.
+\tag{6.3}
 

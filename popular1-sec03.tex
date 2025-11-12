@@ -33,7 +33,7 @@ Here's the master equation (don't panic - we'll unpack it):
 \begin{equation}
 \begin{split}
 S_{tot} = \int d^4x \, \sqrt{-g} \left[ \frac{1}{16\pi G} R + \mathcal{L}_{vis}[\phi, g] + \mathcal{L}_S[\tau, u^\mu, g] \right] \\
- + \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,\frac{O_S(x,\sigma)\,\mathbb{K}(\sigma,\sigma')\,O_S(x,\sigma')}{\Lambda_*^{4}},
+ + \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,\frac{O_S(x,\sigma)\,\Kern(\sigma,\sigma')\,O_S(x,\sigma')}{\LamUV^{4}},
 \end{split}
 \tag{3.1}
 \end{equation}
@@ -69,7 +69,7 @@ Let's zoom in on this term:
 
 \begin{equation}
 S_{int} = \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\;
-\frac{ O_S(x,\sigma)\,\mathbb{K}(\sigma,\sigma')\,O_S(x,\sigma') }{\Lambda_*^{\,4}},
+\frac{ O_S(x,\sigma)\,\Kern(\sigma,\sigma')\,O_S(x,\sigma') }{\LamUV^{\,4}},
 \tag{3.2}
 \end{equation}
 
@@ -89,17 +89,17 @@ S_{int} = \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\;
 \begin{itemize}
 \item Takes a spacetime point x and a pattern-space point $\sigma$
 \item Returns a number saying ``how much does the matter at spacetime point x match the pattern $\sigma$?''
-\item Has mass dimension 4 (this is why we divide by $\Lambda_*^4$ - for dimensional consistency)
+\item Has mass dimension 4 (this is why we divide by $\LamUV^4$ - for dimensional consistency)
 \item We'll discuss this much more in \S 5
 \end{itemize}
 
-\textbf{$\mathbb{K}(\sigma,\sigma')$}: The ``resonance kernel''
+\textbf{$\Kern(\sigma,\sigma')$}: The ``bilocal resonance kernel''
 \begin{itemize}
 \item Takes two points in pattern space
 \item Returns how strongly they can resonate with each other
-\item Approximately: $\mathbb{K} \sim \exp[-d_\sigma/\lambda_\sigma]$
-\item If $d_\sigma$ is small (patterns similar), $\mathbb{K} \approx 1$ (strong coupling)
-\item If $d_\sigma$ is large (patterns different), $\mathbb{K} \approx 0$ (no coupling)
+\item Approximately: $\Kern \sim \exp[-d_\sigma/\lambda_\sigma]$, or $\Ksig$ for a single edge
+\item If $d_\sigma$ is small (patterns similar), $\Kern \approx 1$ (strong coupling)
+\item If $d_\sigma$ is large (patterns different), $\Kern \approx 0$ (no coupling)
 \end{itemize}
 
 \textbf{$\Lambda_*$ (Lambda-star)}: A high-energy scale (mass dimension 1)
@@ -111,14 +111,14 @@ S_{int} = \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\;
 
 \textbf{Putting it together:}
 
-The interaction term says: ``At each spacetime point x, look at the matter configuration. Calculate which pattern $\sigma$ it matches (via $O_S$). Find other spacetime points that match similar patterns $\sigma'$. Connect them via the kernel $\mathbb{K}$. The strength of this connection falls off exponentially with structural distance $d_\sigma$.''
+The interaction term says: ``At each spacetime point x, look at the matter configuration. Calculate which pattern $\sigma$ it matches (via $O_S$). Find other spacetime points that match similar patterns $\sigma'$. Connect them via the kernel $\Kern$. The strength of this connection falls off exponentially with structural distance $d_\sigma$.''
 
 \textbf{Visual metaphor:}\\
 Imagine spacetime as a giant room full of tuning forks. Each tuning fork is a quantum system at a spacetime location.
 
 \begin{itemize}
 \item The selection operator $O_S$ measures ``how loud is this tuning fork ringing, and at what pitch?''
-\item The kernel $\mathbb{K}(\sigma,\sigma')$ says ``if one fork rings at pitch $\sigma$ and another at pitch $\sigma'$, how strongly do they resonate?''
+\item The kernel $\Kern(\sigma,\sigma')$ says ``if one fork rings at pitch $\sigma$ and another at pitch $\sigma'$, how strongly do they resonate?''
 \item The integral connects every pair of forks that can ``hear'' each other
 \end{itemize}
 
@@ -132,7 +132,7 @@ This action describes a ``bilayer'' theory:
 \begin{itemize}
 \item \textbf{Top layer} (spacetime M): Standard relativity and quantum mechanics
 \item \textbf{Bottom layer} (substrate S): Discrete updates, structural proximity
-\item \textbf{Coupling between layers}: The $\varepsilon \times O_S \times \mathbb{K} \times O_S$ term
+\item \textbf{Coupling between layers}: The $\varepsilon \times O_S \times \Kern \times O_S$ term
 \end{itemize}
 
 The beauty is that everything follows from this one action via the variational principle.
@@ -144,7 +144,7 @@ We need to be concrete about $\mathcal{L}_S$. Here are two options:
 \textbf{Option A: Minimal Khronon (Simple Version)}
 
 \begin{equation}
-\mathcal{L}_S^{\text{min}} = \frac{M_S^2}{2}\,\Lambda(x)\,\big(u^\mu u_\mu + 1\big),\qquad
+\mathcal{L}_S^{\text{min}} = \frac{M_S^2}{2}\,\lamL(x)\,\big(u^\mu u_\mu + 1\big),\qquad
 u^\mu:=\frac{\nabla^\mu \tau}{\sqrt{-\,\nabla_\alpha \tau \nabla^\alpha \tau}}.
 \tag{3.1A}
 \end{equation}
@@ -153,7 +153,7 @@ u^\mu:=\frac{\nabla^\mu \tau}{\sqrt{-\,\nabla_\alpha \tau \nabla^\alpha \tau}}.
 \begin{itemize}
 \item $\tau$ (tau) is a scalar field - the ``universal clock''
 \item $u^\mu$ is the unit vector pointing in the direction $\tau$ increases
-\item The Lagrange multiplier $\Lambda(x)$ enforces $u^\mu u_\mu = -1$ (it's timelike and unit-normalized)
+\item The Lagrange multiplier $\lamL(x)$ enforces $u^\mu u_\mu = -1$ (it's timelike and unit-normalized)
 \item No kinetic terms - the preferred frame is ``just there'' but doesn't carry new dynamics
 \end{itemize}
 
@@ -168,7 +168,7 @@ u^\mu:=\frac{\nabla^\mu \tau}{\sqrt{-\,\nabla_\alpha \tau \nabla^\alpha \tau}}.
  +c_2(\nabla_\mu u^\mu)^2 \\
  +c_3(\nabla_\mu u_\nu)(\nabla^\nu u^\mu)
  +c_4\,u^\mu u^\nu(\nabla_\mu u_\alpha)(\nabla_\nu u^\alpha)\big]
- +\frac{M_S^2}{2}\,\Lambda(x)\,(u^\mu u_\mu+1).
+ +\frac{M_S^2}{2}\,\lamL(x)\,(u^\mu u_\mu+1).
 \end{split}
 \tag{3.1B}
 \end{equation}
@@ -354,6 +354,8 @@ The interaction term $S_{int}$ is \textbf{bilocal} (couples two points) and \tex
 \item The conserved quantity for the interaction is $\int J^i_\sigma d^4x = 0$
 \end{itemize}
 
+\textbf{Technical note:} This requires that the kernel $\Kern$ is symmetric under $\sigma \leftrightarrow \sigma'$ and that boundary conditions produce no net flux at infinity (no preferred direction for substrate transfers).
+
 \textbf{Concrete example:}\\
 Suppose you build a machine that transfers energy between two labs via aether resonance:
 \begin{itemize}
@@ -384,17 +386,19 @@ This is one of the key testable predictions distinguishing our framework from ``
 We've added new energy-momentum ($T^{\mu\nu}_S$) that sources gravity via Einstein's equations (3.3). Does this mean gravity could propagate faster than light?
 
 \textbf{The Answer:}\\
-No. We set:
+No. The Bianchi identity (a fundamental geometric consistency requirement) forces:
 
 \begin{equation}
 \boxed{\;\alphaG\equiv 1\ \text{(exact)}\;}
 \tag{3.8}
 \end{equation}
 
+This is not a choice we make, but a \textbf{mathematical necessity}.
+
 \textbf{What $\alphaG$ means:}\\
 $\alphaG$ is the ``gravitational coupling factor'' - the strength with which the substrate's energy-momentum $T^{\mu\nu}_S$ sources spacetime curvature.
 
-\textbf{Why $\alphaG = 1$ exactly:}
+\textbf{Why $\alphaG$ must equal 1:}
 
 The mathematics requires this for consistency with the \textbf{Bianchi identity} - a fundamental geometric fact about spacetime curvature.
 

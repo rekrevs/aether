@@ -19,7 +19,7 @@ How do we reconcile aether resonance with thermodynamics?
 We define:
 
 \[
-\mathcal{F}_S = \langle E_S \rangle - T \, \Sigma_S
+\mathcal{F}_S = \langle E_S \rangle - \Temp \, \Sigma_S
 \]
 
 \textbf{Components:}
@@ -35,7 +35,7 @@ We define:
 \item Or compression ratio: $\Sigma_S \sim$ (compressed size)/(raw size) $\times \log_2$(states)
 \end{itemize}
 
-\textbf{$T$:} Temperature of the effective heat bath
+\textbf{$\Temp$:} Temperature of the effective heat bath
 
 \textbf{$\mathcal{F}_S$:} The free energy available to drive substrate flows
 \begin{itemize}
@@ -53,7 +53,7 @@ Each active substrate edge $e$ is a two-state system:
 \item State 1: ``open'' (allows transfer)
 \end{itemize}
 
-The edge couples to a heat bath at temperature $T_{eff}$.
+The edge couples to a heat bath at temperature $\Temp_{eff}$.
 
 \textbf{Dynamics:}
 \begin{itemize}
@@ -64,7 +64,7 @@ The edge couples to a heat bath at temperature $T_{eff}$.
 \textbf{Detailed balance:}\\
 $k_+/k_- = \exp[-\beta \Delta F_e]$
 
-where $\beta = 1/(k_B T_{eff})$ and $\Delta F_e$ is the free-energy difference.
+where $\beta = 1/(k_B \Temp_{eff})$ and $\Delta F_e$ is the free-energy difference.
 
 \textbf{This gives:}
 \begin{itemize}
@@ -80,7 +80,7 @@ It connects abstract substrate coupling to concrete thermodynamic processes you 
 From the Second Law (via KL divergence), we derive:
 
 \begin{equation}
-\langle W_{pump} \rangle \geq k_B T \, (\Delta \Sigma_S + I_{transferred}),
+\langle W_{pump} \rangle \geq k_B \Temp \, (\Delta \Sigma_S + I_{transferred}),
 \tag{8.1}
 \end{equation}
 
@@ -91,15 +91,15 @@ From the Second Law (via KL divergence), we derive:
 \item This is energy you put in (measurable)
 \end{itemize}
 
-\textbf{$k_B T \Delta\Sigma_S$:} Thermodynamic cost of changing the substrate's entropy
+\textbf{$k_B \Temp \Delta\Sigma_S$:} Thermodynamic cost of changing the substrate's entropy
 \begin{itemize}
 \item Maintaining a non-equilibrium configuration costs energy
 \end{itemize}
 
-\textbf{$k_B T I_{transferred}$:} Cost of information transfer
+\textbf{$k_B \Temp I_{transferred}$:} Cost of information transfer
 \begin{itemize}
 \item Information is physical (Landauer's principle)
-\item Each bit of information transferred costs at least $k_B T \ln(2)$ of work
+\item Each bit of information transferred costs at least $k_B \Temp \ln(2)$ of work
 \end{itemize}
 
 \textbf{The inequality says:}\\
@@ -114,8 +114,8 @@ You must supply at least this much work to:
 For each edge $e$ and measurement window $\Delta t$:
 
 \begin{equation}
-\langle W_{pump}(e)\rangle \;\ge\; k_B T_{\rm eff}\,D_{\rm KL}\!\big(\mathbb{P}_{\rm driv}\Vert \mathbb{P}_{\rm eq}\big)
-\;\ge\; k_B T_{\rm eff}\,\ln 2\cdot I_e,
+\langle W_{pump}(e)\rangle \;\ge\; k_B \Temp_{\rm eff}\,D_{\rm KL}\!\big(\mathbb{P}_{\rm driv}\Vert \mathbb{P}_{\rm eq}\big)
+\;\ge\; k_B \Temp_{\rm eff}\,\ln 2\cdot I_e,
 \tag{8.1'}
 \end{equation}
 
@@ -129,7 +129,7 @@ For each edge $e$ and measurement window $\Delta t$:
 \textbf{$I_e$:} Information transferred through edge $e$ (in bits)
 
 \textbf{The chain:}\\
-$W_{pump} \geq$ (KL divergence) $\geq$ (information $\times k_B T \ln 2$)
+$W_{pump} \geq$ (KL divergence) $\geq$ (information $\times k_B \Temp \ln 2$)
 
 This makes the thermodynamic cost explicit and testable.
 
@@ -153,7 +153,7 @@ The Markov model ties this to microscopic rates $k_+$ and $k_-$, making the conn
 Combining (6.1) and (8.2), we get a fundamental limit:
 
 \begin{equation}
-R_{bit} \leq \eta \, \frac{P_{pump}}{k_B T \ln 2} \, \mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma}, \qquad 0 < \eta \leq 1.
+R_{bit} \leq \beta \, \frac{P_{pump}}{k_B \Temp \ln 2} \, \mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma}, \qquad 0 < \beta \leq 1.
 \tag{8.3}
 \end{equation}
 
@@ -161,16 +161,16 @@ R_{bit} \leq \eta \, \frac{P_{pump}}{k_B T \ln 2} \, \mathcal{Q} \, e^{-d_\sigma
 
 \textbf{$R_{bit}$:} Information transfer rate (bits per second)
 
-\textbf{$\eta$:} Efficiency factor ($0 < \eta \leq 1$)
+\textbf{$\beta$:} Efficiency factor ($0 < \beta \leq 1$)
 \begin{itemize}
 \item How much of the supplied power goes into actual information transfer
 \item vs. dissipation, noise, overhead
-\item Realistically $\eta \sim 0.1$-0.5
+\item Realistically $\beta \sim 0.1$-0.5
 \end{itemize}
 
-\textbf{$P_{pump}/(k_B T \ln 2)$:} Maximum possible rate given available power
+\textbf{$P_{pump}/(k_B \Temp \ln 2)$:} Maximum possible rate given available power
 \begin{itemize}
-\item If $T = 300$ K (room temperature): $k_B T \approx 4 \times 10^{-21}$ J
+\item If $\Temp = 300$ K (room temperature): $k_B \Temp \approx 4 \times 10^{-21}$ J
 \item If $P_{pump} = 1$ $\mu$W: Max rate $\sim 10^{15}$ bits/s (without other factors)
 \end{itemize}
 
@@ -185,10 +185,10 @@ R_{bit} \leq \eta \, \frac{P_{pump}}{k_B T \ln 2} \, \mathcal{Q} \, e^{-d_\sigma
 \textbf{Realistic estimate:}
 \begin{itemize}
 \item $P_{pump} = 1$ $\mu$W
-\item $T = 300$ K
+\item $\Temp = 300$ K
 \item $\beta = 0.1$
 \item $\mathcal{Q} = 10^{-8}$
-\item $K = 0.5$ (partial match)
+\item $\Ksig = 0.5$ (partial match)
 \end{itemize}
 
 $R_{bit} \leq 0.1 \times (10^{-6}$ W$)/(4\times10^{-21}$ J $\times 0.7) \times 10^{-8} \times 0.5$\\
@@ -201,7 +201,7 @@ So under optimistic conditions, maybe \textbf{one bit per 50 seconds}.
 If experiment E1 finds no signal above noise floor $R_{bit}^{(null)}$:
 
 \begin{equation}
-\mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma} < \frac{k_B T \ln 2}{\beta \, P_{pump}} \cdot R_{bit}^{(null)}.
+\mathcal{Q} \, e^{-d_\sigma/\lambda_\sigma} < \frac{k_B \Temp \ln 2}{\beta \, P_{pump}} \cdot R_{bit}^{(null)}.
 \tag{8.4}
 \end{equation}
 
@@ -210,13 +210,13 @@ Example:
 \item $R_{bit}^{(null)} = 10^{-6}$ bits/s (detection limit)
 \item $P_{pump} = 1$ $\mu$W
 \item $\beta = 0.1$
-\item $T = 300$ K
+\item $\Temp = 300$ K
 \end{itemize}
 
 Then:\\
-$\mathcal{Q} \times K < (4\times10^{-21} \times 0.7)/(0.1 \times 10^{-6}) \times 10^{-6} \approx 3 \times 10^{-20}$
+$\mathcal{Q} \times \Ksig < (4\times10^{-21} \times 0.7)/(0.1 \times 10^{-6}) \times 10^{-6} \approx 3 \times 10^{-20}$
 
-\textbf{This directly constrains the product $\mathcal{Q}K$}, which we can then disentangle using the distance ladder (\S7).
+\textbf{This directly constrains the product $\mathcal{Q}\Ksig$}, which we can then disentangle using the distance ladder (\S7).
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 

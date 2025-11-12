@@ -1,24 +1,7 @@
 % symbols.tex (shared glossary; extend as needed)
 % This file contains unified symbol definitions, units, and macros
 % used by both article3.tex and popular1.tex
-
-% ==== Notation macros ====
-% Kernel and rates
-\newcommand{\Kkernel}{\mathbb{K}}              % Effective kernel on S
-\newcommand{\Krate}{\tilde{\mathcal{K}}}       % Rate form: P_pump / (\hbar\omega_0)
-\newcommand{\fl}{f_{\ell}}                     % Smearing kernel in pushforward
-\newcommand{\veff}{v_{\!eff}}                  % Effective light speed in bound
-% S- and M-objects
-\newcommand{\Jsig}{J_{\sigma}}                 % S-current (4-vector)
-\newcommand{\Psig}{P_{\sigma}}                 % S-power (scalar, replaces old J_sigma^(power))
-\newcommand{\Os}{O_{S}}                        % Selection operator
-\newcommand{\Ts}{T^{\mu\nu}_{S}}               % S-sector's T^{μν}
-\newcommand{\proj}{\pi}                         % Projection S -> M
-% Distances and lengths
-\newcommand{\ds}{d_{\sigma}}                   % Structural distance
-\newcommand{\ls}{\lambda_{\sigma}}             % S-coherence length
-% Other
-\newcommand{\Asid}{A_{\rm sid}}                % Sidereal modulation amplitude
+% NOTE: Core macros are defined in main file preamble; this file provides symbol table only
 
 % ==== Symbol Table ====
 \begin{center}
@@ -35,7 +18,8 @@ $\Lambda_*$ & Heavy scale suppressing portal operator (energy) \\
 $O_S$ & Gauge/diffeo-invariant selection operator (dim $\Delta$) \\
 $\chi$ & Mediator field on $S$; $c_S$ speed, $m_\chi$ mass \\
 $\lambda_\sigma$ & Substrate range $= c_S/m_\chi$ (length in $S$ units) \\
-$\mathbb K(\sigma,\sigma')$ & Positive-definite $S$-kernel, $\sim e^{-d_\sigma/\lambda_\sigma}$ \\
+$\mathcal{K}(\sigma,\sigma')$ & Bilocal resonance kernel on $S$, positive-definite \\
+$\kappa_\sigma$ & Similarity factor $= e^{-d_\sigma/\lambda_\sigma}$ (for single edge) \\
 $f_\ell(x)$ & Compact worldtube, $\int d^4x\,f_\ell(x)=1$ \\
 $J_\sigma^\nu$ & Exchange 4-current between visible and $S$ sectors \\
 $P_\sigma$ & Scalar power exchanged via $S$ (W) \\

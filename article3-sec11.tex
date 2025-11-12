@@ -22,45 +22,47 @@ where $\Delta$ is a dimensionless modifier:
 For photons $(m=0)$, term rescaling gives effective velocity variation:
 
 \begin{equation}
-    \frac{\Delta c}{c} \;\sim\; \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q.
+    \frac{\Delta c}{c} \;\sim\; \epsgam\left(\frac{\lsig}{\lambda_C}\right)\Qgam.
     \tag{11.3}
 \end{equation}
+
+where $\epsgam$ denotes the photon-sector coupling, $\lsig$ is the substrate coherence length, and $\Qgam$ is the photon-sector quality factor.
 
 \textbf{Michelson–Morley/Hughes–Drever bounds:} $\Delta c/c \lesssim 10^{-18}$.
 
 This requires:
 
 \begin{equation}
-    \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q \;\lesssim\; 10^{-18}.
+    \epsgam\left(\frac{\lsig}{\lambda_C}\right)\Qgam \;\lesssim\; 10^{-18}.
     \tag{11.4}
 \end{equation}
 
-For $\lambda_\sigma \sim 1\,\mu{\rm m}$, $\lambda_C \sim 10^{-12}\,{\rm m}$ (Compton) $\Rightarrow \lambda_\sigma/\lambda_C \sim 10^6$, so $\varepsilon\cdot \mathcal Q \lesssim 10^{-24}$.
+For $\lsig \sim 1\,\mu{\rm m}$, $\lambda_C \sim 10^{-12}\,{\rm m}$ (Compton) $\Rightarrow \lsig/\lambda_C \sim 10^6$, so $\epsgam\cdot \Qgam \lesssim 10^{-24}$.
 
 \subsection{Daily/Annual Modulation and Quantitative Budget}
 
-We tie sidereal/annual modulation to model parameters (see detailed phenomenology in §12, Eq. (12.4)):
+We tie sidereal/annual modulation to model parameters (see detailed phenomenology in §12, Eq. (12.4)). For the \textbf{matter sector}:
 
 \[
-A_{sid} \simeq \varepsilon \left( \frac{\lambda_\sigma}{L_{exp}} \right) \mathcal{Q} \, \Xi,
+A_{sid}^{(\rm mat)} \simeq \epsmat \left( \frac{\lsig}{L_{exp}} \right) \Qmat \, \Xi,
 \]
 
-where $(\Xi)$ is a geometry/rig-dependent factor $(\sim 1)$ and $(L_{exp})$ is apparatus scale. This makes \textbf{anisotropy budget} measurable in own data.
+where $\epsmat$ and $\Qmat$ denote matter-sector coupling and quality factor, $(\Xi)$ is a geometry/rig-dependent factor $(\sim 1)$, and $(L_{exp})$ is apparatus scale. This makes \textbf{anisotropy budget} measurable in own data.
 
-\textbf{Amplitude:} $(\propto \varepsilon\cdot Q\cdot\cos \theta(t))$ and under $\Delta c/c$-bounds requires small magnitudes. Set \textbf{measurement goal} for E2-rotation as
+\textbf{Amplitude:} $(\propto \epsmat\cdot \Qmat\cdot\cos \theta(t))$ and under $\Delta c/c$-bounds requires small magnitudes. Set \textbf{measurement goal} for E2-rotation as
 \begin{equation}
 A_{\rm sid}\gtrsim 10^{-20}\ \text{(3$\sigma$ on }10^7\text{ s)},
 \end{equation}
 which is numerically consistent with (11.4) and apparatus scale $L_{\rm exp}$.
 
-A pre-registered null result sets a numerical upper bound on $(\varepsilon \lambda_\sigma Q)$ for given apparatus, making ``anisotropy budget'' testable.
+A pre-registered null result sets a numerical upper bound on $(\epsmat \lsig \Qmat)$ for given apparatus, making ``anisotropy budget'' testable. Note that photon-sector bounds (11.4) and matter-sector measurements are distinct; see §12 and Appendix F for sector separation.
 
 \subsection{SME Parametrization (For Reporting and Comparison)}
 
 In the photon sector, anisotropies are conveniently expressed in minimal SME coefficients $\tilde\kappa_{e-}^{JK},\,\tilde\kappa_{o+}^{JK},\,\kappa_{\rm tr}$. Our model effectively gives
 \begin{equation}
-\tilde\kappa_{e-}^{JK}\ \sim\ \varepsilon_\gamma\,\mathcal Q_\gamma\,
-\Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,\Xi^{JK},
+\tilde\kappa_{e-}^{JK}\ \sim\ \epsgam\,\Qgam\,
+\Big(\frac{\lsig}{L_{\rm exp}}\Big)\,\Xi^{JK},
 \end{equation}
 with $\Xi^{JK}$ a geometry factor $(\mathcal O(1))$. Therefore report $\hat A_{\rm sid}$ in parallel with estimates of $|\tilde\kappa_{e-}^{JK}|$ to enable direct comparison with resonator and atomic clock studies.
 

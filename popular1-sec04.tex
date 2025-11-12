@@ -127,28 +127,29 @@ Imagine dropping a pebble in a pond:
 
 The mediator field $\chi$ does the same thing, but in pattern space.
 
-\subsection{The Emergent Kernel $\Kkernel$}
+\subsection{The Emergent Kernel $\Kern$}
 
 The effective coupling kernel in equation (3.2) emerges from the mediator dynamics:
 
 \begin{equation}
-\mathbb{K}(\sigma,\sigma') = \int dT \, G_{\rm ret}(\sigma',T'; \sigma,T)
-\,\Theta\!\big(T'-T-d_\sigma(\sigma,\sigma')/c_S\big)
-\approx e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma}.
+\Kern(\sigma,\sigma') = \int dT \, G_{\rm ret}(\sigma',T'; \sigma,T)
+\approx e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma} \equiv \Ksig(d_\sigma(\sigma,\sigma')).
 \tag{4.4}
 \end{equation}
 
-\textbf{Properties of the resonance kernel $\mathbb K(\sigma,\sigma')$:}
+The retarded Green's function $G_{\rm ret}$ already contains the Heaviside step function, ensuring substrate retardation. For phenomenological applications involving a single edge or calibrated pair, we write $\Ksig \equiv e^{-d_\sigma/\lambda_\sigma}$ as the similarity factor.
+
+\textbf{Properties of the resonance kernel $\Kern(\sigma,\sigma')$:}
 \begin{enumerate}
-\item $\mathbb K(\sigma,\sigma') \ge 0$ (positivity)
+\item $\Kern(\sigma,\sigma') \ge 0$ (positivity)
 \item Symmetric and positive-definite (Mercer kernel)
-\item Retarded in $T$ (no advanced support)
+\item Retarded in $T$ (no advanced support, inherited from $G_{\rm ret}$)
 \end{enumerate}
 
-Because $\mathbb K$ is positive semidefinite and retarded in $T$, the spacetime-smeared kernel $\mathcal{K}_{\rm eff}$ inherits these properties; adding the $\mathcal{K}_{\rm eff}$ coupling preserves unitarity and respects substrate-time causality.
+Because $\Kern$ is positive semidefinite and retarded in $T$, the spacetime-smeared kernel $\mathcal{K}_{\rm eff}$ inherits these properties; adding the $\mathcal{K}_{\rm eff}$ coupling preserves unitarity and respects substrate-time causality.
 
 \textbf{What this says:}\\
-The kernel $\Kkernel$, which appeared mysteriously in our action (3.2), actually \textbf{emerges} from the mediator field dynamics. It's not put in by hand - it's derived.
+The kernel $\Kern$, which appeared mysteriously in our action (3.2), actually \textbf{emerges} from the mediator field dynamics. It's not put in by hand - it's derived.
 
 \textbf{The approximate form:}\\
 After integrating over substrate time $T$ and doing some math, we get:

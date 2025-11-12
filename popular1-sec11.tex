@@ -64,18 +64,20 @@ where $\Delta$ is a \textbf{dimensionless modifier}:
 The correction causes an effective \textbf{velocity variation}:
 
 \begin{equation}
-    \frac{\Delta c}{c} \;\sim\; \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q.
+    \frac{\Delta c}{c} \;\sim\; \epsgam\left(\frac{\lsig}{\lambda_C}\right)\Qgam.
     \tag{11.3}
 \end{equation}
 
+where $\epsgam$ is the photon-sector coupling, $\lsig$ is the substrate coherence length, and $\Qgam$ is the photon-sector quality factor.
+
 \textbf{Plug in numbers:}
 \begin{itemize}
-\item $\varepsilon \sim 10^{-15}$
-\item $\lambda_\sigma \sim 1$ $\mu$m $= 10^{-6}$ m
+\item $\epsgam \sim 10^{-15}$
+\item $\lsig \sim 1$ $\mu$m $= 10^{-6}$ m
 \item $\lambda_C \sim 10^{-12}$ m (Compton wavelength)
-\item $\lambda_\sigma/\lambda_C \sim 10^6$
-\item $\mathcal{Q} \sim 10^{-24}$ to $10^{-18}$ (depending on scenario)
-\end{itemize}
+\item $\lsig/\lambda_C \sim 10^6$
+\item $\Qgam \sim 10^{-24}$ to $10^{-18}$ (depending on scenario)
+\end{itemize>
 
 Result:\\
 $\Delta c/c \sim 10^{-15} \times 10^6 \times 10^{-24}$ to $10^{-18}$\\
@@ -92,17 +94,17 @@ $\sim 10^{-33}$ to $10^{-27}$
 \textbf{Our constraint:}
 
 \begin{equation}
-    \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q \;\lesssim\; 10^{-18}.
+    \epsgam\left(\frac{\lsig}{\lambda_C}\right)\Qgam \;\lesssim\; 10^{-18}.
     \tag{11.4}
 \end{equation}
 
-With $\lambda_\sigma/\lambda_C \sim 10^6$, this gives:
+With $\lsig/\lambda_C \sim 10^6$, this gives:
 
-$\varepsilon \cdot \mathcal{Q} \lesssim 10^{-24}$
+$\epsgam \cdot \Qgam \lesssim 10^{-24}$
 
 \textbf{This is why we don't see it in normal experiments!}
 
-The coupling $\varepsilon$ is already tiny ($\sim 10^{-15}$). The coherence $\mathcal{Q}$ is tinier still ($10^{-10}$ to $10^{-2}$ at best). Their product must satisfy (11.4), which is incredibly restrictive.
+The photon-sector coupling $\epsgam$ is already tiny ($\sim 10^{-15}$). The coherence $\Qgam$ is tinier still ($10^{-10}$ to $10^{-2}$ at best). Their product must satisfy (11.4), which is incredibly restrictive.
 
 \subsection{Sidereal and Annual Modulation}
 
@@ -117,16 +119,24 @@ This should cause \textbf{modulation} - a rhythmic variation with:
 
 \textbf{The formula (detailed in phenomenology section, Eq. (12.4)):}
 
+For the \textbf{matter sector}:
+
 \[
-A_{sid} \simeq \varepsilon \left( \frac{\lambda_\sigma}{L_{exp}} \right) \mathcal{Q} \, \Xi
+A_{sid}^{(\rm mat)} \simeq \epsmat \left( \frac{\lsig}{L_{exp}} \right) \Qmat \, \Xi
 \]
 
 \textbf{Components:}
 
-\textbf{$A_{sid}$:} Modulation amplitude
+\textbf{$A_{sid}^{(\rm mat)}$:} Modulation amplitude (matter sector)
 \begin{itemize}
 \item Dimensionless fractional variation
 \item Example: $A_{sid} = 10^{-20}$ means a $10^{-20}$ fractional change
+\end{itemize}
+
+\textbf{$\epsmat$, $\Qmat$:} Matter-sector coupling and quality factor
+\begin{itemize}
+\item Distinct from photon-sector values $\epsgam$, $\Qgam$
+\item Matter experiments probe different physics than optical tests
 \end{itemize}
 
 \textbf{$L_{exp}$:} Apparatus scale
@@ -140,6 +150,9 @@ A_{sid} \simeq \varepsilon \left( \frac{\lambda_\sigma}{L_{exp}} \right) \mathca
 \item Order 1 ($\Xi \sim 1$)
 \item Depends on apparatus orientation and configuration
 \end{itemize}
+
+\textbf{Important distinction:}\\
+The photon-sector bounds (11.4) constrain $\epsgam \cdot \Qgam$. The matter-sector modulation (above) involves $\epsmat \cdot \Qmat$. These are \textbf{different parameters} - photon and matter sectors can have different coupling strengths.
 
 \textbf{Numerical target:}
 
@@ -175,15 +188,15 @@ This is absurdly small - but potentially measurable with:
 \end{itemize}
 
 \textbf{Null result $\to$ Parameter bound:}\\
-If we don't see modulation above $A_{sid} < 10^{-20}$, then:
+If we don't see modulation above $A_{sid}^{(\rm mat)} < 10^{-20}$, then:
 
-$\varepsilon \cdot (\lambda_\sigma/L_{exp}) \cdot \mathcal{Q} < 10^{-20}$
+$\epsmat \cdot (\lsig/L_{exp}) \cdot \Qmat < 10^{-20}$
 
-With $L_{exp} \sim 1$ meter and $\lambda_\sigma \sim 10^{-6}$ m:
+With $L_{exp} \sim 1$ meter and $\lsig \sim 10^{-6}$ m:
 
-$\varepsilon \cdot \mathcal{Q} < 10^{-14}$
+$\epsmat \cdot \Qmat < 10^{-14}$
 
-This would constrain the parameter space significantly.
+This would constrain the matter-sector parameter space significantly.
 
 \subsection{SME Parametrization (For Comparison)}
 
@@ -202,8 +215,8 @@ For \textbf{photons}, the minimal SME uses coefficients:
 \textbf{Our model predicts:}
 
 \begin{equation}
-\tilde{\kappa}_{e-}^{JK}\ \sim\ \varepsilon_\gamma\,\mathcal{Q}_\gamma\,
-\Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,\Xi^{JK}.
+\tilde{\kappa}_{e-}^{JK}\ \sim\ \epsgam\,\Qgam\,
+\Big(\frac{\lsig}{L_{\rm exp}}\Big)\,\Xi^{JK}.
 \tag{11.5}
 \end{equation}
 

@@ -9,14 +9,14 @@
 The flow of energy through a substrate edge is:
 
 \begin{equation}
-P_\sigma(e)
-= \varepsilon\,K(e)\,\mathcal{Q}(e,t)\,\tilde{\Delta\Phi}(e)\,P_{\rm pump}(e) \quad (\text{units: W}).
+\Psig(e)
+= \varepsilon\,\Ksig(e)\,\mathcal{Q}(e,t)\,\tilde{\Delta\Phi}(e)\,P_{\rm pump}(e) \quad (\text{units: W}).
 \tag{6.1}
 \end{equation}
 
 \textbf{Unpacking the pieces:}
 
-\textbf{$P_\sigma(e)$:} The power flowing through edge $e$ in pattern space
+\textbf{$\Psig(e)$:} The power flowing through edge $e$ in pattern space
 \begin{itemize}
 \item Units: Watts (Joules/second)
 \item This is observable energy transfer per time
@@ -29,12 +29,12 @@ P_\sigma(e)
 \item Controls overall strength
 \end{itemize}
 
-\textbf{$K(e) = \exp[-d_\sigma/\lambda_\sigma]$:} Similarity kernel
+\textbf{$\Ksig(e) = \exp[-d_\sigma/\lambda_\sigma]$:} Similarity kernel
 \begin{itemize}
 \item Dimensionless (exponent of dimensionless ratio)
 \item Range: $[0, 1]$
-\item $K \approx 1$ for nearly identical patterns ($d_\sigma \ll \lambda_\sigma$)
-\item $K \approx 0$ for very different patterns ($d_\sigma \gg \lambda_\sigma$)
+\item $\Ksig \approx 1$ for nearly identical patterns ($d_\sigma \ll \lambda_\sigma$)
+\item $\Ksig \approx 0$ for very different patterns ($d_\sigma \gg \lambda_\sigma$)
 \end{itemize}
 
 \textbf{$\mathcal{Q}(e,t)$:} Coherence/quality factor
@@ -61,15 +61,15 @@ P_\sigma(e)
 \end{itemize}
 
 \textbf{Unit check:}\\
-$[P_\sigma] = 1 \times 1 \times 1 \times 1 \times W = W$ \checkmark
+$[\Psig] = 1 \times 1 \times 1 \times 1 \times W = W$ \checkmark
 
-Everything balances. The flow $P_\sigma$ has units of power, as required.
+Everything balances. The flow $\Psig$ has units of power, as required.
 
 \subsection{Alternative Formulation (Rate Form)}
 
 For comparison, we can write:
 
-$P_\sigma = \varepsilon \hbar\omega_0 K \mathcal{Q} \Krate \tilde{\Delta\Phi}$
+$\Psig = \varepsilon \hbar\omega_0 \Ksig \mathcal{Q} \Krate \tilde{\Delta\Phi}$
 
 where:
 \begin{itemize}
@@ -85,7 +85,7 @@ This is equivalent, just factoring out the energy quantum $\hbar\omega_0$.
 
 For a periodic system with $N$ equivalent matchings:
 
-$P_\sigma \to P_\sigma / N$
+$\Psig \to \Psig / N$
 
 \textbf{Example: Cubic lattice}
 \begin{itemize}
@@ -94,7 +94,7 @@ $P_\sigma \to P_\sigma / N$
 \item Number of sites: $N \sim V/a^3$
 \end{itemize}
 
-As $V \to \infty$, $N \to \infty$, so $P_\sigma \to 0$.
+As $V \to \infty$, $N \to \infty$, so $\Psig \to 0$.
 
 \textbf{This explains absence in:}
 \begin{itemize}
