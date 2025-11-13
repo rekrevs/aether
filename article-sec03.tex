@@ -9,7 +9,7 @@ We derive the framework from a \textbf{total action}:
 S_{tot} = \int d^4x \, \sqrt{-g} \left[ \frac{1}{16\pi G} R
 + \mathcal{L}_{vis}[\phi, g] + \mathcal{L}_S[\tau, u^\mu, g] \right] \\
  + \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,
-\frac{J_S(x,\sigma)\,\Kern(\sigma,\sigma')\,O_S(x,\sigma')}{\LamUV^{4}},
+\frac{O_S(x,\sigma)\,\Kern(\sigma,\sigma')\,O_S(x,\sigma')}{\LamUV^{4}},
 \end{split}
 \tag{3.1}
 \end{equation}
@@ -19,7 +19,7 @@ where:
 \begin{itemize}
 \item $\mathcal{L}_{vis}$ collects all visible matter and gauge fields.
 \item $\mathcal{L}_S$ is a minimal aether/khronon sector that allows for a preferred foliation.
-\item The last term encodes the substrate-local coupling in $(\Sspace)$ via a current $J_S$, a kernel $\Kern$ on $(\Sspace,\Dsig)$, and a selection operator $O_S$.
+\item The interaction term (last line) encodes the substrate-local coupling in $(\Sspace)$ via a \textbf{bilocal} operator product $O_S(x,\sigma) \cdot \Kern(\sigma,\sigma') \cdot O_S(x,\sigma')$ with a structural kernel $\Kern$ on $(\Sspace,\Dsig)$ and a selection operator $O_S$. The measure $d\mu(\sigma)$ is dimensionless; all mass dimensions are carried by $O_S$ and the explicit scale $\LamUV$.
 \end{itemize}
 
 \subsection{Aether / Khronon Sector}

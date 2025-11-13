@@ -49,6 +49,46 @@ The specific choice of features is not unique and can be adapted to the experime
 \end{itemize}
 The scale $\ell_0$ sets the typical size of $d_\sigma$ for a ``unit'' change in features. In practice, we will choose $\ell_0$ and $\lambda_\sigma$ such that a qualitatively clear change in the pattern (e.g.\ block-scrambling or strong noise) corresponds to $d_\sigma \sim \lambda_\sigma$, while minor modifications (e.g.\ global phase rotations) yield $d_\sigma\ll\lambda_\sigma$.
 
+\subsubsection{Example feature maps with explicit invariants}
+
+For concreteness, one can build the feature map from explicit local gauge/diffeomorphism-invariant scalars constructed from visible-sector fields and curvature. Examples include:
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Feature & Definition \\
+\midrule
+$\mathcal{I}_1$ & $F_{\mu\nu}F^{\mu\nu}$ (EM field strength squared) \\
+$\mathcal{I}_2$ & $\bar\psi\gamma^\mu D_\mu\psi$ (fermion current density) \\
+$\mathcal{I}_3$ & $R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}$ (curvature invariant) \\
+$\mathcal{I}_4$ & $\nabla_\mu\phi\nabla^\mu\phi$ (scalar kinetic term) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Each $\mathcal{I}_I$ is built from fields and a \emph{finite} number of derivatives, ensuring locality in $M$. The number of features $N_{\mathrm{feat}}$ is kept finite for EFT control. For the electromagnetic sector, $F_{\mu\nu}=\partial_\mu A_\nu - \partial_\nu A_\mu$ is manifestly gauge-invariant under $A_\mu \to A_\mu + \partial_\mu\chi$; similarly, curvature scalars like $R_{\mu\nu\rho\sigma}R^{\mu\nu\rho\sigma}$ are diffeomorphism-invariant, ensuring the framework respects all relevant symmetries.
+
+\subsubsection{Alternative: signature-based extraction pipeline}
+
+For time-evolving or spatially extended configurations (e.g.\ in E1 or E3 experiments), one can extract features via a signature-based pipeline:
+
+\begin{itemize}
+\item \textbf{Spectral:} FFT $\to$ power spectrum $\to$ dominant frequencies $(f_1,\ldots,f_m)$, spectral entropy $H_{\mathrm{spec}}$;
+\item \textbf{Topological:} persistent homology $\to$ Betti curves $(\beta_0(r),\beta_1(r))$;
+\item \textbf{Statistical:} autocorrelation time $\tau_c$, Lyapunov exponents $\lambda_i$ (if applicable), moments $(\mu_k)$.
+\end{itemize}
+
+The combined signature is then a vector
+\[
+\sigma(s) = (f_i,\,H_{\mathrm{spec}},\,\beta_j(r_k),\,\tau_c,\,\lambda_i,\,\mu_k) \in \mathbb{R}^d,
+\]
+and the structural distance can be augmented with a Gromov--Wasserstein term to account for distributional differences:
+\begin{equation}
+d_\sigma(s,s') := \ell_0 \left[ \|\sigma(s) - \sigma(s')\|_2 + \alpha_W \, W(\mu_s,\mu_{s'}) \right],
+\tag{7.2}
+\end{equation}
+where $W$ is the Gromov--Wasserstein distance between probability distributions $\mu_s,\mu_{s'}$, and $\alpha_W\ge0$ is a weighting parameter. This extended metric is particularly useful for complex, high-dimensional dynamical systems where simple Euclidean distances between features may not fully capture structural similarity.
+
 \subsection{Distance ladder for calibration}
 
 To connect the abstract $d_\sigma$ to observable quantities, we introduce a \textbf{distance ladder}: a set of calibrated transformations labelled by an integer level $\ell=0,\ldots,5$ applied to a reference pattern $s$, producing configurations $s_\ell$. For each level we measure or infer a typical structural distance $\varepsilon_\ell:=d_\sigma(s,s_\ell)$ and the corresponding similarity $K_{\sigma,\ell}:=\exp[-\varepsilon_\ell/\lambda_\sigma]$.
