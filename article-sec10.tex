@@ -4,7 +4,7 @@ In this section we make precise what is meant by ``causal'' in the presence of s
 
 \subsection{Monotonic substrate time}
 
-The substrate dynamics comes with a global discrete update parameter $T=0,1,2,\dots$ and a coarse-grained \emph{substrate time function} $\tau$ which is strictly monotonically increasing along any physically allowed microscopic transition. We summarize this as:
+The substrate dynamics comes with a global discrete update parameter $T=0,1,2,\dots$ and a coarse-grained \emph{substrate time function} $\tau$ which is strictly monotonically increasing along any physically allowed microscopic transition. We summarize this as (Assumption~A1 in Appendix~E):
 
 \textbf{Monotonic-$(T)$ axiom:} For every elementary substrate transition
 \[
@@ -68,6 +68,8 @@ We now formulate the operational rule that forbids antitelephone constructions.
   \Delta\tau > 0
 \end{equation}
 in the substrate frame. Chains that would require $\Delta\tau<0$ for any microscopic step are assigned zero amplitude.
+
+Importantly, requiring local $\Delta\tau>0$ for each microscopic resonance step is \emph{not} a fine-tuned prohibition imposed by hand; rather, it is simply a restatement of the fact that the microscopic substrate rules define an absolute substrate time ordering in which updates occur sequentially. This is a structural property of the substrate dynamics itself.
 
 This rule is local in $(M\times S)$: it is enforced at the level of individual resonance events and does not depend on the global motion of the laboratories. Because $\tau$ is a scalar time function on the substrate, it is the same for all inertial observers in $M$.
 
