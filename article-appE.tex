@@ -1,0 +1,49 @@
+\section{Assumptions (Summary)}
+
+For clarity, we collect here the main structural assumptions used in the derivations of the modified Lieb–Robinson bound, the causality proof, and the phenomenological estimates.
+
+\begin{itemize}
+\item \textbf{(A1) Global ordering and strict retardation.} There exists a coarse-grained substrate time function $\tau$ that is strictly increasing along any physically allowed microscopic transition. All mediator kernels are retarded in $\tau$.
+
+\item \textbf{(A2) Resource monotonicity.} The cost functor $\tilde{\mathcal K}:\mathcal{C}\to(\mathbb{R}_{\ge 0},+)$ is additive under composition, vanishes on identity morphisms, and assigns nonnegative cost to every nontrivial process. In particular, there are no negative-cost cycles that could compensate for time reversal.
+
+\item \textbf{(A3) Sparse and weak $S$-links.} The substrate graph has bounded degree $g$ (each node participates in at most $g$ $S$-edges) and the total coupling strength attached to any node is bounded by a small parameter $\eta$:
+\[
+  \sum_{e\ni\sigma} |J_e| \le \eta \quad \forall \sigma \in S.
+\]
+This ensures convergence of the path sums leading to the function $\Phi$ in Eq.~(9.2) and prevents the substrate tail from becoming distance-independent.
+
+\item \textbf{(A4) Structure of $O_S$.} The selection operator $O_S$ is constructed from higher-dimension seed operators with $\Delta>4$ and normalized so that $[O_S]=4$, but we do \emph{not} rely on RG irrelevance alone to suppress collider signatures. Instead, $O_S$ is chosen such that
+\[
+  \langle O_S\rangle_{\rm homogeneous} \approx 0
+\]
+in homogeneous, periodic, or thermal states due to degeneracy dilution: many macroscopically equivalent pattern placements produce destructive overlap, driving $Q\to 0$ in the thermodynamic limit.
+
+\item \textbf{(A5) Positivity and causality of the $S$-kernel.} The static kernel on $S$, $K_\sigma(\sigma,\sigma')$, is positive semidefinite and depends only on the structural distance $d_\sigma(\sigma,\sigma')$. The retarded mediator Green function in $S$ has finite speed $c_S$ and vanishes when $\tau'<\tau$.
+
+\item \textbf{(A6) Minimal Lorentz breaking in gravity.} In the absence of $S$-mediated resonance ($J^\nu_\sigma=0$), gravitational waves propagate at light speed, $c_T=c$, and the aether/khronon sector parameters are chosen within the bounds summarized in Eq.~(3.1C).
+
+\item \textbf{(A7) Momentum-neutrality.} The interaction action is translationally invariant in $M$, and the effective interaction stress--energy $T^{\mu\nu}_{\rm int}$ obeys
+\[
+  \partial_\mu T^{\mu i}_{\rm int} = -J^i_\sigma.
+\]
+Combined with the split conservation laws, this implies $\partial_\mu T^{\mu i}_{\rm tot}=0$ and, upon integration over space,
+\[
+  \frac{d}{dt}\,P^i_{\rm tot} = 0,
+\]
+so there is no reactionless drive even in the presence of time-dependent resonance.
+
+\item \textbf{(A8) Universal gravitational coupling ($\alpha=1$).} The Einstein equations couple the metric to $T^{\mu\nu}_{\rm vis}+T^{\mu\nu}_S$ with a \emph{universal} strength. The Bianchi identity together with the split conservation laws enforce $\alpha\equiv 1$ when $J^\nu_\sigma\neq 0$, so there is no tunable reduced gravitational coupling for the $S$-sector. Apparent FTL effects arise entirely from substrate locality, not from modifications of the causal structure of $(M,g)$.
+
+\item \textbf{(A9) Length dimensions for $d_\sigma$ and $\lambda_\sigma$.} The structural distance $d_\sigma$ and the range $\lambda_\sigma$ are assigned dimensions of length via an embedding scale $\ell_0$ set by the feature map $\mathcal{I}:S\to\mathbb{R}^{N_{\rm feat}}$. This allows direct comparison between $d_\sigma$, $\lambda_\sigma$, and experimental length scales $L_{\rm exp}$.
+\end{itemize}
+
+\subsection*{Method note}
+
+For the proposed experimental tests (E1--E3), we assume:
+\begin{itemize}
+  \item full pre-registration of hypotheses, analysis pipelines, and stopping rules on a public repository (e.g.\ OSF);
+  \item use of cryptographic commit--reveal schemes for codebooks and analysis choices that could otherwise be tuned post hoc;
+  \item explicit multiple-test correction (e.g.\ Holm–Bonferroni or false discovery rate) across the family of pre-specified statistics.
+\end{itemize}
+A null result interpreted under assumptions (A1)--(A9) then yields clear, quantitative bounds on combinations of $(\varepsilon,\lambda_\sigma,Q,\omega_0)$; a non-null result would provide a well-defined target for replication and further scrutiny.

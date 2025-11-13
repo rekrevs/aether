@@ -1,0 +1,67 @@
+\section{Coupling Strength and Dimensional Analysis}
+
+At the level of coarse-grained phenomenology it is convenient to express the substrate flow as a scalar power assigned to each active edge or calibrated pair $e$ in the experimental setup. We denote this by $\Psig(e)$ to stress that it is a scalar \emph{power} (units of W), distinct from the 4-current $\Jsig$ appearing in the covariant conservation equations.
+
+\subsection{Power form}
+
+We parameterize the power flowing into the $S$-sector along edge $e$ as
+\begin{equation}
+  \Psig(e)
+  \;=\;
+  \varepsilon\,
+  \Ksig(e)\,
+  \mathcal{Q}(e,t)\,
+  \tilde{\Delta\Phi}(\tilde e)\,
+  P_{\mathrm{pump}}(e)
+  \quad\text{(units: W)},
+  \tag{6.1}
+\end{equation}
+where:
+\begin{itemize}
+  \item $\varepsilon$ is the dimensionless microscopic coupling strength entering the interaction Lagrangian;
+  \item $\Ksig(e)=\exp[-d_\sigma(e)/\lambda_\sigma]$ is the dimensionless similarity factor for edge $e$, constructed from the $d_\sigma$-metric of Sec.~7;
+  \item $\mathcal{Q}(e,t)\in[0,1]$ is a dimensionless pattern quality factor for that edge at time $t$;
+  \item $\tilde{\Delta\Phi}(\tilde e)$ is a dimensionless free-energy increment associated with the driven transition on the corresponding macroscopic edge $\tilde e$ in $M$;
+  \item $P_{\mathrm{pump}}(e)$ is the physical pump power (in W) available to drive the transition.
+\end{itemize}
+By construction, the right-hand side has dimension of power, so Eq.~(6.1) is dimensionally consistent.
+
+\subsection{Rate form}
+
+It is often convenient to re-express the pump in terms of a rate. For a characteristic quantum $\hbar\omega_0$ of the driven transition, define
+\begin{equation}
+  \PumpRate(e)
+  :=
+  \frac{P_{\mathrm{pump}}(e)}{\hbar\omega_0}
+  \quad [\mathrm{s^{-1}}],
+\end{equation}
+so that Eq.~(6.1) can be written as
+\begin{equation}
+  \Psig(e)
+  =
+  \varepsilon\,
+  \hbar\omega_0\,
+  \Ksig(e)\,
+  \mathcal{Q}(e,t)\,
+  \PumpRate(e)\,
+  \tilde{\Delta\Phi}(\tilde e).
+  \tag{6.2}
+\end{equation}
+This form will be useful when connecting to the thermodynamic and information-theoretic bounds in Sec.~8.
+
+\subsection{Degeneracy dilution and state dependence}
+
+The factor $\mathcal{Q}(e,t)$ encodes how well the actual microscopic configuration on edge $e$ matches the high-complexity pattern selected by $O_S$. As discussed in Sec.~5, in homogeneous or periodic systems there are many equivalent placements of the same pattern. If there are $N$ such placements, the overlap between the actual state and the specific pattern singled out by $O_S$ scales as $1/\sqrt{N}$, so that
+\[
+|\langle O_S\rangle|^2 \sim \frac{1}{N}.
+\]
+In the thermodynamic limit $N\to\infty$ this implies $\mathcal{Q}\to 0$ and hence
+\begin{equation}
+  \Psig(e) \to 0
+  \qquad
+  \text{(homogeneous / thermal / periodic states)}.
+  \tag{6.3}
+\end{equation}
+This is the precise sense in which aether resonance is absent in ordinary matter: even if $\varepsilon$ is not extremely small, $\mathcal{Q}$ is effectively zero, and no appreciable power flows into the $S$-sector.
+
+Conversely, in carefully engineered, mesoscopic, pattern-rich or near-critical systems the number of equivalent placements can be $\mathcal{O}(1)$, and $\mathcal{Q}$ can approach unity. Then $\Psig(e)$ can be an appreciable fraction of $P_{\mathrm{pump}}(e)$ (further bounded by thermodynamics in Sec.~8). This is the regime targeted by experiments E1--E3.

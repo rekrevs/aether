@@ -1,0 +1,84 @@
+\section{Thermodynamics and Measurable Cost}
+
+We now connect the phenomenological power $\Psig$ to thermodynamic and information-theoretic constraints. The key idea is that any reliable transfer of information through the $S$-channel requires the production of entropy in the combined system, and that a finite pump power therefore bounds the achievable FTL bitrate.
+
+\subsection{Pattern free energy}
+
+We define an effective \textbf{pattern free energy} for the $S$-sector,
+\begin{equation}
+  \mathcal{F}_S
+  =
+  \langle E_S \rangle - \Temp\,\Sigma_S,
+  \tag{8.1}
+\end{equation}
+where $\Sigma_S$ is an entropy-like functional of the microscopic $S$-state (e.g.\ approximated by minimum description length or compression ratio) and $\Temp$ is an effective temperature associated with the degrees of freedom that the pump can thermalize.
+
+\subsection{Minimal Markov model on S-edges}
+
+We model each active $S$-edge $e$ as a two- or few-state Markov process driven by the pump. The edge switches between microstates $\{i\}$ with transition rates $k_{ij}(t)$ that depend on the external driving. Standard stochastic thermodynamics then associates to each realization:
+\begin{itemize}
+  \item a stochastic entropy production $\Delta S_{\mathrm{tot}}(e)$;
+  \item a heat $Q_{\mathrm{diss}}(e)$ dumped into the environment;
+  \item a Kullback--Leibler divergence $D_{\mathrm{KL}}$ between the forward and time-reversed trajectory ensembles.
+\end{itemize}
+Results due to Crooks, Seifert, and others imply a general inequality
+\begin{equation}
+  \langle \Delta S_{\mathrm{tot}} \rangle
+  \;\ge\;
+  k_B\,D_{\mathrm{KL}}(\mathrm{forward}\|\mathrm{backward}),
+  \tag{8.2}
+\end{equation}
+with $\langle\cdot\rangle$ denoting an ensemble average. When the dynamics is used to transmit an average of $I_e$ bits of information along edge $e$, the KL divergence satisfies
+\[
+  D_{\mathrm{KL}} \;\ge\; I_e \ln 2,
+\]
+so we obtain a Landauer-type inequality
+\begin{equation}
+  \langle Q_{\mathrm{diss}}(e)\rangle
+  \;\ge\;
+  k_B \Temp \ln 2 \cdot I_e,
+\end{equation}
+i.e.\ at least $k_B \Temp \ln 2$ of dissipated heat per reliably transmitted bit.
+
+\subsection{Resource inequality for FTL bitrate}
+
+Let $R_{\mathrm{bit}}(e)$ be the average bit rate (bits per second) transmitted along the $S$-channel for edge $e$ in a stationary regime, and let $P_{\mathrm{diss}}(e)$ be the average rate of heat dissipation that can be used for signalling. From the inequality above we obtain
+\begin{equation}
+  R_{\mathrm{bit}}(e)
+  \;\le\;
+  \frac{P_{\mathrm{diss}}(e)}{k_B \Temp \ln 2}.
+\end{equation}
+Not all of the pump power is available for structured signalling. We therefore set
+\begin{equation}
+  P_{\mathrm{diss}}(e)
+  =
+  \beta\,
+  \Psig(e),
+\end{equation}
+where $0<\beta\le 1$ collects inefficiencies in the conversion from pump work to low-entropy pattern changes that actually carry information (e.g.\ losses to uncontrolled degrees of freedom). Using Eq.~(6.1) for $\Psig(e)$, we obtain
+\begin{equation}
+  R_{\mathrm{bit}}(e)
+  \;\le\;
+  \frac{\beta}{k_B \Temp \ln 2}\,
+  \varepsilon\,
+  \Ksig(e)\,
+  \mathcal{Q}(e,t)\,
+  \tilde{\Delta\Phi}(\tilde e)\,
+  P_{\mathrm{pump}}(e).
+  \tag{8.3}
+\end{equation}
+This is the central thermodynamic \emph{resource inequality}: for fixed pump power and temperature, the achievable FTL bit rate is bounded by the product of the microscopic parameters $(\varepsilon,\Ksig,\mathcal{Q},\tilde{\Delta\Phi})$. In particular, for a given experimental platform, a null result in a carefully designed protocol directly constrains combinations of these parameters.
+
+\subsection{Bounding parameters from null results}
+
+Suppose an experiment of type E1 yields a null result in the sense that no FTL signal is detected above a bit-rate threshold $R_{\mathrm{bit}}^{(\mathrm{null})}$ for a given edge and pump configuration. Taking $\tilde{\Delta\Phi}\le 1$ as a conservative assumption (i.e.\ the free-energy difference per operation does not exceed $k_B\Temp$), Eq.~(8.3) implies
+\begin{equation}
+  \varepsilon\,\mathcal{Q}\,e^{-d_\sigma/\lambda_\sigma}
+  \;<\;
+  \frac{k_B \Temp \ln 2}{\beta\,P_{\mathrm{pump}}}\,
+  R_{\mathrm{bit}}^{(\mathrm{null})}.
+  \tag{8.4}
+\end{equation}
+In a regime where $\varepsilon$ is independently constrained (for example by photon-sector tests or SME bounds), Eq.~(8.4) can be interpreted as a direct bound on the product $\mathcal{Q}\,e^{-d_\sigma/\lambda_\sigma}$, with $d_\sigma$ calibrated using the distance ladder of Sec.~7. Conversely, if an effect is observed and cross-checked against multiple protocols, Eq.~(8.3) provides a consistency relation between the inferred parameters.
+
+Taken together with the energetic constraints from E2 (Sec.~12) and the anisotropy bounds from photon-sector tests, the thermodynamic inequality in Eq.~(8.3) helps carve out a small, sharply defined region of parameter space where aether resonance could reside.

@@ -1,0 +1,96 @@
+\section{Experimental Protocols (No-Loophole) and Parameter Inference}
+
+All three proposed experiments are designed to be as close as practicable to ``no-loophole'' tests in the spirit of modern Bell experiments. This means:
+\begin{itemize}
+  \item full pre-registration of hypotheses, data-taking procedures, and analysis pipelines (e.g.\ on the Open Science Framework);
+  \item cryptographic commit--reveal schemes for any codebooks or analysis choices that could otherwise be tuned post hoc;
+  \item strict spacelike separation of laboratories where FTL influence is claimed;
+  \item aggressive use of control conditions, sham runs, and blinding.
+\end{itemize}
+In all cases, raw data and analysis code should be published openly.
+
+\textbf{Statistical methodology.} For each experiment we pre-register:
+\begin{itemize}
+  \item the primary test statistic (e.g.\ BER difference, energy imbalance, or correlation coefficient);
+  \item the null and alternative hypotheses in terms of that statistic;
+  \item a target $p$-value or Bayes factor for claiming evidence;
+  \item a multiple-comparisons correction (e.g.\ Benjamini--Hochberg FDR) across pre-specified families of tests.
+\end{itemize}
+A separate calibration study, using only local controls, is used to validate analysis code and to estimate systematic uncertainties; that calibration is assigned its own DOI.
+
+\subsection{E1. Neuromorphic Ansible (Information)}
+
+\textbf{Setup.}
+\begin{itemize}
+\item Two photonic or electronic reservoirs (e.g.\ 3D random resistor--capacitor or memristive networks with $N\sim 10^3$ nodes), labelled $A$ and $B$.
+\item Both reservoirs are trained on an identical dataset (e.g.\ MNIST images, speech, or video snippets), using local learning rules only.
+\item Each laboratory is enclosed in a Faraday cage and optically isolated (fiber-air gaps, optical isolators). Power is supplied by batteries during runs.
+\item Independent atomic clocks (GPS-disciplined or ultra-stable crystal/OCXO) with jitter $\lesssim 1$\,ns provide local timing.
+\item Laboratories are separated by $>1$\,km, so that light-travel time between them exceeds the timing resolution ($>3\,\mu$s).
+\end{itemize}
+
+\textbf{Protocol.}
+\begin{enumerate}
+\item \textbf{Commit--reveal.} Before data taking, a sender codebook (mapping message bits to reservoir drive patterns) and a schedule of send/idle windows are generated using a pseudo-random generator seeded by a quantum random number generator (QRNG). The hash (e.g.\ SHA-256) of the codebook and schedule is published.
+\item \textbf{Distance ladder calibration.} A separate, blinded calibration run is performed in which the pattern similarity between the two reservoirs is modified in pre-specified steps (Sec.~7.3). This is used to fit or bound $\lambda_\sigma$ and validate that any observed correlations track $d_\sigma$ as expected.
+\item \textbf{Main run.} During each active send window, the sender reservoir is driven according to the codebook; during sham windows it is held in a neutral state. The receiver is driven by its local noise source or neutral state and records its high-dimensional output at the agreed sampling rate.
+\item \textbf{Blinded analysis at receiver.} The receiver laboratory, without access to sender logs, runs correlation analyses against all possible codewords consistent with the published hash and schedule. Only after the analysis is fixed are the sender logs revealed.
+\item \textbf{Environmental veto.} Muon and RF detectors are deployed at both sites; runs with unusually high cosmic-ray or RF activity are flagged or discarded.
+\end{enumerate}
+
+\textbf{Analysis.}
+\begin{itemize}
+\item Compute the BER for decoding the sender's message from the receiver's reservoir state using only locally available information.
+\item Compare the BER between matched-structure runs and control runs in which the reservoirs are trained on independent datasets.
+\item Examine how the BER improvement (or correlation coefficient) scales with the ladder level $\ell$ in the calibration, testing for the predicted $\exp[-d_\sigma(\ell)/\lambda_\sigma]$ dependence.
+\end{itemize}
+
+\textbf{Inference.} A null result at sensitivity $R_{\rm bit}^{({\rm null})}$ constrains the product $\varepsilon\,\lambda_\sigma\,\mathcal Q$ via the specialization of Eq.~(8.3) to the E1 geometry. A positive result consistent with the ladder scaling would give a direct estimate of $\lambda_\sigma$ and, combined with the pump power budget, a lower bound on $\varepsilon\mathcal Q$.
+
+\subsection{E2. Rotating energy tunnel and sidereal check}
+
+\textbf{Setup.}
+\begin{itemize}
+\item Two macroscopic reservoirs $A$ and $B$ (e.g.\ cryogenic thermal masses or phase-change materials) mounted on a rigid, rotatable platform of size $L_{\rm exp}\sim 1$\,m.
+\item Each reservoir is coupled to its own high-stability calorimeter with sensitivity $\delta E\lesssim 10^{-26}$\,J over $10^3$\,s.
+\item The internal microstructure of $A$ and $B$ is engineered to be structurally matched in $S$ according to the chosen $O_S$ (similar defect patterns, topology, \emph{etc.}), but with different orientations in $M$ with respect to the platform axis.
+\item A controlled pump (e.g.\ electrical, optical, or mechanical) drives the reservoirs in synchrony, providing the power $P_{\rm pump}$ entering Eq.~(6.1).
+\end{itemize}
+
+\textbf{Protocol.}
+\begin{enumerate}
+\item Alternate long integration windows with the platform fixed at different azimuthal orientations, sampling different angles between the apparatus and the substrate preferred frame.
+\item Log $\Delta E_A$ and $\Delta E_B$ in each window and check Eq.~(12.2) for consistency, as well as any persistent bias in $\Delta E_A - \Delta E_B$.
+\item Run for a total duration of $\sim 10^7$\,s spread over several weeks to resolve sidereal modulation at frequency $\Omega_\oplus$.
+\item Perform control runs with pumps off, with deliberately de-structured media (destroying the pattern relevant for $O_S$), and with the reservoirs interchanged.
+\end{enumerate}
+
+\textbf{Analysis and inference.}
+\begin{itemize}
+\item Fit the time series of inferred $\Psig$ to the form of Eq.~(12.3), extracting limits or estimates of the mean $\bar\Psig$ and relative amplitude $\mathcal A$.
+\item Translate $\bar\Psig$ into bounds on $\varepsilon\mathcal Q$ using Eq.~(6.1), given $P_{\rm pump}$ and an estimate of $\tilde{\Delta\Phi}$.
+\item Use the sidereal amplitude $A_{\rm sid}^{(\mathrm{mat})}$ to constrain $\epsmat\Qmat(\lsig/L_{\rm exp})$ via Eq.~(12.4), taking into account photon-sector bounds on $\epsgam\Qgam$.
+\end{itemize}
+
+\subsection{E3. Complexity scan and optimal patterning}
+
+\textbf{Setup.}
+\begin{itemize}
+\item A platform whose configurational complexity can be tuned systematically, e.g.\ an electronic network with adjustable connectivity, a photonic lattice with controlled disorder, or a spin system near a phase transition.
+\item Two copies of the platform constructed so that, for each complexity setting, they are structurally matched in $S$ according to $O_S$.
+\end{itemize}
+
+\textbf{Protocol.}
+\begin{enumerate}
+\item Define a scalar complexity measure $\Sigma$ (e.g.\ spectral entropy, participation ratio, or algorithmic compressibility of typical states).
+\item Scan $\Sigma$ over a wide range by changing the control parameters of the platform, ensuring that $\Sigma$ can be estimated locally at each site.
+\item For each complexity setting, run an E1- or E2-type protocol to infer an effective hop rate $r_{\rm hop}(\Sigma)$ or an associated measure of FTL strength.
+\item Include sham configurations in which the two copies are deliberately de-correlated in $S$, as controls.
+\end{enumerate}
+
+\textbf{Analysis and inference.}
+\begin{itemize}
+\item Test whether $r_{\rm hop}(\Sigma)$ is consistent with zero across all $\Sigma$ (null hypothesis) or exhibits a statistically significant peak near some $\Sigma_{\rm opt}$ (alternative).
+\item If a peak is found, compare its width and location with theoretical expectations for the complexity dependence of the pattern quality factor $\mathcal Q(\Sigma)$.
+\item A null result constrains $\lambda_\sigma$ and $\mathcal Q$ for the explored class of patterns, complementing the point constraints from E1 and E2.
+\end{itemize}

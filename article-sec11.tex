@@ -1,0 +1,66 @@
+\section{Compatibility with Established Tests and Anisotropy Budget}
+
+The framework must be consistent with the very tight constraints on Lorentz violation and preferred-frame effects coming from Michelson--Morley, Hughes--Drever, resonant-cavity, and astrophysical tests. In this section we sketch how the aether-resonance phenomenology maps onto standard parametrizations and define an ``anisotropy budget'' that will later be compared to experimental sensitivities.
+
+\subsection{Anisotropy from a preferred substrate frame}
+
+In the substrate rest frame there is a distinguished timelike unit vector
+\[
+  \xi^\mu = (1,0,0,0),
+\]
+which induces small preferred-frame corrections in the dispersion relations of particles and photons once the $S$-mediated coupling is taken into account. At leading order one can write for a particle of mass $m$ and momentum $p^\mu$:
+\begin{equation}
+    E^2 = p^2 c^2 + m^2 c^4\,\big[1+\Delta(E,\hat p\!\cdot\!\hat\xi)\big],
+    \tag{11.1}
+\end{equation}
+with $\hat p$ the unit vector along the spatial momentum and $\Delta$ a dimensionless modifier.
+
+For concreteness, we parametrize the leading anisotropic contribution as
+\begin{equation}
+    \Delta \;\sim\; \varepsilon\left(\frac{\lambda_\sigma}{\lambda_C}\right)\mathcal Q
+    \left(\frac{E}{mc^2}\right)\,(\hat p\!\cdot\!\hat\xi)^2,
+    \tag{11.2}
+\end{equation}
+where $\lambda_C=\hbar/(mc)$ is the Compton wavelength associated with the relevant degree of freedom, $\lambda_\sigma$ is the structural range of the $S$-kernel, and $\mathcal Q$ is an appropriate quality factor ($\Qgam$ for photons, $\Qmat$ for matter). Equation~(11.2) should be understood as an order-of-magnitude scaling rather than a precise prediction; its purpose is to connect the microscopic parameters $(\varepsilon,\lambda_\sigma,\mathcal Q)$ to effective anisotropies.
+
+For photons $(m=0)$, it is convenient to rewrite the result in terms of an effective anisotropic modification of the speed of light. Taking $E=pc$ and using a representative microscopic scale in place of $\lambda_C$, one finds
+\begin{equation}
+    \frac{\Delta c}{c} \;\sim\; \epsgam\left(\frac{\lsig}{\lambda_C}\right)\Qgam,
+    \tag{11.3}
+\end{equation}
+where $\epsgam$ denotes the photon-sector coupling, $\lsig$ the effective structural range relevant for the optical mode, and $\Qgam$ the photon-sector quality factor.
+
+\subsection{Photon-sector SME parametrization}
+
+In the photon sector, Lorentz-violating effects are conventionally expressed using the Standard-Model Extension (SME) in terms of the matrices $\tilde\kappa_{e-}^{JK}$, $\tilde\kappa_{o+}^{JK}$, and the scalar $\tilde\kappa_{\rm tr}$. To leading order, the aether-resonance model produces a traceless, symmetric contribution of the form
+\begin{equation}
+\tilde\kappa_{e-}^{JK}\ \sim\ \epsgam\,\Qgam\,
+\Big(\frac{\lsig}{L_{\rm exp}}\Big)\,\Xi^{JK},
+\end{equation}
+where $L_{\rm exp}$ is a characteristic size of the optical apparatus and $\Xi^{JK}=\mathcal{O}(1)$ is a geometry-dependent tensor encoding its orientation with respect to $\hat\xi$.
+
+State-of-the-art cavity and clock-comparison experiments bound the relevant components of $\tilde\kappa_{e-}^{JK}$ at roughly the $10^{-18}$ level or better. Translating Eq.~(11.3) into this language and comparing gives
+\begin{equation}
+    \epsgam\left(\frac{\lsig}{\lambda_C}\right)\Qgam \;\lesssim\; 10^{-18}.
+    \tag{11.4}
+\end{equation}
+For illustration, taking $\lsig \sim 1\,\mu{\rm m}$ and a representative microscopic scale $\lambda_C \sim 10^{-12}\,{\rm m}$ (so that $\lsig/\lambda_C \sim 10^6$) implies
+\[
+  \epsgam \Qgam \lesssim 10^{-24}.
+\]
+Given that $0\le \Qgam\le 1$, this bound can be interpreted as a strong constraint on the photon-sector coupling $\epsgam$, independently of the details of $O_S$.
+
+\subsection{Daily/annual modulation and anisotropy budget}
+
+Because the Earth rotates and orbits relative to the substrate rest frame, any preferred-frame effect will generally produce sidereal and annual modulations in observables. In the photon sector this is captured by the usual SME analysis of cavity experiments. In the matter sector, where direct bounds are much weaker, we can parameterize the sidereal modulation amplitude $A_{\rm sid}^{(\mathrm{mat})}$ in the E2-type setups of Sec.~12 by
+\[
+A_{\rm sid}^{(\mathrm{mat})} \simeq \epsmat \left( \frac{\lsig}{L_{\rm exp}} \right) \Qmat \, \Xi,
+\]
+where $\epsmat$ and $\Qmat$ are the matter-sector coupling and quality factor, $L_{\rm exp}$ is the size of the macroscopic apparatus, and $\Xi=\mathcal{O}(1)$ encodes geometrical factors and projection onto the rotation axis.
+
+We will return to a more detailed phenomenological expression in Eq.~(12.4), where $A_{\rm sid}^{(\mathrm{mat})}$ is related directly to the ratio of matter- and photon-sector parameters. For now it is sufficient to note that:
+\begin{itemize}
+  \item Photon-sector tests tightly constrain the combination $\epsgam(\lsig/\lambda_C)\Qgam$ via Eq.~(11.4).
+  \item Matter-sector sidereal modulation in E2 provides a direct empirical handle on $\epsmat (\lsig/L_{\rm exp})\Qmat$.
+\end{itemize}
+The ``anisotropy budget'' is the requirement that both sectors can be made simultaneously consistent with these bounds and with any positive signal in the proposed experiments.

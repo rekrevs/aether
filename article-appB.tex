@@ -1,0 +1,79 @@
+\section{Continuity over $(M \times S)$ – Derivation}
+
+We sketch how local conservation in $M$ and $S$ combines into the covariant continuity equations used in Sec.~3.
+
+\subsection*{Discrete picture}
+
+Consider discrete time steps $T=0,1,2,\dots$, with:
+\begin{itemize}
+  \item energy density $\rho_M$ in spacetime cells $c\in M$,
+  \item energy density $\rho_\sigma$ in substrate nodes $s\in S$.
+\end{itemize}
+Let $\Delta E_M(c)$ be the net change in cell $c$ during one tick and let $\sum_{e\in\partial s} J_\sigma(e)$ be the net flow into node $s$ from its $S$-edges $e$.
+
+\textbf{Global conservation over one tick:}
+\begin{equation}
+  \sum_c \Delta E_M(c) + \sum_s \Delta E_\sigma(s) = 0.
+  \tag{B.1}
+\end{equation}
+
+\subsection*{Continuum limit}
+
+Taking the continuum limit $T\to t$, $c\to x$, $s\to \sigma$ and assuming smooth coarse-grained fields, Eq.~(B.1) yields
+\begin{equation}
+  \frac{\partial \rho_M}{\partial t} + \nabla\!\cdot\!J_M = - \nabla_\sigma\!\cdot\!J_\sigma,
+  \tag{B.2}
+\end{equation}
+where $J_M$ is the spatial energy flux in $M$ and $J_\sigma$ is the flux in $S$. The right-hand side encodes local exchange between the two sectors.
+
+\subsection*{Covariant lift}
+
+To express this covariantly, we consider a bundle $E\to M$ with fiber $S$ and local coordinates $(x^\mu,\sigma^a)$. Introducing a covariant derivative $\nabla_\mu$ on $M$ and interpreting $J^\nu_\sigma$ as an exchange four-current, we split the total energy-momentum tensor into visible and $S$-sector parts,
+\[
+  T^{\mu\nu}_{\mathrm{tot}} = T^{\mu\nu}_{\mathrm{vis}} + T^{\mu\nu}_S,
+\]
+and write the continuity equations as
+\begin{equation}
+  \nabla_\mu T^{\mu\nu}_{\mathrm{vis}} = - J^\nu_\sigma,
+  \qquad
+  \nabla_\mu T^{\mu\nu}_S = + J^\nu_\sigma.
+  \tag{B.3}
+\end{equation}
+Summing gives total conservation
+\begin{equation}
+  \nabla_\mu (T^{\mu\nu}_{\mathrm{vis}} + T^{\mu\nu}_S) = 0,
+  \tag{B.4}
+\end{equation}
+which is the covariant version of Eq.~(B.2).
+
+\subsection*{Relation to the Einstein equations and $\alpha$}
+
+In the main text we write the Einstein equations as
+\begin{equation}
+  G_{\mu\nu}
+  =
+  \frac{8\pi G}{c^4}\,
+  \bigl(
+    T^{\mathrm{vis}}_{\mu\nu} + \alpha\,T^S_{\mu\nu}
+  \bigr),
+  \tag{B.5}
+\end{equation}
+where $\alpha$ is a dimensionless factor multiplying the $S$-sector stress--energy.
+
+The Bianchi identity implies $\nabla_\mu G^{\mu\nu}=0$. Taking the covariant divergence of Eq.~(B.5) and using the split conservation laws (B.3) gives
+\[
+  0 = \nabla_\mu G^{\mu\nu}
+  = \frac{8\pi G}{c^4}
+    \bigl(
+      \nabla_\mu T^{\mu\nu}_{\mathrm{vis}}
+      + \alpha\,\nabla_\mu T^{\mu\nu}_S
+    \bigr)
+  = \frac{8\pi G}{c^4}(\alpha - 1) J^\nu_\sigma.
+\]
+
+For generic configurations with nonzero exchange current $J^\nu_\sigma\neq 0$ this enforces
+\begin{equation}
+  \alpha \equiv 1,
+  \tag{B.6}
+\end{equation}
+so the metric must couple with the \emph{same} strength to $T^{\mathrm{vis}}_{\mu\nu}$ and $T^S_{\mu\nu}$. In other words, the total conservation law (B.4) is compatible with the Bianchi identity only if the gravitational coupling is universal. All apparent superluminal behaviour thus arises from substrate-local redistribution of stress--energy, not from a modified gravitational constant.

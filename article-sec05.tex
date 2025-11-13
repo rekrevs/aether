@@ -1,0 +1,133 @@
+\section{Selection Operator and Absence in the Standard Sector}
+
+The effective coupling to the substrate can be written schematically as
+\begin{equation}
+\mathcal{L}_{\mathrm{int}}
+\;\supset\;
+\frac{\varepsilon}{\LamUV^{4}}\,
+O_S[\phi](x)\,
+O_S[\phi](x')\,
+\mathcal{K}_{\mathrm{eff}}(x,x'),
+\tag{5.1}
+\end{equation}
+where $O_S$ is a \textbf{pattern complexity operator}. It is designed so that:
+\begin{enumerate}
+  \item $O_S$ is local, gauge- and diffeomorphism-invariant in $M$;
+  \item it is sensitive to \emph{mesoscopic, structured} configurations but strongly suppressed in homogeneous or thermal states;
+  \item the combination in Eq.~(5.1) has engineering dimension four so that $\varepsilon$ is dimensionless.
+\end{enumerate}
+
+\subsection{Seed operator and dimensionality}
+
+Start from a local, gauge-invariant ``seed'' operator $\mathcal{O}(x)$ built from visible fields and curvature, with mass dimension
+$\Delta>4$ (irrelevant in the Wilsonian sense). We then define a
+\emph{normalized} operator
+\begin{equation}
+  O_S(x)
+  :=
+  \frac{\mathcal{O}(x)}{\Lambda^{\Delta-4}},
+  \qquad
+  [O_S]=4,
+  \quad
+  [\varepsilon]=0.
+  \tag{5.2}
+\end{equation}
+Here $\Lambda$ is a fixed UV scale of the visible sector. Choosing $\Delta>4$ means that, in ordinary effective field theory, the dimensionless coupling
+associated with $\mathcal{O}$ would decrease in the infrared, and high-energy
+experiments would normally give the strongest constraints. In the present framework we \emph{do not} rely on such RG running to hide the effect. Instead, what suppresses visible-sector signatures is the state-dependence of $\langle O_S\rangle$ itself, as explained next.
+
+\subsection{Degeneracy dilution in homogeneous states}
+
+For homogeneous, periodic, or thermal configurations (collider beams, crystals, near-equilibrium baths) there are many macroscopically equivalent
+realizations of any given local pattern. We assume that $O_S$ is constructed so that:
+\begin{itemize}
+  \item it rewards \emph{unique}, fine-grained matches of a high-complexity pattern in phase space;
+  \item configurations with $N$ equivalent placements of the same pattern contribute with amplitudes whose coherent overlap scales as $1/N$.
+\end{itemize}
+Informally, the pattern signal gets ``diluted'' when it can be realized in many ways. In a cubic lattice with spacing $a$ and volume $V$, the number of equivalent placements scales as $N\sim V/a^3$, and in the thermodynamic limit the effective expectation value obeys
+\begin{equation}
+  \langle O_S\rangle_{\mathrm{hom}} \;\propto\; \frac{1}{N} \;\to\; 0
+  \qquad (V\to\infty).
+  \tag{5.3}
+\end{equation}
+A simple toy model (see Appendix~C for details) is a pattern projector acting on a block of $L^3$ sites. The overlap between a plane-wave state and the pattern scales as $1/\sqrt{N}$, so that $| \langle O_S\rangle |^2 \sim 1/N$.
+Thus:
+\begin{equation}
+  \langle O_S\rangle_{\mathrm{thermal / periodic}} \approx 0,
+  \qquad
+  \langle O_S\rangle_{\mathrm{structured}} = \mathcal{O}(1),
+  \tag{5.4}
+\end{equation}
+and the aether-resonance channel is effectively switched off in ordinary homogeneous matter, including standard collider beams and cosmological fluids.
+
+\subsection{Structured states and pattern quality}
+
+In contrast, in a driven, mesoscopic, pattern-rich system (engineered materials, critical networks, biological tissues, etc.) the pattern encoded by $O_S$
+can be realized in only a few places, and its overlap with the actual state can approach unity. We summarize this as
+\begin{equation}
+  \langle O_S\rangle \;\propto\; \mathcal{Q}\,\tilde{\Delta\Phi},
+  \qquad
+  0 \le \mathcal{Q} \le 1,
+  \tag{5.5}
+\end{equation}
+where:
+\begin{itemize}
+  \item $\mathcal{Q}$ is a dimensionless \emph{pattern quality factor} (introduced more explicitly in Sec.~6), which measures how well the configuration matches the targeted pattern;
+  \item $\tilde{\Delta\Phi}$ is a dimensionless free-energy difference associated with driving the system between two nearby macrostates in $S$.
+\end{itemize}
+The dependence on the structural distance $d_\sigma$ resides in the kernel $\Ksig = \exp[-d_\sigma/\lambda_\sigma]$ (Sec.~7). For large structural separations, $\Ksig\to 0$ and the coupling vanishes even if $\mathcal{Q}$ is high.
+
+\subsection{Explicit example of a local $O_S$}
+
+One convenient class of examples is based on a windowed functional of derivatives and curvature. Let $w_\ell(x)$ be a smooth, compactly supported window of linear size $\ell$, and define
+\begin{equation}
+  O_S(x)
+  =
+  \frac{1}{\Lambda^{\Delta-4}}
+  \int d^4y\,\sqrt{-g(y)}\,
+  w_\ell(x-y)\,
+  \mathcal{F}\!\big(
+    \nabla\phi(y),\,
+    \nabla\nabla\phi(y),\,
+    R_{\mu\nu\rho\sigma}(y)
+  \big),
+  \tag{5.6}
+\end{equation}
+with
+\begin{equation}
+  \mathcal{F}
+  :=
+  \sum_{m+n+k=\Delta} c_{mnk}\,
+  \big(\nabla\phi\big)^{m}\,
+  \big(\nabla\nabla\phi\big)^{n}\,
+  \big(R_{\mu\nu\rho\sigma}\big)^{k},
+  \tag{5.7}
+\end{equation}
+and coefficients $c_{mnk}$ chosen so that $O_S$ is scalar, gauge-invariant, and UV-soft above its design scale. The window function ensures locality on scales $\lesssim \ell$, while the polynomial structure makes $O_S$ sensitive to higher-order patterns (gradients, curvature, correlations) rather than just local field amplitudes.
+
+\subsection{Why colliders see nothing}
+
+Putting the pieces together, the effective contribution of Eq.~(5.1) to any collider observable schematically scales as
+\begin{equation}
+  \mathcal{A}_{\mathrm{collider}}
+  \;\sim\;
+  \varepsilon\,
+  \langle O_S\rangle_{\mathrm{in}}\,
+  \langle O_S\rangle_{\mathrm{out}}\,
+  K_{\sigma,\mathrm{eff}},
+  \tag{5.8}
+\end{equation}
+where ``in'' and ``out'' denote initial and final states in a high-energy experiment. For realistic beams and final states we expect:
+\begin{itemize}
+  \item approximate translational and rotational invariance;
+  \item rapidly decorrelating phases;
+  \item large degeneracy $N$ of equivalent pattern placements.
+\end{itemize}
+By the degeneracy-dilution argument, $\langle O_S\rangle_{\mathrm{in}}\approx \langle O_S\rangle_{\mathrm{out}}\approx 0$, so that collider cross-sections are suppressed by the \emph{state} rather than by RG running. The same logic applies to cosmological and astrophysical plasmas that are nearly homogeneous on microscopic scales.
+
+In summary, the selection operator $O_S$ is chosen so that:
+\begin{itemize}
+  \item it is technically natural and irrelevant in the Wilsonian sense (built from operators with $\Delta>4$ and normalized as in Eq.~(5.2));
+  \item it has negligible expectation value in homogeneous, periodic, or thermal states due to degeneracy dilution;
+  \item it can attain order-one values only in specially engineered, near-critical, pattern-rich systems, which are precisely the regimes targeted by our proposed experiments in Sec.~13.
+\end{itemize}

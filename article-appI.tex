@@ -1,0 +1,70 @@
+\section{SME Coupling – Reporting Format}
+
+For comparison with the broader Lorentz-violation literature it is useful to translate the parameters of the aether-resonance model into the photon-sector coefficients of the Standard-Model Extension (SME), and to specify a reporting format for experimental results.
+
+\subsection*{I.1 Mapping to photon-sector SME coefficients}
+
+In the SME, leading-order CPT-even, dimension-4 Lorentz-violating effects in the photon sector are captured by a traceless symmetric tensor $\tilde{\kappa}_{e-}^{JK}$, an antisymmetric tensor $\tilde{\kappa}_{o+}^{JK}$, and an isotropic scalar $\tilde{\kappa}_{\rm tr}$. For resonant-cavity and Michelson--Morley-type experiments, the most relevant are the components of $\tilde{\kappa}_{e-}^{JK}$.
+
+In our framework, the existence of a preferred substrate rest frame with unit timelike vector $\xi^\mu$ induces anisotropic corrections to the photon dispersion relation, which can be parametrized as an effective direction-dependent speed of light,
+\begin{equation}
+  \frac{\Delta c}{c}(\hat n)
+  \;\simeq\;
+  \tfrac{1}{2}\,\hat n_J \hat n_K\,\tilde{\kappa}_{e-}^{JK},
+  \tag{I.1}
+\end{equation}
+where $\hat n$ is the propagation direction of the photon and $J,K=1,2,3$ label spatial components in a fixed celestial frame.
+
+At the level of order-of-magnitude estimates used in Sec.~11, the aether-resonance parameters enter through
+\begin{equation}
+  \tilde{\kappa}_{e-}^{JK}
+  \;\sim\;
+  \varepsilon_\gamma\,\Qgam\,
+  \Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,
+  \Xi^{JK},
+  \tag{I.2}
+\end{equation}
+where:
+\begin{itemize}
+  \item $\varepsilon_\gamma$ is the photon-sector coupling;
+  \item $\Qgam$ is the photon-sector quality factor for the relevant optical mode;
+  \item $\lambda_\sigma$ is the structural range in $S$;
+  \item $L_{\rm exp}$ is the characteristic size of the apparatus;
+  \item $\Xi^{JK}=\mathcal{O}(1)$ is a geometry-dependent tensor encoding the orientation of the apparatus with respect to $\hat\xi$ and the experimental axes.
+\end{itemize}
+Equation~(I.2) should be understood as a scaling relation; precise numerical factors depend on the detailed implementation of $O_S$ and the experimental geometry.
+
+Existing cavity experiments bound $|\tilde{\kappa}_{e-}^{JK}|\lesssim 10^{-18}$ for relevant components, leading to the photon-sector constraint quoted in Eq.~(11.4),
+\[
+  \varepsilon_\gamma \left(\frac{\lambda_\sigma}{\lambda_C}\right)\Qgam \lesssim 10^{-18},
+\]
+for a representative microscopic scale $\lambda_C$.
+
+\subsection*{I.2 Reporting constraints from E2}
+
+The E2 rotating energy-tunnel experiment in Sec.~12 is primarily sensitive to the matter-sector coupling and quality factor, but any observed sidereal modulation of the form
+\[
+  \Psig(t) = \bar\Psig\left[1 + \mathcal{A}\cos(\Omega_\oplus t+\phi)\right]
+\]
+can be expressed in terms of an effective SME-type anisotropy.
+
+A convenient reporting format is:
+\begin{enumerate}
+  \item Quote the measured sidereal amplitude $\hat{\mathcal{A}}_{\rm sid}$ (dimensionless) and its uncertainty, together with the integration time and analysis method.
+  \item Provide the inferred bound or estimate on the combination
+  \[
+    \varepsilon_{\rm mat}\Qmat\left(\frac{\lambda_\sigma}{L_{\rm exp}}\right),
+  \]
+  using Eq.~(12.4) and explicit values for $L_{\rm exp}$ and the geometry factor $\Xi$.
+  \item Translate this into an \emph{effective} photon-sector coefficient $|\tilde{\kappa}_{e-}^{\rm eff}|$ by assuming a relation between $(\varepsilon_{\rm mat},\Qmat)$ and $(\varepsilon_\gamma,\Qgam)$ (for example, equality or a specified ratio) and using Eq.~(I.2). Clearly state any such assumption.
+\end{enumerate}
+
+\subsection*{I.3 Recommended summary}
+
+When presenting bounds or potential signals in the context of the present model, we recommend reporting:
+\begin{itemize}
+  \item the raw experimental observable and its uncertainty (e.g.\ $\hat{\mathcal{A}}_{\rm sid}$, $\Delta E$, or BER improvement);
+  \item the inferred constraints on aether-resonance parameters (combinations of $\varepsilon$, $\lambda_\sigma$, $Q$, and $P_{\rm pump}$) using the mapping in Secs.~8, 11, and 12;
+  \item the implied bounds on SME coefficients, in particular $|\tilde{\kappa}_{e-}^{JK}|$, using Eqs.~(I.1)--(I.2).
+\end{itemize}
+This dual reporting format makes it straightforward to compare results with both the general Lorentz-violation literature and with other tests of the specific aether-resonance hypothesis.

@@ -1,0 +1,106 @@
+\section{Predictions and Numerical Targets}
+
+We summarize the qualitative and quantitative predictions of the framework in a form suitable for comparison with existing and future experiments.
+
+\textbf{Negative predictions (should not be seen):}
+
+\begin{itemize}
+\item No deviations from tested gravitational laws, no observable vacuum dispersion, and no anomalous signals in torsion-balance or gravitational-wave experiments. The metric sector remains governed by standard GR with $\alpha\equiv 1$; aether resonance affects only the distribution of stress--energy, not the gravitational coupling.
+\item No robust effects in homogeneous crystals or fluids: in the limit $N\gg 1$ equivalent placements of a pattern, degeneracy dilution drives the pattern quality factor $\mathcal Q\to 0$ so that $\Psig\to 0$ (Sec.~5--6).
+\item No signals in accelerator experiments: beams and final states are approximately translationally invariant and thermal on microscopic scales, implying $\langle O_S\rangle_{\rm in}\approx\langle O_S\rangle_{\rm out}\approx 0$ even though the seed operator is built from irrelevant operators with $\Delta>4$ (Sec.~5.3). Collider cross-sections therefore receive negligible contributions from the $S$-channel.
+\item No everyday signalling without shared structure and pump: in the absence of deliberately engineered, high-$\mathcal Q$ patterns and nontrivial pump power $P_{\rm pump}$, Eq.~(6.1) forces $\Psig\approx 0$.
+\end{itemize}
+
+\textbf{Positive predictions with numerical targets:}
+
+\subsection{Pred.\ 1: Twin-reservoir correlations (E1)}
+
+\textbf{Goal.} A statistically significant reduction in bit error rate (BER) between two spacelike-separated reservoirs that share structure in $S$ and are both driven by high-quality pumps, compared to carefully matched control configurations that differ only in the pattern features entering $O_S$.
+
+Specializing the thermodynamic resource inequality (8.3) to the E1 setup gives an upper bound on the achievable FTL bit rate per edge $e$,
+\[
+  R_{\rm bit}(e)
+  \;\le\;
+  \frac{\beta}{k_B T \ln 2}\,
+  \varepsilon\,\Ksig(e)\,\mathcal Q(e)\,\tilde{\Delta\Phi}(\tilde e)\,P_{\rm pump}(e),
+\]
+and a corresponding lower bound on the BER that can be achieved for a fixed $P_{\rm pump}$. A null result at sensitivity $R_{\rm bit}^{({\rm null})}$ then constrains the combination
+\[
+  \varepsilon\,\Ksig(e)\,\mathcal Q(e)\,\tilde{\Delta\Phi}(\tilde e)
+  \;<\;
+  \frac{k_B T \ln 2}{\beta\,P_{\rm pump}(e)}\,R_{\rm bit}^{({\rm null})},
+\]
+for edges whose $d_\sigma$ is calibrated via the distance ladder (Sec.~7.3). Conversely, a positive result in which the BER improvement scales with the ladder level $\ell$ as $\propto \exp[-d_\sigma(\ell)/\lambda_\sigma]$ would provide direct evidence for a nonzero $\lambda_\sigma$.
+
+\subsection{Pred.\ 2: Energy tunnel and sidereal modulation (E2)}
+
+\textbf{Goal.} Detect or bound a small, persistent asymmetry in the energy balance between two macroscopic reservoirs $A$ and $B$ that are structurally matched in $S$ and rotated with respect to the substrate rest frame. The basic energy balance is
+\begin{equation}
+\Delta E_A + \Delta E_B = \Psig \cdot \Delta t,
+\tag{12.2}
+\end{equation}
+where $\Delta E_{A,B}$ are the energy changes in the reservoirs over an interval $\Delta t$ and $\Psig$ is the net power into the $S$-sector along the active edges, given phenomenologically by Eq.~(6.1).
+
+For representative experimental parameters and integration time $\Delta t=10^3\,$s, three illustrative scenarios are:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llll}
+\toprule
+Scenario & $Q$ & $\Delta E$ (over $10^3$ s) & Detectability \\
+\midrule
+\textbf{Baseline} & $10^{-5}$ & $\sim 10^{-40}$ J & Not detectable ($\delta E \sim 10^{-26}$ J) \\
+\textbf{Target}   & $10^{-3}$ & $\sim 10^{-27}$ J & Below current limit but approaching \\
+\textbf{Ambitious} & $10^{-2}$ & $\sim 10^{-25}$ J & Marginally detectable at limit \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Here $\delta E$ denotes a plausible sensitivity of state-of-the-art cryogenic calorimetry. These numbers are indicative only; the key point is that $\Delta E$ scales linearly with $\varepsilon\,\mathcal Q$ and with integration time, and that null results at the ambitious level would bound $\varepsilon\mathcal Q$ to be far below unity for the probed platform.
+
+Because the Earth rotates relative to the substrate rest frame, any preferred-frame effect should also give a sidereal modulation in $\Psig$ with frequency $\Omega_\oplus$ (sidereal day):
+\begin{equation}
+  \Psig(t) \;=\; \bar \Psig\left[1+ \mathcal A\cos\!\big(\Omega_\oplus t + \phi\big)\right],
+  \tag{12.3}
+\end{equation}
+where $\mathcal A$ is a dimensionless amplitude and $\phi$ a phase set by the orientation at some reference time. In the matter sector an effective parametrization is
+\begin{equation}
+  A_{\rm sid}^{(\mathrm{mat})} \;\simeq\;
+  \frac{\epsmat}{\epsgam} \cdot \frac{\lsig}{L_{\rm exp}} \cdot \frac{\Qmat}{\Qgam} \cdot \Xi \,,
+  \tag{12.4}
+\end{equation}
+where $\epsmat,\Qmat$ are the matter-sector coupling and quality factor, $\epsgam,\Qgam$ their photon-sector counterparts, $L_{\rm exp}$ is the apparatus size, and $\Xi=\mathcal{O}(1)$ is a geometry factor.
+
+\textbf{Important:} Eq.~(12.4) emphasizes that the E2 sidereal signal is primarily sensitive to the \emph{ratio} $(\epsmat,\Qmat)$ to $(\epsgam,\Qgam)$. Bounds in Sec.~11.4 constrain $\epsgam\Qgam$ in the photon sector, so a positive E2 signal would effectively determine or bound $\epsmat\Qmat$ for the matter sector. A null result at target sensitivity $A_{\rm sid}\gtrsim 10^{-20}$ (achievable with integration over $\sim 10^7$\,s) would translate into a corresponding upper bound on $\epsmat\Qmat(\lsig/L_{\rm exp})$.
+
+\subsection{Pred.\ 3: Complexity-dependent hop rate (E3)}
+
+\textbf{Goal.} Demonstrate that the rate of apparent FTL influence (e.g.\ correlation strength or effective $\Psig$) as a function of configurational entropy $\Sigma$ exhibits a nontrivial maximum at some optimal complexity $\Sigma_{\rm opt}$, as expected if $\mathcal Q$ peaks near critical or edge-of-chaos regimes.
+
+In E3-type experiments one scans over a family of configurations of a given platform (e.g.\ electronic networks, photonic lattices, or spin systems), varying a control parameter that tunes complexity (e.g.\ connectivity, disorder, or pump strength). For each configuration one infers an effective hop rate $r_{\rm hop}(\Sigma)$ or a related measure of FTL strength. The model predicts:
+\begin{itemize}
+  \item $r_{\rm hop}(\Sigma)\approx 0$ for very low complexity (ordered, crystalline) and very high complexity (fully random) states, where degeneracy dilution drives $\mathcal Q\to 0$.
+  \item A peak $r_{\rm hop}(\Sigma_{\rm opt})>0$ at intermediate complexity, where patterns selected by $O_S$ are rare enough to avoid dilution but common enough to be accessible.
+\end{itemize}
+A null result in which $r_{\rm hop}(\Sigma)$ is consistent with zero across the scanned range would bound $\lambda_\sigma$ and $\mathcal Q$ for that class of configurations.
+
+\subsection{Summary of parameter combinations}
+
+For clarity, Table~\ref{tab:observable-constraints} summarizes which experimental observables primarily constrain which products of model parameters at leading order.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+Observable & Primary constraint & Secondary / notes \\
+\midrule
+E1 ($\Delta$BER, coherence) & $\varepsilon\,\lambda_\sigma\,\mathcal Q$ & via Eqs.~(8.3)--(8.4) and ladder (Sec.~7.3) \\
+E2 ($\Delta E$ over time) & $\varepsilon\,\omega_0\,\mathcal Q$ & Power form (6.1) and Eq.~(12.2) \\
+E2 (sidereal amplitude) & $\varepsilon\,\mathcal Q\cdot(\lambda_\sigma/L_{\rm exp})$ & Geometry factor $\Xi$ (Sec.~11.3) and Eq.~(12.3) \\
+E3 (hop rate vs.\ complexity) & $\lambda_\sigma$, $\mathcal Q$ & Peak location near $\Sigma_{\rm opt}$ \\
+\bottomrule
+\end{tabular}
+\caption{Leading-order parameter combinations constrained by the proposed experiments.}
+\label{tab:observable-constraints}
+\end{table}

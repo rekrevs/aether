@@ -1,0 +1,89 @@
+\section{Operationalized $d_\sigma$-Metric}
+
+Algorithmic similarity between two microscopic configurations is in general non-computable. For phenomenology and experiment design we therefore introduce a \textbf{practical proxy} for the structural distance $d_\sigma$ and the associated similarity factor $\Ksig$.
+
+\subsection{Feature embedding and surrogate distance}
+
+We associate to each substrate configuration $\sigma\in S$ a finite-dimensional feature vector
+\[
+\mathcal{I}(\sigma)
+=
+\big(\mathcal{I}_1(\sigma),\ldots,\mathcal{I}_{N_{\mathrm{feat}}}(\sigma)\big),
+\]
+where the components $\mathcal{I}_I$ are chosen to be:
+\begin{itemize}
+  \item invariant under gauge transformations and diffeomorphisms in $M$;
+  \item local or quasi-local in the emergent spacetime (e.g.\ power spectra, correlation functions, topological descriptors);
+  \item experimentally accessible in principle (e.g.\ from probe measurements, imaging, or electrical response).
+\end{itemize}
+Given positive weights $w_I>0$ and an embedding scale $\ell_0$, we define
+\begin{equation}
+\begin{split}
+  d_\sigma(\sigma,\sigma')
+  &:= \ell_0\,
+  \left(
+    \sum_{I=1}^{N_{\mathrm{feat}}}
+      w_I\,
+      \big\|
+        \mathcal{I}_I(\sigma)
+        -\mathcal{I}_I(\sigma')
+      \big\|^2
+  \right)^{1/2},
+  \\
+  \Ksig(\sigma,\sigma')
+  &\equiv
+  \exp\!\big[-d_\sigma(\sigma,\sigma')/\lambda_\sigma\big].
+\end{split}
+\tag{7.1}
+\end{equation}
+This construction makes $d_\sigma$ a bona fide metric on $S$ (up to equivalence of configurations with identical feature vectors) and implements the exponential falloff assumed in the mediator kernel.
+
+\subsection{Choice of features}
+
+The specific choice of features is not unique and can be adapted to the experimental platform. Examples include:
+\begin{itemize}
+  \item local Fourier spectra or wavelet coefficients (capturing periodicity and band structure);
+  \item two-point and higher-order correlators (capturing spatial organization and long-range order);
+  \item topological descriptors (e.g.\ Betti numbers from persistent homology of level sets of a field);
+  \item response functions (e.g.\ impedance spectra, transfer functions of neural or electronic circuits).
+\end{itemize}
+The scale $\ell_0$ sets the typical size of $d_\sigma$ for a ``unit'' change in features. In practice, we will choose $\ell_0$ and $\lambda_\sigma$ such that a qualitatively clear change in the pattern (e.g.\ block-scrambling or strong noise) corresponds to $d_\sigma \sim \lambda_\sigma$, while minor modifications (e.g.\ global phase rotations) yield $d_\sigma\ll\lambda_\sigma$.
+
+\subsection{Distance ladder for calibration}
+
+To connect the abstract $d_\sigma$ to observable quantities, we introduce a \textbf{distance ladder}: a set of calibrated transformations labelled by an integer level $\ell=0,\ldots,5$ applied to a reference pattern $s$, producing configurations $s_\ell$. For each level we measure or infer a typical structural distance $\varepsilon_\ell:=d_\sigma(s,s_\ell)$ and the corresponding similarity $K_{\sigma,\ell}:=\exp[-\varepsilon_\ell/\lambda_\sigma]$.
+
+An illustrative ladder is:
+
+\begin{table}[t]
+\centering
+\begin{tabular}{@{}c l c c@{}}
+\toprule
+Level $\ell$ & Transformation & $d_\sigma$ scale & $K_{\sigma,\ell}$ \\
+\midrule
+0 & Identical $(s' = s)$ & $0$ & $1$ \\
+1 & Phase rotation (spectrum preserved) & $\varepsilon_1 \ll \lambda_\sigma$ & $\approx 0.9$ \\
+2 & Permuted label / mild relabelling & $\varepsilon_2 \approx 0.3\,\lambda_\sigma$ & $\approx 0.7$ \\
+3 & Block-scramble (temporal/spatial) & $\varepsilon_3 \approx 0.7\,\lambda_\sigma$ & $\approx 0.5$ \\
+4 & Additive noise (SNR $=10$ dB) & $\varepsilon_4 \approx \lambda_\sigma$ & $\approx 0.37$ \\
+5 & Independent realization & $\varepsilon_5 \gg \lambda_\sigma$ & $\ll 0.1$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+In practice, the values in the last two columns are not assumed but \emph{measured} (or inferred) by running the full experimental protocol with controlled pattern distortions. The ladder then provides a direct, empirical link between:
+\begin{itemize}
+  \item observable changes in the experimental pattern;
+  \item the corresponding change in $d_\sigma$;
+  \item the decay of the effect through the factor $\Ksig=\exp[-d_\sigma/\lambda_\sigma]$.
+\end{itemize}
+
+\subsection{Pre-registration}
+
+For the proposed experiments E1--E3 we envisage pre-registering the distance ladder as part of the analysis plan:
+\begin{itemize}
+  \item the transformations corresponding to each level $\ell$ are fixed in advance and implemented blindly (e.g.\ by a separate team or by automated code);
+  \item the ladder is used to fit or constrain $\lambda_\sigma$ by comparing the observed effect size at each level with the expected $\exp[-d_\sigma/\lambda_\sigma]$ falloff;
+  \item the mapping between level labels and transformation details is kept sealed until after the primary analysis to avoid experimenter bias.
+\end{itemize}
+This operationalizes the otherwise abstract notion of $d_\sigma$ in a way that can be compared directly to data.

@@ -1,0 +1,112 @@
+\section{Modified Lieb-Robinson Bound}
+
+In standard local quantum lattice systems, the Lieb--Robinson bound states that the commutator of two observables $A(x,t)$ and $B(y,0)$ supported near spatial points $x,y\in M$ is exponentially suppressed outside an effective light cone:
+\[
+  \|[A(x,t),B(y,0)]\|
+  \;\lesssim\;
+  C\,\exp\!\big[-\kappa(|x-y|-v t)\big],
+\]
+for some constants $C,\kappa>0$ and maximal group velocity $v$.
+
+\subsection{Including S-edges}
+
+In our framework there are additional, substrate-mediated couplings. Let $E_S$ be the set of active $S$-edges, and for each edge $e=(\sigma,\sigma')$ we include a weak Hamiltonian perturbation
+\[
+  \delta H_S
+  =
+  \sum_{e\in E_S} h_e,
+\]
+where $\|h_e\|\le \eta$ and the edges connect microscopic degrees of freedom whose projections in $M$ may be far apart. The structural distance and similarity enter via the kernel
+\[
+  \|h_e\|
+  \;\propto\;
+  e^{-d_\sigma(\sigma,\sigma')/\lambda_\sigma},
+\]
+and the substrate graph has bounded degree $g$ (each node participates in at most $g$ edges). The mediator field propagates through $S$ at finite speed $c_S$.
+
+\subsection{Soft cone with S-damping}
+
+Under the technical assumptions listed in Appendix~C (bounded operator norms, finite propagation speed $c_S$ in $S$, exponential kernel decay with rate $\mu$, and weak coupling $\eta$ such that $\mu>\ln g$), one can prove the following modified bound.
+
+\begin{lemma}[Soft cone with S-damping]
+There exist constants $C,C',\kappa>0$ and $v$ such that, for all local observables $A(x,t)$ and $B(y,0)$,
+\begin{equation}
+\begin{split}
+  \big\|[A(x,t),B(y,0)]\big\|
+  &\le
+  C\,e^{-\kappa(|x-y|-v t)}
+  \\
+  &\quad
+  +\;
+  C'\,
+  \Theta\!\big(t-\tfrac{d_\sigma(\sigma_x,\sigma_y)}{c_S}\big)\,
+  e^{-d_\sigma(\sigma_x,\sigma_y)/\lambda_\sigma}\,
+  \Phi\!\left(g,\frac{\eta t}{\hbar}\right),
+\end{split}
+\tag{9.1}
+\end{equation}
+where $\sigma_x,\sigma_y\in S$ are substrate representatives of the regions around $x$ and $y$, $\Theta$ is the Heaviside step function, and
+\begin{equation}
+  \Phi\!\left(g,\frac{\eta t}{\hbar}\right)
+  :=
+  \exp\!\big[g\,e^{-\mu}\,\eta t/\hbar\big] - 1.
+  \tag{9.2}
+\end{equation}
+\end{lemma}
+
+The first term in Eq.~(9.1) is the usual Lieb--Robinson light-cone contribution with effective velocity $v$ close to $c$. The second term encodes the substrate-mediated tail: it vanishes for times $t<d_\sigma(\sigma_x,\sigma_y)/c_S$ (no effect can propagate through $S$ faster than $c_S$) and is exponentially suppressed in the structural distance $d_\sigma$.
+
+\subsection{Sketch of proof}
+
+The detailed proof is given in Appendix~C; here we summarize the structure.
+
+\paragraph{1. Duhamel expansion.}
+We write the full time evolution in the interaction picture with respect to the ``bare'' Hamiltonian $H_M$ on $M$ and treat $\delta H_S$ as a perturbation. Iterating the Duhamel formula yields an expansion in the number of $S$-mediated hops, schematically
+\[
+  A(t)
+  =
+  A_M(t)
+  +
+  \frac{i}{\hbar}
+  \int_0^t ds\,U^\dagger(t,s)\,[\delta H_S(s),A_M(s)]\,U(t,s)
+  + \cdots ,
+\]
+where $A_M(t)$ is the Heisenberg evolution under $H_M$ alone and $U(t,s)$ is the evolution operator with the perturbation included.
+
+\paragraph{2. Commutator growth.}
+Bounding the norm of nested commutators with the local pieces $h_e$ along a path of $n$ $S$-edges gives a factor
+\[
+  \big\|[h_{e_n},[h_{e_{n-1}},\ldots,[h_{e_1},A_M]\ldots]]\big\|
+  \;\le\;
+  (2\eta)^n \|A\|.
+\]
+Summing over all such paths with at most $g$ outgoing edges per node introduces a combinatorial factor $\sim g^n$.
+
+\paragraph{3. Kernel suppression and average distance.}
+Each substrate hop contributes a factor $e^{-\mu}$, where $\mu$ is the dimensionless decay rate of the kernel in $S$. Along a path connecting $\sigma_x$ and $\sigma_y$ with $n$ hops, the total damping is roughly $e^{-\mu n}$, which can be related to $e^{-d_\sigma(\sigma_x,\sigma_y)/\lambda_\sigma}$ when $d_\sigma$ is extensive along paths. The effective average damping per hop is $\exp(-\mu)$.
+
+\paragraph{4. Sum over paths and convergence.}
+Collecting the factors from steps 2 and 3 and summing over $n$ leads to the function
+\[
+  \Phi\!\left(g,\frac{\eta t}{\hbar}\right)
+  =
+  \sum_{n\ge 1}
+    \frac{1}{n!}
+    \big( g e^{-\mu} \eta t/\hbar \big)^n
+  =
+  \exp\!\big[g e^{-\mu} \eta t/\hbar\big] - 1,
+\]
+which converges provided $g e^{-\mu}<1$. This is precisely the sparsity condition assumed in Appendix~C. Importantly, $\Phi$ does not saturate to a distance-independent constant; the exponential factor $e^{-d_\sigma/\lambda_\sigma}$ remains in front.
+
+\paragraph{5. Retardation.}
+Finally, each hop in $S$ is associated with a finite propagation speed $c_S$. This yields a Heaviside factor $\Theta(t-d_\sigma/c_S)$ when bounding the integrals over intermediate times in the Duhamel expansion: the substrate-mediated tail cannot contribute before the mediator has had time to traverse the structural distance between $\sigma_x$ and $\sigma_y$.
+
+\subsection{Causal interpretation}
+
+The bound in Eq.~(9.1) shows that, even with $S$-mediated couplings, there is no instantaneous, distance-independent commutator outside the emergent light cone. Instead, there is a ``soft cone'' inside which correlations can be enhanced by substrate effects, but always subject to:
+\begin{itemize}
+  \item exponential decay in structural distance $d_\sigma$;
+  \item retardation at speed $c_S$ in $S$;
+  \item smallness controlled by sparsity $g$ and weak coupling $\eta$.
+\end{itemize}
+In particular, the combination of this bound with the category-theoretic anti-telephone argument (Sec.~10) excludes paradoxical closed causal loops: superluminal transfer in $M$ is compatible with a globally well-defined causal order in $T$ and $S$.

@@ -1,0 +1,39 @@
+\section{Limitations, Open Questions, and Future Work}
+
+\textbf{Limitations.}
+
+\begin{itemize}
+\item \textbf{$\alpha$ fixed to unity.} We set $\alpha\equiv 1$ in the Einstein equations, and Sec.~3.2.2 shows that this is not a free choice but a consistency requirement imposed by the Bianchi identity in the presence of the exchange current $J^\nu_\sigma$. This places the entire FTL mechanism in the redistribution of stress--energy via the $S$-sector: there is no modified gravitational coupling to tune. While clean conceptually, this also means that any attempt to explain small effects must work through the dynamics of $T^S_{\mu\nu}$ rather than through a small $\alpha$.
+\item \textbf{S-mediator implementation.} The existence of a dynamical mediator field $\chi(\sigma,T)$ on $S$ with finite propagation speed and exponential kernel decay is a structural assumption. We have given a consistent effective-field-theory realization in Sec.~4, but we do not yet provide a concrete microscopic substrate model (e.g.\ a specific cellular automaton or graph-rewriting rule set) that realizes such a mediator.
+\item \textbf{$Q$-factor in practice.} The phenomenology relies on the existence of engineered systems with pattern quality factors $\mathcal Q$ approaching $10^{-2}$--$10^{-1}$ over macroscopic time scales. It is currently unknown whether such high, stable $\mathcal Q$ can be achieved in realistic platforms (e.g.\ Josephson junction networks, photonic crystals near band edge, or Bose--Einstein condensates near phase separation) without introducing uncontrolled noise or decoherence.
+\item \textbf{Naturalness of small couplings.} If $\varepsilon$ and typical $\mathcal Q$ values are very small (as suggested by photon-sector bounds), one may ask why the exact values are not zero. The present framework does not yet identify a symmetry principle that both permits and suppresses aether resonance, so the hierarchy between ``allowed'' and ``observably tiny'' couplings is currently an assumption rather than a derived result.
+\end{itemize}
+
+\textbf{Open questions.}
+
+\begin{enumerate}
+\item \textbf{Substrate specification.} Which explicit rule sets for the discrete substrate (cellular automaton, hypergraph rewriting, tensor-network update rules, \emph{etc.}) simultaneously yield:
+   \begin{itemize}
+   \item emergent Lorentz symmetry at low energies in $M$,
+   \item a local selection operator $O_S$ built from higher-dimension ($\Delta>4$) operators as in Sec.~5,
+   \item an $S$-sector whose stress--energy $T^S_{\mu\nu}$ is generically small and only becomes appreciable in rare, near-critical, pattern-rich configurations?
+   \end{itemize}
+   Constructing even a toy model with these properties would strongly sharpen the proposal.
+\item \textbf{$Q$-platforms.} Can we experimentally map realistic ranges of $\mathcal Q$ in specific platforms, such as:
+   \begin{itemize}
+   \item Josephson-junction arrays near a superradiant transition,
+   \item photonic crystals tuned near a band edge,
+   \item Bose--Einstein condensates near phase separation or other critical points?
+   \end{itemize}
+   Systematic studies of pattern complexity and long-lived coherence in such systems are valuable independently of aether resonance and would test key assumptions of the model.
+\item \textbf{Entropy and algorithmic information.} We have used a coarse-grained pattern entropy $\Sigma_S$ and argued that minimum-description-length (MDL)–type proxies can stand in for true algorithmic complexity. A more microscopic treatment would model explicitly how $\Sigma_S$ couples to a physical heat bath and quantify when MDL-like measures faithfully track the relevant information-theoretic cost. Is full-blown algorithmic information theory required, or are simpler statistical surrogates sufficient for all observable consequences?
+\item \textbf{Coupling to emergent gravitation.} In an emergent-gravity scenario, the metric $g_{\mu\nu}$ and Einstein tensor $G_{\mu\nu}$ arise from coarse-graining microscopic substrate degrees of freedom. How, in such a picture, does the $S$-sector stress--energy $T^S_{\mu\nu}$ emerge, and can its smallness in generic states be derived from the same mechanism that generates $G_{\mu\nu}$? In other words, can the rarity of large $T^S_{\mu\nu}$ configurations be explained from first principles rather than imposed phenomenologically?
+\end{enumerate}
+
+\textbf{Future work.}
+
+\begin{itemize}
+\item \textbf{Explicit substrate models.} Construct toy models (e.g.\ in 2D/3D cellular automata or graph-based systems) that exhibit emergent Lorentz symmetry, a well-defined $S$-mediator, and a nontrivial pattern-selection operator $O_S$. Even partial success would clarify which ingredients are essential and which are artefacts of our continuum description.
+\item \textbf{Material screening.} Identify and characterize candidate experimental platforms with high, controllable $\mathcal Q$ and well-understood thermodynamics. This includes measuring $d_\sigma$-like distances experimentally (via distance ladders) and quantifying how $\mathcal Q$ decays under realistic noise.
+\item \textbf{Pilot E1/E2 tests.} Carry out low-cost proof-of-concept experiments, such as electrical RC networks for E1 or small-scale rotating calorimetric setups for E2, to validate analysis pipelines, environmental veto strategies, and distance-ladder calibration, even if their raw sensitivity is insufficient to test the most interesting parameter ranges.
+\end{itemize}

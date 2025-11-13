@@ -1,0 +1,62 @@
+\section{Local Implementation of S-Proximity via an S-Mediator}
+
+\textbf{Problem:} How can the substrate, with only local rules, realize ``proximity in $S$'' without a global bulletin board?
+
+\textbf{Solution:} A \textbf{dynamic mediator $\chi(\sigma,T)$} that
+propagates at finite speed in $S$ (retarded in substrate time $T$) and couples to $O_S$.
+
+\subsection{Mediator Dynamics}
+
+Each point $\sigma \in S$ carries a field $\chi(\sigma,T)$ that obeys a damped \emph{wave-like equation} in substrate parameter $T$ and $S$-distance:
+
+\begin{equation}
+\partial_T^2 \chi - c_S^2 \nabla_\sigma^2 \chi + m_\chi^2 \chi = J_S(\sigma,T),
+\tag{4.1}
+\end{equation}
+
+where:
+\begin{itemize}
+\item $c_S$ is the propagation speed in $S$;
+\item $m_\chi$ is an effective mass, controlling the range $\Lsig$;
+\item $J_S(\sigma,T)$ is a source current that encodes the activation of $O_S$.
+\end{itemize}
+
+We impose retarded boundary conditions in $T$, so that $\chi(\sigma,T)$ depends only on $J_S(\sigma',T')$ with $T'\le T$.
+
+\subsection{Retarded Kernel in S-Distance}
+
+The Green function $G_{\rm ret}$ for (4.1) satisfies
+
+\[
+(\partial_T^2 - c_S^2 \nabla_\sigma^2 + m_\chi^2) \, G_{\rm ret}(\sigma,T;\sigma',T')
+= \delta(T-T')\,\delta(\sigma-\sigma'),
+\]
+
+with $G_{\rm ret}=0$ for $T<T'$. Formally,
+
+\[
+\chi(\sigma,T) = \int dT'\,d\mu(\sigma')\,G_{\rm ret}(\sigma,T;\sigma',T')\,J_S(\sigma',T').
+\]
+
+Substituting back and integrating out $\chi$ yields the effective action
+\[
+S_{\rm eff}[J_S]=-\frac{1}{2}\int dT\,dT'\,d\mu(\sigma)\,d\mu(\sigma')\,
+J_S(\sigma,T)\,G_{\rm ret}(\sigma,T;\sigma',T')\,J_S(\sigma',T').
+\]
+
+Time-integrating the retarded propagator produces a \textbf{static kernel} in $S$:
+\[
+\Kern(\sigma,\sigma') = \int dT\, G_{\rm ret}(\sigma,T;\sigma',0),
+\]
+which depends only on the structural distance $\Dsig(\sigma,\sigma')$. For a massive mediator in a homogeneous $S$ in dimension $d_S\ge2$, this yields Yukawa-type solutions:
+\[
+\Kern(\sigma,\sigma') = C_{d_S}\,\frac{e^{-\Dsig(\sigma,\sigma')/\Lsig}}{[\Dsig(\sigma,\sigma')]^{d_S-2}},
+\]
+where $\Lsig=c_S/m_\chi$. After absorbing the power-law factor into the definition of $\Dsig$ for our coarse-grained purposes, we arrive at the effective form used throughout: $\Kern \approx e^{-\Dsig/\Lsig}$.
+
+\textbf{Key consequences:}
+\begin{itemize}
+\item \textbf{Positivity and retardation} are automatic consequences of the damped, retarded mediator.
+\item \textbf{No instantaneous action at a distance:} all correlations propagate locally through $S$ at finite speed $c_S$, and in Sections~9--10 we show that, together with the microscopic rules, this implies a generalized Lieb--Robinson bound in $(M)$ and excludes ``anti-telephone'' paradoxes.
+\item \textbf{Exponential localization:} massive mediator ($m_\chi>0$) ensures range $\Lsig$ is finite.
+\end{itemize}

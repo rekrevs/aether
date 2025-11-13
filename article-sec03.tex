@@ -1,0 +1,139 @@
+\section{Action and Field Content}
+
+\subsection{Variational Principle}
+
+We derive the framework from a \textbf{total action}:
+
+\begin{equation}
+\begin{split}
+S_{tot} = \int d^4x \, \sqrt{-g} \left[ \frac{1}{16\pi G} R
++ \mathcal{L}_{vis}[\phi, g] + \mathcal{L}_S[\tau, u^\mu, g] \right] \\
+ + \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,
+\frac{J_S(x,\sigma)\,\Kern(\sigma,\sigma')\,O_S(x,\sigma')}{\LamUV^{4}},
+\end{split}
+\tag{3.1}
+\end{equation}
+
+where:
+
+\begin{itemize}
+\item $\mathcal{L}_{vis}$ collects all visible matter and gauge fields.
+\item $\mathcal{L}_S$ is a minimal aether/khronon sector that allows for a preferred foliation.
+\item The last term encodes the substrate-local coupling in $(\Sspace)$ via a current $J_S$, a kernel $\Kern$ on $(\Sspace,\Dsig)$, and a selection operator $O_S$.
+\end{itemize}
+
+\subsection{Aether / Khronon Sector}
+
+We choose a simple baseline aether/khronon sector that is compatible with existing constraints. A conservative option is to take a unit timelike vector field $u^\mu$ enforced by a Lagrange multiplier:
+\begin{equation}
+\mathcal{L}_S^{(A)} = - \frac{M_S^2}{2}\,\lambda_L(x)\,\big(u^\mu u_\mu + 1\big),
+\tag{3.1A}
+\end{equation}
+where the unit timelike vector $u^\mu$ is introduced via a Lagrange multiplier $\lambda_L(x)$. This defines a preferred foliation without adding new propagating degrees of freedom.
+
+A more general option, closer to Einstein--æther / khronometric gravity, is
+\begin{equation}
+\begin{split}
+\mathcal{L}_S^{(B)} = -\frac{M_S^2}{2} \Big[
+ & c_1 (\nabla_\mu u_\nu)(\nabla^\mu u^\nu)
+ + c_2 (\nabla_\mu u^\mu)^2
+ + c_3 (\nabla_\mu u_\nu)(\nabla^\nu u^\mu) \\
+ & + c_4 u^\mu u^\nu (\nabla_\mu u_\alpha)(\nabla_\nu u^\alpha)
+ + \lambda_L(x)\,(u^\mu u_\mu+1).
+\Big]
+\end{split}
+\tag{3.1B}
+\end{equation}
+
+We choose the parameter regime
+\begin{equation}
+c_{13}:=c_1+c_3=0\quad(\Rightarrow c_T=c),
+\qquad
+c_2=0,
+\qquad
+c_4\ll 1,
+\tag{3.1C}
+\end{equation}
+so that gravitational-wave speed $c_T$ matches $c$ to high precision and the preferred frame effects are within current bounds. For the bulk of this paper, option (A) will suffice; (B) simply provides a conservative embedding into the broader Einstein--æther literature and leaves room to maneuver if one later wishes to let $u^\mu$ carry weak, long-wavelength structure.
+
+\subsection{Field Equations and Energy-Momentum Accounting}
+
+Varying with respect to $g_{\mu\nu}$, the visible fields, and the aether/khronon sector yields:
+
+\begin{enumerate}
+\item Einstein equations with source
+\begin{equation}
+G_{\mu\nu} = \frac{8\pi G}{c^4}
+\Bigl( T^{vis}_{\mu\nu} + \TS \Bigr),
+\tag{3.2}
+\end{equation}
+where $\TS$ includes the aether/khronon contribution and any effective stress-energy induced by the $S$-mediator.
+
+\item A split conservation law
+\begin{equation}
+\nabla_\mu T^{\mu\nu}_{vis} = -J^\nu_\sigma,
+\qquad
+\nabla_\mu T^{\mu\nu}_S = +J^\nu_\sigma,
+\tag{3.4}
+\end{equation}
+so that
+\begin{equation}
+\nabla_\mu (T^{\mu\nu}_{vis} + T^{\mu\nu}_S) = 0.
+\tag{3.5}
+\end{equation}
+\end{enumerate}
+
+\subsubsection{Why $\alpha=1$ is Required by Consistency}
+
+In a more general parametrization one might try to write
+\[
+G_{\mu\nu} = \frac{8\pi G}{c^4}\bigl(T^{vis}_{\mu\nu} + \alpha\,T^S_{\mu\nu}\bigr),
+\]
+with a dimensionless factor $\alpha$ controlling the gravitational response to the $S$-sector. However, this freedom is illusory in the presence of the exchange current $J^\nu_\sigma$.
+
+By metric compatibility, the Einstein tensor satisfies
+\[
+\nabla_\mu G^{\mu\nu} = 0.
+\]
+
+If we write the Einstein equations as
+\[
+G_{\mu\nu} = \frac{8\pi G}{c^4}\bigl(T^{vis}_{\mu\nu} + \alpha\,T^S_{\mu\nu}\bigr),
+\]
+then taking the covariant divergence gives
+\[
+0 = \nabla_\mu G^{\mu\nu}
+ = \frac{8\pi G}{c^4}
+\bigl(\nabla_\mu T^{\mu\nu}_{vis} + \alpha\,\nabla_\mu T^{\mu\nu}_S\bigr).
+\]
+
+Using the split conservation equations (3.4), we have $\nabla_\mu T^{\mu\nu}_{vis} = -J^\nu_\sigma$ and $\nabla_\mu T^{\mu\nu}_S = +J^\nu_\sigma$. Substituting, one finds
+\[
+0 = \frac{8\pi G}{c^4}(\alpha-1) J^\nu_\sigma.
+\]
+
+For generic configurations where $J^\nu_\sigma \neq 0$, this forces $\boxed{\alpha = 1}$ exactly. Thus any apparent freedom to choose a different gravitational coupling for the $S$-sector is removed once we demand consistency with the Bianchi identity and the explicit exchange current: the metric responds to \emph{all} energy-momentum with the same gravitational strength. This is a structural consistency condition, not a tunable parameter, and should be verified experimentally in E2.
+
+\subsection{Gravitational Signature and Bounds}
+
+\textbf{Gravitational coupling $\alpha$.} As shown in the preceding subsection (``Why $\alpha=1$ is required by consistency''), once we split the conservation laws as
+\[
+\nabla_\mu T^{\mu\nu}_{\rm vis} = -J^\nu_\sigma,
+\qquad
+\nabla_\mu T^{\mu\nu}_S = +J^\nu_\sigma,
+\]
+the Bianchi identity $\nabla_\mu G^{\mu\nu}=0$ forces the Einstein equations written as
+\[
+G_{\mu\nu} = \frac{8\pi G}{c^4}\bigl(T^{\rm vis}_{\mu\nu} + \alpha\,T^S_{\mu\nu}\bigr)
+\]
+to have a \emph{unique} universal coupling:
+\begin{equation}
+\boxed{\;\alpha\equiv 1\ \text{(exact)}\;}
+\end{equation}
+whenever $J^\nu_\sigma\neq 0$. In other words, the metric responds to \emph{all} stress--energy with the same strength; there is no consistent way to tune a ``reduced gravitational coupling'' for the $S$-sector.
+
+This has two direct implications for the phenomenology:
+\begin{enumerate}
+\item The causal structure of $(M,g)$ remains light-speed: null cones are defined by $c$, and gravitational disturbances propagate at $c$ (up to the small adjustments already allowed by the chosen aether/khronon sector). Any apparent superluminal behaviour arises entirely from substrate-local propagation in $S$ combined with the projection $\pi:S\to M$, not from a modified gravitational constant.
+\item Any observable gravitational signature of aether resonance must therefore come from the \emph{amount} and \emph{pattern} of $T^S_{\mu\nu}$ excited in resonant configurations, not from changing $\alpha$. In the rest of the paper all constraints and experimental targets are expressed in terms of bounds on the coupling $\varepsilon$, the range $\lambda_\sigma$, the quality factor $Q$, and the effective $T^S_{\mu\nu}$ generated by $O_S$, with $\alpha$ fixed to~1.
+\end{enumerate}
