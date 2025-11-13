@@ -1,70 +1,93 @@
-\section{SME Coupling – Reporting Format}
+\section{Toy model for degeneracy dilution and $Q\to 0$ scaling}
+\label{app:degeneracy-toy-model}
 
-For comparison with the broader Lorentz-violation literature it is useful to translate the parameters of the aether-resonance model into the photon-sector coefficients of the Standard-Model Extension (SME), and to specify a reporting format for experimental results.
+To make the degeneracy-dilution mechanism in Sec.~5 more concrete, we
+give a simple toy model in which the quality factor $Q$ can be computed
+explicitly and shown to vanish as the system size grows.
 
-\subsection*{I.1 Mapping to photon-sector SME coefficients}
+Consider a one-dimensional ring of $N$ sites labeled by $i=1,\dots,N$,
+with periodic boundary conditions.  At each site we have a local degree
+of freedom $s_i$ taking values in a finite set~$\mathcal{A}$ (for
+example, spin configurations or coarse-grained field values).  Let
+$\mathcal{P}$ denote a fixed pattern of length~$\ell\ll N$, i.e.\ a
+specified sequence $(p_1,\dots,p_\ell)\in\mathcal{A}^\ell$.
 
-In the SME, leading-order CPT-even, dimension-4 Lorentz-violating effects in the photon sector are captured by a traceless symmetric tensor $\tilde{\kappa}_{e-}^{JK}$, an antisymmetric tensor $\tilde{\kappa}_{o+}^{JK}$, and an isotropic scalar $\tilde{\kappa}_{\rm tr}$. For resonant-cavity and Michelson--Morley-type experiments, the most relevant are the components of $\tilde{\kappa}_{e-}^{JK}$.
-
-In our framework, the existence of a preferred substrate rest frame with unit timelike vector $\xi^\mu$ induces anisotropic corrections to the photon dispersion relation, which can be parametrized as an effective direction-dependent speed of light,
-\begin{equation}
-  \frac{\Delta c}{c}(\hat n)
-  \;\simeq\;
-  \tfrac{1}{2}\,\hat n_J \hat n_K\,\tilde{\kappa}_{e-}^{JK},
-  \tag{I.1}
-\end{equation}
-where $\hat n$ is the propagation direction of the photon and $J,K=1,2,3$ label spatial components in a fixed celestial frame.
-
-At the level of order-of-magnitude estimates used in Sec.~11, the aether-resonance parameters enter through
-\begin{equation}
-  \tilde{\kappa}_{e-}^{JK}
-  \;\sim\;
-  \varepsilon_\gamma\,\Qgam\,
-  \Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,
-  \Xi^{JK},
-  \tag{I.2}
-\end{equation}
-where:
-\begin{itemize}
-  \item $\varepsilon_\gamma$ is the photon-sector coupling;
-  \item $\Qgam$ is the photon-sector quality factor for the relevant optical mode;
-  \item $\lambda_\sigma$ is the structural range in $S$;
-  \item $L_{\rm exp}$ is the characteristic size of the apparatus;
-  \item $\Xi^{JK}=\mathcal{O}(1)$ is a geometry-dependent tensor encoding the orientation of the apparatus with respect to $\hat\xi$ and the experimental axes.
-\end{itemize}
-Equation~(I.2) should be understood as a scaling relation; precise numerical factors depend on the detailed implementation of $O_S$ and the experimental geometry.
-
-Existing cavity experiments bound $|\tilde{\kappa}_{e-}^{JK}|\lesssim 10^{-18}$ for relevant components, leading to the photon-sector constraint quoted in Eq.~(11.4),
+Define a local pattern-detection operator
 \[
-  \varepsilon_\gamma \left(\frac{\lambda_\sigma}{\lambda_C}\right)\Qgam \lesssim 10^{-18},
+\hat o_j :=
+\begin{cases}
++1, & \text{if } (s_j,\dots,s_{j+\ell-1}) = \mathcal{P},\\
+0,  & \text{otherwise,}
+\end{cases}
 \]
-for a representative microscopic scale $\lambda_C$.
-
-\subsection*{I.2 Reporting constraints from E2}
-
-The E2 rotating energy-tunnel experiment in Sec.~12 is primarily sensitive to the matter-sector coupling and quality factor, but any observed sidereal modulation of the form
+with indices understood modulo~$N$, and let
 \[
-  \Psig(t) = \bar\Psig\left[1 + \mathcal{A}\cos(\Omega_\oplus t+\phi)\right]
+\hat O_S := \frac{1}{\sqrt{N}} \sum_{j=1}^N \hat o_j.
 \]
-can be expressed in terms of an effective SME-type anisotropy.
+This is a simple discrete analogue of an $O_S$ that is sensitive to a
+mesoscopic pattern of size~$\ell$ but insensitive to global translations.
 
-A convenient reporting format is:
-\begin{enumerate}
-  \item Quote the measured sidereal amplitude $\hat{\mathcal{A}}_{\rm sid}$ (dimensionless) and its uncertainty, together with the integration time and analysis method.
-  \item Provide the inferred bound or estimate on the combination
-  \[
-    \varepsilon_{\rm mat}\Qmat\left(\frac{\lambda_\sigma}{L_{\rm exp}}\right),
-  \]
-  using Eq.~(12.4) and explicit values for $L_{\rm exp}$ and the geometry factor $\Xi$.
-  \item Translate this into an \emph{effective} photon-sector coefficient $|\tilde{\kappa}_{e-}^{\rm eff}|$ by assuming a relation between $(\varepsilon_{\rm mat},\Qmat)$ and $(\varepsilon_\gamma,\Qgam)$ (for example, equality or a specified ratio) and using Eq.~(I.2). Clearly state any such assumption.
-\end{enumerate}
+\paragraph{Homogeneous / thermal states.}
+Consider first a homogeneous or high-temperature state in which each
+site is independently and identically distributed according to some
+probability measure $\mu$ on~$\mathcal{A}$, with no long-range order.
+In such states the random variables $\hat o_j$ have mean
+$\mathbb{E}[\hat o_j]=p$, where $p$ is the probability that a random
+length-$\ell$ window matches $\mathcal{P}$, and correlations decay
+rapidly with separation.  By the central limit theorem,
+\[
+\mathbb{E}[\hat O_S] = \frac{1}{\sqrt{N}}\sum_{j=1}^N \mathbb{E}[\hat o_j]
+  = \sqrt{N}\,p,
+\]
+while the variance scales as
+$\mathrm{Var}(\hat O_S) = \mathcal{O}(1)$ for $N\to\infty$.  If we
+define the quality factor as
+\[
+Q := \frac{|\mathbb{E}[\hat O_S]|}{\sqrt{\mathrm{Var}(\hat O_S)}},
+\]
+then in homogeneous states we obtain
+\[
+Q_{\rm hom} \sim \sqrt{N}\,p.
+\]
+For patterns that are rare in a random background, $p$ typically scales
+as $N^{-1}$ or faster (for instance, if one demands that $\mathcal{P}$
+match exactly at a specific amplitude threshold), so that
+$Q_{\rm hom}\to 0$ as $N\to\infty$.  This is the discrete analogue of
+degeneracy dilution: the number of ways to place the pattern grows
+linearly with $N$, while the effective overlap per placement shrinks.
 
-\subsection*{I.3 Recommended summary}
+\paragraph{Engineered mesoscopic patterns.}
+Now consider a state in which the pattern $\mathcal{P}$ is imprinted
+deliberately at a small number $k\ll N$ of locations
+$\{j_1,\dots,j_k\}$ with aligned phases, while the rest of the system
+remains disordered.  In the idealized limit where the pattern is
+perfect at those $k$ locations and absent elsewhere, we have
+$\hat o_{j_a}=1$ for $a=1,\dots,k$ and $\hat o_j=0$ otherwise, so that
+\[
+\mathbb{E}[\hat O_S] = \frac{k}{\sqrt{N}},\qquad
+\mathrm{Var}(\hat O_S)=0
+\]
+for that pure configuration.  In the presence of noise and
+fluctuations, $\mathrm{Var}(\hat O_S)$ becomes small but nonzero, and
+the resulting quality factor $Q$ can approach order unity provided $k$
+does not grow with $N$.
 
-When presenting bounds or potential signals in the context of the present model, we recommend reporting:
+\paragraph{Implication.}
+This toy model captures in a minimal setting the two regimes exploited
+in Sec.~5:
 \begin{itemize}
-  \item the raw experimental observable and its uncertainty (e.g.\ $\hat{\mathcal{A}}_{\rm sid}$, $\Delta E$, or BER improvement);
-  \item the inferred constraints on aether-resonance parameters (combinations of $\varepsilon$, $\lambda_\sigma$, $Q$, and $P_{\rm pump}$) using the mapping in Secs.~8, 11, and 12;
-  \item the implied bounds on SME coefficients, in particular $|\tilde{\kappa}_{e-}^{JK}|$, using Eqs.~(I.1)--(I.2).
+  \item In homogeneous or high-entropy states with many equivalent
+        embeddings of the pattern, degeneracy dilution drives
+        $Q\to 0$ as $N$ grows, so that contributions of the form
+        $\langle O_S\rangle_{\rm in}\langle O_S\rangle_{\rm out}$ to
+        collider amplitudes vanish in the thermodynamic limit.
+  \item In carefully engineered mesoscopic states with a small number
+        of well-aligned pattern embeddings, $Q$ can be of order unity
+        even for large~$N$, making such platforms sensitive probes of
+        aether resonance.
 \end{itemize}
-This dual reporting format makes it straightforward to compare results with both the general Lorentz-violation literature and with other tests of the specific aether-resonance hypothesis.
+Although highly simplified, the scaling structure of this model is
+generic: any observable that averages over $\mathcal{O}(N)$ equivalent
+pattern placements while the signal is concentrated in $\mathcal{O}(1)$
+of them will display the same $Q\to 0$ behaviour in the homogeneous
+limit.

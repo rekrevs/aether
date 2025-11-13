@@ -1,0 +1,74 @@
+\section{Effective Bilocal Kernel on $M$ – Derivation and Positivity}
+\label{app:bilocal-kernel}
+
+This appendix derives the effective bilocal kernel $\mathcal{K}_{\rm eff}(x,x')$ used in the interaction Lagrangian and shows its retardation and positivity properties.
+
+\subsection*{G.1 Definition via pushforward from $S$}
+
+Starting from the $S$-mediator kernel on pattern space,
+\[
+  \Kern(\sigma,\sigma') = \Kern\!\big(\Dsig(\sigma,\sigma')\big),
+\]
+and the pushforward prescription of Sec.~3.3, we define a smearing kernel $f_\ell(x-\pi\sigma)$ of compact support (scale $\ell$) and set
+\begin{equation}
+\mathcal{K}_{\rm eff}(x,x')
+:=
+\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,
+f_\ell(x-\pi\sigma)\,\Kern(\sigma,\sigma')\,f_\ell(x'-\pi\sigma')\,
+\Theta\!\Big(\tau(x')-\tau(x)-\tfrac{\Dsig(\sigma,\sigma')}{c_S}\Big).
+\tag{G.1}
+\end{equation}
+
+The Heaviside factor enforces that a contribution from $(\sigma,\sigma')$ is only allowed if the substrate time difference between $x$ and $x'$ is large enough for the mediator to traverse the structural distance $\Dsig(\sigma,\sigma')$ at speed $c_S$.
+
+\subsection*{G.2 Retardation and diffeomorphism invariance}
+
+\begin{itemize}
+  \item \textbf{Retardation.} The step function in Eq.~(G.1) depends on the scalar foliation time $\tau(x)$ and the scalar structural distance $\Dsig(\sigma,\sigma')$; it vanishes when $\tau(x')<\tau(x)$ or when the available time difference is insufficient for propagation at speed $c_S$:
+  \[
+    \tau(x')-\tau(x) < \Dsig(\sigma,\sigma')/c_S
+    \quad\Rightarrow\quad
+    \Theta(\cdots)=0.
+  \]
+  Thus $\mathcal{K}_{\rm eff}(x,x')$ is retarded in $\tau$ and respects the monotonic-$\tau$ axiom.
+  \item \textbf{Diffeomorphism invariance.} Both $f_\ell(x-\pi\sigma)$ and $\tau(x)$ are scalar functions on $M$; $\Dsig(\sigma,\sigma')$ and $d\mu(\sigma)$ live entirely in $S$. Therefore $\mathcal{K}_{\rm eff}(x,x')$ is a scalar under diffeomorphisms of $M$ (its indices are carried by the operators it couples to, not by the kernel itself).
+\end{itemize}
+
+\subsection*{G.3 Positivity}
+
+Assume that the kernel $\Kern(\sigma,\sigma')$ is positive semidefinite on $S$, i.e.\ for any square-integrable test function $\psi:S\to\mathbb{C}$,
+\[
+  \iint\! d\mu(\sigma)\,d\mu(\sigma')\,\psi^*(\sigma)\,\Kern(\sigma,\sigma')\,\psi(\sigma') \ge 0.
+\]
+
+Let $\varphi(x)$ be a real test function on $M$ with compact support. Define
+\[
+  \psi(\sigma)
+  :=
+  \int d^4x\, f_\ell(x-\pi\sigma)\,
+  \Theta\!\Big(\tau(x)-\tau_0-\tfrac{\Dsig(\sigma,\sigma_0)}{c_S}\Big)\,
+  \varphi(x),
+\]
+for some fixed reference point $(\sigma_0,\tau_0)$ (the precise choice is immaterial as long as $\psi$ is square integrable). Then
+\begin{align*}
+\iint d^4x\,d^4x'\,\varphi(x)\,\mathcal{K}_{\rm eff}(x,x')\,\varphi(x')
+&=
+\iint d\mu(\sigma)\,d\mu(\sigma')\,
+\psi(\sigma)\,\Kern(\sigma,\sigma')\,\psi(\sigma') \\
+&\ge 0,
+\end{align*}
+by the assumed positivity of $\Kern$. Thus $\mathcal{K}_{\rm eff}$ is a positive semidefinite kernel on $M$.
+
+\subsection*{G.4 Summary}
+
+The effective bilocal kernel $\mathcal{K}_{\rm eff}(x,x')$ obtained via Eq.~(G.1):
+\begin{itemize}
+  \item is retarded in substrate time $\tau$ and respects the finite mediator speed $c_S$;
+  \item is diffeomorphism invariant as a scalar kernel on $M$;
+  \item is positive semidefinite whenever the underlying kernel on $S$ is, ensuring that the induced interaction term
+  \[
+    S_{\rm int}^{\rm eff} \sim \varepsilon \iint d^4x\,d^4x'\,
+    O_S(x)\,\mathcal{K}_{\rm eff}(x,x')\,O_S(x')
+  \]
+  does not introduce ghosts or signal instabilities at the level of quadratic fluctuations.
+\end{itemize}

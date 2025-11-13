@@ -1,86 +1,71 @@
-\section{Ward Identity for (3.7) – Zero Net Momentum}
+\section{SME Coupling – Reporting Format}
+\label{app:sme-coupling}
 
-This appendix fills in the steps leading from translation invariance of the interaction action to the momentum-neutrality condition (3.7).
+For comparison with the broader Lorentz-violation literature it is useful to translate the parameters of the aether-resonance model into the photon-sector coefficients of the Standard-Model Extension (SME), and to specify a reporting format for experimental results.
 
-\subsection*{H.1 Interaction action and translation invariance}
+\subsection*{I.1 Mapping to photon-sector SME coefficients}
 
-Consider the effective interaction action between visible-sector fields and the substrate channel,
+In the SME, leading-order CPT-even, dimension-4 Lorentz-violating effects in the photon sector are captured by a traceless symmetric tensor $\tilde{\kappa}_{e-}^{JK}$, an antisymmetric tensor $\tilde{\kappa}_{o+}^{JK}$, and an isotropic scalar $\tilde{\kappa}_{\rm tr}$. For resonant-cavity and Michelson--Morley-type experiments, the most relevant are the components of $\tilde{\kappa}_{e-}^{JK}$.
+
+In our framework, the existence of a preferred substrate rest frame with unit timelike vector $\xi^\mu$ induces anisotropic corrections to the photon dispersion relation, which can be parametrized as an effective direction-dependent speed of light,
 \begin{equation}
-  S^{\rm eff}_{\rm int}
-  =
-  \varepsilon
-  \iint d^4x\,d^4x'\,
-  O_S(x)\,\mathcal{K}_{\rm eff}(x,x')\,O_S(x'),
-  \tag{H.1}
+  \frac{\Delta c}{c}(\hat n)
+  \;\simeq\;
+  \tfrac{1}{2}\,\hat n_J \hat n_K\,\tilde{\kappa}_{e-}^{JK},
+  \tag{I.1}
 \end{equation}
-where $O_S$ is the local selection operator and $\mathcal{K}_{\rm eff}(x,x')$ is the bilocal kernel defined in Appendix~G. We assume:
+where $\hat n$ is the propagation direction of the photon and $J,K=1,2,3$ label spatial components in a fixed celestial frame.
+
+At the level of order-of-magnitude estimates used in Sec.~11, the aether-resonance parameters enter through
+\begin{equation}
+  \tilde{\kappa}_{e-}^{JK}
+  \;\sim\;
+  \varepsilon_\gamma\,\Qgam\,
+  \Big(\frac{\lambda_\sigma}{L_{\rm exp}}\Big)\,
+  \Xi^{JK},
+  \tag{I.2}
+\end{equation}
+where:
 \begin{itemize}
-  \item the underlying substrate rules are translationally invariant in $M$;
-  \item the smearing kernel $f_\ell$ used in the pushforward is translationally invariant;
-  \item the structural kernel $\Kern(\sigma,\sigma')$ depends only on $d_\sigma(\sigma,\sigma')$.
+  \item $\varepsilon_\gamma$ is the photon-sector coupling;
+  \item $\Qgam$ is the photon-sector quality factor for the relevant optical mode;
+  \item $\lambda_\sigma$ is the structural range in $S$;
+  \item $L_{\rm exp}$ is the characteristic size of the apparatus;
+  \item $\Xi^{JK}=\mathcal{O}(1)$ is a geometry-dependent tensor encoding the orientation of the apparatus with respect to $\hat\xi$ and the experimental axes.
 \end{itemize}
-Then $\mathcal{K}_{\rm eff}(x,x')$ depends only on $x-x'$ and on the difference $\tau(x')-\tau(x)$, and $S^{\rm eff}_{\rm int}$ is invariant under global translations $x^\mu\to x^\mu+a^\mu$.
+Equation~(I.2) should be understood as a scaling relation; precise numerical factors depend on the detailed implementation of $O_S$ and the experimental geometry.
 
-\subsection*{H.2 Noether current and interaction stress--energy}
-
-Under an infinitesimal translation $x^\mu\mapsto x^\mu+a^\mu$ the fields transform as
+Existing cavity experiments bound $|\tilde{\kappa}_{e-}^{JK}|\lesssim 10^{-18}$ for relevant components, leading to the photon-sector constraint quoted in Eq.~(11.4),
 \[
-  \delta O_S(x) = a^\nu \partial_\nu O_S(x),
+  \varepsilon_\gamma \left(\frac{\lambda_\sigma}{\lambda_C}\right)\Qgam \lesssim 10^{-18},
 \]
-and the variation of the interaction action can be written as
-\begin{equation}
-  \delta S^{\rm eff}_{\rm int}
-  =
-  a_\nu \int d^4x\,\partial_\mu\big( T^{\mu\nu}_{\rm int}(x) \big),
-  \tag{H.2}
-\end{equation}
-where $T^{\mu\nu}_{\rm int}$ is the interaction contribution to the total stress--energy tensor. Translation invariance of the action ($\delta S^{\rm eff}_{\rm int}=0$ for constant $a^\nu$) implies
-\begin{equation}
-  \partial_\mu T^{\mu\nu}_{\rm int} = 0
-\end{equation}
-in the absence of exchange with the substrate.
+for a representative microscopic scale $\lambda_C$.
 
-In the presence of substrate exchange, the divergence of $T^{\mu\nu}_{\rm int}$ is balanced by the exchange current $J^\nu_\sigma$:
-\begin{equation}
-  \partial_\mu T^{\mu\nu}_{\rm int} = - J^\nu_\sigma.
-  \tag{H.3}
-\end{equation}
-This relation is the field-theoretic expression of the fact that any momentum carried into the substrate channel must come from the visible sector and vice versa.
+\subsection*{I.2 Reporting constraints from E2}
 
-\subsection*{H.3 Total momentum conservation and (3.7)}
-
-The total stress--energy tensor is
+The E2 rotating energy-tunnel experiment in Sec.~12 is primarily sensitive to the matter-sector coupling and quality factor, but any observed sidereal modulation of the form
 \[
-  T^{\mu\nu}_{\rm tot}
-  =
-  T^{\mu\nu}_{\rm vis}
-  +
-  T^{\mu\nu}_S
-  +
-  T^{\mu\nu}_{\rm int},
+  \Psig(t) = \bar\Psig\left[1 + \mathcal{A}\cos(\Omega_\oplus t+\phi)\right]
 \]
-and the split conservation laws in Sec.~3 imply
-\[
-  \partial_\mu T^{\mu\nu}_{\rm vis} = -J^\nu_\sigma,
-  \qquad
-  \partial_\mu T^{\mu\nu}_S = +J^\nu_\sigma.
-\]
-Adding Eq.~(H.3) yields
-\begin{equation}
-  \partial_\mu T^{\mu\nu}_{\rm tot} = 0.
-  \tag{H.4}
-\end{equation}
+can be expressed in terms of an effective SME-type anisotropy.
 
-For the spatial components ($\nu=i$) this gives
-\[
-  \partial_\mu T^{\mu i}_{\rm tot} = 0.
-\]
-Integrating over a spatial hypersurface at fixed time and assuming appropriate boundary conditions (e.g.\ fields vanish sufficiently fast at spatial infinity) yields
-\begin{equation}
-  \frac{d}{dt} P^i_{\rm tot}
-  =
-  \frac{d}{dt} \int d^3x\; T^{0i}_{\rm tot}(t,\mathbf{x})
-  = 0,
-  \tag{H.5}
-\end{equation}
-which is precisely Eq.~(3.7) in the main text: the total momentum of the combined visible+substrate system is conserved, and there is no possibility of a reactionless drive. Any apparent momentum gain in one region requires a compensating momentum transfer elsewhere in $M$ or into $T^S_{\mu\nu}$, consistent with translational invariance.
+A convenient reporting format is:
+\begin{enumerate}
+  \item Quote the measured sidereal amplitude $\hat{\mathcal{A}}_{\rm sid}$ (dimensionless) and its uncertainty, together with the integration time and analysis method.
+  \item Provide the inferred bound or estimate on the combination
+  \[
+    \varepsilon_{\rm mat}\Qmat\left(\frac{\lambda_\sigma}{L_{\rm exp}}\right),
+  \]
+  using Eq.~(12.4) and explicit values for $L_{\rm exp}$ and the geometry factor $\Xi$.
+  \item Translate this into an \emph{effective} photon-sector coefficient $|\tilde{\kappa}_{e-}^{\rm eff}|$ by assuming a relation between $(\varepsilon_{\rm mat},\Qmat)$ and $(\varepsilon_\gamma,\Qgam)$ (for example, equality or a specified ratio) and using Eq.~(I.2). Clearly state any such assumption.
+\end{enumerate}
+
+\subsection*{I.3 Recommended summary}
+
+When presenting bounds or potential signals in the context of the present model, we recommend reporting:
+\begin{itemize}
+  \item the raw experimental observable and its uncertainty (e.g.\ $\hat{\mathcal{A}}_{\rm sid}$, $\Delta E$, or BER improvement);
+  \item the inferred constraints on aether-resonance parameters (combinations of $\varepsilon$, $\lambda_\sigma$, $Q$, and $P_{\rm pump}$) using the mapping in Secs.~8, 11, and 12;
+  \item the implied bounds on SME coefficients, in particular $|\tilde{\kappa}_{e-}^{JK}|$, using Eqs.~(I.1)--(I.2).
+\end{itemize}
+This dual reporting format makes it straightforward to compare results with both the general Lorentz-violation literature and with other tests of the specific aether-resonance hypothesis.

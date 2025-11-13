@@ -1,73 +1,86 @@
-\section{Effective Bilocal Kernel on $M$ – Derivation and Positivity}
+\section{Ward Identity for (3.7) – Zero Net Momentum}
 
-This appendix derives the effective bilocal kernel $\mathcal{K}_{\rm eff}(x,x')$ used in the interaction Lagrangian and shows its retardation and positivity properties.
+This appendix fills in the steps leading from translation invariance of the interaction action to the momentum-neutrality condition (3.7).
 
-\subsection*{G.1 Definition via pushforward from $S$}
+\subsection*{H.1 Interaction action and translation invariance}
 
-Starting from the $S$-mediator kernel on pattern space,
-\[
-  \Kern(\sigma,\sigma') = \Kern\!\big(\Dsig(\sigma,\sigma')\big),
-\]
-and the pushforward prescription of Sec.~3.3, we define a smearing kernel $f_\ell(x-\pi\sigma)$ of compact support (scale $\ell$) and set
+Consider the effective interaction action between visible-sector fields and the substrate channel,
 \begin{equation}
-\mathcal{K}_{\rm eff}(x,x')
-:=
-\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,
-f_\ell(x-\pi\sigma)\,\Kern(\sigma,\sigma')\,f_\ell(x'-\pi\sigma')\,
-\Theta\!\Big(\tau(x')-\tau(x)-\tfrac{\Dsig(\sigma,\sigma')}{c_S}\Big).
-\tag{G.1}
+  S^{\rm eff}_{\rm int}
+  =
+  \varepsilon
+  \iint d^4x\,d^4x'\,
+  O_S(x)\,\mathcal{K}_{\rm eff}(x,x')\,O_S(x'),
+  \tag{H.1}
+\end{equation}
+where $O_S$ is the local selection operator and $\mathcal{K}_{\rm eff}(x,x')$ is the bilocal kernel defined in Appendix~G. We assume:
+\begin{itemize}
+  \item the underlying substrate rules are translationally invariant in $M$;
+  \item the smearing kernel $f_\ell$ used in the pushforward is translationally invariant;
+  \item the structural kernel $\Kern(\sigma,\sigma')$ depends only on $d_\sigma(\sigma,\sigma')$.
+\end{itemize}
+Then $\mathcal{K}_{\rm eff}(x,x')$ depends only on $x-x'$ and on the difference $\tau(x')-\tau(x)$, and $S^{\rm eff}_{\rm int}$ is invariant under global translations $x^\mu\to x^\mu+a^\mu$.
+
+\subsection*{H.2 Noether current and interaction stress--energy}
+
+Under an infinitesimal translation $x^\mu\mapsto x^\mu+a^\mu$ the fields transform as
+\[
+  \delta O_S(x) = a^\nu \partial_\nu O_S(x),
+\]
+and the variation of the interaction action can be written as
+\begin{equation}
+  \delta S^{\rm eff}_{\rm int}
+  =
+  a_\nu \int d^4x\,\partial_\mu\big( T^{\mu\nu}_{\rm int}(x) \big),
+  \tag{H.2}
+\end{equation}
+where $T^{\mu\nu}_{\rm int}$ is the interaction contribution to the total stress--energy tensor. Translation invariance of the action ($\delta S^{\rm eff}_{\rm int}=0$ for constant $a^\nu$) implies
+\begin{equation}
+  \partial_\mu T^{\mu\nu}_{\rm int} = 0
+\end{equation}
+in the absence of exchange with the substrate.
+
+In the presence of substrate exchange, the divergence of $T^{\mu\nu}_{\rm int}$ is balanced by the exchange current $J^\nu_\sigma$:
+\begin{equation}
+  \partial_\mu T^{\mu\nu}_{\rm int} = - J^\nu_\sigma.
+  \tag{H.3}
+\end{equation}
+This relation is the field-theoretic expression of the fact that any momentum carried into the substrate channel must come from the visible sector and vice versa.
+
+\subsection*{H.3 Total momentum conservation and (3.7)}
+
+The total stress--energy tensor is
+\[
+  T^{\mu\nu}_{\rm tot}
+  =
+  T^{\mu\nu}_{\rm vis}
+  +
+  T^{\mu\nu}_S
+  +
+  T^{\mu\nu}_{\rm int},
+\]
+and the split conservation laws in Sec.~3 imply
+\[
+  \partial_\mu T^{\mu\nu}_{\rm vis} = -J^\nu_\sigma,
+  \qquad
+  \partial_\mu T^{\mu\nu}_S = +J^\nu_\sigma.
+\]
+Adding Eq.~(H.3) yields
+\begin{equation}
+  \partial_\mu T^{\mu\nu}_{\rm tot} = 0.
+  \tag{H.4}
 \end{equation}
 
-The Heaviside factor enforces that a contribution from $(\sigma,\sigma')$ is only allowed if the substrate time difference between $x$ and $x'$ is large enough for the mediator to traverse the structural distance $\Dsig(\sigma,\sigma')$ at speed $c_S$.
-
-\subsection*{G.2 Retardation and diffeomorphism invariance}
-
-\begin{itemize}
-  \item \textbf{Retardation.} The step function in Eq.~(G.1) depends on the scalar foliation time $\tau(x)$ and the scalar structural distance $\Dsig(\sigma,\sigma')$; it vanishes when $\tau(x')<\tau(x)$ or when the available time difference is insufficient for propagation at speed $c_S$:
-  \[
-    \tau(x')-\tau(x) < \Dsig(\sigma,\sigma')/c_S
-    \quad\Rightarrow\quad
-    \Theta(\cdots)=0.
-  \]
-  Thus $\mathcal{K}_{\rm eff}(x,x')$ is retarded in $\tau$ and respects the monotonic-$\tau$ axiom.
-  \item \textbf{Diffeomorphism invariance.} Both $f_\ell(x-\pi\sigma)$ and $\tau(x)$ are scalar functions on $M$; $\Dsig(\sigma,\sigma')$ and $d\mu(\sigma)$ live entirely in $S$. Therefore $\mathcal{K}_{\rm eff}(x,x')$ is a scalar under diffeomorphisms of $M$ (its indices are carried by the operators it couples to, not by the kernel itself).
-\end{itemize}
-
-\subsection*{G.3 Positivity}
-
-Assume that the kernel $\Kern(\sigma,\sigma')$ is positive semidefinite on $S$, i.e.\ for any square-integrable test function $\psi:S\to\mathbb{C}$,
+For the spatial components ($\nu=i$) this gives
 \[
-  \iint\! d\mu(\sigma)\,d\mu(\sigma')\,\psi^*(\sigma)\,\Kern(\sigma,\sigma')\,\psi(\sigma') \ge 0.
+  \partial_\mu T^{\mu i}_{\rm tot} = 0.
 \]
-
-Let $\varphi(x)$ be a real test function on $M$ with compact support. Define
-\[
-  \psi(\sigma)
-  :=
-  \int d^4x\, f_\ell(x-\pi\sigma)\,
-  \Theta\!\Big(\tau(x)-\tau_0-\tfrac{\Dsig(\sigma,\sigma_0)}{c_S}\Big)\,
-  \varphi(x),
-\]
-for some fixed reference point $(\sigma_0,\tau_0)$ (the precise choice is immaterial as long as $\psi$ is square integrable). Then
-\begin{align*}
-\iint d^4x\,d^4x'\,\varphi(x)\,\mathcal{K}_{\rm eff}(x,x')\,\varphi(x')
-&=
-\iint d\mu(\sigma)\,d\mu(\sigma')\,
-\psi(\sigma)\,\Kern(\sigma,\sigma')\,\psi(\sigma') \\
-&\ge 0,
-\end{align*}
-by the assumed positivity of $\Kern$. Thus $\mathcal{K}_{\rm eff}$ is a positive semidefinite kernel on $M$.
-
-\subsection*{G.4 Summary}
-
-The effective bilocal kernel $\mathcal{K}_{\rm eff}(x,x')$ obtained via Eq.~(G.1):
-\begin{itemize}
-  \item is retarded in substrate time $\tau$ and respects the finite mediator speed $c_S$;
-  \item is diffeomorphism invariant as a scalar kernel on $M$;
-  \item is positive semidefinite whenever the underlying kernel on $S$ is, ensuring that the induced interaction term
-  \[
-    S_{\rm int}^{\rm eff} \sim \varepsilon \iint d^4x\,d^4x'\,
-    O_S(x)\,\mathcal{K}_{\rm eff}(x,x')\,O_S(x')
-  \]
-  does not introduce ghosts or signal instabilities at the level of quadratic fluctuations.
-\end{itemize}
+Integrating over a spatial hypersurface at fixed time and assuming appropriate boundary conditions (e.g.\ fields vanish sufficiently fast at spatial infinity) yields
+\begin{equation}
+  \frac{d}{dt} P^i_{\rm tot}
+  =
+  \frac{d}{dt} \int d^3x\; T^{0i}_{\rm tot}(t,\mathbf{x})
+  = 0,
+  \tag{H.5}
+\end{equation}
+which is precisely Eq.~(3.7) in the main text: the total momentum of the combined visible+substrate system is conserved, and there is no possibility of a reactionless drive. Any apparent momentum gain in one region requires a compensating momentum transfer elsewhere in $M$ or into $T^S_{\mu\nu}$, consistent with translational invariance.
