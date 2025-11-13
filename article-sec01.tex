@@ -1,6 +1,10 @@
 \section{Introduction and Motivation}
 
-Relativity and quantum mechanics provide a consistent, locally causal description of all known phenomena over many orders of magnitude. At the same time, they leave open the question of whether spacetime and its light-cone structure are fundamental, or whether both might instead emerge from some deeper, discrete substrate. In this work we investigate the speculative but internally consistent hypothesis that:
+Relativity and quantum mechanics provide a consistent, locally causal description of all known phenomena over many orders of magnitude. At the same time, they leave open the question of whether spacetime and its light-cone structure are fundamental, or whether both might instead emerge from some deeper, discrete substrate.
+
+Questions of this kind are also addressed in discrete and emergent approaches to quantum gravity, where spacetime is reconstructed from more primitive combinatorial structures. Examples include causal sets, causal dynamical triangulations, and quantum graphity, which start from locally finite partial orders, ensembles of triangulations, or dynamical graphs and recover continuum behaviour in a coarse-grained limit~\cite{surya2019_cst,loll2019_cdt,konopka2008_graphity}. Our goal here is not to propose yet another specific microscopic model, but to explore what happens if such a substrate also supports a second notion of proximity in a pattern space $S$ and a corresponding substrate-local coupling that can project as FTL in the emergent spacetime $M$.
+
+In this work we investigate the speculative but internally consistent hypothesis that:
 
 \begin{enumerate}
 \item Observable spacetime $(M)$ with light speed $(c)$ arises as an effective, coarse-grained description of a discrete substrate with global update ordering $(T=0,1,2,\ldots)$.
@@ -8,7 +12,7 @@ Relativity and quantum mechanics provide a consistent, locally causal descriptio
 \item A weak, substrate-local coupling in $(\Sspace)$ --- \textbf{aether resonance} --- allows energy and information to be redistributed ``in place'' in $(\Sspace)$, which is experienced as FTL in $(M)$.
 \end{enumerate}
 
-The question is whether this can be made \textbf{physically coherent}: compatible with conservation laws, with the Equivalence Principle and observed Lorentz symmetry, with quantum mechanics and Bell tests, with known high-energy and astrophysical constraints, and with existing no-go theorems on FTL signalling. We aim to show that this is possible in a tightly constrained way that yields concrete, conservative experimental results, and \textbf{falsifiable consequences}.
+The question is whether this can be made \textbf{physically coherent}: compatible with conservation laws, with the Equivalence Principle and observed Lorentz symmetry, with quantum mechanics and Bell tests, with known high-energy and astrophysical constraints, and with existing no-go theorems on FTL signalling. We aim to show that this is possible in a tightly constrained way that yields concrete, conservative experimental results, and \textbf{falsifiable consequences}. Conventional FTL scenarios in general relativity exploit exotic spacetime geometries such as warp bubbles or traversable wormholes~\cite{alcubierre1994_warp,morris1988_wormholes}; in contrast, we keep the metric sector of GR fixed and explore a substrate-level mechanism.
 
 Throughout this work we treat the visible sector as standard quantum
 field theory on $(M,g)$, with local Hamiltonian dynamics and the usual
@@ -28,59 +32,25 @@ mechanics itself.
 \subsection{Relation to existing approaches}
 \label{subsec:related-work}
 
-Several existing frameworks introduce preferred structures or small
-departures from exact local Lorentz invariance.  Here we briefly
-position the present proposal with respect to some of the most
-relevant lines of work.
+Several existing frameworks introduce preferred structures, small departures from exact local Lorentz invariance, or an underlying discrete substrate from which spacetime emerges. Here we position the present proposal with respect to the most relevant lines of work and highlight what is genuinely new.
+
+\paragraph{Discrete and emergent spacetime.}
+Approaches such as causal set theory, causal dynamical triangulations (CDT), and quantum graphity start from a fundamentally discrete structure---a locally finite partial order, ensembles of triangulations, or dynamical graphs---from which continuum spacetime and locality emerge in a coarse-grained limit~\cite{surya2019_cst,loll2019_cdt,konopka2008_graphity}. These models show that discreteness can coexist with approximate Lorentz invariance and with nonlocal microscopic structure. Our framework is agnostic about the microscopic details, but shares the basic premise that the observed manifold $(M,g)$ need not be fundamental. The distinctive feature here is the introduction of a \emph{second} proximity structure $(S,d_\sigma)$, together with a weak, pattern-dependent coupling that is strictly local in $S$ yet can redistribute energy and information superluminally in $M$ while remaining compatible with a globally well-defined substrate time.
+
+\paragraph{Cellular and quantum cellular automata substrates.}
+Discrete-time dynamics with a global update ordering are familiar from cellular automata and from quantum cellular automata (QCA), which provide general frameworks for local deterministic and local unitary evolution on discrete lattices and graphs~\cite{thooft2016_ca,farrelly2020_qca}. Such models can reproduce relativistic wave equations and even full quantum field theories in appropriate continuum limits. Our postulate P1 (discrete dynamics and global ordering) is in this spirit: we assume that there \emph{exists} some CA/QCA-like substrate that gives rise to standard QFT on $(M,g)$ at low energies, but we do not attempt to specify it. Instead, we add an additional structure---the pattern space $S$, a computable metric $d_\sigma$, and a substrate-local coupling in $S$---and explore the consequences of this extra channel. In this sense aether resonance is ``QCA + an additional, structure-selective channel'', rather than a new microscopic model of the substrate itself.
 
 \paragraph{Einstein--\ae ther and khronometric gravity.}
-Einstein--\ae ther and khronometric models introduce a unit timelike
-vector field $u^\mu$ that picks out a preferred foliation while
-keeping the gravitational sector close to GR.  Our $L_S$ in
-Eqs.~(3.1A)--(3.1C) is chosen precisely from this well-studied class,
-and we adopt a conservative parameter regime in which $c_T=c$ and
-existing bounds on preferred-frame effects are respected.  However,
-aether resonance differs qualitatively from these models in that the
-preferred structure lives primarily in the pattern space $S$ and in
-the selection operator $O_S$, which generate an additional channel for
-energy/information transfer rather than a simple modification of
-dispersion relations.
+Einstein--\ae ther and khronometric models introduce a unit timelike vector field $u^\mu$ that picks out a preferred foliation while keeping the gravitational sector close to GR~\cite{jacobson2004_einstein_aether,jacobson2008_einstein_aether_status,horava2009_qg_lifshitz,blas2011_horava_models}. These theories propagate additional modes and are tightly constrained by post-Newtonian tests, binary pulsars, and by the near-equality of the speed of gravity and the speed of light inferred from GW170817 and GRB 170817A~\cite{yagi2014_einstein_aether_pulsars,oost2018_einstein_aether_gw170817,baker2017_gw170817_mg,creminelli2017_dark_energy_gw170817,will2014_confrontation_gr}. Our $L_S$ in Eqs.~(3.1A)–(3.1C) is chosen from this well-studied class, but we adopt a \emph{constraint-only, minimal khronon} regime: the unit timelike vector is enforced by a Lagrange multiplier, we set $c_T=c$, and we do not allow new propagating metric degrees of freedom. As a result, the strong constraints on modified gravity are automatically respected. The preferred structure that is phenomenologically relevant in our framework lives primarily in the pattern space $S$ and in the selection operator $O_S$, which together generate an additional channel for energy/information transfer rather than a simple modification of dispersion relations.
 
 \paragraph{Standard-Model Extension and Lorentz-violation searches.}
-The Standard-Model Extension (SME) provides a systematic parametriza-
-tion of small Lorentz-violating coefficients in particle and photon
-sectors.  Section~11 and Appendix~\ref{app:sme-coupling} borrow this language to define an
-``anisotropy budget'' and to translate aether-resonance effects into
-effective photon-sector coefficients $\tilde\kappa^{e-}_{JK}$.  In
-contrast to a generic SME analysis, however, the present framework
-ties those effective coefficients to a specific mechanism---substrate
-locality in $S$ combined with the pattern operator $O_S$ and the
-kernel $K_\sigma$---and to concrete experiments (E1--E3) with
-pre-specified parameter maps.
+The Standard-Model Extension (SME) provides a systematic parametrization of small Lorentz-violating coefficients in photon and matter sectors~\cite{kostelecky2002_photon_sme,kostelecky2009_photon_nonminimal}. Modern resonant-cavity and clock-comparison experiments constrain these coefficients at the level of $\Delta\nu/\nu \sim 10^{-18}$ and below~\cite{eisele2009_light_isotropy,nagel2015_lorentz10minus18,kostelecky2018_clock_tests}. Sections~11 and Appendix~\ref{app:sme-coupling} explicitly borrow the SME language: we define an ``anisotropy budget'' and translate aether-resonance effects into effective photon-sector coefficients $\tilde{\kappa}^{e-}_{JK}$. In contrast to a generic SME analysis, however, these coefficients are not free parameters: in our model they are tied to a specific mechanism (substrate locality in $S$ combined with $O_S$ and the kernel $K_\sigma$), and to concrete experiments (E1–E3) with pre-specified parameter maps. Null results in those experiments therefore become bounds on tightly constrained combinations of SME coefficients rather than isolated numbers.
 
-\paragraph{Nonlocal and emergent-gravity models.}
-There is a broad literature on nonlocal field theories, analogue
-gravity, and emergent gravity scenarios in which spacetime and its
-metric arise as coarse-grained descriptors of more microscopic
-dynamics.  The present work is agnostic about the detailed
-microphysics, but shares with these approaches the idea that $(M,g)$
-is not fundamental.  The distinctive feature here is the introduction
-of a second proximity structure $(S,d_\sigma)$ and a weak,
-pattern-dependent coupling that is \emph{local} in~$S$ yet can
-redistribute energy and information superluminally in~$M$ while
-remaining compatible with a globally well-defined substrate time.
+\paragraph{Locality bounds, Bell nonlocality, and fast-light analogues.}
+In standard local quantum lattice systems, the Lieb–Robinson bound quantifies an emergent light cone for the propagation of operator commutators~\cite{lieb1972_lr}. For systems with long-range interactions this is generalized to ``soft'' or distorted light cones whose shape depends on the interaction tail~\cite{fossfeig2015_longrange_lr,tran2020_hierarchy_lightcones}. In quantum information, Bell nonlocality and related no-signalling theorems show how nonlocal correlations can coexist with relativistic causality~\cite{brunner2014_bell_nonlocality}, while fast-light experiments demonstrate that superluminal group velocities do not imply superluminal information transfer~\cite{stenner2003_fast_light}. Our modified Lieb–Robinson bound (Sec.~9) and the categorical causality proof (Sec.~10) are best viewed as substrate-level analogues of these results: individual influence steps can be superluminal in the emergent spacetime $M$, but every allowed influence chain is monotone in the substrate time $\tau$, and the effective commutators outside the usual light cone are exponentially suppressed in $d_\sigma$ and retarded at finite mediator speed $c_S$.
 
-\paragraph{Preferred-frame collapse and superluminal signalling
-proposals.}
-Various proposals have explored faster-than-light influences in
-quantum mechanics by modifying the collapse rules or by postulating
-hidden superluminal channels.  Many of these run into the standard
-no-go theorems for frame-independent signalling or require highly
-nonlinear dynamics in Hilbert space.  By contrast, the present
-framework keeps the visible-sector quantum dynamics linear and
-local on~$M$, introduces a preferred substrate frame explicitly, and
-enforces a monotonic substrate time~$\tau$.  The combination of the
-modified Lieb--Robinson bound and the categorical causality proof
-(Secs.~9--10) then ensures that no antitelephone protocols are
-possible even though individual influence steps can be superluminal in
-the emergent spacetime.
+\paragraph{Thermodynamics of information and pattern-space methods.}
+The thermodynamic resource inequality in Sec.~8 rests on Landauer's principle---the $k_B T \ln 2$ cost of reliably erasing a bit---and on its experimental confirmations in single-bit systems~\cite{landauer1961_irreversibility,berut2012_landauer_exp,jun2014_landauer_precision}. We do not propose any violation of this principle; instead, we derive a bound that says that any sustained FTL bitrate through the $S$-channel must pay a conventional Landauer cost multiplied by an efficiency factor involving the pattern quality factor $Q$ and the similarity kernel $K_\sigma$. The operational pattern metric $d_\sigma$ is in turn built from gauge- and diffeomorphism-invariant features, including topological signatures (persistent homology) and dynamical response features that can be extracted using techniques from topological data analysis and physical reservoir computing~\cite{carlsson2009_topology_data,tanaka2019_physical_reservoir,vandersande2017_photonic_reservoir}. In this way the abstract notion of ``algorithmic similarity'' is connected to concrete, calibration-ready tools.
+
+\paragraph{Conventional FTL geometries in general relativity.}
+There is a long-standing literature on effective FTL travel within GR based on exotic spacetime geometries such as Alcubierre's warp drive and traversable wormholes~\cite{alcubierre1994_warp,morris1988_wormholes}. These scenarios keep local microphysics unchanged but rely on large curvature and violations or saturation of energy conditions. By contrast, the present proposal keeps GR unchanged in the metric sector and instead introduces a new, pattern-selective channel that is local in $S$ and nonlocal in $M$. From the point of view of observational tests, this means that our framework should be constrained alongside SME coefficients and long-baseline Lorentz tests, rather than through the viability of exotic stress–energy tensors.

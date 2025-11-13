@@ -47,6 +47,8 @@ The specific choice of features is not unique and can be adapted to the experime
   \item topological descriptors (e.g.\ Betti numbers from persistent homology of level sets of a field);
   \item response functions (e.g.\ impedance spectra, transfer functions of neural or electronic circuits).
 \end{itemize}
+In practice, the ``topological descriptors'' can be drawn from standard tools in topological data analysis (TDA), such as persistent homology and associated barcodes~\cite{carlsson2009_topology_data}, while the response-based features can be implemented using physical reservoir computing platforms in which a photonic or electronic reservoir acts as a high-dimensional nonlinear feature map~\cite{tanaka2019_physical_reservoir,vandersande2017_photonic_reservoir}. This anchors the abstract notion of algorithmic similarity in a toolbox that is already used for analysing complex spatiotemporal patterns.
+
 The scale $\ell_0$ sets the typical size of $d_\sigma$ for a ``unit'' change in features. In practice, we will choose $\ell_0$ and $\lambda_\sigma$ such that a qualitatively clear change in the pattern (e.g.\ block-scrambling or strong noise) corresponds to $d_\sigma \sim \lambda_\sigma$, while minor modifications (e.g.\ global phase rotations) yield $d_\sigma\ll\lambda_\sigma$.
 
 \subsubsection{Example feature maps with explicit invariants}

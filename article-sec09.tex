@@ -1,6 +1,6 @@
 \section{Modified Lieb-Robinson Bound}
 
-In standard local quantum lattice systems, the Lieb--Robinson bound states that the commutator of two observables $A(x,t)$ and $B(y,0)$ supported near spatial points $x,y\in M$ is exponentially suppressed outside an effective light cone:
+In standard local quantum lattice systems, the Lieb--Robinson bound~\cite{lieb1972_lr} states that the commutator of two observables $A(x,t)$ and $B(y,0)$ supported near spatial points $x,y\in M$ is exponentially suppressed outside an effective light cone:
 \[
   \|[A(x,t),B(y,0)]\|
   \;\lesssim\;
@@ -53,6 +53,8 @@ where $\sigma_x,\sigma_y\in S$ are substrate representatives of the regions arou
   \tag{9.2}
 \end{equation}
 \end{lemma}
+
+This structure is closely analogous to Lieb--Robinson bounds for systems with long-range interactions~\cite{fossfeig2015_longrange_lr,tran2020_hierarchy_lightcones}, where algebraic tails in the interaction range lead to softened or distorted light cones. In our case the soft tail is controlled not by geometric distance in $M$ but by the structural distance $d_\sigma$ on $S$, and remains exponentially suppressed as long as the kernel decay rate $\mu$ satisfies $\mu > \ln g$.
 
 The first term in Eq.~(9.1) is the usual Lieb--Robinson light-cone contribution with effective velocity $v$ close to $c$. The second term encodes the substrate-mediated tail: it vanishes for times $t<d_\sigma(\sigma_x,\sigma_y)/c_S$ (no effect can propagate through $S$ faster than $c_S$) and is exponentially suppressed in the structural distance $d_\sigma$.
 
