@@ -2,6 +2,8 @@
 
 We now connect the phenomenological power $\Psig$ to thermodynamic and information-theoretic constraints. The key idea is that any reliable transfer of information through the $S$-channel requires the production of entropy in the combined system, and that a finite pump power therefore bounds the achievable FTL bitrate.
 
+In this section we distinguish carefully between the discrete tick label $T$, the coarse-grained substrate time function $\tau$, and the effective thermodynamic temperature of the relevant degrees of freedom. We denote this temperature by $\Theta$ to avoid any confusion with $T$ or $\tau$.
+
 \subsection{Pattern free energy}
 
 We define an effective \textbf{pattern free energy} for the $S$-sector,
@@ -14,6 +16,8 @@ We define an effective \textbf{pattern free energy} for the $S$-sector,
 where $\Sigma_S$ is an entropy-like functional of the microscopic $S$-state (e.g.\ approximated by minimum description length or compression ratio) and $\Temp$ is an effective temperature associated with the degrees of freedom that the pump can thermalize. In the spirit of Landauer's principle, we will require that each reliably distinguishable bit communicated through the $S$-channel carries a minimal entropy cost~\cite{landauer1961_irreversibility,berut2012_landauer_exp,jun2014_landauer_precision}.
 
 \subsection{Minimal Markov model on S-edges}
+
+In this subsection we idealize the coarse-grained $S$-dynamics as a classical, Markovian continuous-time process with local detailed balance, so that the standard relations from stochastic thermodynamics (e.g.~Crooks and Seifert fluctuation relations and their relative-entropy consequences) apply. In particular, we assume that the effective generator of the $S$-dynamics can be written as a master operator satisfying local detailed balance with respect to a reference Gibbs state at temperature $\Theta$.
 
 We model each active $S$-edge $e$ as a two- or few-state Markov process driven by the pump. The edge switches between microstates $\{i\}$ with transition rates $k_{ij}(t)$ that depend on the external driving. Standard stochastic thermodynamics then associates to each realization:
 \begin{itemize}

@@ -27,6 +27,17 @@ where $E_S$ is the set of $S$-edges, $\|O_x\|\le 1$, and the coupling strengths 
 
 \textbf{Sparsity and strength.} Let $g$ be the maximum degree of the $S$-graph (at most $g$ substrate edges per node). The parameter $\eta$ bounds the total coupling strength per node. Assumption (A3) states that $g$ is finite and $\eta$ is small.
 
+\textbf{Extensivity of $d_\sigma$.} We also require:
+
+\begin{assumption}[Extensivity of $d_\sigma$]
+\label{ass:extensive_dsigma}
+There exists a constant $\delta>0$ such that along any path in $S$ consisting of $m$ $S$-edges connecting $\sigma_x$ to $\sigma_y$ we have
+\[
+d_\sigma(\sigma_x,\sigma_y) \ge m\,\delta .
+\]
+In other words, $d_\sigma$ is extensive along $S$-paths: the pattern distance between two nodes is bounded below by a constant times the minimal number of graph steps between them.
+\end{assumption}
+
 \subsection*{C.2 Path sums and the $\Phi$-function}
 
 Let $P_m(x\to y)$ be the set of $S$-paths with $m$ hops from $x$ to $y$ (i.e.\ sequences of edges in $E_S$ connecting the two sites). We assume that each hop contributes an average suppression factor $e^{-\mu}$ coming from the kernel
