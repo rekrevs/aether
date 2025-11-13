@@ -8,7 +8,7 @@ In this section we make precise what is meant by ``causal'' in the presence of s
 
 The substrate dynamics comes with a global discrete update parameter $T=0,1,2,\dots$ and a coarse-grained \emph{substrate time function} $\tau$ which is strictly monotonically increasing along any physically allowed microscopic transition. We summarize this as (Assumption~A1 in Appendix~\ref{app:assumptions}):
 
-\textbf{Monotonic-$(T)$ axiom:} For every elementary substrate transition
+\textbf{Monotonic-$\tau$ axiom:} For every elementary substrate transition
 \[
   (s,T)\longrightarrow (s',T')
 \]
@@ -16,7 +16,7 @@ with nonzero amplitude, the associated substrate time increment satisfies
 \begin{equation}
   \Delta \tau := \tau(s',T') - \tau(s,T) > 0,
   \qquad
-  \text{all kernels are retarded in $T$}.
+  \text{and all kernels are retarded in the discrete tick label $T$}.
   \tag{10.1}
 \end{equation}
 In particular, the mediator kernel $G_{\rm ret}$ in $S$ (Sec.~4) vanishes for $T'<T$, and all effective kernels in $M$ obtained by integrating out $S$ inherit this retardation.
@@ -35,7 +35,7 @@ We formalize the causal structure on $M\times S$ using the language of categorie
   \end{enumerate}
 \end{itemize}
 
-Composition of morphisms is concatenation of influence chains. By construction, every elementary piece of a morphism is retarded in substrate time and respects the Monotonic-$(T)$ axiom.
+Composition of morphisms is concatenation of influence chains. By construction, every elementary piece of a morphism is retarded in substrate time and respects the Monotonic-$\tau$ axiom.
 
 Define a functor
 \[
@@ -45,7 +45,7 @@ from the causal category $\mathcal{C}$ to the totally ordered set of real number
 \[
   \mathcal{T}(f)=\tau(e')-\tau(e).
 \]
-By the Monotonic-$(T)$ axiom, $\mathcal{T}(f)>0$ for every non-identity morphism $f$.
+By the Monotonic-$\tau$ axiom, $\mathcal{T}(f)>0$ for every non-identity morphism $f$.
 
 \begin{theorem}[Causal monotonicity]
 Under the assumptions that (i) all microscopic rules are retarded in substrate time and satisfy $\Delta\tau>0$ as in Eq.~\textup{(10.1)}, (ii) the $S$-mediator has finite propagation speed $c_S$ and exponential damping in $d_\sigma$ (Sec.~9), and (iii) every macroscopic process is built from a finite concatenation of such microscopic transitions, there exist no closed causal loops in $(M\times S)$.

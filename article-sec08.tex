@@ -13,7 +13,12 @@ We define an effective \textbf{pattern free energy} for the $S$-sector,
   \langle E_S \rangle - \Temp\,\Sigma_S,
   \tag{8.1}
 \end{equation}
-where $\Sigma_S$ is an entropy-like functional of the microscopic $S$-state (e.g.\ approximated by minimum description length or compression ratio) and $\Temp$ is an effective temperature associated with the degrees of freedom that the pump can thermalize. In the spirit of Landauer's principle, we will require that each reliably distinguishable bit communicated through the $S$-channel carries a minimal entropy cost~\cite{landauer1961_irreversibility,berut2012_landauer_exp,jun2014_landauer_precision}.
+where $\Sigma_S$ is an entropy-like functional of the microscopic $S$-state (e.g.\ approximated by minimum description length or compression ratio) and $\Temp$ is an effective temperature associated with the degrees of freedom that the pump can thermalize. We parameterize the free-energy cost per event in terms of a dimensionless quantity $\tilde{\Delta}\Phi(e)$ by writing
+\begin{equation}
+\Delta F_S(e) = k_B \Theta\, \tilde{\Delta}\Phi(e).
+\tag{8.1a}
+\end{equation}
+In our estimates we conservatively assume $\tilde{\Delta}\Phi(e) \lesssim 1$, i.e.\ that the free-energy difference per operation does not exceed $k_B \Theta$. In the spirit of Landauer's principle, we will require that each reliably distinguishable bit communicated through the $S$-channel carries a minimal entropy cost~\cite{landauer1961_irreversibility,berut2012_landauer_exp,jun2014_landauer_precision}.
 
 \subsection{Minimal Markov model on S-edges}
 
