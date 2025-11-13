@@ -4,7 +4,7 @@ This appendix gives a formal categorical restatement of the causality structure 
 
 This appendix expands the categorical formulation sketched in Sec.~10. The goal is to make precise how a global substrate time and strictly retarded rules forbid closed causal loops and antitelephone protocols, even in the presence of substrate-local FTL.
 
-\subsection*{D.1 Causal category}
+\subsection{Causal category}
 
 \textbf{Category $\mathcal{C}$.}
 \begin{itemize}
@@ -24,7 +24,7 @@ This appendix expands the categorical formulation sketched in Sec.~10. The goal 
 
 We assume that any macroscopic protocol (including attempted antitelephones) can be decomposed into a finite sequence of such morphisms.
 
-\subsection*{D.2 Time functor and monotonicity}
+\subsection{Time functor and monotonicity}
 
 \textbf{Monotonic-$\tau$ axiom.} Each microscopic transition in the substrate,
 \[
@@ -55,7 +55,7 @@ By the monotonic-$\tau$ axiom and the locality of the microscopic rules, every n
   \tag{D.2}
 \end{equation}
 
-\subsection*{D.3 Cost functor and resource monotonicity}
+\subsection{Cost functor and resource monotonicity}
 
 Beyond temporal order, we introduce a \emph{cost functor} summarizing the thermodynamic resource usage of a process.
 
@@ -76,7 +76,7 @@ in Sec.~6.2.  Assumption (A2) in Appendix~E guarantees resource
 monotonicity: nontrivial influence chains cannot be implemented at
 zero cost.
 
-\subsection*{D.4 No closed causal loops}
+\subsection{No closed causal loops}
 
 \begin{theorem}[No nontrivial loops in $\mathcal{C}$]
 Under the monotonic-$\tau$ axiom and the definition of $\mathcal{T}$ above, there exists no nontrivial morphism $f:e\to e$ with $\mathcal{T}(f)=0$.
@@ -96,7 +96,7 @@ and hence $\mathcal{T}(f^{\circ n})=n\,\mathcal{T}(f) > 0$ for all $n$. This con
 
 Thus, even though the projection of a morphism to $M$ can have segments that look superluminal with respect to the light cones of $(M,g)$, the global substrate time functor $\mathcal{T}$ provides a strict temporal ordering that rules out closed causal curves in $(M\times S)$.
 
-\subsection*{D.5 Anti-telephone rule and two-lab protocols}
+\subsection{Anti-telephone rule and two-lab protocols}
 
 We now state the operational anti-telephone rule and recast it categorically.
 
@@ -121,7 +121,7 @@ Every elementary move in such a protocol is either:
 Therefore the total substrate time increment along the protocol is strictly positive, $\mathcal{T}(f)>0$, and the previous theorem excludes $f:e\to e$ with $\mathcal{T}(f)=0$. \qedhere
 \end{proof}
 
-\subsection*{D.6 Relation to the modified Lieb–Robinson bound}
+\subsection{Relation to the modified Lieb–Robinson bound}
 
 The categorical argument above uses only the global time ordering and the local form of the rules. The modified Lieb–Robinson bound of Sec.~9 refines this by quantifying the size of commutators outside the emergent light cone:
 \begin{itemize}
