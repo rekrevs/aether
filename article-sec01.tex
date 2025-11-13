@@ -58,3 +58,31 @@ There is a long-standing literature on effective FTL travel within GR based on e
 The present framework differs from these approaches in three conceptually distinct ways. First, we introduce an explicit pattern space $S$ with metric $d_\sigma$ that controls a substrate-local but spacetime-nonlocal communication channel; this goes beyond the usual implementations of a preferred frame or modified dispersion relations. Second, we derive a resource inequality and a modified Lieb--Robinson-type bound for this channel, thereby quantifying both its thermodynamic cost and its effective causal cone. Third, we connect the formalism to concrete experimental protocols (E1--E3) and give explicit parameter maps from their observable sensitivities to bounds on the underlying pattern-coupling parameters $(\varepsilon,\lambda_\sigma,Q,\omega_0)$.
 
 A structural consequence of our assumptions is that the $S$-sector must couple to gravity with the same strength as visible matter. In particular, Sec.~\ref{subsec:alpha-constraint} shows that, given our split conservation law and the Bianchi identity, the relative coupling parameter $\alpha$ is not a tunable free parameter but is fixed to $\alpha \equiv 1$ whenever $J^\nu_\sigma \neq 0$.
+
+\subsection{Notation and key parameters (quick reference)}
+
+For convenience we summarize the most frequently used symbols; Appendix~A gives a more
+complete list.
+
+\begin{itemize}
+  \item $M$: emergent spacetime manifold with metric $g_{\mu\nu}$ and light speed $c$.
+  \item $S$: pattern space; $d_\sigma(\sigma,\sigma')$ is a structural distance with units of
+        length, and $\lambda_\sigma$ is the associated structural range.
+  \item $\tau$: coarse-grained substrate time function; strictly increasing along all allowed
+        microscopic transitions.
+  \item $O_S$: pattern-selection operator constructed from higher-dimension seed operators
+        with $[\!O_S\!]=4$ after normalization; couples the visible sector to the substrate.
+  \item $\varepsilon$: dimensionless microscopic coupling between visible fields and the
+        $S$-sector.
+  \item $T^{\mu\nu}_{\rm vis}$, $T^{\mu\nu}_S$: stress--energy tensors for visible and
+        $S$-sector degrees of freedom, with split conservation
+        $\nabla_\mu T^{\mu\nu}_{\rm vis} = -J^\nu_\sigma$ and
+        $\nabla_\mu T^{\mu\nu}_S = +J^\nu_\sigma$.
+  \item $Q$: pattern quality factor $0\le Q\le 1$, measuring how well a configuration
+        matches the pattern selected by $O_S$; $Q\to 0$ in homogeneous or thermal states
+        by degeneracy dilution.
+  \item $K_\sigma(\sigma,\sigma') = \exp[-d_\sigma(\sigma,\sigma')/\lambda_\sigma]$:
+        positive, exponentially decaying similarity kernel on $S$ induced by the mediator.
+  \item $P_\sigma$: net power into the substrate channel along an active edge, parametrized
+        phenomenologically via Eq.~(6.1).
+\end{itemize}

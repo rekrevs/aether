@@ -66,7 +66,7 @@
 \renewcommand{\theHequation}{\thesection.\arabic{equation}}
 \makeatother
 
-\title{Aether Resonance: Substrate-Local FTL Transfer \\in a Discrete Substrate\\[1em]
+\title{Aether Resonance: Pattern-Local FTL Transfer \\in a Discrete Substrate\\[1em]
 \large Draft of 2025-11-13 16:07}
 \author{Authors: ChatGPT and Claude Code\\
 Idea and editor: Sverker Janson\\
@@ -78,9 +78,41 @@ Idea and editor: Sverker Janson\\
 \maketitle
 
 \begin{abstract}
-We formulate a consistent, falsifiable hypothesis in which observable relativistic physics is an emergent low-energy description of a discrete substrate with global update ordering. In addition to spacetime proximity in the emergent manifold $(M)$, we assume \textbf{structural proximity} in a pattern space $(\Sspace)$ with a structural distance metric $\Dsig$ that measures algorithmic similarity. A \textbf{substrate-local} coupling in $(\Sspace)$ --- \textbf{aether resonance} --- can then transport energy and information between isomorphic substructures and project as FTL in $(M)$.
+We explore a speculative but internally consistent hypothesis in which observable relativistic
+physics is an emergent low-energy description of a discrete substrate with a global update
+ordering. In addition to spacetime proximity in an emergent manifold $(M,g)$ we introduce
+a pattern space $(S,d_\sigma)$, where $d_\sigma$ measures structural similarity of local
+configurations. A weak, substrate-local coupling in $S$---``aether resonance''---can then
+redistribute energy and information between near-by patterns in $S$, and this projects as
+apparently superluminal transfer in $M$.
 
-Starting from a total action $S_{\mathrm{tot}}$ that couples visible fields to an $S$-mediator and a pattern-selection operator $\Osel$, we derive the field equations, conservation laws, and consistency conditions. Key results include: (i) \textbf{action-level formulation} with well-defined $\TS$ and covariant conservation laws, (ii) a \textbf{split conservation law} for visible and $S$-sector stress-energy with exchange current $\Jsig$, (iii) an \textbf{explicit proof} that the Einstein equations require a \emph{universal} gravitational coupling $\alphag\equiv 1$ even in the presence of exchange, enforced by the Bianchi identity, (iv) \textbf{construction of a retarded $S$-mediator} that realizes locality and exponential falloff in $\Dsig$, (v) a \textbf{selection operator} $\Osel$ that renders the effect invisible in standard-model scattering, (vi) an \textbf{operationalized $\Dsig$-metric} with length units via a ``distance ladder'' relating microscopic pattern moves to macroscopic displacements in $(M)$, (vii) an \textbf{information-theoretic interpretation} of resonance as a ``similarity pump'' with entropy cost, (viii) a \textbf{thermodynamic resource inequality} that bounds FTL bitrate by entropy production, (ix) a \textbf{modified Lieb-Robinson bound} with explicit conditions, (x) a \textbf{formal causality argument} preserving the null-cone structure, (xi) an \textbf{anisotropy budget} and mapping to Standard Model Extension (SME) coefficients, and (xii) stringent, \textbf{no-loophole} experiments (E1--E3) with mapped parameter inference and multiple-test correction.
+At the level of effective field theory we derive the framework from a total action in which
+visible fields are coupled to an aether/khronon sector and to an $S$-mediator via a bilocal
+selection operator $O_S$. We obtain covariant split conservation laws for the visible and
+$S$-sectors, together with an exchange current $J^\nu_\sigma$. Consistency with the Bianchi
+identity forces the gravitational coupling to be universal: the factor multiplying $T^S_{\mu\nu}$
+in the Einstein equations is fixed to $\alpha \equiv 1$ whenever $J^\nu_\sigma\neq 0$, so all
+apparent FTL behaviour is pushed into substrate locality rather than modified gravity.
+
+Structural proximity is implemented by a mediator field $\chi(\sigma,T)$ that propagates
+locally on $(S,d_\sigma)$ with finite speed $c_S$ and generates an exponentially decaying
+kernel $K_\sigma \propto \exp[-d_\sigma/\lambda_\sigma]$. The selection operator $O_S$ is
+constructed from higher-dimension, gauge- and diffeomorphism-invariant seed operators and
+normalized to $[O_S]=4$. Its expectation value is driven to zero in homogeneous or thermal
+states by a ``degeneracy dilution'' mechanism, but can approach order one in carefully
+engineered, pattern-rich configurations. This explains why collider and everyday signatures
+are suppressed while specialised mesoscopic platforms remain sensitive.
+
+We derive a Landauer-type thermodynamic resource inequality that bounds any FTL bit rate
+by entropy production and pump power, and prove a modified Lieb--Robinson bound in which
+substrate-mediated effects appear as a soft, exponentially suppressed tail outside the usual
+light cone. A categorical causality analysis shows that, given a global substrate time function,
+these dynamics forbid antitelephone protocols and closed causal loops even in the presence of
+S-local superluminal transfers. Finally, we map the parameters $(\varepsilon,\lambda_\sigma,Q)$
+onto photon-sector coefficients of the Standard-Model Extension at the order-of-magnitude
+level and outline three ``no-loophole'' experimental designs (E1--E3) that would either
+significantly tighten Lorentz-violation bounds in this class of models or reveal a reproducible,
+pattern-dependent superluminal channel.
 \end{abstract}
 
 \input{article-sec01.tex}
@@ -111,6 +143,7 @@ Starting from a total action $S_{\mathrm{tot}}$ that couples visible fields to a
 \input{article-appG.tex}
 \input{article-appH.tex}
 \input{article-appI.tex}
+\input{article-appJ.tex}
 
 \bibliographystyle{unsrt}
 \bibliography{aether_resonance}

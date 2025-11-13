@@ -1,5 +1,14 @@
 \section{Experimental Protocols (No-Loophole) and Parameter Inference}
 
+The protocols described in this section are intended as design studies rather than
+ready-to-run experimental recipes. Our goal is to specify, for each class of experiment,
+(i) which observables are most informative about the parameters $(\varepsilon,\lambda_\sigma,Q,\omega_0)$,
+(ii) how to organize the data-taking and analysis in a ``no-loophole'' fashion, and
+(iii) what order-of-magnitude sensitivities would be scientifically decisive. Platform-specific
+engineering, detailed noise budgets, and device-level optimizations are deferred to future
+work and to experimental teams; the worked examples given below (and in Appendix~J) are
+meant to illustrate feasibility, not to prescribe a unique implementation.
+
 All three proposed experiments are designed to be as close as practicable to ``no-loophole'' tests in the spirit of modern Bell experiments~\cite{brunner2014_bell_nonlocality}. This means:
 \begin{itemize}
   \item full pre-registration of hypotheses, data-taking procedures, and analysis pipelines (e.g.\ on the Open Science Framework);
@@ -61,21 +70,8 @@ entirely new device physics.  We therefore view E1 as a near-term
 
 \textbf{Inference.} A null result at sensitivity $R_{\rm bit}^{({\rm null})}$ constrains the product $\varepsilon\,\lambda_\sigma\,\mathcal Q$ via the specialization of Eq.~(8.3) to the E1 geometry. A positive result consistent with the ladder scaling would give a direct estimate of $\lambda_\sigma$ and, combined with the pump power budget, a lower bound on $\varepsilon\mathcal Q$.
 
-\subsubsection{Worked example: concrete neuromorphic-RC protocol}
-
-As a concrete implementation, one can use:
-
-\begin{itemize}
-\item \textbf{Hardware:} 3D random resistor--capacitor networks with $N\sim 10^3$ nodes, trained on identical MNIST or audio datasets.
-\item \textbf{Isolation:} Triple-nested Faraday cages, optical isolation (fiber-air-gap + optical isolators), battery-powered operation during runs. GPS-disciplined atomic clocks with jitter $<1$\,ns.
-\item \textbf{Distance ladder:} Test 6 calibration levels (Sec.~7.3) in a blind pilot study with separate DOI. Freeze $\lambda_\sigma,\ell_0$ before the main run.
-\item \textbf{Delayed choice:} QRNG selects codebook and time schedule after the hash is published but before transmission.
-\item \textbf{Sham blocks:} Allocate 20\% of time blocks as ``sender-off'' controls to test for false positives (ghost-block detector).
-\item \textbf{Cosmic veto:} Deploy muon detector; reject any run with $N_\mu>10$\,m$^{-2}$\,s$^{-1}$.
-\item \textbf{Target:} $\Delta{\rm BER}\sim 10^{-3}$ (matched vs.\ mismatched) with $p<10^{-6}$ after Holm--Bonferroni correction for the 6 distance levels.
-\end{itemize}
-
-Statistical analysis includes sequential probability ratio test (SPRT) for early stopping, permutation tests ($\ge 10^6$ permutations), and Bayes factors comparing $H_1$ (resonance) vs.\ $H_0$ (chance + leakage).
+\paragraph{Worked example.}
+A concrete neuromorphic reservoir implementation is sketched in Appendix~J.1.
 
 \subsection{E2. Rotating energy tunnel and sidereal check}
 
@@ -102,23 +98,8 @@ Statistical analysis includes sequential probability ratio test (SPRT) for early
 \item Use the sidereal amplitude $A_{\rm sid}^{(\mathrm{mat})}$ to constrain $\epsmat\Qmat(\lsig/L_{\rm exp})$ via Eq.~(12.4), taking into account photon-sector bounds on $\epsgam\Qgam$.
 \end{itemize}
 
-\subsubsection{Worked example: cryogenic micro-calorimetry}
-
-A concrete realization for maximal sensitivity:
-
-\begin{itemize}
-\item \textbf{Hardware:} Two identical superconducting microwave cavities or metamaterial structures with cavity quality factor $Q_{\rm cav}\sim 10^6$.
-\item \textbf{Calorimetry:} Operate at $T\sim 10$\,mK; transition-edge sensors or SQUID-based thermometry with $\delta T\sim 0.1\,\mu$K, yielding energy sensitivity $\delta E\sim 10^{-26}$\,J over integration time $\tau\sim 10^3$\,s.
-\item \textbf{Pump modulation:} Pump reservoir $A$ with $P_{\rm pump}\approx 1\,\mu$W in 100\,s on/off cycles; keep $B$ below threshold.
-\item \textbf{Matching test:} Vary internal geometry to achieve 0\%, 50\%, 100\% structural match. Expect correlation coefficient $r>0.8$ in fully matched condition.
-\item \textbf{Latency scan:} Correlate $\Delta T_B(t)$ with $P_A(t-\delta)$, scanning $\delta\in[-10\,\mu{\rm s}, +10\,\mu{\rm s}]$. An FTL signal should peak at $\delta<-3\,\mu{\rm s}$ (spacelike), while thermal leakage would have $\delta>0$.
-\item \textbf{Gravitational sidekick:} Deploy torsion pendulum or optical cavity in $B$ with acceleration sensitivity $\sim 10^{-15}$\,m\,s$^{-2}$ to test momentum-neutrality (Eq.~3.7). Report expected $\Delta\Phi_g$ even if below detection threshold. Note that we do \emph{not} expect any detectable gravitational effect at the target parameter values; this measurement simply provides an independent consistency check on momentum transfer.
-\item \textbf{Rotation test:} Mount on rotating platform (0.1\,rpm) for full $2\pi$ azimuthal scan over several weeks ($\sim 10^7$\,s total), resolving sidereal modulation at $\Omega_\oplus\approx 7.3\times10^{-5}$\,rad\,s$^{-1}$.
-\end{itemize}
-
-\textbf{Ambitious target:} $|\Delta E_A+\Delta E_B|>10^{-25}$\,J with sidereal amplitude $A_{\rm sid}\ge 10^{-20}$.
-
-\textbf{Null bound:} If $|\Delta E|<10^{-26}$\,J after $10^6$\,s, this constrains $\varepsilon\omega_0\mathcal Q<10^{-8}$\,Hz. A null sidereal signal gives $\varepsilon\mathcal Q<10^{-20}$.
+\paragraph{Worked example.}
+A concrete cryogenic micro-calorimetry implementation is sketched in Appendix~J.2.
 
 \subsection{E3. Complexity scan and optimal patterning}
 
@@ -150,20 +131,5 @@ E3-type tests as longer-term goals that may require one or two orders of
 magnitude further progress in controllable complex systems beyond what
 is currently available.
 
-\subsubsection{Worked example: chaos-to-chaos synchronization test}
-
-A concrete realization using turbulent flows:
-
-\begin{itemize}
-\item \textbf{Hardware:} Two Rayleigh--B\'enard convection cells or reaction--diffusion systems ($L\sim 10$\,cm) with identical geometry. Monitor via laser Doppler velocimetry or imaging at 1\,kHz sampling rate.
-\item \textbf{Drive:} Modulate heat flux or chemical concentration with variable complexity: white noise $\to$ music $\to$ speech $\to$ pure tone (5 levels).
-\item \textbf{Attractor topology:} Use persistent homology to compute Betti curves $(\beta_0(r),\beta_1(r))$ from the time-delay embedding of velocity/concentration fields.
-\item \textbf{Hop detector:} Define a ``hop'' event as $|\Delta\beta_1|>\theta$ within 1\,s; look for temporal correlations in hop events between the two systems.
-\item \textbf{Mismatch control:} Systematically vary geometry (10\%, 20\%, 50\% dissimilarity) and measure synchronization rate $r_{\rm sync}$. Prediction: $r_{\rm sync}\propto\exp[-d_\sigma/\lambda_\sigma]$.
-\item \textbf{Permutation test:} For each complexity level and mismatch setting, shuffle timestamps $10^6$ times to compute $p$-value for observed correlations.
-\item \textbf{Statistical correction:} Apply Benjamini--Hochberg FDR correction for 5 complexity levels and multiple mismatch settings.
-\end{itemize}
-
-\textbf{Target:} Synchronization rate $r_{\rm sync}$ maximized at intermediate complexity (music/speech), with overrepresentation at match giving $p<10^{-6}$ (corrected). The rate should fall monotonically with increasing structural mismatch.
-
-\textbf{Inference:} A log-linear fit of $r_{\rm sync}$ vs.\ mismatch yields an estimate of $\lambda_\sigma$. A null result constrains $\varepsilon\mathcal Q<10^{-15}$.
+\paragraph{Worked example.}
+A concrete chaos-to-chaos synchronization implementation is sketched in Appendix~J.3.
