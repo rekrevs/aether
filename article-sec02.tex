@@ -21,3 +21,95 @@ There exists a coupling that, within one tick, allows energy or information to m
 \subsection{P4. Conservation Laws in $(M\times S)$}
 
 Total energy/information is conserved over the combined dynamics in $(M\times S)$, even though local budgets in $(M)$ may vary via flows in $(S)$.
+
+\subsection{P5. Substrate classes compatible with our assumptions}
+\label{subsec:substrate-classes}
+
+Appendix~E collects the structural assumptions (A1)--(A9) used in the
+derivation of the modified Lieb--Robinson bound, the categorical
+causality proof, and the phenomenological estimates.  Here we sketch
+what kinds of discrete substrates actually satisfy these assumptions.
+
+\paragraph{Global ordering and strict retardation (A1).}
+A1 is satisfied by any discrete--time dynamics in which the microscopic
+update rule takes the form
+\[
+(s,T) \mapsto (s',T+1)
+\]
+with no backward steps in $T$, and in which the mediator kernel
+$G_{\rm ret}$ in $S$ vanishes for $T'<T$.  Concrete examples include
+cellular automata on fixed graphs with synchronous updates, and
+asynchronous update schemes in which all allowed local moves advance a
+global integer ``tick'' $T$ by~1.  In both cases the coarse--grained
+substrate time $\tau$ can be taken as a smoothed version of~$T$.
+
+\paragraph{Sparsity and weak coupling (A3).}
+A3 requires that each node in the substrate pattern graph participates
+in at most $g<\infty$ active $S$--edges and that the corresponding
+Hamiltonian perturbations $h_e$ obey $\|h_e\|\le\eta$ with
+$\mu>\ln g$, where $\mu$ is the decay rate of the kernel in $S$.  This
+is naturally satisfied by substrates built from:
+\begin{itemize}
+  \item locally finite graphs (e.g.\ nearest--neighbour lattices,
+        bounded--degree random graphs, sparse small--world networks);
+  \item update rules in which only a small fraction of potential edges
+        are simultaneously active (e.g.\ stochastic activation with
+        fixed mean degree).
+\end{itemize}
+In such substrates the path sums that enter the function
+$\Phi(g,\eta t/\hbar)$ in Eq.~(9.2) converge and the $S$--tail cannot
+become distance--independent.
+
+\paragraph{Structure of $O_S$ and degeneracy dilution (A4).}
+A4 requires that $O_S$ be constructed from higher--dimension seed
+operators with $\Delta>4$, normalized so that $[O_S]=4$, and that
+$\langle O_S\rangle$ vanish (or be extremely small) in homogeneous,
+periodic, or thermal states because of degeneracy dilution.
+Qualitatively, if there are $N\gg 1$ macroscopically equivalent ways to
+embed a given mesoscopic pattern into a homogeneous background, then a
+generic superposition of those embeddings yields an overlap that
+scales as $1/\sqrt{N}$ or smaller.  This drives the effective quality
+factor $Q$ to zero in the thermodynamic limit.  Appendix~J gives an
+explicit toy model illustrating this scaling on a finite lattice.
+
+Conversely, in carefully engineered mesoscopic platforms (Sec.~5.3)
+the pattern selected by $O_S$ can be realized in only a few locations
+with aligned phases, so that $Q$ can approach order unity.  This
+difference between ``generic'' and ``engineered'' states is what
+suppresses collider and everyday signatures while allowing sharply
+tuned experiments to be sensitive.
+
+\paragraph{Kernel structure and minimal Lorentz breaking (A5--A6).}
+A5 and A6 are satisfied by substrates in which:
+\begin{itemize}
+  \item the similarity kernel $K_\sigma(\sigma,\sigma')$ depends only
+        on a bona fide metric $d_\sigma(\sigma,\sigma')$ as in
+        Eq.~(7.1), with $K_\sigma=\exp[-d_\sigma/\lambda_\sigma]$;
+  \item the $u^\mu$ aether/khronon sector lies within the
+        Einstein--\ae{}ther / khronometric parameter region where
+        $c_T=c$ and preferred--frame effects in gravity obey existing
+        bounds [cf.\ Eq.~(3.1C)].
+\end{itemize}
+In other words, the substrate can carry a preferred frame and an
+$S$--metric without spoiling standard tests of GR provided the
+aether/khronon sector is chosen conservatively.
+
+\paragraph{Cost monotonicity and pump budget (A2, A8, A9).}
+A2, A8, and A9 formalize the idea that resonance steps carry a positive
+thermodynamic cost and that the pump budget is finite.  These
+assumptions are satisfied whenever:
+\begin{itemize}
+  \item each microscopic update that changes the $S$--state dissipates
+        at least $k_BT\ln 2$ of entropy per bit of information, in the
+        spirit of Landauer's principle;
+  \item the total pump power $P_{\rm pump}$ is bounded on the relevant
+        time scales.
+\end{itemize}
+Under these conditions we can define a cost functor $\tilde K$ as in
+Appendix~D and a pump--rate $\Gamma_{\rm pump}$ as in Sec.~6.2, and the
+resource inequality (8.3) follows.
+
+These examples are not meant as a unique substrate proposal; they are
+intended to demonstrate that the abstract assumptions (A1)--(A9) are
+satisfied by broad classes of discrete systems rather than by a single
+fine--tuned construction.

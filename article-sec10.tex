@@ -72,6 +72,10 @@ in the substrate frame. Chains that would require $\Delta\tau<0$ for any microsc
 Importantly, requiring local $\Delta\tau>0$ for each microscopic resonance step is \emph{not} a fine-tuned prohibition imposed by hand; rather, it is simply a restatement of the fact that the microscopic substrate rules define an absolute substrate time ordering in which updates occur sequentially. This is a structural property of the substrate dynamics itself.
 
 This rule is local in $(M\times S)$: it is enforced at the level of individual resonance events and does not depend on the global motion of the laboratories. Because $\tau$ is a scalar time function on the substrate, it is the same for all inertial observers in $M$.
+This local rule is compatible with the cost and sparsity assumptions
+(A2)--(A3) of Appendix~E, which ensure that any physically realized
+influence chain carries a positive substrate time length and a
+nonzero thermodynamic cost.
 
 \begin{corollary}[Two-lab antitelephone exclusion]
 Consider two laboratories $A$ and $B$ following arbitrary timelike worldlines in $(M,g)$ with four-velocities $U_A^\mu$ and $U_B^\mu$. Assume each laboratory can use a combination of subluminal signals in $M$ and substrate-local resonance steps in $S$. Under the Monotonic-$(T)$ axiom and the anti-telephone rule above, there exists no protocol by which $A$ and $B$ can arrange for a message to arrive at the sender's own past proper time.
@@ -91,3 +95,59 @@ Section~9 established a modified Lieb--Robinson inequality, Eq.~(9.1), which bou
 \end{itemize}
 
 \textbf{Conclusion.} The model permits FTL transfer in the emergent spacetime $(M,g)$ while maintaining a globally well-defined causal order in substrate time. The combination of the Monotonic-$(T)$ axiom, the anti-telephone rule, and the modified Lieb--Robinson bound rules out antitelephone paradoxes.
+
+\subsection{Relation to standard no-signalling theorems}
+\label{subsec:no-signalling}
+
+It is useful to compare the present framework with standard
+no--signalling and microcausality results in relativistic quantum
+field theory and quantum information.
+
+First, relativistic QFT assumes that the fundamental fields are local
+on $(M,g)$ and that the interaction Hamiltonian is an integral of
+local densities.  Under these assumptions one can impose exact
+microcausality,
+\[
+[\hat\phi(x),\hat\phi(y)] = 0 \qquad \text{for spacelike-separated } x,y,
+\]
+which in turn implies that no influence can propagate faster than the
+speed of light in~$M$.  By contrast, the aether-resonance interaction
+is explicitly \emph{bilocal} in the emergent spacetime: it is local in
+the substrate variables $(\sigma,T)$ and in the pattern-space metric
+$d_\sigma$, but can connect points in $M$ that are spacelike-separated
+with respect to~$g_{\mu\nu}$.  As a result, exact microcausality in $M$
+is not expected.  Instead, Sec.~9 derives a modified Lieb--Robinson
+bound: commutators outside the usual light cone are nonzero but are
+exponentially suppressed in $d_\sigma$ and retarded at the finite
+substrate speed~$c_S$.
+
+Second, Eberhard-type arguments show that introducing superluminal
+signals with a \emph{Lorentz-invariant} speed generically leads to
+paradoxes or to frame-dependent collapse rules.  The present model
+evades these conclusions by postulating an explicit preferred substrate
+frame and a global substrate time $\tau$.  The dynamics is not
+Lorentz-invariant at the microscopic level; instead, Lorentz symmetry
+emerges in the long-wavelength limit of the visible sector.  The
+Monotonic-$(T)$ axiom and the anti-telephone rule ensure that every
+allowed influence chain has strictly positive $\Delta\tau$, so that
+closed causal loops in $(M\times S)$ are excluded even though
+individual segments may project to superluminal displacements in~$M$.
+
+Third, standard ``no superluminal signalling from entanglement''
+results in quantum information rely on the linearity of quantum
+mechanics, the Born rule, and the assumption that measurement choices
+act only on local degrees of freedom in~$M$.  In our framework we do
+not modify the Hilbert-space structure or the Born rule of the visible
+sector.  Instead, we posit an additional channel mediated by the
+$S$-sector, which couples to pattern-dependent operators $O_S$ and is
+governed by the resource and causality constraints derived above.
+Entanglement alone cannot be used to signal in this model; any FTL
+influence must flow through the substrate channel and therefore obey
+the constraints of the modified Lieb--Robinson bound and the
+Monotonic-$(T)$ axiom.
+
+In summary, the framework is explicitly outside the scope of
+standard local QFT no-go theorems (because of bilocal couplings and a
+preferred substrate frame), but it replaces exact microcausality in
+$M$ by a softer, quantitatively controlled notion of causality in
+$(M\times S)$ that still forbids antitelephone protocols.

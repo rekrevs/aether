@@ -8,6 +8,11 @@ All three proposed experiments are designed to be as close as practicable to ``n
   \item aggressive use of control conditions, sham runs, and blinding.
 \end{itemize}
 In all cases, raw data and analysis code should be published openly.
+In all cases the observables we propose to measure (bit error rates,
+energy balances, correlation functions) are classical summary
+statistics of underlying quantum dynamics; any positive signal would
+indicate the presence of the additional $S$-mediated channel rather
+than a breakdown of standard quantum measurement theory.
 
 \textbf{Statistical methodology.} For each experiment we pre-register:
 \begin{itemize}
@@ -28,6 +33,15 @@ A separate calibration study, using only local controls, is used to validate ana
 \item Independent atomic clocks (GPS-disciplined or ultra-stable crystal/OCXO) with jitter $\lesssim 1$\,ns provide local timing.
 \item Laboratories are separated by $>1$\,km, so that light-travel time between them exceeds the timing resolution ($>3\,\mu$s).
 \end{itemize}
+
+From a technological perspective, all ingredients required for E1
+(photonic or electronic reservoirs with $N\sim 10^3$ nodes, high-quality
+pumps, and synchronized clocks over kilometre baselines) are available
+with current or near-term hardware.  The main challenge lies in
+accumulating sufficient statistics and in enforcing strict spacelike
+separation and analysis pre-registration, rather than in developing
+entirely new device physics.  We therefore view E1 as a near-term
+(5--10 year) experimental target.
 
 \textbf{Protocol.}
 \begin{enumerate}
@@ -128,6 +142,13 @@ A concrete realization for maximal sensitivity:
 \item If a peak is found, compare its width and location with theoretical expectations for the complexity dependence of the pattern quality factor $\mathcal Q(\Sigma)$.
 \item A null result constrains $\lambda_\sigma$ and $\mathcal Q$ for the explored class of patterns, complementing the point constraints from E1 and E2.
 \end{itemize}
+
+In practice, realizing a clean scan over configurational entropy $\Sigma$
+with precise control over disorder and pump parameters is challenging,
+especially in platforms with many coupled degrees of freedom.  We view
+E3-type tests as longer-term goals that may require one or two orders of
+magnitude further progress in controllable complex systems beyond what
+is currently available.
 
 \subsubsection{Worked example: chaos-to-chaos synchronization test}
 

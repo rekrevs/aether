@@ -103,6 +103,27 @@ with
 \end{equation}
 and coefficients $c_{mnk}$ chosen so that $O_S$ is scalar, gauge-invariant, and UV-soft above its design scale. The window function ensures locality on scales $\lesssim \ell$, while the polynomial structure makes $O_S$ sensitive to higher-order patterns (gradients, curvature, correlations) rather than just local field amplitudes.
 
+Two genericity remarks are important here.  First, for a ``generic''
+choice of coefficients $c_{mnk}$ (e.g.\ drawn from a broad, symmetric
+distribution subject only to gauge invariance and UV softness), the
+operator $O_S$ is highly sensitive to mesoscopic pattern structure but
+its expectation value in homogeneous, periodic, or thermal states is
+suppressed by degeneracy dilution.  If there are $N\gg 1$ macroscopically
+equivalent ways of placing a given pattern inside such a state, then a
+typical superposition of those placements yields
+$\langle O_S\rangle \sim N^{-1/2}$ or smaller.  In the thermodynamic
+limit this drives the quality factor $Q$ to zero.
+
+Second, moving away from homogeneous states does not require fine
+tuning of $c_{mnk}$.  Instead, one engineers platforms (Sec.~5.3) in
+which the patterns singled out by $O_S$ are realized in only a few
+locations with correlated phases (for example, near critical points or
+edge-of-chaos regimes in complex networks).  In such states the overlap
+with $O_S$ can approach order unity, $Q\sim 1$, while keeping the same
+underlying definition of $O_S$.  In this sense the selection operator
+is generic at the level of its field content; what is special is the
+prepared state of the visible sector.
+
 \subsection{Why colliders see nothing}
 
 Putting the pieces together, the effective contribution of Eq.~(5.1) to any collider observable schematically scales as
@@ -121,7 +142,11 @@ where ``in'' and ``out'' denote initial and final states in a high-energy experi
   \item rapidly decorrelating phases;
   \item large degeneracy $N$ of equivalent pattern placements.
 \end{itemize}
-By the degeneracy-dilution argument, $\langle O_S\rangle_{\mathrm{in}}\approx \langle O_S\rangle_{\mathrm{out}}\approx 0$, so that collider cross-sections are suppressed by the \emph{state} rather than by RG running. The same logic applies to cosmological and astrophysical plasmas that are nearly homogeneous on microscopic scales.
+By the degeneracy-dilution argument (spelled out explicitly in the toy
+model of Appendix~J), $\langle O_S\rangle_{\mathrm{in}}\approx
+\langle O_S\rangle_{\mathrm{out}}\approx 0$ in such states, so that collider
+cross-sections are suppressed by the \emph{state} rather than by RG
+running. The same logic applies to cosmological and astrophysical plasmas that are nearly homogeneous on microscopic scales.
 
 In summary, the selection operator $O_S$ is chosen so that:
 \begin{itemize}
