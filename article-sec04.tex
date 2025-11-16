@@ -1,4 +1,5 @@
 \section{Local Implementation of S-Proximity via an S-Mediator}
+\label{sec:mediator}
 
 \textbf{Problem:} How can the substrate, with only local rules, realize ``proximity in $S$'' without a global bulletin board?
 
@@ -6,6 +7,7 @@
 propagates at finite speed in $S$ (retarded in substrate time $T$) and couples to $O_S$.
 
 \subsection{Mediator Dynamics}
+\label{sec:mediator:dynamics}
 
 Each point $\sigma \in S$ carries a field $\chi(\sigma,T)$ that obeys a damped \emph{wave-like equation} in substrate parameter $T$ and $S$-distance. Schematically, the source current $J_S$ is proportional to the activation of the selection operator $O_S$ along the $S$-fiber, so that regions where $O_S$ takes large values act as drivers for the mediator field.
 
@@ -23,9 +25,10 @@ where:
 
 In this effective description, $\nabla_\sigma^2$ should be read as a Laplace--Beltrami operator on $S$ associated with the metric underlying $d_\sigma$, rather than a literal Euclidean Laplacian. We only require that it generate a local diffusion process compatible with the graph structure and metric properties of $S$ discussed in Appendix~\ref{app:assumptions}.
 
-We impose retarded boundary conditions in $T$, so that $\chi(\sigma,T)$ depends only on $J_S(\sigma',T')$ with $T'\le T$.
+We impose retarded boundary conditions in $T$, so that $\chi(\sigma,T)$ depends only on $J_S(\sigma',T')$ with $T'\le T$. For the structural results that follow, the only essential properties of this equation are locality on $(S,d_\sigma)$, finite propagation speed $c_S$, and retardedness in the substrate time; the specific choice of a damped wave operator is a convenient representative of any mediator dynamics with these features.
 
 \subsection{Retarded Kernel in S-Distance}
+\label{sec:mediator:kernel}
 
 The Green function $G_{\rm ret}$ for (4.1) satisfies
 

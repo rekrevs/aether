@@ -1,8 +1,10 @@
 \section{Operationalized $d_\sigma$-Metric}
+\label{sec:dsigma}
 
 Algorithmic similarity between two microscopic configurations is in general non-computable. For phenomenology and experiment design we therefore introduce a \textbf{practical proxy} for the structural distance $d_\sigma$ and the associated similarity factor $\Ksig$.
 
 \subsection{Feature embedding and surrogate distance}
+\label{sec:dsigma:embedding}
 
 We associate to each substrate configuration $\sigma\in S$ a finite-dimensional feature vector
 \[
@@ -36,7 +38,7 @@ Given positive weights $w_I>0$ and an embedding scale $\ell_0$, we define
 \end{split}
 \tag{7.1}
 \end{equation}
-This construction makes $d_\sigma$ a bona fide metric on $S$ (up to equivalence of configurations with identical feature vectors) and implements the exponential falloff assumed in the mediator kernel.
+This construction makes $d_\sigma$ a bona fide metric on $S$ (up to equivalence of configurations with identical feature vectors) and implements the exponential falloff assumed in the mediator kernel. For the purposes of the modified Lieb--Robinson bound in Sec.~\ref{sec:lieb-robinson} and the causality analysis in Sec.~\ref{sec:causality}, the only properties of $d_\sigma$ that enter are that it defines a bona fide metric on $S$ (up to the usual identifications) and that the kernel $K_\sigma = \exp[-d_\sigma/\lambda_\sigma]$ decays sufficiently fast. Different choices of feature maps and weights that lead to the same metric properties are therefore all equivalent at the level of the structural results.
 
 \subsection{Choice of features}
 

@@ -1,6 +1,10 @@
 \section{Action and Field Content}
+\label{sec:action}
 
 \subsection{Variational Principle}
+\label{sec:action:variational}
+
+From this point on we work with one explicit effective-field-theory realization of the postulates in Sec.~2. The goal is not to single out a unique microphysics, but to have a concrete, internally consistent model that makes all assumptions visible and calculable. The specific choices made below for the aether/khronon sector, for the interaction term, and for the mediator and selection operators are representative of a broader family. Whenever a later argument relies only on the structural content of P1--P4 and the assumptions (A1)--(A9), rather than on the detailed form of these choices, we will say so explicitly.
 
 We derive the framework from a \textbf{total action}:
 
@@ -25,6 +29,7 @@ where:
 Varying this action with respect to the metric yields field equations involving the stress--energy tensor $T^{\mu\nu}_S$. Here $T^{\mu\nu}_S$ includes both the stress--energy associated with the aether/khronon sector defined by $\mathcal{L}_S$ and the effective stress--energy of the $S$-mediator and its interaction terms; the detailed decomposition is discussed in Appendix~\ref{app:bilocal-kernel}.
 
 \subsection{Aether / Khronon Sector}
+\label{sec:action:aether}
 
 We choose a simple baseline aether/khronon sector that is compatible with existing constraints. The general structure of such preferred-frame sectors is well known from Einstein--\ae ther and Ho\v{r}ava/khronometric gravity, where a unit timelike vector field selects a foliation and leads to additional propagating modes and preferred-frame effects~\cite{jacobson2004_einstein_aether,jacobson2008_einstein_aether_status,horava2009_qg_lifshitz,blas2011_horava_models}. A conservative option is to take a unit timelike vector field $u^\mu$ enforced by a Lagrange multiplier:
 \begin{equation}
@@ -56,9 +61,10 @@ c_2=0,
 c_4\ll 1,
 \tag{3.1C}
 \end{equation}
-so that gravitational-wave speed $c_T$ matches $c$ to high precision and the preferred frame effects are within current bounds. This parameter choice lies within the region allowed by binary pulsar timing, post-Newtonian constraints, and the near-equality of the speed of gravity and the speed of light inferred from GW170817 and GRB 170817A~\cite{yagi2014_einstein_aether_pulsars,oost2018_einstein_aether_gw170817,baker2017_gw170817_mg,creminelli2017_dark_energy_gw170817,will2014_confrontation_gr}. For the bulk of this paper, option (A) will suffice; (B) simply provides a conservative embedding into the broader Einstein--æther literature and leaves room to maneuver if one later wishes to let $u^\mu$ carry weak, long-wavelength structure. In the bulk of this work we further specialise to the constraint-only option (3.1A), so that no new propagating metric degrees of freedom appear and all observable effects arise from the $M\times S$ interaction.
+so that gravitational-wave speed $c_T$ matches $c$ to high precision and the preferred frame effects are within current bounds. This parameter choice lies within the region allowed by binary pulsar timing, post-Newtonian constraints, and the near-equality of the speed of gravity and the speed of light inferred from GW170817 and GRB 170817A~\cite{yagi2014_einstein_aether_pulsars,oost2018_einstein_aether_gw170817,baker2017_gw170817_mg,creminelli2017_dark_energy_gw170817,will2014_confrontation_gr}. For the bulk of this paper, option (A) will suffice; (B) simply provides a conservative embedding into the broader Einstein--æther literature and leaves room to maneuver if one later wishes to let $u^\mu$ carry weak, long-wavelength structure. In the bulk of this work we further specialise to the constraint-only option (3.1A), so that no new propagating metric degrees of freedom appear and all observable effects arise from the $M\times S$ interaction. None of the structural consistency results in Secs.~\ref{sec:action:field-eqs}, \ref{sec:lieb-robinson}, and~\ref{sec:causality} depend on the detailed form of $L_S$; they use only the existence of a preferred foliation compatible with P1 and (A6), so the analysis applies equally to any aether/khronon sector in that parameter regime.
 
 \subsection{Field Equations and Energy-Momentum Accounting}
+\label{sec:action:field-eqs}
 
 Varying with respect to $g_{\mu\nu}$, the visible fields, and the aether/khronon sector yields:
 
@@ -118,6 +124,7 @@ Using the split conservation equations (3.4), we have $\nabla_\mu T^{\mu\nu}_{vi
 For generic configurations where $J^\nu_\sigma \neq 0$, this forces $\boxed{\alpha = 1}$ exactly. Thus any apparent freedom to choose a different gravitational coupling for the $S$-sector is removed once we demand consistency with the Bianchi identity and the explicit exchange current: the metric responds to \emph{all} energy-momentum with the same gravitational strength. This is a structural consistency condition, not a tunable parameter, and should be verified experimentally in E2 (see Assumption~A8 in Appendix~\ref{app:assumptions}). Therefore, any viable completion of this scenario at the substrate level must reproduce $\alpha \equiv 1$ in the low-energy effective action: $\alpha$ cannot be treated as a tunable parameter that could be adjusted to ``hide'' the gravitational effects of the $S$-sector whenever $J^\nu_\sigma$ is nonzero.
 
 \subsection{Gravitational Signature and Bounds}
+\label{sec:action:grav-signature}
 
 \textbf{Gravitational coupling $\alpha$.} As shown in the preceding subsection (``Why $\alpha=1$ is required by consistency''), once we split the conservation laws as
 \[
