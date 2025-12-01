@@ -34,6 +34,17 @@ A concrete realization for maximal sensitivity:
 
 \textbf{Null bound:} If $|\Delta E|<10^{-26}$\,J after $10^6$\,s, this constrains $\varepsilon\omega_0\mathcal Q<10^{-8}$\,Hz. A null sidereal signal gives $\varepsilon\mathcal Q<10^{-20}$.
 
+\textbf{Preliminary Noise Budget (Target $\delta E \sim 10^{-26}$ J):}
+To achieve the target sensitivity, the following noise sources must be mitigated:
+\begin{itemize}
+\item \textbf{Thermal Fluctuation Noise (Phonon Noise):} $\Delta E_{th} = \sqrt{k_B T^2 C}$. For a $1$g silicon absorber at $10$ mK, $\Delta E_{th} \approx 10^{-19}$ J. \textbf{Mitigation:} Requires mass reduction to $\mu$g scale (MEMS calorimeters) or non-equilibrium inductive sensing (KES).
+\item \textbf{Vibrational Heating:} Micro-fracture events in suspension. \textbf{Mitigation:} Underground facility with active vibration isolation stages ($>60$ dB suppression).
+\item \textbf{Cosmic Ray Muons:} A single muon deposits $\sim$MeV ($10^{-13}$ J). \textbf{Mitigation:} Deep underground location ($>2$ km.w.e.) and active muon veto (scintillator panels) to reject coincidence events.
+\item \textbf{Two-Level System (TLS) Noise:} Dielectric loss in oxide layers. \textbf{Mitigation:} Crystalline sapphire substrates and trenching to remove surface oxides.
+\end{itemize}
+
+\emph{Assessment:} The "Ambitious" target requires integrating state-of-the-art dark matter detector technology (e.g., from SuperCDMS/CRESST) into a rotating setup, confirming this is a Phase 3 decadal challenge.
+
 \subsection{Chaos-to-chaos synchronization test (E3) – detailed protocol}
 
 A concrete realization using turbulent flows:

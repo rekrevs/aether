@@ -49,19 +49,22 @@ so that Eq.~(6.1) can be written as
 \end{equation}
 This form will be useful when connecting to the thermodynamic and information-theoretic bounds in Sec.~8.
 
-\subsection{Degeneracy dilution and state dependence}
+\subsection{Operational Definition of $Q$}
 
-The factor $\mathcal{Q}(e,t)$ encodes how well the actual microscopic configuration on edge $e$ matches the high-complexity pattern selected by $O_S$. As discussed in Sec.~5, in homogeneous or periodic systems there are many equivalent placements of the same pattern. If there are $N$ such placements, the overlap between the actual state and the specific pattern singled out by $O_S$ scales as $1/\sqrt{N}$, so that
-\[
-|\langle O_S\rangle|^2 \sim \frac{1}{N}.
-\]
-In the thermodynamic limit $N\to\infty$ this implies $\mathcal{Q}\to 0$ and hence
+We formally define the quality factor $\mathcal{Q}$ as a normalized expectation value. Let $|\psi_{id}\rangle$ be a reference "ideal pattern" state in which the pattern selected by $O_S$ is realized maximally. We define the normalization constant $O_0 \equiv \langle \psi_{id} | O_S | \psi_{id} \rangle$.
+
+For any (possibly mixed) state $\rho$ of the visible sector, the pattern quality factor is:
+
 \begin{equation}
-  \Psig(e) \to 0
-  \qquad
-  \text{(homogeneous / thermal / periodic states)}.
-  \tag{6.3}
+\mathcal{Q}[\rho] := \frac{|\mathrm{Tr}(\rho O_S)|}{O_0}
 \end{equation}
-This is the precise sense in which aether resonance is absent in ordinary matter: even if $\varepsilon$ is not extremely small, $\mathcal{Q}$ is effectively zero, and no appreciable power flows into the $S$-sector.
 
-Conversely, in carefully engineered, mesoscopic, pattern-rich or near-critical systems the number of equivalent placements can be $\mathcal{O}(1)$, and $\mathcal{Q}$ can approach unity. Then $\Psig(e)$ can be an appreciable fraction of $P_{\mathrm{pump}}(e)$ (further bounded by thermodynamics in Sec.~8). This is the regime targeted by experiments E1--E3.
+By construction, $0 \le \mathcal{Q} \le 1$.
+
+In homogeneous systems with $N$ equivalent pattern placements, the state $\rho$ is a mixture over all embeddings. As derived in Appendix I, this yields:
+
+\begin{equation}
+\mathcal{Q} \sim \frac{1}{N}
+\end{equation}
+
+In the thermodynamic limit ($N \to \infty$), $\mathcal{Q} \to 0$ and therefore $P_\sigma(e) \to 0$. This ensures the S-channel is absent in ordinary matter. Conversely, in engineered systems where the pattern is realized in $O(1)$ locations with aligned phases, $\mathcal{Q}$ can approach unity.

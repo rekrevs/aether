@@ -14,11 +14,11 @@ For clarity, we collect here the main structural assumptions used in the derivat
 \]
 This ensures convergence of the path sums leading to the function $\Phi$ in Eq.~(9.2) and prevents the substrate tail from becoming distance-independent.
 
-\item \textbf{(A4) Structure of $O_S$.} The selection operator $O_S$ is constructed from higher-dimension seed operators with $\Delta>4$ and normalized so that $[O_S]=4$, but we do \emph{not} rely on RG irrelevance alone to suppress collider signatures. Instead, $O_S$ is chosen such that
-\[
-  \langle O_S\rangle_{\rm homogeneous} \approx 0
-\]
-in homogeneous, periodic, or thermal states due to degeneracy dilution: many macroscopically equivalent pattern placements produce destructive overlap, driving $Q\to 0$ in the thermodynamic limit.
+\item \textbf{(A4) Structure of $O_S$ and Degeneracy Dilution.} The selection operator is normalized so that $[O_S]=4$. We define the quality factor $\mathcal{Q}[\rho] = |\mathrm{Tr}(\rho O_S)|/O_0$. For homogeneous, periodic, or thermal states with $N \gg 1$ equivalent pattern embeddings, we require:
+\begin{equation}
+  \mathcal{Q}[\rho_{hom}] \sim \frac{1}{N} \to 0
+\end{equation}
+This ensures the S-channel is suppressed in generic matter. In engineered platforms, the pattern is realized in $O(1)$ locations, allowing $\mathcal{Q} \sim 1$.
 
 \item \textbf{(A5) Positivity and causality of the $S$-kernel.} The static kernel on $S$, $K_\sigma(\sigma,\sigma')$, is positive semidefinite and depends only on the structural distance $d_\sigma(\sigma,\sigma')$. The retarded mediator Green function in $S$ has finite speed $c_S$ and vanishes when $\tau'<\tau$.
 
@@ -37,6 +37,8 @@ so there is no reactionless drive even in the presence of time-dependent resonan
 \item \textbf{(A8) Universal gravitational coupling ($\alpha=1$).} The Einstein equations couple the metric to $T^{\mu\nu}_{\rm vis}+T^{\mu\nu}_S$ with a \emph{universal} strength. The Bianchi identity together with the split conservation laws enforce $\alpha\equiv 1$ when $J^\nu_\sigma\neq 0$, so there is no tunable reduced gravitational coupling for the $S$-sector. Apparent FTL effects arise entirely from substrate locality, not from modifications of the causal structure of $(M,g)$.
 
 \item \textbf{(A9) Length dimensions for $d_\sigma$ and $\lambda_\sigma$.} The structural distance $d_\sigma$ and the range $\lambda_\sigma$ are assigned dimensions of length via an embedding scale $\ell_0$ set by the feature map $\mathcal{I}:S\to\mathbb{R}^{N_{\rm feat}}$. This allows direct comparison between $d_\sigma$, $\lambda_\sigma$, and experimental length scales $L_{\rm exp}$.
+
+\item \textbf{(A10) Pattern Sequestering.} There exists a coarse-grained background field $Q_*(x)$ measuring pattern activation. The S-mediated interaction is always proportional to $Q_*^2(x)$. In the homogeneous/vacuum states defining SME bounds, $Q_* \equiv 0$. In the engineered configurations of E1-E3, $Q_* \sim \mathcal{Q}$. This ensures that S-induced Lorentz violation is absent from the vacuum EFT by construction.
 \end{itemize}
 
 \subsection{Method note}

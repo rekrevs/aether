@@ -1,95 +1,65 @@
-\section{Toy model for degeneracy dilution and $Q\to 0$ scaling}
+\section{Toy Model for Degeneracy Dilution}
 \label{app:degeneracy-toy-model}
 
-In this appendix we work with a discrete toy Hilbert-space model and therefore denote the selection operator by $\hat{O}_S$ to emphasize its operator character. This is the same object that appears as $O_S$ in the main text; the hat is purely a notational reminder in this finite-dimensional setting.
+We model the degeneracy-dilution mechanism using a discrete Hilbert space of pattern embeddings to demonstrate the $1/N$ scaling of $\mathcal{Q}$ in homogeneous states.
 
-To make the degeneracy-dilution mechanism in Sec.~5 more concrete, we
-give a simple toy model in which the quality factor $Q$ can be computed
-explicitly and shown to vanish as the system size grows.
+\subsection{Setup}
+Consider an emergent region that can host a specific mesoscopic pattern $\mathcal{P}$ in $N$ macroscopically equivalent ways (embeddings), labeled by $j = 1, \dots, N$. Let $|j\rangle$ denote the coarse-grained state where the pattern is located at embedding $j$. We treat these as orthonormal, $\langle j | k \rangle = \delta_{jk}$.
 
-Consider a one-dimensional ring of $N$ sites labeled by $i=1,\dots,N$,
-with periodic boundary conditions.  At each site we have a local degree
-of freedom $s_i$ taking values in a finite set~$\mathcal{A}$ (for
-example, spin configurations or coarse-grained field values).  Let
-$\mathcal{P}$ denote a fixed pattern of length~$\ell\ll N$, i.e.\ a
-specified sequence $(p_1,\dots,p_\ell)\in\mathcal{A}^\ell$.
+We define the selection operator $\hat{O}_S$ to "reward" a specific target embedding $j_0$:
+\begin{equation}
+\hat{O}_S = O_0 |j_0\rangle \langle j_0|
+\end{equation}
 
-Define a local pattern-detection operator
-\[
-\hat o_j :=
-\begin{cases}
-+1, & \text{if } (s_j,\dots,s_{j+\ell-1}) = \mathcal{P},\\
-0,  & \text{otherwise,}
-\end{cases}
-\]
-with indices understood modulo~$N$, and let
-\[
-\hat O_S := \frac{1}{\sqrt{N}} \sum_{j=1}^N \hat o_j.
-\]
-This is a simple discrete analogue of an $O_S$ that is sensitive to a
-mesoscopic pattern of size~$\ell$ but insensitive to global translations.
+\subsection{Structured (Engineered) State}
+In a perfectly engineered configuration where the pattern is deliberately pinned at $j_0$, the state is $\rho_{str} = |j_0\rangle \langle j_0|$.
+\begin{equation}
+\mathcal{Q}[\rho_{str}] = \frac{|\mathrm{Tr}(\rho_{str} \hat{O}_S)|}{O_0} = \frac{|\langle j_0 | O_0 | j_0 \rangle|}{O_0} = 1
+\end{equation}
+This confirms that $\mathcal{Q} \sim 1$ for engineered states.
 
-\paragraph{Homogeneous / thermal states.}
-Consider first a homogeneous or high-temperature state in which each
-site is independently and identically distributed according to some
-probability measure $\mu$ on~$\mathcal{A}$, with no long-range order.
-In such states the random variables $\hat o_j$ have mean
-$\mathbb{E}[\hat o_j]=p$, where $p$ is the probability that a random
-length-$\ell$ window matches $\mathcal{P}$, and correlations decay
-rapidly with separation.  By the central limit theorem,
-\[
-\mathbb{E}[\hat O_S] = \frac{1}{\sqrt{N}}\sum_{j=1}^N \mathbb{E}[\hat o_j]
-  = \sqrt{N}\,p,
-\]
-while the variance scales as
-$\mathrm{Var}(\hat O_S) = \mathcal{O}(1)$ for $N\to\infty$.  If we
-define the quality factor as
-\[
-Q := \frac{|\mathbb{E}[\hat O_S]|}{\sqrt{\mathrm{Var}(\hat O_S)}},
-\]
-then in homogeneous states we obtain
-\[
-Q_{\rm hom} \sim \sqrt{N}\,p.
-\]
-For patterns that are rare in a random background, $p$ typically scales
-as $N^{-1}$ or faster (for instance, if one demands that $\mathcal{P}$
-match exactly at a specific amplitude threshold), so that
-$Q_{\rm hom}\to 0$ as $N\to\infty$.  This is the discrete analogue of
-degeneracy dilution: the number of ways to place the pattern grows
-linearly with $N$, while the effective overlap per placement shrinks.
+\subsection{Homogeneous (Mixed) State}
+A maximally homogeneous state has no preference for any specific embedding and is modeled as a uniform classical mixture:
+\begin{equation}
+\rho_{hom} = \frac{1}{N} \sum_{j=1}^N |j\rangle \langle j|
+\end{equation}
+The expectation value is:
+\begin{equation}
+\mathrm{Tr}(\rho_{hom} \hat{O}_S) = \frac{1}{N} \sum_{j=1}^N \langle j | \hat{O}_S | j \rangle = \frac{1}{N} \langle j_0 | \hat{O}_S | j_0 \rangle = \frac{O_0}{N}
+\end{equation}
+The quality factor is:
+\begin{equation}
+\mathcal{Q}[\rho_{hom}] = \frac{1}{N} \xrightarrow{N \to \infty} 0
+\end{equation}
 
-\paragraph{Engineered mesoscopic patterns.}
-Now consider a state in which the pattern $\mathcal{P}$ is imprinted
-deliberately at a small number $k\ll N$ of locations
-$\{j_1,\dots,j_k\}$ with aligned phases, while the rest of the system
-remains disordered.  In the idealized limit where the pattern is
-perfect at those $k$ locations and absent elsewhere, we have
-$\hat o_{j_a}=1$ for $a=1,\dots,k$ and $\hat o_j=0$ otherwise, so that
-\[
-\mathbb{E}[\hat O_S] = \frac{k}{\sqrt{N}},\qquad
-\mathrm{Var}(\hat O_S)=0
-\]
-for that pure configuration.  In the presence of noise and
-fluctuations, $\mathrm{Var}(\hat O_S)$ becomes small but nonzero, and
-the resulting quality factor $Q$ can approach order unity provided $k$
-does not grow with $N$.
+\subsection{Random-Phase Superposition}
+Alternatively, if the homogeneous state is a quantum superposition with random phases $\phi_j$:
+\begin{equation}
+|\psi_{rand}\rangle = \frac{1}{\sqrt{N}} \sum_{j=1}^N e^{i\phi_j} |j\rangle
+\end{equation}
+Then $\langle \psi_{rand} | \hat{O}_S | \psi_{rand} \rangle = \frac{1}{N} \langle j_0 | \hat{O}_S | j_0 \rangle = \frac{O_0}{N}$.
+Again, $\mathcal{Q} = 1/N$.
 
-\paragraph{Implication.}
-This toy model captures in a minimal setting the two regimes exploited
-in Sec.~5:
-\begin{itemize}
-  \item In homogeneous or high-entropy states with many equivalent
-        embeddings of the pattern, degeneracy dilution drives
-        $Q\to 0$ as $N$ grows, so that contributions of the form
-        $\langle O_S\rangle_{\rm in}\langle O_S\rangle_{\rm out}$ to
-        collider amplitudes vanish in the thermodynamic limit.
-  \item In carefully engineered mesoscopic states with a small number
-        of well-aligned pattern embeddings, $Q$ can be of order unity
-        even for large~$N$, making such platforms sensitive probes of
-        aether resonance.
-\end{itemize}
-Although highly simplified, the scaling structure of this model is
-generic: any observable that averages over $\mathcal{O}(N)$ equivalent
-pattern placements while the signal is concentrated in $\mathcal{O}(1)$
-of them will display the same $Q\to 0$ behaviour in the homogeneous
-limit.
+\subsection{Conclusion}
+This model demonstrates that if a pattern has $N$ equivalent embeddings in a volume, the signal detected by a local selection operator scales as $1/N$. In the thermodynamic limit ($N \to \infty$), the S-channel is effectively closed ($\mathcal{Q} \to 0$) for homogeneous matter, while remaining open ($\mathcal{Q} \sim 1$) for engineered states.
+
+\subsection{Example of a local pattern operator in a spin model}
+To illustrate degeneracy dilution in a more physical setting, consider a one-dimensional spin-$1/2$ chain of length $N$ with local Pauli operators $\sigma^z_j$. Let the ``pattern'' be a specific length-3 domain $\uparrow\downarrow\uparrow$ and define a local projector at site $j$
+\[
+\Pi_j := \frac{1}{8}(1+\sigma^z_j)(1-\sigma^z_{j+1})(1+\sigma^z_{j+2}),
+\]
+which is 1 if the spins at $(j,j+1,j+2)$ form $\uparrow\downarrow\uparrow$ and 0 otherwise. A simple instance of $O_S$ in this toy model is
+\[
+\hat O_S = O_0\,\Pi_{j_0},
+\]
+where $j_0$ is a designated embedding and $O_0$ sets the normalization. In an engineered state where the pattern is deliberately pinned at $j_0$, the density matrix is $\rho_{\rm str}=|{\uparrow\downarrow\uparrow}\rangle_{j_0}\langle{\uparrow\downarrow\uparrow}|\otimes\rho_{\rm rest}$ and $Q[\rho_{\rm str}]=1$.
+
+In contrast, consider a homogeneous thermal state at inverse temperature $\beta$ in a translation-invariant nearest-neighbour Hamiltonian. The coarse-grained state can be approximated by
+\[
+\rho_{\rm hom} \simeq \frac{1}{N}\sum_{j=1}^N \rho_j,
+\]
+where $\rho_j$ is the state with the pattern centred at $j$ and the rest of the chain in local equilibrium. By the same counting as in Sec.~5.2 and Appendix I.1--I.4, one finds
+\[
+\mathrm{Tr}(\rho_{\rm hom}\hat O_S) = \frac{O_0}{N},\qquad Q[\rho_{\rm hom}] \sim \frac{1}{N}\to 0\quad(N\to\infty).
+\]
+Thus a completely local operator built from a small cluster of spins can exhibit the same $1/N$ suppression in homogeneous states as the abstract embedding model. The essential ingredient is not the particular Hilbert space, but the large combinatorial degeneracy of macroscopically equivalent placements of the pattern. Similar constructions can be carried out in higher-dimensional spin systems or lattice boson models, and a key task for future work is to identify microscopic substrates where high-$Q$ engineered states and strong degeneracy dilution can coexist for realistic values of $N$.

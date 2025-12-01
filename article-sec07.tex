@@ -3,7 +3,26 @@
 
 Algorithmic similarity between two microscopic configurations is in general non-computable. For phenomenology and experiment design we therefore introduce a \textbf{practical proxy} for the structural distance $d_\sigma$ and the associated similarity factor $\Ksig$.
 
-\subsection{Feature embedding and surrogate distance}
+\subsection{Example: Local Block Pattern Space}
+
+To ground the bundle picture, consider a concrete realization using local field invariants. Fix a window scale $\ell$ in $M$. For each $x \in M$, consider the visible fields restricted to a geodesic ball $B_\ell(x)$. We construct a feature vector $\mathcal{I}(\sigma_x)$ by integrating local gauge- and diffeomorphism-invariant scalars over this window:
+
+\begin{equation}
+\mathcal{I}_1(\sigma_x) = \frac{1}{V_\ell} \int_{B_\ell(x)} d^4y \sqrt{-g} \, F_{\mu\nu}F^{\mu\nu}
+\end{equation}
+\begin{equation}
+\mathcal{I}_2(\sigma_x) = \frac{1}{V_\ell} \int_{B_\ell(x)} d^4y \sqrt{-g} \, \nabla_\mu\phi \nabla^\mu\phi
+\end{equation}
+
+Two microscopic states at $x$ are identified as the same pattern $\sigma_x$ if they yield identical feature vectors (within experimental resolution). The projection is simply $\pi(\sigma_x) = x$. The structural distance between a pattern at $x$ and a pattern at $y$ is then defined purely by their features:
+
+\begin{equation}
+d_\sigma(\sigma_x, \sigma'_y) := \ell_0 \left( \sum_k w_k |\mathcal{I}_k(\sigma_x) - \mathcal{I}_k(\sigma'_y)|^2 \right)^{1/2}
+\end{equation}
+
+This explicit construction ensures $d_\sigma$ is a bona fide metric on the pattern data, independent of spacetime separation.
+
+\subsection{Metric Properties and Path Extensivity}
 \label{sec:dsigma:embedding}
 
 We associate to each substrate configuration $\sigma\in S$ a finite-dimensional feature vector
@@ -40,6 +59,10 @@ Given positive weights $w_I>0$ and an embedding scale $\ell_0$, we define
 \end{equation}
 This construction makes $d_\sigma$ a bona fide metric on $S$ (up to equivalence of configurations with identical feature vectors) and implements the exponential falloff assumed in the mediator kernel. For the purposes of the modified Lieb--Robinson bound in Sec.~\ref{sec:lieb-robinson} and the causality analysis in Sec.~\ref{sec:causality}, the only properties of $d_\sigma$ that enter are that it defines a bona fide metric on $S$ (up to the usual identifications) and that the kernel $K_\sigma = \exp[-d_\sigma/\lambda_\sigma]$ decays sufficiently fast. Different choices of feature maps and weights that lead to the same metric properties are therefore all equivalent at the level of the structural results.
 
+\textbf{Extensivity Condition:} To support the modified Lieb-Robinson bound (Sec.~9), the topology of the substrate graph must respect the metric $d_\sigma$. We impose the \textbf{Minimal Step Condition}: an active S-edge (resonance channel) exists between $\sigma$ and $\sigma'$ only if their feature distance satisfies $d_\sigma(\sigma, \sigma') \ge \delta$ for some characteristic scale $\delta > 0$.
+
+This ensures that any path in $S$ consisting of $m$ hops covers a structural distance of at least $m\delta$. Consequently, $d_\sigma$ is \textbf{extensive along paths}, satisfying Assumption C.1 by construction.
+
 \subsection{Choice of features}
 
 The specific choice of features is not unique and can be adapted to the experimental platform. Examples include:
@@ -49,7 +72,9 @@ The specific choice of features is not unique and can be adapted to the experime
   \item topological descriptors (e.g.\ Betti numbers from persistent homology of level sets of a field);
   \item response functions (e.g.\ impedance spectra, transfer functions of neural or electronic circuits).
 \end{itemize}
-In practice, the ``topological descriptors'' can be drawn from standard tools in topological data analysis (TDA), such as persistent homology and associated barcodes~\cite{carlsson2009_topology_data}, while the response-based features can be implemented using physical reservoir computing platforms in which a photonic or electronic reservoir acts as a high-dimensional nonlinear feature map~\cite{tanaka2019_physical_reservoir,vandersande2017_photonic_reservoir}. This anchors the abstract notion of algorithmic similarity in a toolbox that is already used for analysing complex spatiotemporal patterns.
+In practice, the ``topological descriptors'' can be drawn from standard tools in topological data analysis (TDA), such as persistent homology and associated barcodes~\cite{carlsson2009_topology_data}, while the response-based features can be implemented using physical reservoir computing platforms in which a photonic or electronic reservoir acts as a high-dimensional nonlinear feature map~\cite{tanaka2019_physical_reservoir,vandersande2017_photonic_reservoir}. In this way the abstract notion of ``algorithmic similarity'' is connected to concrete, calibration-ready tools.
+
+The choice of feature map is not unique, and different experimental platforms will naturally suggest different sets of invariants. From the viewpoint of the underlying substrate it is possible that the true couplings are concentrated in features that a given experiment does not include, so that the effective $Q$ and/or $\lambda_\sigma$ in that chosen representation are small even if some other representation would show a signal. For this reason we regard initial experiments as exploratory scans over families of feature maps and distance ladders, rather than single-shot tests of a unique ``correct'' $d_\sigma$. A null result in one representation should therefore be interpreted as a bound on that particular operational metric, not as a universal exclusion of all pattern-space couplings.
 
 The scale $\ell_0$ sets the typical size of $d_\sigma$ for a ``unit'' change in features. In practice, we will choose $\ell_0$ and $\lambda_\sigma$ such that a qualitatively clear change in the pattern (e.g.\ block-scrambling or strong noise) corresponds to $d_\sigma \sim \lambda_\sigma$, while minor modifications (e.g.\ global phase rotations) yield $d_\sigma\ll\lambda_\sigma$.
 

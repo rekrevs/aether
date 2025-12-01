@@ -1,6 +1,8 @@
 \section{Effective Bilocal Kernel on $M$ – Derivation and Positivity}
 \label{app:bilocal-kernel}
 
+\textbf{Note:} As derived in Section 4, the bilocal kernel $\mathcal{K}_{eff}$ appears in the effective action $S_{eff}$ obtained by integrating out the local mediator $\chi$. The expressions below describe this effective kernel, which serves as the basis for the experimental phenomenology.
+
 This appendix derives the effective bilocal kernel $\mathcal{K}_{\rm eff}(x,x')$ used in the interaction Lagrangian and shows its retardation and positivity properties.
 
 \subsection{Definition via pushforward from $S$}
@@ -9,15 +11,14 @@ Starting from the $S$-mediator kernel on pattern space,
 \[
   \Kern(\sigma,\sigma') = \Kern\!\big(\Dsig(\sigma,\sigma')\big),
 \]
-and the pushforward prescription of Sec.~3.3, we define a smearing kernel $f_\ell(x-\pi\sigma)$ of compact support (scale $\ell$) and set
+and the pushforward prescription of Sec.~3.3, we define the effective kernel by integrating over the pattern bundle $\tilde{S}$. Let $\sigma, \sigma'$ range over the fibers of $\tilde{S}$. The smearing kernel $f_\ell(x - \pi(\sigma))$ localizes the contribution of pattern $\sigma$ to the spacetime neighborhood of its base point $\pi(\sigma)$. The effective kernel is:
+
 \begin{equation}
-\mathcal{K}_{\rm eff}(x,x')
-:=
-\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,
-f_\ell(x-\pi\sigma)\,\Kern(\sigma,\sigma')\,f_\ell(x'-\pi\sigma')\,
-\Theta\!\Big(\tau(x')-\tau(x)-\tfrac{\Dsig(\sigma,\sigma')}{c_S}\Big).
+\mathcal{K}_{\rm eff}(x,x^{\prime}):=\int d\mu(\sigma)d\mu(\sigma^{\prime})f_{l}(x-\pi(\sigma))K_{\sigma}(\sigma,\sigma^{\prime})f_{l}(x^{\prime}-\pi(\sigma^{\prime}))\,\Theta\!\Big(\tau(x')-\tau(x)-\tfrac{\Dsig(\sigma,\sigma')}{c_S}\Big).
 \tag{G.1}
 \end{equation}
+
+This makes the geometry explicit: the fibers $S_x$ determine the local pattern content, $\pi$ maps it to the manifold, and $K_\sigma$ weights the interaction based solely on structural similarity.
 
 The Heaviside factor enforces that a contribution from $(\sigma,\sigma')$ is only allowed if the substrate time difference between $x$ and $x'$ is large enough for the mediator to traverse the structural distance $\Dsig(\sigma,\sigma')$ at speed $c_S$.
 

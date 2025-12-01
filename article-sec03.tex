@@ -6,25 +6,36 @@
 
 From this point on we work with one explicit effective-field-theory realization of the postulates in Sec.~2. The goal is not to single out a unique microphysics, but to have a concrete, internally consistent model that makes all assumptions visible and calculable. The specific choices made below for the aether/khronon sector, for the interaction term, and for the mediator and selection operators are representative of a broader family. Whenever a later argument relies only on the structural content of P1--P4 and the assumptions (A1)--(A9), rather than on the detailed form of these choices, we will say so explicitly.
 
-We derive the framework from a \textbf{total action}:
+We derive the framework from a total action defined on the extended configuration space $M \times S$. We postulate the existence of a dynamical mediator field $\chi(\sigma, \tau)$ living on the substrate, which couples locally to the visible sector. The total action is:
 
 \begin{equation}
-\begin{split}
-S_{tot} = \int d^4x \, \sqrt{-g} \left[ \frac{1}{16\pi G} R
-+ \mathcal{L}_{vis}[\phi, g] + \mathcal{L}_S[\tau, u^\mu, g] \right] \\
- + \varepsilon \int d^4x \sqrt{-g}\!\int\! d\mu(\sigma)\,d\mu(\sigma')\,
-\frac{O_S(x,\sigma)\,\Kern(\sigma,\sigma')\,O_S(x,\sigma')}{\LamUV^{4}},
-\end{split}
+S_{tot} = S_{grav} + S_{vis} + S_{aether} + S_{med} + S_{int}
 \tag{3.1}
 \end{equation}
 
-where:
+where the standard sectors are:
 
-\begin{itemize}
-\item $\mathcal{L}_{vis}$ collects all visible matter and gauge fields.
-\item $\mathcal{L}_S$ is a minimal aether/khronon sector that allows for a preferred foliation.
-\item The interaction term (last line) encodes the substrate-local coupling in $(\Sspace)$ via a \textbf{bilocal} operator product $O_S(x,\sigma) \cdot \Kern(\sigma,\sigma') \cdot O_S(x,\sigma')$ with a structural kernel $\Kern$ on $(\Sspace,\Dsig)$ and a selection operator $O_S$. The measure $d\mu(\sigma)$ is dimensionless; all mass dimensions are carried by $O_S$ and the explicit scale $\LamUV$.
-\end{itemize}
+\begin{equation}
+S_{grav} + S_{vis} + S_{aether} = \int d^4x \sqrt{-g} \left( \frac{R}{16\pi G} + \mathcal{L}_{vis} + \mathcal{L}_{S}[\tau, u^\mu] \right)
+\end{equation}
+
+The substrate-mediator sector $S_{med}$ governs the dynamics of the scalar field $\chi$ on the pattern space $S$ with respect to substrate time $T$ (or its smooth approximation $\tau$):
+
+\begin{equation}
+S_{med} = -\frac{1}{2} \int dT \int d\mu(\sigma) \left[ (\partial_T \chi)^2 + \chi (-\hat{\mathcal{O}}_\sigma) \chi \right]
+\end{equation}
+
+where $\hat{\mathcal{O}}_\sigma = -c_S^2 \nabla_\sigma^2 + m_\chi^2$ is the elliptic operator defining the structural metric and range (see Sec.~4).
+
+Crucially, the interaction is \textbf{local} in the extended bundle $M \times S$. The visible sector couples to the mediator via a source current $J_S$:
+
+\begin{equation}
+S_{int} = \int d^4x \sqrt{-g} \, Q_*^2(x) \int d\mu(\sigma) J_S(x, \sigma) \chi(\sigma, \tau(x))
+\end{equation}
+
+Here, $Q_*(x)$ is a dimensionless, coarse-grained background scalar field (a "spurion") that encodes pattern activation. This spurion acts as a switch: $Q_*(x) \approx 0$ in homogeneous vacuum or thermal states, and $Q_*(x) \sim \mathcal{Q}$ (the pattern quality factor) in engineered, pattern-rich configurations. The quadratic dependence $Q_*^2$ ensures that single-spurion insertions are forbidden, providing a structural sequestering of the S-sector from the vacuum (see Sec.~5.6).
+
+\emph{Interpretation of $Q_*$.}---Throughout we treat $Q_*(x)$ as a spurion in the Wilsonian sense: a coarse-grained, non-dynamical field that tracks the degree of pattern activation in a given region, rather than as an independent propagating degree of freedom. Microscopic substrate variables that actually carry pattern information are assumed to average, under coarse-graining, to an effective scalar $Q_*$ that vanishes in homogeneous or thermal states and approaches the quality factor $Q$ in deliberately engineered configurations. The quadratic dependence in Eq.~(3) implements the ``pattern parity'' assumption made explicit in Sec.~5.6: single insertions of $Q_*$ are forbidden, so that any Lorentz-violating operator induced in the visible sector carries at least two powers of $Q_*$ and therefore disappears continuously as $Q_* \to 0$. A UV completion would have to explain this structure dynamically; here we use it as an effective, symmetry-based parametrization of pattern sequestering.
 
 Varying this action with respect to the metric yields field equations involving the stress--energy tensor $T^{\mu\nu}_S$. Here $T^{\mu\nu}_S$ includes both the stress--energy associated with the aether/khronon sector defined by $\mathcal{L}_S$ and the effective stress--energy of the $S$-mediator and its interaction terms; the detailed decomposition is discussed in Appendix~\ref{app:bilocal-kernel}.
 
@@ -75,15 +86,16 @@ G_{\mu\nu} = \frac{8\pi G}{c^4}
 \Bigl( T^{vis}_{\mu\nu} + \TS \Bigr),
 \tag{3.2}
 \end{equation}
-where $\TS$ includes the aether/khronon contribution and any effective stress-energy induced by the $S$-mediator.
+where $\TS$ represents the total stress-energy of the substrate sector, including the aether/khronon contribution $T_{aether}^{\mu\nu}$ and the contribution from the mediator field and interaction $T_{\chi}^{\mu\nu}$.
 
-\item A split conservation law
+\item The interaction term $S_{int}$ involves both metric and substrate variables. Variation with respect to $g_{\mu\nu}$ generates the necessary exchange terms. The split conservation laws (3.4-3.5) follow from the diffeomorphism invariance of the coupled local action:
 \begin{equation}
 \nabla_\mu T^{\mu\nu}_{vis} = -J^\nu_\sigma,
 \qquad
 \nabla_\mu T^{\mu\nu}_S = +J^\nu_\sigma,
 \tag{3.4}
 \end{equation}
+where the exchange current $J^\nu_\sigma$ arises from the energy-momentum transfer between the visible fields and the mediator $\chi$.
 so that
 \begin{equation}
 \nabla_\mu (T^{\mu\nu}_{vis} + T^{\mu\nu}_S) = 0.

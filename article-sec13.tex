@@ -9,6 +9,14 @@ engineering, detailed noise budgets, and device-level optimizations are deferred
 work and to experimental teams; the worked examples given below (and in Appendix~J) are
 meant to illustrate feasibility, not to prescribe a unique implementation.
 
+\textbf{Phase 0 Priority: Platform Screening.}
+The immediate barrier to E1-E3 is the "Q-Gap"—the uncertainty regarding which physical systems support high pattern quality factors stable against decoherence. The initial experimental effort must focus on characterizing $Q$ using the proxies defined in Sec.~7 (spectral entropy, TDA signatures) across candidate platforms:
+\begin{enumerate}
+\item \textbf{Reconfigurable Electronic Reservoirs (FPGAs):} High control, low noise, but potentially low $\alpha_{eff}$.
+\item \textbf{Quantum Simulators (Rydberg Arrays):} Extremely high potential $Q$, but short coherence times.
+\item \textbf{Cryogenic Resonators:} High stability, crucial for E2.
+\end{enumerate}
+
 All three proposed experiments are designed to be as close as practicable to ``no-loophole'' tests in the spirit of modern Bell experiments~\cite{brunner2014_bell_nonlocality}. This means:
 \begin{itemize}
   \item full pre-registration of hypotheses, data-taking procedures, and analysis pipelines (e.g.\ on the Open Science Framework);

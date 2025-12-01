@@ -10,9 +10,41 @@ The substrate evolves in discrete steps $(T)$. All causality is \textbf{monotoni
 
 \begin{itemize}
 \item \textbf{$(M)$}: emergent spacetime with metric $(g_{\mu\nu})$, where ordinary matter moves locally and obeys relativity.
-\item \textbf{$(S)$}: pattern space whose points are local substrate states; it carries a structural distance $\Dsig$ and an effective length scale $\ell_0$ that relates algorithmic complexity to physical scale.
-\item A projection $(\pi: S \to M)$ specifies where and how a substrate state manifests observably.
+\item \textbf{$(S)$: The Pattern Bundle.} We define the total pattern space as a bundle $\tilde{S}$ over the emergent spacetime $M$. For each point $x \in M$, the fiber $S_x$ consists of the equivalence classes of microscopic substrate states supported in a neighborhood of $x$. The total space is $\tilde{S} = \bigsqcup_{x \in M} S_x$.
+\item \textbf{$(\pi)$: The Projection.} The map $\pi: \tilde{S} \to M$ is the canonical bundle projection, mapping any pattern $\sigma_x \in S_x$ back to its spacetime location $x$.
+\item \textbf{$(d_\sigma)$: Structural Metric.} The distance $d_\sigma$ is defined \textbf{on the fibers}: it measures the algorithmic or structural similarity between two patterns $\sigma \in S_x$ and $\sigma' \in S_{x'}$, independent of their base points $x$ and $x'$.
 \end{itemize}
+
+A schematic of the bundle structure is shown in Fig.~\ref{fig:bundle}.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=0.8]
+  % Base manifold M
+  \draw[thick, ->] (-1,0) -- (6,0) node[right] {$M$ (spacetime)};
+  \draw[thick] (0,0.1) -- (0,-0.1) node[below] {$x$};
+  \draw[thick] (5,0.1) -- (5,-0.1) node[below] {$x'$};
+  
+  % Fibers S_x
+  \draw[thick, fill=gray!10] (-0.5, 1) rectangle (0.5, 4);
+  \node at (0, 4.3) {$S_x$};
+  \draw[thick, fill=gray!10] (4.5, 1) rectangle (5.5, 4);
+  \node at (5, 4.3) {$S_{x'}$};
+  
+  % Patterns
+  \filldraw (0, 2.5) circle (2pt) node[left] {$\sigma_x$};
+  \filldraw (5, 2.5) circle (2pt) node[right] {$\sigma_{x'}$};
+  
+  % Connection in S
+  \draw[red, thick, dashed] (0, 2.5) -- (5, 2.5) node[midway, above] {$\chi$-mediator};
+  \node[red, font=\small] at (2.5, 2.2) {Local in $d_\sigma$};
+  
+  % Spacetime separation
+  \draw[<->] (0, -0.8) -- (5, -0.8) node[midway, fill=white] {Spacelike separated};
+\end{tikzpicture}
+\caption{Schematic illustration of the pattern bundle $\tilde S$. Interaction is local in the pattern space fiber (dashed red line) connecting $\sigma_x$ and $\sigma_{x'}$, even though the base points $x, x'$ are spacelike separated in $M$. From the viewpoint of $M$ this appears as superluminal transfer, although every microscopic step is retarded in $\tau$.}
+\label{fig:bundle}
+\end{figure}
 
 \subsection{P3. Aether Resonance – Substrate-Locality in $(S)$}
 

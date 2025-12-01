@@ -46,11 +46,15 @@ State-of-the-art cavity and clock-comparison experiments bound the relevant comp
     \epsgam\left(\frac{\lsig}{\lambda_C}\right)\Qgam \;\lesssim\; 10^{-18}.
     \tag{11.4}
 \end{equation}
+\textbf{Note on interpretation:} Due to the sequestering assumption (Sec.~5.6), the vacuum SME coefficients are zero by construction. The bound in Eq.~(11.4) should be interpreted as a constraint on the \emph{effective} Lorentz violation induced temporarily inside the apparatus during the operation of a high-$Q$ experiment.
+
 For illustration, taking $\lsig \sim 1\,\mu{\rm m}$ and a representative microscopic scale $\lambda_C \sim 10^{-12}\,{\rm m}$ (so that $\lsig/\lambda_C \sim 10^6$) implies
 \[
   \epsgam \Qgam \lesssim 10^{-24}.
 \]
 Given that $0\le \Qgam\le 1$, this bound can be interpreted as a strong constraint on the photon-sector coupling $\epsgam$, independently of the details of $O_S$.
+
+In what follows we distinguish explicitly between a photon-sector coupling $\varepsilon_\gamma$ and a matter-sector coupling $\varepsilon_{\rm mat}$. Equation~(11.4) constrains the product $\varepsilon_\gamma Q_\gamma$ that appears in effective photon dispersion relations; the proposed E2 experiments in Sec.~12 instead probe $\varepsilon_{\rm mat}Q_{\rm mat}$ through energy-balance and sidereal-modulation signals in bulk matter. There is no generic reason for $\varepsilon_\gamma$ and $\varepsilon_{\rm mat}$ to be equal; in fact, compatibility with existing cavity tests naturally suggests a hierarchy $\varepsilon_{\rm mat}Q_{\rm mat} \gg \varepsilon_\gamma Q_\gamma$ in any scenario where matter-based experiments report a positive signal while photon-sector SME bounds remain saturated at their current levels.
 
 \subsection{Daily/annual modulation and anisotropy budget}
 
@@ -66,3 +70,12 @@ We will return to a more detailed phenomenological expression in Eq.~(12.4), whe
   \item Matter-sector sidereal modulation in E2 provides a direct empirical handle on $\epsmat (\lsig/L_{\rm exp})\Qmat$.
 \end{itemize}
 The ``anisotropy budget'' is the requirement that both sectors can be made simultaneously consistent with these bounds and with any positive signal in the proposed experiments.
+
+A further subtlety is that many SME bounds are obtained not in true vacuum but with cavities or resonators filled by specific materials. To remain conservative we require that, if a platform used in E1--E3 were inserted as the working medium in a modern resonant-cavity experiment, the induced effective photon-sector coefficients $\tilde\kappa_{e-}^{JK}$ would still satisfy the bounds summarised in Refs.~[17,18]. Operationally, this amounts to demanding that $\varepsilon_\gamma Q_\gamma$ obey Eq.~(11.4) even in the structured states of interest, while allowing $\varepsilon_{\rm mat}Q_{\rm mat}$ to be larger and to control the matter-sector signatures probed in E2. The anisotropy budget is therefore naturally expressed in terms of the ratio $\varepsilon_{\rm mat}Q_{\rm mat} / (\varepsilon_\gamma Q_\gamma)$, which enters directly in Eq.~(12.4).
+
+\subsection{Astrophysical environments}
+One might worry that the same mechanism that allows engineered high-$Q$ systems to excite the S-channel could also operate in naturally occurring, highly structured astrophysical objects (pulsars, magnetars, accretion disks, etc.), potentially inducing SME-like signatures or anomalous energy transport that are already ruled out. In the present framework two ingredients suppress such effects.
+
+First, the degeneracy-dilution assumption A4 applies equally well to macroscopic homogeneous or turbulent media: in the absence of deliberate pattern selection, there are typically $N\gg 1$ macroscopically equivalent embeddings of any mesoscopic pattern, and the effective quality factor scales as $Q\sim 1/N\to 0$ in the thermodynamic limit (Appendix I). Second, most astrophysical environments of interest are hot and strongly dissipative; their microscopic states explore large portions of configuration space, further washing out any particular configuration singled out by a fixed operator $O_S$.
+
+We do not claim to have fully explored all possible high-$Q$ astrophysical configurations, and a dedicated study would be necessary if a reproducible laboratory signal were ever observed. For now we simply note that existing bounds on SME coefficients and on anomalous energy loss from compact objects can be viewed as additional constraints on the product $\varepsilon_\gamma Q_\gamma$ for the relevant photon modes, complementary to the terrestrial limits discussed above.

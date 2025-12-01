@@ -57,6 +57,32 @@ where $\sigma_x,\sigma_y\in S$ are substrate representatives of the regions arou
 \end{equation}
 \end{lemma}
 
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[scale=0.9]
+  % M-spacetime axis
+  \draw[->, thick] (-3,0) -- (3,0) node[right] {$x$};
+  \draw[->, thick] (0,0) -- (0,4) node[above] {$t$};
+  
+  % Standard Light Cone
+  \fill[gray!20] (0,0) -- (2.5, 2.5) -- (-2.5, 2.5) -- cycle;
+  \draw[thick, dashed] (0,0) -- (2.5, 2.5) node[right] {$v \approx c$};
+  \draw[thick, dashed] (0,0) -- (-2.5, 2.5);
+  \node at (0, 1.5) {Standard Cone};
+  
+  % S-mediated hops (schematic)
+  \draw[red, thick, ->] (0,0) .. controls (1, 0.5) and (2, 0.5) .. (2.8, 1.0);
+  \node[red, right] at (2.8, 1.0) {Soft Tail ($\sim e^{-d_\sigma/\lambda_\sigma}$)};
+  
+  % Retardation
+  \draw[blue, thick] (0,0.5) -- (2.8, 1.5);
+  \node[blue, right] at (2.8, 1.5) {Retarded by $c_S$};
+
+\end{tikzpicture}
+\caption{Qualitative comparison between the usual Lieb--Robinson light cone in $M$ with maximal velocity $v\approx c$ and the modified ``soft cone'' in the presence of S-edges. The S-mediated tail is exponentially suppressed in the structural distance $d_\sigma$ and retarded by the mediator speed $c_S$. The combination of this soft cone with the Monotonic-$\tau$ axiom forbids closed causal loops even though individual influence segments can be superluminal in $M$.}
+\label{fig:softcone}
+\end{figure}
+
 This is a ``soft'' Lieb--Robinson-type bound derived under the structural assumptions (A1)--(A5) in Appendix~\ref{app:assumptions}, which encode sparsity and bounded degree of the $S$-graph, exponential decay of the interaction kernel $K_{\rm eff}$ in the pattern distance $d_\sigma$, and a metric-like extensivity of $d_\sigma$ along $S$-paths. The proof follows the standard strategy for long-range Lieb--Robinson bounds, adapted to the $S$-graph structure and the presence of the mediator retardation at speed $c_S$, and is given in Appendix~C.
 
 This structure is closely analogous to Lieb--Robinson bounds for systems with long-range interactions~\cite{fossfeig2015_longrange_lr,tran2020_hierarchy_lightcones}, where algebraic tails in the interaction range lead to softened or distorted light cones. In our case the soft tail is controlled not by geometric distance in $M$ but by the structural distance $d_\sigma$ on $S$, and remains exponentially suppressed as long as the kernel decay rate $\mu$ satisfies $\mu > \ln g$.

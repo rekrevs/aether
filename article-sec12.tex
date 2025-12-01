@@ -1,6 +1,15 @@
-\section{Predictions and Numerical Targets}
+\section{Experimental Roadmap and Predictions}
 
-We summarize the qualitative and quantitative predictions of the framework in a form suitable for comparison with existing and future experiments.
+Validating the aether-resonance hypothesis requires a phased experimental program. Jumping directly to spacetime-nonlocal tests is impractical given the stringent requirements on pattern quality ($Q$) and noise control. We therefore propose a four-phase roadmap:
+
+\begin{itemize}
+\item \textbf{Phase 0:} Theoretical modeling and platform screening (Years 1-3).
+\item \textbf{Phase 1:} Signal verification in local setups (Experiments E0 \& SME-Q) (Years 3-5).
+\item \textbf{Phase 2:} Optimization and noise reduction (Years 5-7).
+\item \textbf{Phase 3:} Definitive FTL tests at spacelike separation (Experiments E1-E3) (Years 7+).
+\end{itemize}
+
+The predictions below are organized by this hierarchy, starting with local anomalies accessible in the near term.
 
 \textbf{Negative predictions (should not be seen):}
 
@@ -11,9 +20,28 @@ We summarize the qualitative and quantitative predictions of the framework in a 
 \item No everyday signalling without shared structure and pump: in the absence of deliberately engineered, high-$\mathcal Q$ patterns and nontrivial pump power $P_{\rm pump}$, Eq.~(6.1) forces $\Psig\approx 0$.
 \end{itemize}
 
-\textbf{Positive predictions with numerical targets:}
+Taken together, these negative predictions mean that---within the assumptions listed in Appendix E---any confirmed deviation in standard gravitational tests, collider observables, or everyday macroscopic systems would falsify the class of models considered here independently of the dedicated FTL experiments.
 
-\subsection{Pred.\ 1: Twin-reservoir correlations (E1)}
+\subsection{Phase 1: Intermediate Local Tests}
+
+Before attempting nonlocal transfer, the coupling mechanism itself must be validated locally.
+
+\textbf{Pred.\ A: Local Resonance Anomalies (E0)}
+\begin{itemize}
+\item \textbf{Goal:} Detect thermodynamic anomalies in a single high-$Q$ system when driven into pattern resonance with itself (via a local feedback loop acting as a "short" S-path).
+\item \textbf{Prediction:} An anomalous power dissipation $P_{anom} \propto \varepsilon Q^2$ that cannot be accounted for by standard dielectric or resistive losses.
+\item \textbf{Target:} Identify platforms where $P_{anom}/P_{pump} > 10^{-9}$ is distinguishable from thermal drift.
+\end{itemize}
+
+\textbf{Pred.\ B: Q-Dependent Lorentz Violation (SME-Q)}
+\begin{itemize}
+\item \textbf{Goal:} Use the "Pattern Sequestering" logic (Sec.~5.6) to search for Lorentz violation that correlates with pattern complexity.
+\item \textbf{Setup:} A clock-comparison or cavity test where the cavity is filled with a high-$Q$ metamaterial rather than vacuum.
+\item \textbf{Prediction:} A sidereal modulation signal amplitude $\mathcal{A}_{sid}$ that scales linearly with the complexity of the filling material state.
+\item \textbf{Target:} Distinguish $\mathcal{A}_{sid}(Q \sim 10^{-2})$ from the vacuum baseline $\mathcal{A}_{sid}(Q \approx 0)$.
+\end{itemize}
+
+\subsection{Phase 3: Twin-reservoir correlations (E1)}
 
 \textbf{Goal.} A statistically significant reduction in bit error rate (BER) between two spacelike-separated reservoirs that share structure in $S$ and are both driven by high-quality pumps, compared to carefully matched control configurations that differ only in the pattern features entering $O_S$. Such reservoirs can be implemented using physical reservoir computing architectures, including photonic and electronic reservoirs, which are known to provide high-dimensional dynamical feature maps for complex input patterns~\cite{tanaka2019_physical_reservoir,vandersande2017_photonic_reservoir}.
 
@@ -32,7 +60,7 @@ and a corresponding lower bound on the BER that can be achieved for a fixed $P_{
 \]
 for edges whose $d_\sigma$ is calibrated via the distance ladder (Sec.~7.3). Conversely, a positive result in which the BER improvement scales with the ladder level $\ell$ as $\propto \exp[-d_\sigma(\ell)/\lambda_\sigma]$ would provide direct evidence for a nonzero $\lambda_\sigma$.
 
-\subsection{Pred.\ 2: Energy tunnel and sidereal modulation (E2)}
+\subsection{Phase 3: Energy tunnel and sidereal modulation (E2)}
 
 \textbf{Goal.} Detect or bound a small, persistent asymmetry in the energy balance between two macroscopic reservoirs $A$ and $B$ that are structurally matched in $S$ and rotated with respect to the substrate rest frame. The basic energy balance is
 \begin{equation}
@@ -81,7 +109,7 @@ where $\epsmat,\Qmat$ are the matter-sector coupling and quality factor, $\epsga
 
 \textbf{Important:} Eq.~(12.4) emphasizes that the E2 sidereal signal is primarily sensitive to the \emph{ratio} $(\epsmat,\Qmat)$ to $(\epsgam,\Qgam)$. Bounds in Sec.~11.4 constrain $\epsgam\Qgam$ in the photon sector, so a positive E2 signal would effectively determine or bound $\epsmat\Qmat$ for the matter sector. A null result at target sensitivity $A_{\rm sid}\gtrsim 10^{-20}$ (achievable with integration over $\sim 10^7$\,s) would translate into a corresponding upper bound on $\epsmat\Qmat(\lsig/L_{\rm exp})$.
 
-\subsection{Pred.\ 3: Complexity-dependent hop rate (E3)}
+\subsection{Phase 3: Complexity-dependent hop rate (E3)}
 
 \textbf{Goal.} Demonstrate that the rate of apparent FTL influence (e.g.\ correlation strength or effective $\Psig$) as a function of configurational entropy $\Sigma$ exhibits a nontrivial maximum at some optimal complexity $\Sigma_{\rm opt}$, as expected if $\mathcal Q$ peaks near critical or edge-of-chaos regimes.
 

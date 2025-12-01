@@ -81,6 +81,14 @@ complete list.
         phenomenologically via Eq.~(6.1).
 \end{itemize}
 
+\paragraph{Hierarchy of time variables.} We use three related time quantities:
+\begin{itemize}
+\item a \textbf{microscopic tick} $T\in\mathbb{Z}$ that labels elementary substrate updates;
+\item a \textbf{coarse-grained scalar} $\tau(T)$ (``khronon'') that is strictly increasing along allowed transitions and enters the aether sector $\mathcal{L}_S[\tau,u^\mu]$;
+\item a \textbf{macroscopic foliation vector} $u^\mu$, constrained by $u^\mu u_\mu=-1$, which is aligned with $\nabla^\mu \tau$ in the khronometric regime.
+\end{itemize}
+The causality arguments in Secs.~9--10 use only the monotonicity of $T$ and $\tau$, while the aether/khronon sector in Sec.~3 embeds this preferred foliation into the metric formulation via $u^\mu$.
+
 \subsection{Scope of this work and what we do not attempt}
 \label{subsec:scope}
 
@@ -140,3 +148,15 @@ By making these restrictions and questions explicit we hope to avoid over-claimi
 should be read as an effective and testable ``existence proof'' for one narrow class of
 substrate-local FTL models, not as a general theory of quantum gravity or of continuum
 emergence. At the same time, the framework is not a single fine-tuned model. In the body of the paper we alternate between making specific, simple choices (for the aether/khronon sector, the mediator dynamics on $S$, the selection operator $O_S$, and the operational metric $d_\sigma$) and identifying the structural properties that any such choice must satisfy if it is to remain compatible with general relativity, local EFT on $(M,g)$, and a globally monotone substrate time.
+
+\subsection{Structural assumptions and derived consequences (roadmap)}
+For later reference it is useful to separate the structural assumptions of the framework from the consequences that are actually derived from them. Very schematically:
+
+\begin{itemize}
+\item \textbf{Global substrate time and discreteness.} Postulate P1 and Assumption A1 posit a discrete update parameter $T$ and a coarse-grained substrate time $\tau$ that is strictly monotonically increasing along any allowed microscopic transition. These are used in Secs.~9--10 to obtain the soft Lieb--Robinson bound and the categorical causality result; none of the thermodynamic or SME estimates depends on how $\tau$ is implemented beyond strict retardation.
+\item \textbf{Split conservation and universal gravity.} P2--P4 together with diffeomorphism invariance and the split conservation laws $\nabla_\mu T^{\mu\nu}_{\rm vis} = -J^\nu_\sigma$, $\nabla_\mu T^{\mu\nu}_S = +J^\nu_\sigma$ are what force the universal gravitational coupling $\alpha \equiv 1$ in Sec.~3.3.1 via the Bianchi identity. The metric therefore responds to all stress--energy with the same strength whenever $J^\nu_\sigma \neq 0$.
+\item \textbf{Sparse, weak S-links and exponential kernel.} Assumptions A3--A5 (bounded degree of the S-graph, small operator norms, and an exponentially decaying kernel $K_\sigma=\exp[-d_\sigma/\lambda_\sigma]$) are only needed for the modified Lieb--Robinson ``soft cone'' in Sec.~9 and for the quantitative form of the substrate tail.
+\item \textbf{Selection operator, degeneracy dilution, and sequestering.} Assumptions A4 and A10 (the structure of $O_S$, the definition of the quality factor $Q$, and the spurion $Q_*$) control the phenomenology in Secs.~5--6 and 11--13: they are invoked to argue that effective SME-like coefficients are negligible in homogeneous states while remaining potentially observable in engineered, high-$Q$ configurations.
+\end{itemize}
+
+In later sections we will continue to indicate which results depend only on this structural core and which rely on additional modelling choices (specific form of the aether/khronon sector, the minimal Markov model on S-edges, the particular operational choice of $d_\sigma$, etc.).
